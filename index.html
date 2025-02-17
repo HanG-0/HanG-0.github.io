@@ -106,7 +106,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 
@@ -467,8 +579,10 @@
 
 机器学习寻找上帝函数的过程
 绪论机器学习是一个建模的过程 通过已知的数据总结规律用于将来的预测。 这个模型接受预测变量（自变量，属性变量），输出的是响应变量（因变量）。一般而言，模型接收多个预测变量。
-我们可以假设，现实中的预测变量$X&#x3D;(x_1,x_2,..x_p)$和响应变量$Y$的关系是：
-$$ Y&#x3D;f...
+我们可以假设，现实中的预测变量和响应变量的关系是：
+
+其中  表示随机误差项,与独立，且均值为0。
+而机器学习的任务，就是估计这...
                         
                     </div>
 
@@ -689,12 +803,15 @@ $$ Y&#x3D;f...
                     <div class="home-article-content markdown-body">
                         
                             
-                            操作系统复杂指令集(cisc)CPU位数 &#x3D; CPU中寄存器的位数 &#x3D;数据总线位数&#x3D; CPU一次并行处理的数据宽度 ，CPU位数 &gt;&#x3D;操作系统位数 ，地址总线位数决定了CPU在内存中的寻址能力
+                            操作系统复杂指令集(cisc)CPU位数 = CPU中寄存器的位数 =数据总线位数= CPU一次并行处理的数据宽度 ，CPU位数 &gt;=操作系统位数 ，地址总线位数决定了CPU在内存中的寻址能力
 8086 16位
 x86 32位
 IA-32 32位
 x86-64 x64 intel64 amd64 均为64位，代表同一个指令集
-精简指令集(risc...
+精简指令集(risc)arms
+mips
+risc-V
+大小...
                         
                     </div>
 
@@ -996,7 +1113,7 @@ Qu...
                     </span>
                     
                         <span>
-                            43.6k words in total
+                            43k words in total
                         </span>
                     
                 </p>
