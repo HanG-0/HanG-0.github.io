@@ -499,215 +499,6 @@
       </tags>
   </entry>
   <entry>
-    <title>大二下软件工程与计算II期末总结</title>
-    <url>/2025/02/17/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<pre><code>写在前面 ：总结内容都是期末考试内容，算是对自己辛苦总结的记录，实际上对显示编码并没有太多帮助
-</code></pre>
-<h1 id="软件工程概述"><a href="#软件工程概述" class="headerlink" title="软件工程概述"></a>软件工程概述</h1><p>软件工程概念</p>
-<p>软件工程发展的六个阶段</p>
-<h1 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h1><p>团队管理的方法</p>
-<p>常见团队结构</p>
-<p>质量保障方法</p>
-<p>配置管理方法</p>
-<h1 id="需求开发阶段"><a href="#需求开发阶段" class="headerlink" title="需求开发阶段"></a>需求开发阶段</h1><p>需求识别：</p>
-<p>业务-用户-系统</p>
-<p>项目-过程-硬件-软件-其他-不切实际的需求</p>
-<p>软件需求识别：</p>
-<p>需求分析方法：</p>
-<ol>
-<li>用例图</li>
-<li>概念类图 -概念类-关联-属性</li>
-<li>顺序图 交互对象-消息-附加条件</li>
-<li>状态图 识别状态-转移触发条件即行为</li>
-</ol>
-<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><h2 id="软件设计基础"><a href="#软件设计基础" class="headerlink" title="软件设计基础"></a>软件设计基础</h2><p>软件设计定义</p>
-<p>软件设计的核心思想</p>
-<p>软件设计的三个层次</p>
-<h2 id="软件体系结构设计（基础-设计与构建）"><a href="#软件体系结构设计（基础-设计与构建）" class="headerlink" title="软件体系结构设计（基础-设计与构建）"></a>软件体系结构设计（基础-设计与构建）</h2><h2 id="人机交互设计"><a href="#人机交互设计" class="headerlink" title="人机交互设计"></a>人机交互设计</h2><p>易用性的解释</p>
-<p>设计原则：共8条</p>
-<p>简洁设计</p>
-<p>一致性设计</p>
-<p>低出错率设计</p>
-<p>易记性设计</p>
-<p>可视化设计（包含两条）</p>
-<p>差异性设计</p>
-<p>导航</p>
-<p>反馈</p>
-<h2 id="详细设计基础"><a href="#详细设计基础" class="headerlink" title="详细设计基础"></a>详细设计基础</h2><h2 id="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"><a href="#详细设计的模块化和信息隐藏（概念及面向对象中的应用）" class="headerlink" title="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"></a>详细设计的模块化和信息隐藏（概念及面向对象中的应用）</h2><p>耦合：两个模块之间联系的复杂性</p>
-<p>内聚：模块内部联系的紧密程度</p>
-<p>耦合类型：</p>
-<ol>
-<li>内容耦合：即代码的共享，一个模块可以更改或者依赖另一个模块的代码，如goto 内部类</li>
-<li>公共耦合：变量的共享，如全局变量（直接访问成员变量）</li>
-<li>重复耦合：代码逻辑重复，出现相同代码</li>
-<li>控制耦合：模块之间传递控制逻辑而不是数据</li>
-<li>印记耦合：模块之间传递复杂数据结构且只使用其中一部分</li>
-<li>数据耦合：模块传递简单数据</li>
-</ol>
-<p>内聚类型：</p>
-<ol>
-<li>偶然内聚：模块内操作没有任何关联</li>
-<li>时间内聚：模块内的操作有时间上的关联</li>
-<li>过程内聚：模块内的操作有逻辑上的前后顺序</li>
-<li>逻辑内聚：模块操作在逻辑上是同一种操作</li>
-<li>通信内聚：模块操作是针对同一个数据结构进行的</li>
-<li>功能内聚：只有一个操作或者所有操作完成一个单一目标</li>
-<li>信息内聚：模块内的方法之间是独立的，针对模块内的相同数据结构进行操作（ADT）</li>
-</ol>
-<p>信息隐藏概念：即每一个模块都隐藏一份重要的设计决策，即自己的职责。对外表现为一个契约，其中的设计决策和决策实现逻辑都被隐藏起来。</p>
-<p>隐藏的两类信息：模块根据需求得到的职责；内部具体实现细节。</p>
-<h2 id="面向对象的模块化"><a href="#面向对象的模块化" class="headerlink" title="面向对象的模块化"></a>面向对象的模块化</h2><p>访问耦合的类型（关联）：一个类如何持有另一个类的引用</p>
-<ol>
-<li>隐式访问（级联访问）</li>
-<li>函数参数访问</li>
-<li>成员变量访问</li>
-<li>实现中访问</li>
-<li>无访问</li>
-</ol>
-<p>改善时用到的原则：</p>
-<ol>
-<li>针对接口编程：访问时要访问接口，不进行直接属性访问</li>
-<li>接口最小化原则：避免接口实现类实现了其他类用不到的方法。所以接口方法的创建根据实际类使用的情况创建，只创建用得到的方法，接口适当缩小。</li>
-<li>迪米特法则：避免级联访问对象。当对象的方法返回另一个对象的引用时，不能级联访问。即要委托执行。</li>
-</ol>
-<p>继承耦合的类型：</p>
-<ol>
-<li>修改规格：子类任意修改父类的接口（如删除接口）</li>
-<li>修改实现：子类任意修改父类的实现方法</li>
-<li>精化规格：子类按照特定（相同与父类的）语义修改父类的接口</li>
-<li>精化实现：子类按照特定语义修改父类的实现</li>
-<li>拓展父类接口或者属性</li>
-<li>无继承</li>
-</ol>
-<p>改善时用到的原则</p>
-<ol>
-<li>里氏替换原则LSP：父类可以被子类完全替换</li>
-<li>用组合代替继承：如果只是想复用父类的代码，可以通过组合代替继承，实现更高的灵活性。</li>
-</ol>
-<p>提高内聚的原则：</p>
-<ol>
-<li>集中信息与行为</li>
-<li>单一职责原则</li>
-</ol>
-<h2 id="面向对象方法下的信息隐藏"><a href="#面向对象方法下的信息隐藏" class="headerlink" title="面向对象方法下的信息隐藏"></a>面向对象方法下的信息隐藏</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装职责（即对象的状态信息）和内部实现细节。</p>
-<ol>
-<li>所有数据都是private的，getter和setter方法的提供要注意（可以在其中添加数据计算来返回对应数据，没必要和成员变量一一对应；起名也有讲究，名字不能暴露内部实现）</li>
-<li>不能传递内部复杂数据结构的引用。（比如内部是数组，就不能返回数组，而是返回其中一个元素，不能暴露数组结构：迭代器模式）</li>
-<li>封装其他对象的引用（新建一个相同对象返回）</li>
-<li>封装类型信息（LSP）</li>
-<li>封装潜在变更（将方法中可能会变更的地方独立出去，变成新的接口来调用，这样就不会影响原来的类）</li>
-</ol>
-<h3 id="开闭原则OCP：为变更而设计"><a href="#开闭原则OCP：为变更而设计" class="headerlink" title="开闭原则OCP：为变更而设计"></a>开闭原则OCP：为变更而设计</h3><p>好的设计对拓展开放，对修改关闭：新功能要增加代码，而不是修改代码。</p>
-<p>可通过依赖倒置DIP和多态来实现</p>
-<p>多态：通过将新的需求或者需要更改的需求变为一个新的类，作为程序中某个原有类的子类，通过多态机制实现了拓展&#x2F;变更，且没有修改。</p>
-<p>DIP：高层模块和底层模块都依赖于抽象。即高层调用接口，底层实现接口。双方依赖的都是抽象，如果依赖的是具体类，则需要分离抽象接口，使双方再次依赖抽象。这也可以看出，Dip十分适合在分层体系结构中使用。所以，若原来的设计实现了DIP，则通过构造新的类实现两者依赖的中间抽象类即可实现OCP。</p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h4 id="可修改性："><a href="#可修改性：" class="headerlink" title="可修改性："></a>可修改性：</h4><ol>
-<li>狭义的可修改性</li>
-<li>可拓展性</li>
-<li>灵活性（对实现的动态配置）</li>
-</ol>
-<p>通过接口和实现分离；继承（父类有接口，子类来实现）来实现可修改性</p>
-<h4 id="策略模式："><a href="#策略模式：" class="headerlink" title="策略模式："></a>策略模式：</h4><p>定义一组算法，并将算法封装到一个类中，共同实现一个策略接口，可以在具体实现时挑选一个策略即算法进行使用，算法独立于上下文类进行变化。</p>
-<p>设置策略接口和多个策略实现类，上下文类（策略的使用类）拥有策略接口类的引用。</p>
-<p>先创建各个具体的策略实现类，上下文类可能提供一些信息给策略实现类来使用，对上下文类还要有方法来分配特定的策略实现类。</p>
-<h4 id="简单工厂（静态工厂模式）："><a href="#简单工厂（静态工厂模式）：" class="headerlink" title="简单工厂（静态工厂模式）："></a>简单工厂（静态工厂模式）：</h4><p>根据传入的参数不同，创建并返回不同的产品实例；专门负责类的创建。</p>
-<p>产品如果多的话，判断逻辑会比较复杂。</p>
-<h4 id="工厂模式："><a href="#工厂模式：" class="headerlink" title="工厂模式："></a>工厂模式：</h4><p>设置一个工厂接口，多个工厂具体类实现该接口。一个工厂具体类只能创建一种具体的产品。产品的实例化推迟到子类。</p>
-<h4 id="抽象工厂："><a href="#抽象工厂：" class="headerlink" title="抽象工厂："></a>抽象工厂：</h4><p>新增新的抽象产品类；一个具体的工厂可以实现生产多个抽象的产品大类中的产品，不单单只能生产一个产品大类。若只有一个抽象产品类，就会退回工厂模式。</p>
-<p>注意：若新增一个产品体系，就需要在抽象工厂和某个想生产其产品的具体工厂添加对应的实现方法，不符合OCP原则。</p>
-<h4 id="单件模式："><a href="#单件模式：" class="headerlink" title="单件模式："></a>单件模式：</h4><p>让一个类只存在一个实例，自行实例化并向外界提供这个实例。该类的构造方法和对象都是私有的；同时对象的创建只有该类才能进行；提供一个静态方法来为外界提供这个静态的对象。</p>
-<p>具体工厂就是单例模式。</p>
-<h4 id="迭代器模式："><a href="#迭代器模式：" class="headerlink" title="迭代器模式："></a>迭代器模式：</h4><p>是指不暴露底层数据结构实现的同时遍历其中所有元素。</p>
-<p>为一个数据结构创建一个迭代器类，数据结构中提供方法get-Iterator来获取该类。通过对应迭代器类来遍历该数据结构即可，数据结构内部不被暴露。</p>
-<p>首先有一个迭代器接口类，每个迭代器实现这个抽象类。同时有个集合类接口，可以创建迭代器。具体集合类实现集合类接口，创建具体的迭代器类。实现DIP依赖倒置。</p>
-<h1 id="软件构造，测试，交付，维护"><a href="#软件构造，测试，交付，维护" class="headerlink" title="软件构造，测试，交付，维护"></a>软件构造，测试，交付，维护</h1><h1 id="软件构造，代码设计"><a href="#软件构造，代码设计" class="headerlink" title="软件构造，代码设计"></a>软件构造，代码设计</h1><p>软件构造包含的活动：详细设计，编程，测试，调试，代码度量，集成与构建，构造保障活动</p>
-<p>软件构造的实践方法：重构，测试驱动开发，结对编程</p>
-<p>代码改进手段：格式 命名  复杂决策 数据使用</p>
-<p>高可靠性代码：契约性设计 防御性编程 （注意 前置条件和后置条件）使用mock开发单元测试用例</p>
-<h2 id="软件测试，交付"><a href="#软件测试，交付" class="headerlink" title="软件测试，交付"></a>软件测试，交付</h2><p>软件测试方法：黑盒测试 白盒测试（细分方法） 主要用于需求中的功能测试</p>
-<p>集成测试  stub（主要是硬编码+driver</p>
-<p>单元测试 mock （模拟类）+driver</p>
-<p>Junit会用</p>
-<h3 id="交付"><a href="#交付" class="headerlink" title="交付"></a>交付</h3><p>用户文档：是指为用户编写的软件系统操作方式和参考指南，如用户使用手册或者联机参考手册。</p>
-<p>系统文档：侧重于系统维护方面的内容，包含性能调整，用户授权和系统安全，故障维护等等方面。是为系统维护人员提供的文档，需要涉及软硬件组成，网络连接方式，授权管理等内容。</p>
-<h2 id="软件维护，演化"><a href="#软件维护，演化" class="headerlink" title="软件维护，演化"></a>软件维护，演化</h2><p>维护的重要性：</p>
-<ol>
-<li>软件系统的需求可能变化，导致软件系统提供的作用降低</li>
-<li>随着软件生命周期的延长，软件系统的外部环境可能变化，影响软件使用</li>
-<li>软件总是有漏洞，发现后要及时处置</li>
-</ol>
-<p>开发可维护软件的方法</p>
-<ol>
-<li>聚焦于软件的变更性：时刻注意需求的变更；设计软件遵循开闭原则，为变更而设计：</li>
-<li>降低维护困难：维护需求跟踪链，有充足的技术文档帮助说明软件系统；保障代码可读性</li>
-</ol>
-<h3 id="演化"><a href="#演化" class="headerlink" title="演化"></a>演化</h3><p>软件演化生命周期模型</p>
-<p>初始开发–演化–服务–逐渐淘汰–停止</p>
-<p>逆向工程</p>
-<p>注重理解软件系统。通过分析软件系统的构件和连接方式，通过更高层次的抽象重新构建系统，即抽取需求分析和设计内容，不关注实现，从而理解系统的大致结构</p>
-<p>再工程</p>
-<p>检查和改造一个软件系统，用新的模式及实现复原目标系统。注重软件系统的修改，往往需要一个前道的逆向工程。</p>
-<h2 id="软件开发过程模型"><a href="#软件开发过程模型" class="headerlink" title="软件开发过程模型"></a>软件开发过程模型</h2><p>软件生命周期模型</p>
-<p>为了从宏观上理解软件的开发阶段，从生产到废弃将软件的开发分为几个阶段，每个阶段都有其目标和负责人等，这些阶段就是软件生命周期</p>
-<h3 id="构建-修复模型"><a href="#构建-修复模型" class="headerlink" title="构建-修复模型"></a>构建-修复模型</h3><p>小型系统的开发，通过不断的修改和重复构建实现系统。</p>
-<p>不注重可维护性 复杂度 需求</p>
-<h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p>将开发划分为几个迭代过程，使得开发者可以集中精力开发其中一个部分而不用关注复杂的宏观过程，是文档驱动的。</p>
-<p>缺点：文档的期望过高，线性开发流程不切实际；</p>
-<p>每个阶段划分的粒度过大，往往很久之后才能发现问题；</p>
-<h3 id="增量迭代模型"><a href="#增量迭代模型" class="headerlink" title="增量迭代模型"></a>增量迭代模型</h3><p>将开发流程划为几个并行的迭代的瀑布模型同时进行开发，在项目初期就有明确的项目前景和范围。</p>
-<p>迭代式开发符合项目开发流程，具有实用性；并行开发的速度更快，提高了开发效率；持续交付可及时得到反馈，提高了满意度</p>
-<p>当需求多变的复杂情况下，无法在开始时确定项目的大致前景</p>
-<h3 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h3><p>在增量迭代的基础上，先确定核心需求开发出核心系统，得到用户反馈后继续迭代下一个系统。</p>
-<p>更加适合需求多变的场景。</p>
-<p>缺点：难以在项目开始时确定大致的项目前景和核心需求；后续迭代需要重视分析和构造，否则退化为构建修改</p>
-<h3 id="原型模型"><a href="#原型模型" class="headerlink" title="原型模型"></a>原型模型</h3><p>原型分为演化式原型和抛弃式原型，原型模型强调抛弃式原型的使用而不是演化式原型</p>
-<p>通过提前构造抛弃式原型，将未来应用于现在，减少应为知识的局限性导致的不确定性。</p>
-<p>缺点：原型构造代价大 不舍得抛弃</p>
-<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p>风险驱动，完全按照解决风险的方式进行软件开发活动。存在4个阶段通过构建原型的方式进行风险解决。</p>
-<p>减少了由于风险产生的项目出错与损失。</p>
-<p>缺点：螺旋模型通过原型解决风险，有着和原型一样的缺点；螺旋模型的项目复杂度高，项目管理难以进行</p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>课程总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录一次向量数据库的部署过程</title>
-    <url>/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>使用wsl2+ docker-desktop + milvus-2.3.12进行部署。wsl2和docker-desktop的安装部分不再赘述，主要看milvus。从milvus的release网站找到对应版本下载docker-compose文件即可。对包含docker-compose的文件夹下创建如图所示几个文件夹</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">|--conf</span><br><span class="line">|--db</span><br><span class="line">|--logs</span><br><span class="line">|--pic</span><br><span class="line">|--volumes</span><br><span class="line">|--wal</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure></div>
-
-<p>然后使用在文件夹路径下使用：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure></div>
-
-<p>等待docker下载完毕，即可部署完成。</p>
-<h2 id="Springboot整合milvus"><a href="#Springboot整合milvus" class="headerlink" title="Springboot整合milvus"></a>Springboot整合milvus</h2><p>在maven中添加适配docker中milvus部署版本的milvus-sdk-java，适配版本要到官网上java-sdk的部分去找。这里使用的版本是2.3.4，需要在maven中添加以下内容。</p>
-<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.milvus<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>milvus-sdk-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--排除自带的log4j 防止冲突--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-slf4j-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.24.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="配置一个Milvus客户端，由springBoot管理"><a href="#配置一个Milvus客户端，由springBoot管理" class="headerlink" title="配置一个Milvus客户端，由springBoot管理"></a>配置一个Milvus客户端，由springBoot管理</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MilvusConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.host&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.username&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.password&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MilvusServiceClient <span class="title function_">milvusServiceClient</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MilvusServiceClient</span>(</span><br><span class="line">                ConnectParam.newBuilder()</span><br><span class="line">                        .withHost(host)</span><br><span class="line">                        .withPort(port)</span><br><span class="line">                        .withAuthorization(username, password)</span><br><span class="line">                        .build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="milvus的service接口和对应实现"><a href="#milvus的service接口和对应实现" class="headerlink" title="milvus的service接口和对应实现"></a>milvus的service接口和对应实现</h3><p>这里依据要求写了若干个service方法，如创建collection（可以理解为表）、创建索引（插入和搜索的前提操作）、通过id查询向量、搜寻与给定向量最相似的前K个向量，判断是否为可用的collection、以及删除collection。共6个方法</p>
-<p>因为导入数据的方法需要自己来写，无法使用cli工具（milvus-cli是为milvus-lite提供的，而这里部署的是milvus-standalone，没有cli工具），所以额外实现了从CSV文件读取向量数据，以及向部署好的向量数据库插入向量的2个方法。</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MilvusService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">create</span><span class="params">(String collectionName, String desc)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">createIndex</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Long&gt; <span class="title function_">search</span><span class="params">(String collectionName, <span class="type">int</span> topK, List&lt;List&lt;Float&gt;&gt; vectorList)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">getVectorById</span><span class="params">(String collectionName, Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">hasCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dropCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">readVectorData</span><span class="params">(String filePath)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insertVectors</span><span class="params">(String collectionName, List&lt;List&lt;Float&gt;&gt; vectorList)</span> ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="导入初始数据"><a href="#导入初始数据" class="headerlink" title="导入初始数据"></a>导入初始数据</h3><p>导入数据时，直接使用测试文件中的imprtData方法（记得改变csv文件路径为本机路径）即可。</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span> <span class="comment">// 导入数据使用该方法</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">importData</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">&quot;D:\\desktop\\python\\BigData\\handle_data\\features.csv&quot;</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">collectionName</span> <span class="operator">=</span> <span class="string">&quot;linkedpaper&quot;</span>;</span><br><span class="line">	milvusService.create(collectionName,<span class="string">&quot;CREATION&quot;</span>);</span><br><span class="line">	milvusService.createIndex(collectionName);</span><br><span class="line">	List&lt;List&lt;Float&gt;&gt;  vectorList= milvusService.readVectorData(path);</span><br><span class="line">	milvusService.insertVectors(<span class="string">&quot;linkedpaper&quot;</span>,vectorList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>原理：通过java-stream进行快速读入，然后分批对部署的milvus进行向量插入，速度很快。</p>
-<h3 id="查询近似向量"><a href="#查询近似向量" class="headerlink" title="查询近似向量"></a>查询近似向量</h3><p>对paperService的findSimilar方法进行了实现，直接调用即可。</p>
-<p>原理：先通过id找到对应paper的向量，然后通过向量在数据库中寻找最相近的前K个向量，返回对应的id即可。是通过欧氏距离（L2）来度量相似性的。 </p>
-]]></content>
-      <categories>
-        <category>向量数据库</category>
-      </categories>
-      <tags>
-        <tag>实践记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统概念总结</title>
     <url>/2025/02/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h3 id="复杂指令集-cisc"><a href="#复杂指令集-cisc" class="headerlink" title="复杂指令集(cisc)"></a>复杂指令集(cisc)</h3><p><em>CPU位数 &#x3D; CPU中寄存器的位数 &#x3D;数据总线位数&#x3D; CPU一次并行处理的数据宽度 ，CPU位数 &gt;&#x3D;操作系统位数 ，地址总线位数决定了CPU在内存中的寻址能力</em></p>
@@ -1252,6 +1043,182 @@
 ]]></content>
       <categories>
         <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大二下软件工程与计算II期末总结</title>
+    <url>/2025/02/17/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<pre><code>写在前面 ：总结内容都是期末考试内容，算是对自己辛苦总结的记录，实际上对显示编码并没有太多帮助
+</code></pre>
+<h1 id="软件工程概述"><a href="#软件工程概述" class="headerlink" title="软件工程概述"></a>软件工程概述</h1><p>软件工程概念</p>
+<p>软件工程发展的六个阶段</p>
+<h1 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h1><p>团队管理的方法</p>
+<p>常见团队结构</p>
+<p>质量保障方法</p>
+<p>配置管理方法</p>
+<h1 id="需求开发阶段"><a href="#需求开发阶段" class="headerlink" title="需求开发阶段"></a>需求开发阶段</h1><p>需求识别：</p>
+<p>业务-用户-系统</p>
+<p>项目-过程-硬件-软件-其他-不切实际的需求</p>
+<p>软件需求识别：</p>
+<p>需求分析方法：</p>
+<ol>
+<li>用例图</li>
+<li>概念类图 -概念类-关联-属性</li>
+<li>顺序图 交互对象-消息-附加条件</li>
+<li>状态图 识别状态-转移触发条件即行为</li>
+</ol>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><h2 id="软件设计基础"><a href="#软件设计基础" class="headerlink" title="软件设计基础"></a>软件设计基础</h2><p>软件设计定义</p>
+<p>软件设计的核心思想</p>
+<p>软件设计的三个层次</p>
+<h2 id="软件体系结构设计（基础-设计与构建）"><a href="#软件体系结构设计（基础-设计与构建）" class="headerlink" title="软件体系结构设计（基础-设计与构建）"></a>软件体系结构设计（基础-设计与构建）</h2><h2 id="人机交互设计"><a href="#人机交互设计" class="headerlink" title="人机交互设计"></a>人机交互设计</h2><p>易用性的解释</p>
+<p>设计原则：共8条</p>
+<p>简洁设计</p>
+<p>一致性设计</p>
+<p>低出错率设计</p>
+<p>易记性设计</p>
+<p>可视化设计（包含两条）</p>
+<p>差异性设计</p>
+<p>导航</p>
+<p>反馈</p>
+<h2 id="详细设计基础"><a href="#详细设计基础" class="headerlink" title="详细设计基础"></a>详细设计基础</h2><h2 id="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"><a href="#详细设计的模块化和信息隐藏（概念及面向对象中的应用）" class="headerlink" title="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"></a>详细设计的模块化和信息隐藏（概念及面向对象中的应用）</h2><p>耦合：两个模块之间联系的复杂性</p>
+<p>内聚：模块内部联系的紧密程度</p>
+<p>耦合类型：</p>
+<ol>
+<li>内容耦合：即代码的共享，一个模块可以更改或者依赖另一个模块的代码，如goto 内部类</li>
+<li>公共耦合：变量的共享，如全局变量（直接访问成员变量）</li>
+<li>重复耦合：代码逻辑重复，出现相同代码</li>
+<li>控制耦合：模块之间传递控制逻辑而不是数据</li>
+<li>印记耦合：模块之间传递复杂数据结构且只使用其中一部分</li>
+<li>数据耦合：模块传递简单数据</li>
+</ol>
+<p>内聚类型：</p>
+<ol>
+<li>偶然内聚：模块内操作没有任何关联</li>
+<li>时间内聚：模块内的操作有时间上的关联</li>
+<li>过程内聚：模块内的操作有逻辑上的前后顺序</li>
+<li>逻辑内聚：模块操作在逻辑上是同一种操作</li>
+<li>通信内聚：模块操作是针对同一个数据结构进行的</li>
+<li>功能内聚：只有一个操作或者所有操作完成一个单一目标</li>
+<li>信息内聚：模块内的方法之间是独立的，针对模块内的相同数据结构进行操作（ADT）</li>
+</ol>
+<p>信息隐藏概念：即每一个模块都隐藏一份重要的设计决策，即自己的职责。对外表现为一个契约，其中的设计决策和决策实现逻辑都被隐藏起来。</p>
+<p>隐藏的两类信息：模块根据需求得到的职责；内部具体实现细节。</p>
+<h2 id="面向对象的模块化"><a href="#面向对象的模块化" class="headerlink" title="面向对象的模块化"></a>面向对象的模块化</h2><p>访问耦合的类型（关联）：一个类如何持有另一个类的引用</p>
+<ol>
+<li>隐式访问（级联访问）</li>
+<li>函数参数访问</li>
+<li>成员变量访问</li>
+<li>实现中访问</li>
+<li>无访问</li>
+</ol>
+<p>改善时用到的原则：</p>
+<ol>
+<li>针对接口编程：访问时要访问接口，不进行直接属性访问</li>
+<li>接口最小化原则：避免接口实现类实现了其他类用不到的方法。所以接口方法的创建根据实际类使用的情况创建，只创建用得到的方法，接口适当缩小。</li>
+<li>迪米特法则：避免级联访问对象。当对象的方法返回另一个对象的引用时，不能级联访问。即要委托执行。</li>
+</ol>
+<p>继承耦合的类型：</p>
+<ol>
+<li>修改规格：子类任意修改父类的接口（如删除接口）</li>
+<li>修改实现：子类任意修改父类的实现方法</li>
+<li>精化规格：子类按照特定（相同与父类的）语义修改父类的接口</li>
+<li>精化实现：子类按照特定语义修改父类的实现</li>
+<li>拓展父类接口或者属性</li>
+<li>无继承</li>
+</ol>
+<p>改善时用到的原则</p>
+<ol>
+<li>里氏替换原则LSP：父类可以被子类完全替换</li>
+<li>用组合代替继承：如果只是想复用父类的代码，可以通过组合代替继承，实现更高的灵活性。</li>
+</ol>
+<p>提高内聚的原则：</p>
+<ol>
+<li>集中信息与行为</li>
+<li>单一职责原则</li>
+</ol>
+<h2 id="面向对象方法下的信息隐藏"><a href="#面向对象方法下的信息隐藏" class="headerlink" title="面向对象方法下的信息隐藏"></a>面向对象方法下的信息隐藏</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装职责（即对象的状态信息）和内部实现细节。</p>
+<ol>
+<li>所有数据都是private的，getter和setter方法的提供要注意（可以在其中添加数据计算来返回对应数据，没必要和成员变量一一对应；起名也有讲究，名字不能暴露内部实现）</li>
+<li>不能传递内部复杂数据结构的引用。（比如内部是数组，就不能返回数组，而是返回其中一个元素，不能暴露数组结构：迭代器模式）</li>
+<li>封装其他对象的引用（新建一个相同对象返回）</li>
+<li>封装类型信息（LSP）</li>
+<li>封装潜在变更（将方法中可能会变更的地方独立出去，变成新的接口来调用，这样就不会影响原来的类）</li>
+</ol>
+<h3 id="开闭原则OCP：为变更而设计"><a href="#开闭原则OCP：为变更而设计" class="headerlink" title="开闭原则OCP：为变更而设计"></a>开闭原则OCP：为变更而设计</h3><p>好的设计对拓展开放，对修改关闭：新功能要增加代码，而不是修改代码。</p>
+<p>可通过依赖倒置DIP和多态来实现</p>
+<p>多态：通过将新的需求或者需要更改的需求变为一个新的类，作为程序中某个原有类的子类，通过多态机制实现了拓展&#x2F;变更，且没有修改。</p>
+<p>DIP：高层模块和底层模块都依赖于抽象。即高层调用接口，底层实现接口。双方依赖的都是抽象，如果依赖的是具体类，则需要分离抽象接口，使双方再次依赖抽象。这也可以看出，Dip十分适合在分层体系结构中使用。所以，若原来的设计实现了DIP，则通过构造新的类实现两者依赖的中间抽象类即可实现OCP。</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h4 id="可修改性："><a href="#可修改性：" class="headerlink" title="可修改性："></a>可修改性：</h4><ol>
+<li>狭义的可修改性</li>
+<li>可拓展性</li>
+<li>灵活性（对实现的动态配置）</li>
+</ol>
+<p>通过接口和实现分离；继承（父类有接口，子类来实现）来实现可修改性</p>
+<h4 id="策略模式："><a href="#策略模式：" class="headerlink" title="策略模式："></a>策略模式：</h4><p>定义一组算法，并将算法封装到一个类中，共同实现一个策略接口，可以在具体实现时挑选一个策略即算法进行使用，算法独立于上下文类进行变化。</p>
+<p>设置策略接口和多个策略实现类，上下文类（策略的使用类）拥有策略接口类的引用。</p>
+<p>先创建各个具体的策略实现类，上下文类可能提供一些信息给策略实现类来使用，对上下文类还要有方法来分配特定的策略实现类。</p>
+<h4 id="简单工厂（静态工厂模式）："><a href="#简单工厂（静态工厂模式）：" class="headerlink" title="简单工厂（静态工厂模式）："></a>简单工厂（静态工厂模式）：</h4><p>根据传入的参数不同，创建并返回不同的产品实例；专门负责类的创建。</p>
+<p>产品如果多的话，判断逻辑会比较复杂。</p>
+<h4 id="工厂模式："><a href="#工厂模式：" class="headerlink" title="工厂模式："></a>工厂模式：</h4><p>设置一个工厂接口，多个工厂具体类实现该接口。一个工厂具体类只能创建一种具体的产品。产品的实例化推迟到子类。</p>
+<h4 id="抽象工厂："><a href="#抽象工厂：" class="headerlink" title="抽象工厂："></a>抽象工厂：</h4><p>新增新的抽象产品类；一个具体的工厂可以实现生产多个抽象的产品大类中的产品，不单单只能生产一个产品大类。若只有一个抽象产品类，就会退回工厂模式。</p>
+<p>注意：若新增一个产品体系，就需要在抽象工厂和某个想生产其产品的具体工厂添加对应的实现方法，不符合OCP原则。</p>
+<h4 id="单件模式："><a href="#单件模式：" class="headerlink" title="单件模式："></a>单件模式：</h4><p>让一个类只存在一个实例，自行实例化并向外界提供这个实例。该类的构造方法和对象都是私有的；同时对象的创建只有该类才能进行；提供一个静态方法来为外界提供这个静态的对象。</p>
+<p>具体工厂就是单例模式。</p>
+<h4 id="迭代器模式："><a href="#迭代器模式：" class="headerlink" title="迭代器模式："></a>迭代器模式：</h4><p>是指不暴露底层数据结构实现的同时遍历其中所有元素。</p>
+<p>为一个数据结构创建一个迭代器类，数据结构中提供方法get-Iterator来获取该类。通过对应迭代器类来遍历该数据结构即可，数据结构内部不被暴露。</p>
+<p>首先有一个迭代器接口类，每个迭代器实现这个抽象类。同时有个集合类接口，可以创建迭代器。具体集合类实现集合类接口，创建具体的迭代器类。实现DIP依赖倒置。</p>
+<h1 id="软件构造，测试，交付，维护"><a href="#软件构造，测试，交付，维护" class="headerlink" title="软件构造，测试，交付，维护"></a>软件构造，测试，交付，维护</h1><h1 id="软件构造，代码设计"><a href="#软件构造，代码设计" class="headerlink" title="软件构造，代码设计"></a>软件构造，代码设计</h1><p>软件构造包含的活动：详细设计，编程，测试，调试，代码度量，集成与构建，构造保障活动</p>
+<p>软件构造的实践方法：重构，测试驱动开发，结对编程</p>
+<p>代码改进手段：格式 命名  复杂决策 数据使用</p>
+<p>高可靠性代码：契约性设计 防御性编程 （注意 前置条件和后置条件）使用mock开发单元测试用例</p>
+<h2 id="软件测试，交付"><a href="#软件测试，交付" class="headerlink" title="软件测试，交付"></a>软件测试，交付</h2><p>软件测试方法：黑盒测试 白盒测试（细分方法） 主要用于需求中的功能测试</p>
+<p>集成测试  stub（主要是硬编码+driver</p>
+<p>单元测试 mock （模拟类）+driver</p>
+<p>Junit会用</p>
+<h3 id="交付"><a href="#交付" class="headerlink" title="交付"></a>交付</h3><p>用户文档：是指为用户编写的软件系统操作方式和参考指南，如用户使用手册或者联机参考手册。</p>
+<p>系统文档：侧重于系统维护方面的内容，包含性能调整，用户授权和系统安全，故障维护等等方面。是为系统维护人员提供的文档，需要涉及软硬件组成，网络连接方式，授权管理等内容。</p>
+<h2 id="软件维护，演化"><a href="#软件维护，演化" class="headerlink" title="软件维护，演化"></a>软件维护，演化</h2><p>维护的重要性：</p>
+<ol>
+<li>软件系统的需求可能变化，导致软件系统提供的作用降低</li>
+<li>随着软件生命周期的延长，软件系统的外部环境可能变化，影响软件使用</li>
+<li>软件总是有漏洞，发现后要及时处置</li>
+</ol>
+<p>开发可维护软件的方法</p>
+<ol>
+<li>聚焦于软件的变更性：时刻注意需求的变更；设计软件遵循开闭原则，为变更而设计：</li>
+<li>降低维护困难：维护需求跟踪链，有充足的技术文档帮助说明软件系统；保障代码可读性</li>
+</ol>
+<h3 id="演化"><a href="#演化" class="headerlink" title="演化"></a>演化</h3><p>软件演化生命周期模型</p>
+<p>初始开发–演化–服务–逐渐淘汰–停止</p>
+<p>逆向工程</p>
+<p>注重理解软件系统。通过分析软件系统的构件和连接方式，通过更高层次的抽象重新构建系统，即抽取需求分析和设计内容，不关注实现，从而理解系统的大致结构</p>
+<p>再工程</p>
+<p>检查和改造一个软件系统，用新的模式及实现复原目标系统。注重软件系统的修改，往往需要一个前道的逆向工程。</p>
+<h2 id="软件开发过程模型"><a href="#软件开发过程模型" class="headerlink" title="软件开发过程模型"></a>软件开发过程模型</h2><p>软件生命周期模型</p>
+<p>为了从宏观上理解软件的开发阶段，从生产到废弃将软件的开发分为几个阶段，每个阶段都有其目标和负责人等，这些阶段就是软件生命周期</p>
+<h3 id="构建-修复模型"><a href="#构建-修复模型" class="headerlink" title="构建-修复模型"></a>构建-修复模型</h3><p>小型系统的开发，通过不断的修改和重复构建实现系统。</p>
+<p>不注重可维护性 复杂度 需求</p>
+<h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p>将开发划分为几个迭代过程，使得开发者可以集中精力开发其中一个部分而不用关注复杂的宏观过程，是文档驱动的。</p>
+<p>缺点：文档的期望过高，线性开发流程不切实际；</p>
+<p>每个阶段划分的粒度过大，往往很久之后才能发现问题；</p>
+<h3 id="增量迭代模型"><a href="#增量迭代模型" class="headerlink" title="增量迭代模型"></a>增量迭代模型</h3><p>将开发流程划为几个并行的迭代的瀑布模型同时进行开发，在项目初期就有明确的项目前景和范围。</p>
+<p>迭代式开发符合项目开发流程，具有实用性；并行开发的速度更快，提高了开发效率；持续交付可及时得到反馈，提高了满意度</p>
+<p>当需求多变的复杂情况下，无法在开始时确定项目的大致前景</p>
+<h3 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h3><p>在增量迭代的基础上，先确定核心需求开发出核心系统，得到用户反馈后继续迭代下一个系统。</p>
+<p>更加适合需求多变的场景。</p>
+<p>缺点：难以在项目开始时确定大致的项目前景和核心需求；后续迭代需要重视分析和构造，否则退化为构建修改</p>
+<h3 id="原型模型"><a href="#原型模型" class="headerlink" title="原型模型"></a>原型模型</h3><p>原型分为演化式原型和抛弃式原型，原型模型强调抛弃式原型的使用而不是演化式原型</p>
+<p>通过提前构造抛弃式原型，将未来应用于现在，减少应为知识的局限性导致的不确定性。</p>
+<p>缺点：原型构造代价大 不舍得抛弃</p>
+<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p>风险驱动，完全按照解决风险的方式进行软件开发活动。存在4个阶段通过构建原型的方式进行风险解决。</p>
+<p>减少了由于风险产生的项目出错与损失。</p>
+<p>缺点：螺旋模型通过原型解决风险，有着和原型一样的缺点；螺旋模型的项目复杂度高，项目管理难以进行</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
       </categories>
       <tags>
         <tag>课程总结</tag>
@@ -2130,6 +2097,39 @@
       </categories>
       <tags>
         <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录一次向量数据库的部署过程</title>
+    <url>/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>使用wsl2+ docker-desktop + milvus-2.3.12进行部署。wsl2和docker-desktop的安装部分不再赘述，主要看milvus。从milvus的release网站找到对应版本下载docker-compose文件即可。对包含docker-compose的文件夹下创建如图所示几个文件夹</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">|--conf</span><br><span class="line">|--db</span><br><span class="line">|--logs</span><br><span class="line">|--pic</span><br><span class="line">|--volumes</span><br><span class="line">|--wal</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure></div>
+
+<p>然后使用在文件夹路径下使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure></div>
+
+<p>等待docker下载完毕，即可部署完成。</p>
+<h2 id="Springboot整合milvus"><a href="#Springboot整合milvus" class="headerlink" title="Springboot整合milvus"></a>Springboot整合milvus</h2><p>在maven中添加适配docker中milvus部署版本的milvus-sdk-java，适配版本要到官网上java-sdk的部分去找。这里使用的版本是2.3.4，需要在maven中添加以下内容。</p>
+<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.milvus<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>milvus-sdk-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--排除自带的log4j 防止冲突--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-slf4j-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.24.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置一个Milvus客户端，由springBoot管理"><a href="#配置一个Milvus客户端，由springBoot管理" class="headerlink" title="配置一个Milvus客户端，由springBoot管理"></a>配置一个Milvus客户端，由springBoot管理</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MilvusConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.host&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.username&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.password&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MilvusServiceClient <span class="title function_">milvusServiceClient</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MilvusServiceClient</span>(</span><br><span class="line">                ConnectParam.newBuilder()</span><br><span class="line">                        .withHost(host)</span><br><span class="line">                        .withPort(port)</span><br><span class="line">                        .withAuthorization(username, password)</span><br><span class="line">                        .build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="milvus的service接口和对应实现"><a href="#milvus的service接口和对应实现" class="headerlink" title="milvus的service接口和对应实现"></a>milvus的service接口和对应实现</h3><p>这里依据要求写了若干个service方法，如创建collection（可以理解为表）、创建索引（插入和搜索的前提操作）、通过id查询向量、搜寻与给定向量最相似的前K个向量，判断是否为可用的collection、以及删除collection。共6个方法</p>
+<p>因为导入数据的方法需要自己来写，无法使用cli工具（milvus-cli是为milvus-lite提供的，而这里部署的是milvus-standalone，没有cli工具），所以额外实现了从CSV文件读取向量数据，以及向部署好的向量数据库插入向量的2个方法。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MilvusService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">create</span><span class="params">(String collectionName, String desc)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">createIndex</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Long&gt; <span class="title function_">search</span><span class="params">(String collectionName, <span class="type">int</span> topK, List&lt;List&lt;Float&gt;&gt; vectorList)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">getVectorById</span><span class="params">(String collectionName, Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">hasCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dropCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">readVectorData</span><span class="params">(String filePath)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insertVectors</span><span class="params">(String collectionName, List&lt;List&lt;Float&gt;&gt; vectorList)</span> ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="导入初始数据"><a href="#导入初始数据" class="headerlink" title="导入初始数据"></a>导入初始数据</h3><p>导入数据时，直接使用测试文件中的imprtData方法（记得改变csv文件路径为本机路径）即可。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span> <span class="comment">// 导入数据使用该方法</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">importData</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">&quot;D:\\desktop\\python\\BigData\\handle_data\\features.csv&quot;</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">collectionName</span> <span class="operator">=</span> <span class="string">&quot;linkedpaper&quot;</span>;</span><br><span class="line">	milvusService.create(collectionName,<span class="string">&quot;CREATION&quot;</span>);</span><br><span class="line">	milvusService.createIndex(collectionName);</span><br><span class="line">	List&lt;List&lt;Float&gt;&gt;  vectorList= milvusService.readVectorData(path);</span><br><span class="line">	milvusService.insertVectors(<span class="string">&quot;linkedpaper&quot;</span>,vectorList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>原理：通过java-stream进行快速读入，然后分批对部署的milvus进行向量插入，速度很快。</p>
+<h3 id="查询近似向量"><a href="#查询近似向量" class="headerlink" title="查询近似向量"></a>查询近似向量</h3><p>对paperService的findSimilar方法进行了实现，直接调用即可。</p>
+<p>原理：先通过id找到对应paper的向量，然后通过向量在数据库中寻找最相近的前K个向量，返回对应的id即可。是通过欧氏距离（L2）来度量相似性的。 </p>
+]]></content>
+      <categories>
+        <category>向量数据库</category>
+      </categories>
+      <tags>
+        <tag>实践记录</tag>
       </tags>
   </entry>
 </search>
