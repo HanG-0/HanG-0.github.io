@@ -1,0 +1,2135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/01/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+]]></content>
+      <categories>
+        <category>Hexo使用方式</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大二下数据管理基础总结</title>
+    <url>/2025/01/26/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="数据管理基础"><a href="#数据管理基础" class="headerlink" title="数据管理基础"></a>数据管理基础</h1><h1 id="数据库绪论"><a href="#数据库绪论" class="headerlink" title="数据库绪论"></a>数据库绪论</h1><ol>
+<li>有关基本概念和数据库发展</li>
+<li>数据模型：<strong>概念模型</strong>（可通过E-R图表示，用于数据库设计） <strong>逻辑模型</strong> <strong>物理模型</strong>；数据模型组成要素；常用的数据（逻辑）模型</li>
+<li>数据库系统的结构：<strong>型与值</strong>；三级模式：<strong>模式，外模式，内模式</strong>；二级映像：<strong>外模式&#x2F;模式映像</strong>，<strong>模式&#x2F;内模式映像</strong>。（一个数据库管理系统管理多个数据库</li>
+</ol>
+<h1 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h1><h2 id="关系定义"><a href="#关系定义" class="headerlink" title="关系定义"></a>关系定义</h2><p>首先明确一些定义</p>
+<p>域：<strong>同一类数据</strong>称作在一个域</p>
+<p>笛卡尔积：是<strong>对不同的域做的运算</strong>，对每个域中所有元素的排列组合，得到一系列元组，运算中<strong>域的数量即为某个元组中分量的数量</strong> D1XD2XD3&#x3D;{(d11,d21,d31),(d12,d21,d31),…….}，笛卡尔积可以表示为一个二元表。</p>
+<p>关系：<strong>对应域上笛卡尔积的一个子集</strong>，元组的数量不同。每个元素是关系中的元素，元组中分量的数量（域的数量）即为关系的目或者度。当度为1时 是单元关系，2为二元关系。关系也可表示为一个二维表，属性对应列的名字，度的数量&#x3D;属性的数量&#x3D;列的数量；行数量&#x3D;元组数量。</p>
+<p><strong>语义上：码&#x3D;键</strong></p>
+<p>码：若一个<strong>属性集合的值可以唯一性的标识任意一个元组</strong>，则这个属性集合被称作码。</p>
+<p>候选码：是唯一标识一个元组的<strong>最小</strong>属性集合。</p>
+<p>主码：挑选<strong>候选码的其中一个</strong>作为主码。</p>
+<p>主属性：<strong>候选码的各个属性</strong>被称为主属性。</p>
+<p>非主属性&#x2F;非码属性：不在任意候选码中的属性</p>
+<p>全码：若<strong>所有属性共同构成一个候选码</strong>，则该候选码称为全码</p>
+<p>外码：当表<strong>A中存在属性组不是候选码</strong>，且<strong>与表B中的主码相对应</strong>，则该属性组是A的外码。A为参照关系（参照B的主码来取值），B为被参照关系。</p>
+<p>&#x2F;&#x2F;后面关系和表基本同质化了</p>
+<p>关系的类型：基本表，查询表，视图表。 <strong>基本表是实际存在的表</strong>，实际存储的数据的逻辑表示，<strong>查询表是查询结果对应的表</strong>，视图表是<strong>由基本表或者其他视图表导出的表</strong>，是<strong>虚</strong>表，不对应实际存储的数据。</p>
+<p>规范化&#x2F;范式：基本表所要满足的性质，其中最重要的一条：分量必须是原子的，不可再分的。如链表不可为表项。</p>
+<ol start="2">
+<li>关系模式：关系的“型”。R（U，D，DOM，F）规定关系的属性集合，域集合，属性和域的对应关系，属性间数据的依赖集合。</li>
+<li>关系数据库：关系数据库模式是关系数据库的型，包含了若干域的定义，以及在这些域上的关系模式定义。</li>
+</ol>
+<h2 id="关系操作"><a href="#关系操作" class="headerlink" title="关系操作"></a>关系操作</h2><p>基本的关系操作：查询和更新（插入，删除，修改）两大部分。查询又可分为<strong>选择，投影，</strong>连接，除，<strong>并，差</strong>，交，<strong>笛卡尔积</strong>等操作，其中标黑的都是基本操作。关系操作的特点是集合操作。</p>
+<h2 id="关系完整性"><a href="#关系完整性" class="headerlink" title="关系完整性"></a>关系完整性</h2><p>关系完整性是对关系模型的语义约束，是现实世界的语义要求</p>
+<ol>
+<li>实体完整性：即要求表中每个元组都是唯一的，可区分的。主码中的属性值不可重复或者取空值（每个属性值均不可重复或者为空）。</li>
+<li>参照完整性：关系之间存在相互参照和引用时，要求外码的取值必须为被参照关系中某个元组的主码值或者空值。即外码的取值有限制，必须是参照而来的，而不能凭空捏造。</li>
+<li>用户定义的完整性：不同于上面两个必须在任何关系型数据库都要满足的性质，该性质是在具体环境下用户提出的语义要求。</li>
+</ol>
+<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><p>包含集合运算和额外的关系运算。两者符号不同</p>
+<ol>
+<li>集合运算：均针对元组运算，是两个关系的二元运算，两个关系要满足<strong>属性相同</strong></li>
+</ol>
+<p>并，交，差，广义笛卡尔积（A中n个元组与B中m个元组排列组合形成新的一张表，属性列扩张，共n*m个元组）</p>
+<ol start="2">
+<li>关系运算：</li>
+</ol>
+<p>选择（横向） ：$\sigma$<del>F</del>(R) 其中F是条件，可以选择关系中特定的元组</p>
+<p>投影（纵向）：$\Pi$<del>A</del>(R) 其中A是列名，可以选择关系中特定的（多个）列，注意取消了某些列后可能出现重复元组，需要消除。</p>
+<p>连接（自然连接）：R$\bowtie$S 即通过<strong>R和S中同名的属性列将两者链接</strong>，取对应属性分量相同的元组集合。<strong>然后去掉重复的属性列</strong>。有一些元组连不上被抛弃 称作悬浮元组。将悬浮元组保存在结果关系中，其他属性中填上null，则成为外连接，保存左边的悬浮元组就叫左外连接，保存右边的就是右外连接。</p>
+<p>除运算：从大的关系中剥离小的关系。R%S 1.先在R中找到不在S的属性U，这是结果集中包含的属性。2.分析关系R中的U属性下每个元组的具体值xi（i表示属性的数量，如果有两个属性就是x1，x2）的<strong>象集</strong>（即选出所有包含该分量xi的元组，同时剔除该分量xi），包含R与S共同属性的投影形成的所有元组即可保留xi。这里为的是小的关系和S的广义笛卡尔积（所有元组的组合）形成的关系是R<strong>的子集</strong>（范围小于R）。</p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL集<strong>数据查询语言</strong>（<strong>DQL</strong>-如SELECT），<strong>数据定义语言</strong>（<strong>DLL</strong>-如CREATE），<strong>数据操纵语言</strong>（<strong>DML</strong>-如DELETE），<strong>数据控制语言</strong>（<strong>DCL</strong>-如GRANT）于一身。一个数据库管理系统可以定义多个数据库，一个数据库可以定义多个模式，一个模式下有表和视图，可以为表建立索引（这是SQL的规定，实际DBMS可能没这么复杂）</p>
+<h2 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h2><p>模式，视图只能修改和删除。表和索引还可以修改。</p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>创建</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE SCHEMA 模式名 AUTHORIZATION 用户名</span><br></pre></td></tr></table></figure></div>
+
+<p>删除：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP SCHEMA 模式名 [CASCADE|RESTRICT] </span><br></pre></td></tr></table></figure></div>
+
+<p>注意：DROP删除都有CASCADE和RESTRICT两种选项，分别表示将模式下<strong>所有内容都级联删除</strong>，和<strong>如果模式下有内容则不删除</strong>并报错，即限制性删除</p>
+<h3 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">属性名1 类型 [列级完整性约束]，</span><br><span class="line">属性名2 类型 [列级完整性约束]，</span><br><span class="line"></span><br><span class="line">[表级完整性描述]</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+
+<p>列级完整性描述如 PRIMARY KEY; UNIQUE;NOT NULL</p>
+<p>表级完整性可以定义外键和主键（当属性多于两个）如：</p>
+<p>FOREIGN KEY(Sno) REFERENCES Student(Sno); 定义某个属性参考其他表或本表的主键。</p>
+<p>PRIMARY KRY(Sno,Cno）当主键属性个数多于1时</p>
+<p>修改：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER</span><br></pre></td></tr></table></figure></div>
+
+<p>删除：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE [UNIQUE|CLUSTER] INDEX 索引名 ON 表名(属性名1，属性名2...)</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER INDEX 旧索引名 RENAME TO 新索引名</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP INDEX	索引名</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h2><p>语句的使用：格式如下。其中WHERE GROUP ORDER都是选择性添加</p>
+<div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">DISTINCT</span><span class="operator">|</span><span class="keyword">ALL</span>] 列表达式</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line">[<span class="keyword">WHERE</span> 条件表达式]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> 列名 [<span class="keyword">HAVING</span> 条件表达式]]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> 列名 [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>]] 	ascend<span class="operator">/</span>descend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><ol>
+<li>列表达式可以是<strong>各个列名</strong>，也可以是<strong>包含列名的运算式</strong>，也可以是<strong>包含列名的聚集函数</strong>，查询后会将对应列的元素进行运算后再显示。同时可以将<strong>字符串常量</strong>作为列表达式，结果表中会多出一列，值全被设置为该字符串常量。</li>
+<li>可以通过<strong>DISTINCT选项</strong>将查询结果中重复的元组消除。（默认为ALL）</li>
+<li>可通过WHERE子句搭配<strong>列的条件表达式</strong>来进行特定元组的选择。常用查询条件有：比较，范围限制（BETWEEN AND），确定集合（IN），字符匹配（LIKE），空值（IS NULL）。可以多重条件搭配。（%匹配任意长度对应字符;_匹配一个对应字符可作为通配符）</li>
+<li>ORDER BY  若有多个列名，每个列名都要设置升序或降序。如先按照第一个列的升序排序，相同值再按照第二个列的升序排列。</li>
+<li>聚集函数查询实际上是<strong>将某列查询结果做了运算后再显示</strong>。显示结果往往很少。（聚集：<strong>将多个的元组进行特定运算，结果存入新的元组，实现聚集效果</strong>）</li>
+<li>GROUP BY 将查询结果通过按照一列或者多个列的值进行分组，值相等的分为一组。<strong>分组的目的是细化聚集函数的作用对象</strong>，聚集函数可以作用于组，对于<strong>每个组的各个元组进行计算给出结果</strong>，而不是对整个表的各个元组进行作用，作用粒度更细。如果对每个组进行条件筛选，只显示特定的组，可以在HAVING子句进行<strong>聚集函数+条件判断筛选</strong>，这里同样是对每个组中的元组进行作用。</li>
+</ol>
+<h3 id="连接查询-多表查询"><a href="#连接查询-多表查询" class="headerlink" title="连接查询&#x2F;多表查询"></a>连接查询&#x2F;多表查询</h3><ol>
+<li>将连接谓词置于WHERE子句，说明是哪两个属性的连接（如Student.Sno&#x3D;Course.Sno）中进行表的连接。同时这两个表的名称要出现在FROM子句中</li>
+<li>不同表的属性名相同，要在属性前添加表名进行识别，如上面的例子。</li>
+<li>可以实现外连接（FROM student LEFT OUTER JOIN SC ON（属性连语句词），添加student的悬浮元组，多出的属性设置为NULL）</li>
+<li>多表连接通过两个或多个连接谓词实现。</li>
+</ol>
+<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><p>将一个查询块（SELECT-FROM-WHERE）放到另一个查询块的WHERE子句中。通常的方式有4种：</p>
+<ol>
+<li>使用in谓词：子查询块返回多个元组（含多个属性），或者说是返回一张多属性表。</li>
+<li>使用比较运算符：子查询块返回单个值</li>
+<li>使用比较运算符+ANY&#x2F;ALL谓词：子查询块返回多个值</li>
+<li>使用EXIST谓词：子查询只返回逻辑值真假。</li>
+</ol>
+<p>嵌套查询分为两种：相关嵌套查询（依赖父查询结果进行子查询）和不相关嵌套查询。</p>
+<p>不相关嵌套查询可以<strong>一次将子查询结果得到</strong>，然后执行父查询结果。</p>
+<p>相关嵌套查询需要<strong>先执行父查询得到一个元组，传入子查询进行查询</strong>。重复以上过程直到结束，子查询要多次进行。如下图。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Sno,Cno</span><br><span class="line">FROM SC x</span><br><span class="line">WHERE GRADE&gt;=(</span><br><span class="line">    SELECT AVG(GRADE)</span><br><span class="line">    FROM SC y</span><br><span class="line">    WHERE x.Sno=y.Sno</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<p>其中x，y是表SC的别名，也叫元组变量，可以用来表示SC的一个&#x2F;多个元组。如x表示了SC的一个元组，y表示了SC的多个&#x2F;一个元组。</p>
+<h2 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h2><h3 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT </span><br><span class="line">INTO 表名 [ (属性1，属性2) ]</span><br><span class="line">values (值1，值2)</span><br></pre></td></tr></table></figure></div>
+
+<p>属性是可选的，便于<strong>将值的创建与属性名称对应起来</strong>。对于空值要显式的输入NULL，没有值的属性由数据库自动补充一个值。可以插入子查询结果，实现多个元组的同时插入</p>
+<h3 id="修改："><a href="#修改：" class="headerlink" title="修改："></a>修改：</h3><div class="code-container" data-rel="D"><figure class="iseeu highlight d"><table><tr><td class="code"><pre><span class="line">UPDATE</span><br><span class="line">SET 列名=表达式</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
+
+<p>修改特定列的值，没有WHERE则修改全部元组的对应属性。可以使用子查询</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE</span><br><span class="line">FROM 表名</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
+
+<p>删除特定元组，没有条件则删除所有元组。可以使用子查询</p>
+<h2 id="空值处理"><a href="#空值处理" class="headerlink" title="空值处理"></a>空值处理</h2><p>UNIQUE ，NOT NULL，码（主码）属性不能是NULL</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>数据库中只存放视图的定义，是个虚表，对应的数据仍在数据库基本表中，当数据变化，查询对应使视图的结果也会变。视图相当于一个窗口，用来查看信息。（一般不用于更新数据，即使更新也有限制）</p>
+<ol>
+<li>建立视图</li>
+<li>查询视图</li>
+<li>更新视图</li>
+<li>视图的作用</li>
+</ol>
+<h1 id="关系数据理论（规范化）"><a href="#关系数据理论（规范化）" class="headerlink" title="关系数据理论（规范化）"></a>关系数据理论（规范化）</h1><p>数据依赖：一个关系内部属性与属性之间的约束关系，是通过属性间值的相等于否体现出来的数据间相关联系，是现实世界属性之间相互联系的抽象，是语义的体现。</p>
+<p>主要有多值依赖和函数依赖 X-&gt;Y ( f(x)&#x3D;y，y函数依赖于x，y由x确定)（例如学号确定后，学生名字也就确定了，这就是一种函数依赖；U完全函数依赖于属性集K说明，U不函数依赖于K的任何真子集）。不从语义上分析，可以单从属性之间值的相等得到函数依赖关系。即任意两个相等的x属性值必然对应同一个y属性值，则y函数依赖于x。</p>
+<p>表可能存在的问题：数据冗余：相同数据在表中多次出现；更新异常（繁琐）：因为冗余，需要更新大量的表项；插入异常（无法插入）：只有一部分属性信息时，无法在表中插入元组；删除异常（信息丢失）无法删除一个元组中的部分分量保留其他信息，只能全部删除。</p>
+<p>从函数依赖看码的定义—–候选码、超码：若R的所有属性完全函数依赖于属性集K，则K为R的候选码；若是部分函数依赖K，则K为R的超码。候选码是最小的超码。</p>
+<p>第一范式：二维表的元组分量均不可再分割。</p>
+<p>第二范式：非主属性完全函数依赖于任何一个候选码。让候选码成为标识任意属性的最小单位。若某个候选码的子集能标识某个非主属性的值，则说明表还能分解。</p>
+<p>第三范式：每个非主属性既不传递依赖于候选码，也不部分依赖于候选码。只留一层依赖关系，多层依赖关系可分解为多个表。</p>
+<p>BCNF：在第三范式基础上，任何主属性对于不包含他的候选码也是完全函数依赖，且没有传递依赖。这在有多个候选码时有用。</p>
+<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>步骤：需求分析，概念结构设计，逻辑结构设计，物理结构设计。</p>
+<p>视图建立在数据库的外模式中，索引建立，物理存储安排在数据库的内模式中，基本表设计则是逻辑模式，E-R图则是概念模式。</p>
+<h2 id="概念结构设计"><a href="#概念结构设计" class="headerlink" title="概念结构设计"></a>概念结构设计</h2><p>E-R图绘画：实体型<del>方格</del>，属性<del>圆形</del>，联系<del>菱形</del>（以及联系类型，靠近谁就是描述谁的数量，描述方法是：在任意其他实体型只有一个的情况下，该实体型对应的数量）联系的度就是参与联系的实体型数目。注意，联系也有属性。</p>
+<h2 id="逻辑结构设计"><a href="#逻辑结构设计" class="headerlink" title="逻辑结构设计"></a>逻辑结构设计</h2><p>即将概念结构下的E-R图变为关系模式。</p>
+<ol>
+<li>一个实体型转化为一个关系模式，关系属性就是实体的属性，关系的码就是实体的码。</li>
+<li>实体型的联系： 若为1：1联系，则可变为独立的表（或者和左右实体型的表合并），<strong>需要左右实体型的码（作为候选码</strong>）和本身联系的属性作为该表的属性； 若为1：n，和上述操作方法类似，<strong>但只能和n端的表合并</strong>，若变为独立的表，<strong>候选码只能是n端的码</strong>。若为n：m，<strong>建议独立一个表描述联系</strong>；三个及以上的实体联系类似于n：m的处理，独立一个表描述联系，需要有所有相连实体的码及连接自身的属性；相同码的表直接合并</li>
+</ol>
+<h2 id="物理结构设计"><a href="#物理结构设计" class="headerlink" title="物理结构设计"></a>物理结构设计</h2><h1 id="数据库恢复技术"><a href="#数据库恢复技术" class="headerlink" title="数据库恢复技术"></a>数据库恢复技术</h1><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务操作是用户定义（语义性强）的一系列数据库操作，这些工作要么不做，要么全做，是原子性的工作单位。</p>
+<p>事务是数据库恢复和并发的基本单位。</p>
+<p>BEGIN TRANSACTION</p>
+<p>COMMIT 提交</p>
+<p>ROLLBACK 回滚</p>
+<p>ACID特性：原子性，一致性（描述数据库状态，若事务做了一般不做了，数据库就会进入不一致的状态），隔离性（并发事务互不干扰），持续性（事务提交后的数据改变是永久的，不会被改变）。</p>
+<p>事务撤销：当事务发生事务故障，即没有到达预期的终点（commit或者rollback）。此时要强行回滚。</p>
+<p>事务重做：当事务提交但并未写入磁盘中，需要重新完成并提交。</p>
+<h3 id="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"><a href="#数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。" class="headerlink" title="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"></a>数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。</h3><p>日志文件是用来记录事务对数据库更新操作的文件。事务故障，系统故障，动态转储，静态转储（非必须）都要使用日志文件。</p>
+<h3 id="恢复策略"><a href="#恢复策略" class="headerlink" title="恢复策略"></a>恢复策略</h3><h3 id="具有检查点的恢复"><a href="#具有检查点的恢复" class="headerlink" title="具有检查点的恢复"></a>具有检查点的恢复</h3><p>向日志中添加检查点，省的对日志全部扫描</p>
+<h1 id="数据库并发控制"><a href="#数据库并发控制" class="headerlink" title="数据库并发控制"></a>数据库并发控制</h1><p>通过轮流交叉执行多个事务实现事务的并发执行。</p>
+<h2 id="封锁技术控制并发"><a href="#封锁技术控制并发" class="headerlink" title="封锁技术控制并发"></a>封锁技术控制并发</h2><p>事务在操作某个数据对象时 对数据对象加锁</p>
+<p>主要有：排他锁X（写锁）；共享锁S（读锁）。上了排他锁，则不能上任何其他锁；上了共享锁则只能再上共享锁。</p>
+<p>封锁协议（这里直接使用1+3级封锁协议）：事务前上写锁，<strong>事务完成</strong>释放；读前上读锁，<strong>事务完成</strong>（注意<strong>不是读完释放</strong>）释放。</p>
+<h2 id="活锁-死锁"><a href="#活锁-死锁" class="headerlink" title="活锁 死锁"></a>活锁 死锁</h2><p>活锁是某个事务总是被其他事务抢占，永远等待别人的锁释放。（先来先服务即可）</p>
+<p>死锁彼此持有资源永久等待。</p>
+<ol>
+<li>预防</li>
+</ol>
+<p>一次封锁法：事务一次将所有使用的资源全部加锁。</p>
+<p>顺序封锁法</p>
+<p>​	2. 诊断和解除</p>
+<p>等待图法，超时法；解除只需选择代价最小的事务撤销并解除锁即可。</p>
+<h2 id="判断可串行化调动"><a href="#判断可串行化调动" class="headerlink" title="判断可串行化调动"></a>判断可串行化调动</h2><p>可串行化调度：并发调度结果等于为一个串行化调度（显然正确），这说明该并行调度是可串行化的 也就是正确的。</p>
+<p>冲突操作：不同的事务对同一个数据的<strong>读写或者写写操作</strong>。<strong>不同事务的冲突操作</strong>和<strong>同一事务的不同操作</strong>不能交换（冲突操作次序不可变）。通过交换两事务不冲突操作使得一个调度变为串行调度，说明是冲突可串行化调度，也是可串行化调度。（是后者充分条件）</p>
+<h2 id="两段锁协议"><a href="#两段锁协议" class="headerlink" title="两段锁协议"></a>两段锁协议</h2><p>所有事务必须分为两个阶段对数据加锁 解锁。</p>
+<p>第一个阶段可以不断请求封锁，但不能放锁；第二个阶段反之。</p>
+<p>事务遵行两段锁协议是可串行化的充分条件。同时两段锁协议不保证不会有死锁，但是一次封锁法是满足两段锁协议的。</p>
+<h2 id="多粒度封锁"><a href="#多粒度封锁" class="headerlink" title="多粒度封锁"></a>多粒度封锁</h2><p>封锁的粒度越大，系统开销越少，并发程度越低。粒度小则反之。 数据库–关系–元组</p>
+<p>对于粒度大的数据项加锁，则视为同时为其自粒度加锁。所以对某粒度数据加锁时，不仅要看所有父粒度是否有了锁（隐式锁），还要看所有子粒度是否有了锁。为了避免看所有子粒度的锁，加快效率，可以通过<strong>在加锁时</strong>，<strong>为所有父粒度加意向锁</strong>，来表示该粒度下，有子粒度已经上锁。避免了进一步搜查子粒度。</p>
+<p>IS锁  一个数据对象加上了IS锁说明其子孙节点中想要加S锁</p>
+<p>IX锁  一个数据对象加上了IS锁说明其子孙节点中想要加X锁</p>
+<p>SIX锁&#x3D;S+IX  某事务想读<strong>整个R表</strong>，同时又想更新R表的<strong>个别元组</strong>，则为R表加SIX锁。</p>
+<p>锁强度：X&gt;SIX&gt;S&#x3D;IX&gt;IS</p>
+<p>对于意向锁：<strong>申请封锁自上而下，解锁自下而上。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">分数</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大二下编译原理总结</title>
+    <url>/2025/02/17/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h1><p>词法单元：进行词法分析的基本单位，输入的源程序中的字符串都要被识别为词法单元进行分析</p>
+<p>词素：源程序中被识别为词法单元的字符串。</p>
+<p>模式：即词法单元匹配词素用的式子，如正则表达式，简单的字符串序列等</p>
+<p>字母表：所有可能输入的字符</p>
+<p>有穷自动机FA包含 不确定的又穷自动机NFA和 确定的有穷自动机DFA。他们的表达能力和正则表达式相同。区别在于： NFA中对于一个符号可以有多条对应的边离开一个状态，且空符号也有边；但是DFA对于一个符号只有一条边离开一个状态，且空符号没有边。 我们最终需要DFA。</p>
+<p>有穷自动机只会回答对于一个符号串 是或者否接收。 如果存在一条路径可以到达接受态，而且路径上的边组成了该输入串，则可以接受。</p>
+<h2 id="子集构造法"><a href="#子集构造法" class="headerlink" title="子集构造法"></a>子集构造法</h2><p>子集构造法用于从NFA构造DFA，它的原理是识别出符号串可能对应的每个状态，并将这个状态集合并为一个状态。简而言之，就是处理空转换和多条相同路径转换带来的问题。</p>
+<p>建立NFA，DFA的状态转换表</p>
+<p>方法：</p>
+<ol>
+<li>先将初始状态A识别为 $\epsilon-closure(s)$  其中s是NFA初始状态。</li>
+<li>看依次查看字母表中的符号，例如a，此时将下一个状态B识别为 $\epsilon-closure(move(A,a))$  move(A,a) 即从状态集合A按照路径a所能到达的所有状态。对每个DFA状态，将符号表中的所有符号全部分析一遍</li>
+<li>重复以上过程来分析下一个新产生的DFA状态，直到检查完了所有的NFA</li>
+</ol>
+<p>其中至少含有一个NFA接受态的集合为DFA接受态。</p>
+<h2 id="DFA最小化"><a href="#DFA最小化" class="headerlink" title="DFA最小化"></a>DFA最小化</h2><p>每个NFA可能有很多DFA，但是状态数最少的DFA只有一个。也就是有些状态通过任意的相同符号可以到达相同的状态。</p>
+<p>若存在一个符号串x，使得不同的状态s，t到达不同的状态，其中一个是接收状态，则s，t可以被x区分。</p>
+<p>可以通过算法求得最小状态划分。</p>
+<ol>
+<li>先将DFA状态划分为两个状态集，一个非接受态集合，一个接受态集合。</li>
+<li>分析上述划分，对于其中的每个状态集，测试每一个符号，<strong>此时从刚刚画出的DFA图上分析</strong>。若存在一个符号使得s，t状态被区分，则可以从中划分出新的状态集合。</li>
+<li>得到新的划分，若该划分与分析前的划分相同，则该划分就是最小状态集合；否则重复上述分析。</li>
+</ol>
+<p>即求划分闭包的过程。</p>
+<p>最后需要消除死状态。</p>
+<h2 id="Thompson算法：从正则表达式得到NFA"><a href="#Thompson算法：从正则表达式得到NFA" class="headerlink" title="Thompson算法：从正则表达式得到NFA"></a>Thompson算法：从正则表达式得到NFA</h2><p>先构造正则表达式的语法树：将连接，|（或），*（kleenen闭包），括号，看作运算符。自下而上构造NFA</p>
+<p>基本规则：</p>
+<ol>
+<li>表达式 $\epsilon$ 的NFA生成</li>
+<li>表达式 $a$ 的NFA生成（和上面相同）</li>
+</ol>
+<p>归纳规则：假设正则表达式s，t的NFA是N（s），N（t）</p>
+<ol>
+<li>对于r&#x3D;s|t，N（r）的生成</li>
+<li>对于r&#x3D;st ，N（r）的生成</li>
+<li>对于 r&#x3D;s* ，N（r）的生成</li>
+<li>对于r&#x3D;（s），N（r）&#x3D;N（s）</li>
+</ol>
+<h1 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h1><p>文法给出了一个程序设计语言精确易懂的语法规约。</p>
+<p>语法分析器依照文法来处理输入的词法单元流。语法分析器大体可分为三种，通用的，自上而下的（即自上而下从根节点开始构建语法分析树），自下而上（即从叶子节点开始构建语法分析树）的。后两种方法分别用在进行LL文法和LR文法的分析过程中。</p>
+<p>LL文法：一方面可以描述一个文法的规则，也可以描述对应文法的分析器类型。LL(1)文法即从左到右检测输入流，生成最左推导，每次只向前看1个词法单元。</p>
+<p>文法是产生式的集合。一个文法G要选定一个开始符号S（非终结符），从开始符号任意步推导出的符号串都称作G的句型，若句型都由终结符组成，那么也称作句子。</p>
+<p>如果推导的过程中每次只选择最左边的非终结符进行推导，则推到过程被称为最左推导。最右推导则反之。对于一次推导，我们可以在推导的每一个阶段的句型构造一个对应阶段的语法分析树，推导结束则语法分析树的构造结束，产生最终的句子，即语法分析树自左向右的所有叶子节点。推导过程对应语法分析树的构建。</p>
+<p>二义性：相同的文法，对于相同的输入流，选择不同产生式，能够造出不同的语法分析树。</p>
+<p>上下文无关文法：表达能力强于正则表达式，</p>
+<p>二义性文法可以被消除。</p>
+<p>左递归文法的消除：若存在推导A$\rightarrow$Aa（+ 一步或多步），则这个文法左递归。自顶向下方法不能处理左递归文法。（因为每个非终结符在分析的过程中对应一个过程或者函数，如A对应有一个函数A()来处理它，若出现左递归，则要么分析出现错误，要么就是无尽递归循环，不停进入A()过程）</p>
+<p>$$A\rightarrow Aa|b$$</p>
+<p>可以化为 :</p>
+<p>$$ A \rightarrow bA^1  $$</p>
+<p>$$ A^1 \rightarrow aA^1|\epsilon  $$</p>
+<p>提取左公因式：</p>
+<p>即改写产生式，无法决定产生式的选择时，将产生式的选择推后，等到积累了足够多的信息再进行产生式子的选择。如何改写？提取左公因式。</p>
+<p>$$ A \rightarrow ab|ab_1 $$</p>
+<p>变成</p>
+<p>$$ A \rightarrow aA^1,A^1 \rightarrow b|b_1 $$</p>
+<p>Tip：这里所说的文法都是默认上下文无关的， 上下文有关文法的实现如变量的声明后调用，可以在语义分析阶段完成（当然也可以在语法分析时完成，但比较困难）</p>
+<h2 id="自顶向下的语法分析"><a href="#自顶向下的语法分析" class="headerlink" title="自顶向下的语法分析"></a>自顶向下的语法分析</h2><p>为输入串经过深度优先的创建语法树节点，构建语法分析树的过程。等价于寻找最左推导的过程。</p>
+<ol>
+<li><p>确定一个非终结符号应用哪个产生式</p>
+</li>
+<li><p>将产生式体中的终结符号和输入流匹配</p>
+</li>
+</ol>
+<p>递归下降语法分析是自顶向下分析的通用形式，这种方法可能需要回溯。一个递归下降的语法分析有一组过程组成，<strong>每个非终结符号有一个对应的过程</strong>。程序从开始符号对应的过程开始，如果该过程扫描了整个输入符号流，则分析结束。</p>
+<p>回溯要求重复扫描输入，并按照顺序尝试非终结符所有的产生式，仅当所有产生式都和输入不匹配才报告错误。所以输入流的指针需要被保存，以便尝试新的产生式时进行还原输入流位置。</p>
+<h2 id="FIRST-FOLLOW"><a href="#FIRST-FOLLOW" class="headerlink" title="FIRST &amp; FOLLOW"></a>FIRST &amp; FOLLOW</h2><p>FIRST和FOLLOW帮助我们根据下一个输入选择应用哪个产生式。FIRST(a)是可从a（任意文法符号串）<strong>推导出的串的首终结符</strong>集合；FOLLOW(A)是可能在某些句型中<strong>紧跟在A右边的终结符</strong>集合。</p>
+<p>计算FIRST(a):</p>
+<ol>
+<li>若a是终结符，则FIRST（a）&#x3D;a</li>
+<li>若a是非终结符且拥有$A \rightarrow A^1A^2A^3A^4A^5$：则若A^1^A^2^可以在任意步推到到空，且a在FIRST(A^3^)中，则a可以被加入FIRST（A）。即</li>
+</ol>
+<p>FIRST（A^1^）的所有符号一定在FIRST（A）中，但是若A^1^不能推导到空 则就不能往FIRST（A）中增加任何字符 以此类推。</p>
+<ol start="3">
+<li>若$A \rightarrow \in$  , 则FIRST（A）中可添加$\in$</li>
+</ol>
+<p>计算FOLLOW（A）：</p>
+<ol>
+<li>先将FOLLOW （S）中添加$(结束符)</li>
+<li>若存在$A \rightarrow aA^1b$  则FIRST（b）中所有字符（除了空）均在FOLLOW（A^1^）中。</li>
+<li>若存在$A \rightarrow aA^1$ ，则FOLLOW（A^1^）包含了FOLLOW(A)</li>
+</ol>
+<p>SELECT（$A \rightarrow a$）即需要选择$A \rightarrow a$产生式的终结符集合。SELECT（$A \rightarrow a$）&#x3D; ( FIRST（a）- {$\in$} ) $\cup$ FOLLOW（A）</p>
+<p>LL(1)文法的充要条件就是  SELECT（$A \rightarrow a$）$\cap$ SELECT（$A \rightarrow b$）&#x3D; $\emptyset$</p>
+<h2 id="LL（1）文法"><a href="#LL（1）文法" class="headerlink" title="LL（1）文法"></a>LL（1）文法</h2><p>对于非终结符任意两个不同的产生式 $A \rightarrow a| b$，FIRST（a）和FIRST（b）是不相交的集合，这样才能通过一个终结符识别产生式的选择；若$a \rightarrow \in$ 则FIRST(b)和FOLLOW（A）需不相交。</p>
+<p>通过将FIRST FOLLOW集合中的信息放到<strong>预测分析表</strong>（一个二维数组）中，来实现产生式的选择。行为各种终结符和结束符，列为非终结符，表内是各种的产生式，空项代表错误。</p>
+<ol>
+<li>对于产生式$A \rightarrow \alpha$ ，查看FIRST($\alpha$)中的所有终结符a，将该产生式放入TABLE[A][a];</li>
+<li>若$\in$存在于FIRST（$\alpha$），则查看FOLLOW（A）中的所有终结符b，并将产生式放入TABLE[A][b]；若$存在于FOLLOW(A)中，则同时将产生式放入TABLE[A][$]中。</li>
+</ol>
+<p>通过预测分析表，可以制造一个表驱动的预测分析器。它由一个栈结构（包含文法符号），输入流，和分析程序组成。</p>
+<ol>
+<li>开始时，栈顶是开始符号S，栈底是结束符号$。通过查看<strong>栈顶的符号</strong>和当前<strong>输入流指针下的符号</strong>.</li>
+<li>若为非终结符，在表中选择一个合适的产生式，然后弹出栈顶，将产生体自右向左放入栈内；</li>
+<li>若为终结符，则查看是否和输入流指针下的符号相同，然后弹出栈顶，移动指针。</li>
+<li>重复上述操作，直到检查到栈底的$.</li>
+</ol>
+<h2 id="自底向上的语法分析"><a href="#自底向上的语法分析" class="headerlink" title="自底向上的语法分析"></a>自底向上的语法分析</h2><p>移入-规约语法分析是自底向上语法分析的通用框架。LR文法类可以构造出移入-规约语法分析器。</p>
+<p>规约：可以看作是推导的逆过程，即将某一个与产生式体相匹配的特定子串替换为产生式头部的非终结符。若最终归约到开始符号S，则规约完成。其中被替换掉的子串成为<strong>句柄</strong>。句柄的右边必定都是终结符。因为规约形成<strong>最右推导</strong>的逆过程，所以规约每次只能替换<strong>最左边</strong>的符号，即自左向右替换</p>
+<p>移入：在移入规约语法分析中，类似LL1的预测分析器，需要一个栈保存文法符号，一个缓冲区保存输入流。开始时栈只有一个$。每次将输入流<strong>移入</strong>栈顶，直到栈顶的符号（即句柄）可以被规约。直到检测到语法错误或者栈顶为S且缓冲区为空。这样正好是自左向右替换输入流符号，与上面的想法不谋而合。</p>
+<p>可能的冲突：知道了输入流前几个字符但不确定是继续移入还是规约；规约时不知道选择哪个产生式。（通过设置复杂的词法单元名以及使用离栈顶很远的信息来进行规约选择）</p>
+<h2 id="LR文法"><a href="#LR文法" class="headerlink" title="LR文法"></a>LR文法</h2><p>通过建立语法分析表和移入-规约语法分析器，实现LR语法分析</p>
+<h2 id="LL-文法-优先级上升算法"><a href="#LL-文法-优先级上升算法" class="headerlink" title="LL(*) 文法 优先级上升算法"></a>LL(*) 文法 优先级上升算法</h2><p>可以处理二义性文法（比如优先级带来的二义性文法），直接左递归（无法处理间接左递归）</p>
+<p>precedence（优先级）</p>
+<p>predicates（谓词）</p>
+<p>优先级上升算法可以改写原文法，使之二义性和左递归消除（变为迭代版本）。</p>
+<p>先对原来的文法中的一个非终结符的每个产生式分配一下优先级。（可以看作运算符的优先级）</p>
+<p>将非终结符的处理写成一个递归函数，函数有一个参数即优先级。与<strong>非左递归的匹配作为基线条件</strong>。而<strong>左递归的匹配变为迭代版本</strong>且<strong>产生式的选择有条件限制</strong>，即优先级要满足条件。默认开始时的调用优先级是0.</p>
+<p>同时，对于左递归的匹配，外层有一个星号，对应一个while循环，即在某个优先级下的循环匹配。while循环便于往深处递归和返回到上一层（若都不匹配或优先级不够无法执行），在不同优先级下对非终结符进行匹配。</p>
+<p><strong>不同优先级对应一个语法树的深度</strong>。优先级越大，语法树的深度越大，如果优先级不够，就不能在语法树的这个层数上匹配（展开）非终结符。下面的文法中也可以看出来，乘法的优先级大于加法。</p>
+<p>根本问题：在<strong>非终结符当前调用</strong>中匹配下一个运算符还是让<strong>该非终结符的调用者</strong>匹配下一个运算符。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240828155140155.png"
+                      alt="image-20240620193019542"
+                ></p>
+<p>左结合的，优先级上升一级（比自己的优先级大1），右结合的优先级不变（如右图）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240828155153424.png"
+                      alt="image-20240620195500982"
+                ></p>
+<p>前缀运算符的不是左递归的，而且是右结合的，所以放到基础条件处理，而且调用时，优先级不变（使用自己本身的优先级）。</p>
+<p>后缀运算符是左递归的，左结合，所以到while循环处理，而且优先级上升一级。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240828155205867.png"
+                      alt="image-20240620200343748"
+                ></p>
+<h1 id="语法制导的翻译"><a href="#语法制导的翻译" class="headerlink" title="语法制导的翻译"></a>语法制导的翻译</h1><p>语法制导的翻译是通过语法分析的结果或者说是伴随语法分析进行语义分析。</p>
+<p>SDD是语法制导定义，其中包含与符号关联的属性和与产生式关联的（语义）规则。属性反映了符号的语义信息，而规则定义了属性的产生过程。</p>
+<p>属性分为<strong>综合属性syn和继承属性inh</strong>。综合属性只能从符号对应语法树节点N的<strong>自身</strong>属性或者<strong>子孙节点</strong>来定义，即该符号一定是产生式头的符号。继承属性可以通过符号对应节点<strong>本身</strong>属性，<strong>父节点</strong>，<strong>兄弟节点</strong>来定义。</p>
+<p>只有综合属性的SDD也叫S属性的SDD，两种属性都有的的SDD也叫L属性的SDD。没有副作用的SDD也叫<strong>属性文法</strong>。（副作用：即在规则中执行一些与属性定义无关的语义动作，如属性的打印，对符号表的访问）</p>
+<p>对于终结符的属性定义是词法分析器给予的。语法制导定义只需对非终结符的属性进行定义。</p>
+<p>标注语法树是指在语法分析树的基础上，对节点标注对应的属性值。</p>
+<p>确定语法树上节点属性值的求值顺序是十分关键的。S属性的SDD可以对语法树进行后序遍历（自底向上便利）实现每个节点属性的计算。（如果是LR语法树，则可以在构建语法树的<strong>同时</strong>进行翻译，因为都是自底向上的分析）</p>
+<p>L属性的SDD也可以通过自底向上遍历实现属性的定义。但是继承属性要满足：若在产生式$A\rightarrow a_1a_2a_3$ 中求$a_i$的继承属性$a_i.inh$，则只能使用</p>
+<ol>
+<li>A的继承属性</li>
+<li>$a_i$之前的和本身符号的属性（继承&#x2F;综合）</li>
+<li>上述属性不存在依赖环（属性不能循环依赖）</li>
+</ol>
+<p>在语法树上体现为，节点a只能使用他左上的节点属性。（右边的继承属性传不过来）继承属性可以将信息从语法分析树的一边传递到另一边。</p>
+<p>SDD中可以加入受控的副作用，即在SDT（语法制导的翻译方案）和SDD中找到一个平衡。只要副作用不对属性求值产生影响。如抽象语法树的生成就可以在规则中加入生成结点的语句来实现。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240828155222896.png"
+                      alt="image-20240621090658661"
+                ></p>
+<h2 id="语法制导的翻译方案SDT"><a href="#语法制导的翻译方案SDT" class="headerlink" title="语法制导的翻译方案SDT"></a>语法制导的翻译方案SDT</h2><p>SDT是在产生式体中任意位置插入语义动作的上下文无关文法。语义动作用花括号包括。是对SDD的一种补充。SDD可以被转化为对应的SDT。任何SDD的应用都可以通过SDT实现。</p>
+<p>SDT通过构建一个语法分析树，对其进行前序遍历（从左到右的DFS，自顶向下）来实现。当然也可以在构建的过程中同时实现。当语法动作之前的非终结符全部分析完成后，语义动作立刻执行。</p>
+<ul>
+<li>SDD<ul>
+<li>是关于语言翻译的高层次规格说明</li>
+<li>隐蔽了许多具体实现细节，使用户不必显式地说明翻译发生的顺序</li>
+</ul>
+</li>
+<li>SDT<ul>
+<li>可以看作是对SDD的一种实现，是SDD的具体实施方案,需要紧密关联语法分析时的细节</li>
+<li>将代码片段嵌入产生式，显式地指明了语义规则的计算顺序，以便说明某些实现细节</li>
+</ul>
+</li>
+</ul>
+<h1 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h1><p>中间表示有抽象语法树和三地址代码。这里介绍三地址代码。</p>
+<p>通过语法制导的翻译实现中间代码生成。有简单模式（只有综合属性），困难模式，回填技术等。使用复杂技术可以生成效率更高的中间代码。</p>
+<p>主要的翻译目标有：赋值语句，布尔表达式，if语句，while语句，break，continue语句，布尔表达式短路求值。</p>
+<p>简单模式：</p>
+<h1 id="目标代码生成-RISC-V"><a href="#目标代码生成-RISC-V" class="headerlink" title="目标代码生成 RISC-V"></a>目标代码生成 RISC-V</h1><h3 id="指示符"><a href="#指示符" class="headerlink" title="指示符"></a>指示符</h3><p>三个段 与x86相同 .text .bss .data</p>
+<p>.global main 指定全局符号（入口函数）</p>
+<table>
+<thead>
+<tr>
+<th>.string “str”</th>
+<th>将字符串str放入内存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.byte b1,…,bn</td>
+<td>在内存中连续存储n个单字节</td>
+</tr>
+<tr>
+<td>.half w1,…,wn</td>
+<td>在内存中连续存储n个半字(2字节)</td>
+</tr>
+<tr>
+<td>.word w1,…,wn</td>
+<td>在内存中连续存储n个字(4字节)</td>
+</tr>
+<tr>
+<td>.dword w1,…,wn</td>
+<td>在内存中连续存储n个双字(8字节)</td>
+</tr>
+<tr>
+<td>.float f1,…,fn</td>
+<td>在内存中连续存储n个单精度浮点数</td>
+</tr>
+<tr>
+<td>.double d1,…,dn</td>
+<td>在内存中连续存储n个双精度浮点数</td>
+</tr>
+</tbody></table>
+<p>如：</p>
+<p>$j: \space.word\space0$ 在内存定义一个变量j 初始化为0 ，大小4Byte‘</p>
+<p>$numbers: \space.word\space0，\space1，\space2，\space3，\space4$</p>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>RISC-V 32个通用寄存器 均可以用$X_i$来表示，但也有别名</p>
+<p>zero，0号寄存器，永远为0</p>
+<p>ra（return address），保存函数调用返回地址</p>
+<p>$t_{0-6}$共7个临时寄存器</p>
+<p>pc 下一条指令地址位置</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>常用指令：</p>
+<ol>
+<li><p>用于寄存器和寄存器之间操作的R类型指令</p>
+<p>算术指令：add, sub</p>
+<p>逻辑指令：add, or, xor</p>
+<p>移位指令：sll, srl, sra</p>
+<p>均有立即数版本 可以符号拓展</p>
+</li>
+<li><p>用于短立即数和访存load的I型指令</p>
+</li>
+<li><p>用于访存store的S型指令</p>
+</li>
+<li><p>用于条件跳转的B型指令</p>
+</li>
+<li><p>用于长立即数的U型指令</p>
+</li>
+<li><p>用于无条件跳转的J型指令</p>
+</li>
+</ol>
+<p>**li $t_0$ , 100  #加载立即 数到寄存器  **</p>
+<p>addi t0 , zero , 100 #寄存器和立即数相加 等价于上面的指令</p>
+<p>add t2 , t1 , t0</p>
+<p>sub t6， t2, t5 #将t2-t5并存入t6     没有subi</p>
+<p>mv t1 , t0 #将t0移到t1中</p>
+<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>la t0，j #直接将变量j的地址加载到t0 （绝对地址加载）</p>
+<p>lw t0 , 0(t0) #将t0中保存的地址+偏移量作为首地址，往后获取4个Byte的内容，<strong>偏移量是按照字节为单位计算的</strong></p>
+<p>同理还有lb lh</p>
+<p><strong>可以直接从变量地址加载变量内容 lw t0，a</strong></p>
+<p>la  t0 , result</p>
+<p>sw t6 , 0(t0)    #将t6中的值存到t0保存的位置（即result位置）上</p>
+<p>上面两行<strong>同理可以压缩为 sw t6 , result , t0   (t0是用来暂存result地址的)</strong></p>
+<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><p>bge t0,t1  label   #若t0&gt;&#x3D;t1则跳转</p>
+<p>bltz t5 , label 		#若t5&lt;0则跳转</p>
+<p>j label         #无条件跳转</p>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>根据<strong>a7</strong>寄存器的值来确定系统调用的类型，即<strong>a0-a7是用来传参的</strong>（函数调用也是用它们）</p>
+<p><strong>ecall进行系统调用</strong></p>
+<ol>
+<li>1是进行print打印整数</li>
+<li>4是进行print打印字符串</li>
+</ol>
+<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><p>传参时，将变量的值放入a寄存器中，如</p>
+<ol>
+<li><p>lw a0 , a  #将内存中a变量的值加载到a0中</p>
+</li>
+<li><p>jal ra，max 指令 调用函数max，同时保存返回地址到ra</p>
+<p>可以简化为 jal max ；可以<strong>更简化为call max</strong></p>
+</li>
+<li><p>返回值约定俗成，可以保存在a0，a1</p>
+</li>
+<li><p>函数max调用结束后 使用jalr zero, 0(ra) 跳转到ra指定地址，同时将max下一条指令保存在第一个寄存器（这里保存在zero，可理解为扔掉了）</p>
+<p>可以简化为 jr ra ;可以**更简化为 ret **</p>
+</li>
+</ol>
+<p>使用<strong>栈</strong>来<strong>保存寄存器状态</strong></p>
+<pre><code>如递归调用，可以先保存原寄存器值到栈中，调用函数，完成后再把寄存器值从栈中取出来。
+</code></pre>
+<p>addi sp ,sp -8 #栈指针下移8Byte</p>
+<p>sw a0 , 4(sp)  #将a0保存在栈顶指针处</p>
+<p>sw ra , 0(sp)  #</p>
+<p>call func</p>
+<p>mv t0 , a0   	#保存a0值（不然返回值没了）</p>
+<p>lw a0, 4(sp) 	#还原a0</p>
+<p>lw ra, 0(sp)		#还原ra</p>
+<p>调用者需要自己保存<strong>a0-a7，ra ，以及t寄存器</strong>的值来保证值可以恢复。</p>
+<p>被调用者需要保证sp的值在调用前后不变。压了多少栈就弹出多少</p>
+<p>若调用链长，<strong>ra必须被保存到栈中</strong></p>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大二下软件工程与计算II期末总结</title>
+    <url>/2025/02/17/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<pre><code>写在前面 ：总结内容都是期末考试内容，算是对自己辛苦总结的记录，实际上对显示编码并没有太多帮助
+</code></pre>
+<h1 id="软件工程概述"><a href="#软件工程概述" class="headerlink" title="软件工程概述"></a>软件工程概述</h1><p>软件工程概念</p>
+<p>软件工程发展的六个阶段</p>
+<h1 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h1><p>团队管理的方法</p>
+<p>常见团队结构</p>
+<p>质量保障方法</p>
+<p>配置管理方法</p>
+<h1 id="需求开发阶段"><a href="#需求开发阶段" class="headerlink" title="需求开发阶段"></a>需求开发阶段</h1><p>需求识别：</p>
+<p>业务-用户-系统</p>
+<p>项目-过程-硬件-软件-其他-不切实际的需求</p>
+<p>软件需求识别：</p>
+<p>需求分析方法：</p>
+<ol>
+<li>用例图</li>
+<li>概念类图 -概念类-关联-属性</li>
+<li>顺序图 交互对象-消息-附加条件</li>
+<li>状态图 识别状态-转移触发条件即行为</li>
+</ol>
+<h1 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h1><h2 id="软件设计基础"><a href="#软件设计基础" class="headerlink" title="软件设计基础"></a>软件设计基础</h2><p>软件设计定义</p>
+<p>软件设计的核心思想</p>
+<p>软件设计的三个层次</p>
+<h2 id="软件体系结构设计（基础-设计与构建）"><a href="#软件体系结构设计（基础-设计与构建）" class="headerlink" title="软件体系结构设计（基础-设计与构建）"></a>软件体系结构设计（基础-设计与构建）</h2><h2 id="人机交互设计"><a href="#人机交互设计" class="headerlink" title="人机交互设计"></a>人机交互设计</h2><p>易用性的解释</p>
+<p>设计原则：共8条</p>
+<p>简洁设计</p>
+<p>一致性设计</p>
+<p>低出错率设计</p>
+<p>易记性设计</p>
+<p>可视化设计（包含两条）</p>
+<p>差异性设计</p>
+<p>导航</p>
+<p>反馈</p>
+<h2 id="详细设计基础"><a href="#详细设计基础" class="headerlink" title="详细设计基础"></a>详细设计基础</h2><h2 id="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"><a href="#详细设计的模块化和信息隐藏（概念及面向对象中的应用）" class="headerlink" title="详细设计的模块化和信息隐藏（概念及面向对象中的应用）"></a>详细设计的模块化和信息隐藏（概念及面向对象中的应用）</h2><p>耦合：两个模块之间联系的复杂性</p>
+<p>内聚：模块内部联系的紧密程度</p>
+<p>耦合类型：</p>
+<ol>
+<li>内容耦合：即代码的共享，一个模块可以更改或者依赖另一个模块的代码，如goto 内部类</li>
+<li>公共耦合：变量的共享，如全局变量（直接访问成员变量）</li>
+<li>重复耦合：代码逻辑重复，出现相同代码</li>
+<li>控制耦合：模块之间传递控制逻辑而不是数据</li>
+<li>印记耦合：模块之间传递复杂数据结构且只使用其中一部分</li>
+<li>数据耦合：模块传递简单数据</li>
+</ol>
+<p>内聚类型：</p>
+<ol>
+<li>偶然内聚：模块内操作没有任何关联</li>
+<li>时间内聚：模块内的操作有时间上的关联</li>
+<li>过程内聚：模块内的操作有逻辑上的前后顺序</li>
+<li>逻辑内聚：模块操作在逻辑上是同一种操作</li>
+<li>通信内聚：模块操作是针对同一个数据结构进行的</li>
+<li>功能内聚：只有一个操作或者所有操作完成一个单一目标</li>
+<li>信息内聚：模块内的方法之间是独立的，针对模块内的相同数据结构进行操作（ADT）</li>
+</ol>
+<p>信息隐藏概念：即每一个模块都隐藏一份重要的设计决策，即自己的职责。对外表现为一个契约，其中的设计决策和决策实现逻辑都被隐藏起来。</p>
+<p>隐藏的两类信息：模块根据需求得到的职责；内部具体实现细节。</p>
+<h2 id="面向对象的模块化"><a href="#面向对象的模块化" class="headerlink" title="面向对象的模块化"></a>面向对象的模块化</h2><p>访问耦合的类型（关联）：一个类如何持有另一个类的引用</p>
+<ol>
+<li>隐式访问（级联访问）</li>
+<li>函数参数访问</li>
+<li>成员变量访问</li>
+<li>实现中访问</li>
+<li>无访问</li>
+</ol>
+<p>改善时用到的原则：</p>
+<ol>
+<li>针对接口编程：访问时要访问接口，不进行直接属性访问</li>
+<li>接口最小化原则：避免接口实现类实现了其他类用不到的方法。所以接口方法的创建根据实际类使用的情况创建，只创建用得到的方法，接口适当缩小。</li>
+<li>迪米特法则：避免级联访问对象。当对象的方法返回另一个对象的引用时，不能级联访问。即要委托执行。</li>
+</ol>
+<p>继承耦合的类型：</p>
+<ol>
+<li>修改规格：子类任意修改父类的接口（如删除接口）</li>
+<li>修改实现：子类任意修改父类的实现方法</li>
+<li>精化规格：子类按照特定（相同与父类的）语义修改父类的接口</li>
+<li>精化实现：子类按照特定语义修改父类的实现</li>
+<li>拓展父类接口或者属性</li>
+<li>无继承</li>
+</ol>
+<p>改善时用到的原则</p>
+<ol>
+<li>里氏替换原则LSP：父类可以被子类完全替换</li>
+<li>用组合代替继承：如果只是想复用父类的代码，可以通过组合代替继承，实现更高的灵活性。</li>
+</ol>
+<p>提高内聚的原则：</p>
+<ol>
+<li>集中信息与行为</li>
+<li>单一职责原则</li>
+</ol>
+<h2 id="面向对象方法下的信息隐藏"><a href="#面向对象方法下的信息隐藏" class="headerlink" title="面向对象方法下的信息隐藏"></a>面向对象方法下的信息隐藏</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装职责（即对象的状态信息）和内部实现细节。</p>
+<ol>
+<li>所有数据都是private的，getter和setter方法的提供要注意（可以在其中添加数据计算来返回对应数据，没必要和成员变量一一对应；起名也有讲究，名字不能暴露内部实现）</li>
+<li>不能传递内部复杂数据结构的引用。（比如内部是数组，就不能返回数组，而是返回其中一个元素，不能暴露数组结构：迭代器模式）</li>
+<li>封装其他对象的引用（新建一个相同对象返回）</li>
+<li>封装类型信息（LSP）</li>
+<li>封装潜在变更（将方法中可能会变更的地方独立出去，变成新的接口来调用，这样就不会影响原来的类）</li>
+</ol>
+<h3 id="开闭原则OCP：为变更而设计"><a href="#开闭原则OCP：为变更而设计" class="headerlink" title="开闭原则OCP：为变更而设计"></a>开闭原则OCP：为变更而设计</h3><p>好的设计对拓展开放，对修改关闭：新功能要增加代码，而不是修改代码。</p>
+<p>可通过依赖倒置DIP和多态来实现</p>
+<p>多态：通过将新的需求或者需要更改的需求变为一个新的类，作为程序中某个原有类的子类，通过多态机制实现了拓展&#x2F;变更，且没有修改。</p>
+<p>DIP：高层模块和底层模块都依赖于抽象。即高层调用接口，底层实现接口。双方依赖的都是抽象，如果依赖的是具体类，则需要分离抽象接口，使双方再次依赖抽象。这也可以看出，Dip十分适合在分层体系结构中使用。所以，若原来的设计实现了DIP，则通过构造新的类实现两者依赖的中间抽象类即可实现OCP。</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h4 id="可修改性："><a href="#可修改性：" class="headerlink" title="可修改性："></a>可修改性：</h4><ol>
+<li>狭义的可修改性</li>
+<li>可拓展性</li>
+<li>灵活性（对实现的动态配置）</li>
+</ol>
+<p>通过接口和实现分离；继承（父类有接口，子类来实现）来实现可修改性</p>
+<h4 id="策略模式："><a href="#策略模式：" class="headerlink" title="策略模式："></a>策略模式：</h4><p>定义一组算法，并将算法封装到一个类中，共同实现一个策略接口，可以在具体实现时挑选一个策略即算法进行使用，算法独立于上下文类进行变化。</p>
+<p>设置策略接口和多个策略实现类，上下文类（策略的使用类）拥有策略接口类的引用。</p>
+<p>先创建各个具体的策略实现类，上下文类可能提供一些信息给策略实现类来使用，对上下文类还要有方法来分配特定的策略实现类。</p>
+<h4 id="简单工厂（静态工厂模式）："><a href="#简单工厂（静态工厂模式）：" class="headerlink" title="简单工厂（静态工厂模式）："></a>简单工厂（静态工厂模式）：</h4><p>根据传入的参数不同，创建并返回不同的产品实例；专门负责类的创建。</p>
+<p>产品如果多的话，判断逻辑会比较复杂。</p>
+<h4 id="工厂模式："><a href="#工厂模式：" class="headerlink" title="工厂模式："></a>工厂模式：</h4><p>设置一个工厂接口，多个工厂具体类实现该接口。一个工厂具体类只能创建一种具体的产品。产品的实例化推迟到子类。</p>
+<h4 id="抽象工厂："><a href="#抽象工厂：" class="headerlink" title="抽象工厂："></a>抽象工厂：</h4><p>新增新的抽象产品类；一个具体的工厂可以实现生产多个抽象的产品大类中的产品，不单单只能生产一个产品大类。若只有一个抽象产品类，就会退回工厂模式。</p>
+<p>注意：若新增一个产品体系，就需要在抽象工厂和某个想生产其产品的具体工厂添加对应的实现方法，不符合OCP原则。</p>
+<h4 id="单件模式："><a href="#单件模式：" class="headerlink" title="单件模式："></a>单件模式：</h4><p>让一个类只存在一个实例，自行实例化并向外界提供这个实例。该类的构造方法和对象都是私有的；同时对象的创建只有该类才能进行；提供一个静态方法来为外界提供这个静态的对象。</p>
+<p>具体工厂就是单例模式。</p>
+<h4 id="迭代器模式："><a href="#迭代器模式：" class="headerlink" title="迭代器模式："></a>迭代器模式：</h4><p>是指不暴露底层数据结构实现的同时遍历其中所有元素。</p>
+<p>为一个数据结构创建一个迭代器类，数据结构中提供方法get-Iterator来获取该类。通过对应迭代器类来遍历该数据结构即可，数据结构内部不被暴露。</p>
+<p>首先有一个迭代器接口类，每个迭代器实现这个抽象类。同时有个集合类接口，可以创建迭代器。具体集合类实现集合类接口，创建具体的迭代器类。实现DIP依赖倒置。</p>
+<h1 id="软件构造，测试，交付，维护"><a href="#软件构造，测试，交付，维护" class="headerlink" title="软件构造，测试，交付，维护"></a>软件构造，测试，交付，维护</h1><h1 id="软件构造，代码设计"><a href="#软件构造，代码设计" class="headerlink" title="软件构造，代码设计"></a>软件构造，代码设计</h1><p>软件构造包含的活动：详细设计，编程，测试，调试，代码度量，集成与构建，构造保障活动</p>
+<p>软件构造的实践方法：重构，测试驱动开发，结对编程</p>
+<p>代码改进手段：格式 命名  复杂决策 数据使用</p>
+<p>高可靠性代码：契约性设计 防御性编程 （注意 前置条件和后置条件）使用mock开发单元测试用例</p>
+<h2 id="软件测试，交付"><a href="#软件测试，交付" class="headerlink" title="软件测试，交付"></a>软件测试，交付</h2><p>软件测试方法：黑盒测试 白盒测试（细分方法） 主要用于需求中的功能测试</p>
+<p>集成测试  stub（主要是硬编码+driver</p>
+<p>单元测试 mock （模拟类）+driver</p>
+<p>Junit会用</p>
+<h3 id="交付"><a href="#交付" class="headerlink" title="交付"></a>交付</h3><p>用户文档：是指为用户编写的软件系统操作方式和参考指南，如用户使用手册或者联机参考手册。</p>
+<p>系统文档：侧重于系统维护方面的内容，包含性能调整，用户授权和系统安全，故障维护等等方面。是为系统维护人员提供的文档，需要涉及软硬件组成，网络连接方式，授权管理等内容。</p>
+<h2 id="软件维护，演化"><a href="#软件维护，演化" class="headerlink" title="软件维护，演化"></a>软件维护，演化</h2><p>维护的重要性：</p>
+<ol>
+<li>软件系统的需求可能变化，导致软件系统提供的作用降低</li>
+<li>随着软件生命周期的延长，软件系统的外部环境可能变化，影响软件使用</li>
+<li>软件总是有漏洞，发现后要及时处置</li>
+</ol>
+<p>开发可维护软件的方法</p>
+<ol>
+<li>聚焦于软件的变更性：时刻注意需求的变更；设计软件遵循开闭原则，为变更而设计：</li>
+<li>降低维护困难：维护需求跟踪链，有充足的技术文档帮助说明软件系统；保障代码可读性</li>
+</ol>
+<h3 id="演化"><a href="#演化" class="headerlink" title="演化"></a>演化</h3><p>软件演化生命周期模型</p>
+<p>初始开发–演化–服务–逐渐淘汰–停止</p>
+<p>逆向工程</p>
+<p>注重理解软件系统。通过分析软件系统的构件和连接方式，通过更高层次的抽象重新构建系统，即抽取需求分析和设计内容，不关注实现，从而理解系统的大致结构</p>
+<p>再工程</p>
+<p>检查和改造一个软件系统，用新的模式及实现复原目标系统。注重软件系统的修改，往往需要一个前道的逆向工程。</p>
+<h2 id="软件开发过程模型"><a href="#软件开发过程模型" class="headerlink" title="软件开发过程模型"></a>软件开发过程模型</h2><p>软件生命周期模型</p>
+<p>为了从宏观上理解软件的开发阶段，从生产到废弃将软件的开发分为几个阶段，每个阶段都有其目标和负责人等，这些阶段就是软件生命周期</p>
+<h3 id="构建-修复模型"><a href="#构建-修复模型" class="headerlink" title="构建-修复模型"></a>构建-修复模型</h3><p>小型系统的开发，通过不断的修改和重复构建实现系统。</p>
+<p>不注重可维护性 复杂度 需求</p>
+<h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p>将开发划分为几个迭代过程，使得开发者可以集中精力开发其中一个部分而不用关注复杂的宏观过程，是文档驱动的。</p>
+<p>缺点：文档的期望过高，线性开发流程不切实际；</p>
+<p>每个阶段划分的粒度过大，往往很久之后才能发现问题；</p>
+<h3 id="增量迭代模型"><a href="#增量迭代模型" class="headerlink" title="增量迭代模型"></a>增量迭代模型</h3><p>将开发流程划为几个并行的迭代的瀑布模型同时进行开发，在项目初期就有明确的项目前景和范围。</p>
+<p>迭代式开发符合项目开发流程，具有实用性；并行开发的速度更快，提高了开发效率；持续交付可及时得到反馈，提高了满意度</p>
+<p>当需求多变的复杂情况下，无法在开始时确定项目的大致前景</p>
+<h3 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h3><p>在增量迭代的基础上，先确定核心需求开发出核心系统，得到用户反馈后继续迭代下一个系统。</p>
+<p>更加适合需求多变的场景。</p>
+<p>缺点：难以在项目开始时确定大致的项目前景和核心需求；后续迭代需要重视分析和构造，否则退化为构建修改</p>
+<h3 id="原型模型"><a href="#原型模型" class="headerlink" title="原型模型"></a>原型模型</h3><p>原型分为演化式原型和抛弃式原型，原型模型强调抛弃式原型的使用而不是演化式原型</p>
+<p>通过提前构造抛弃式原型，将未来应用于现在，减少应为知识的局限性导致的不确定性。</p>
+<p>缺点：原型构造代价大 不舍得抛弃</p>
+<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p>风险驱动，完全按照解决风险的方式进行软件开发活动。存在4个阶段通过构建原型的方式进行风险解决。</p>
+<p>减少了由于风险产生的项目出错与损失。</p>
+<p>缺点：螺旋模型通过原型解决风险，有着和原型一样的缺点；螺旋模型的项目复杂度高，项目管理难以进行</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录一次向量数据库的部署过程</title>
+    <url>/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>使用wsl2+ docker-desktop + milvus-2.3.12进行部署。wsl2和docker-desktop的安装部分不再赘述，主要看milvus。从milvus的release网站找到对应版本下载docker-compose文件即可。对包含docker-compose的文件夹下创建如图所示几个文件夹</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">|--conf</span><br><span class="line">|--db</span><br><span class="line">|--logs</span><br><span class="line">|--pic</span><br><span class="line">|--volumes</span><br><span class="line">|--wal</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure></div>
+
+<p>然后使用在文件夹路径下使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure></div>
+
+<p>等待docker下载完毕，即可部署完成。</p>
+<h2 id="Springboot整合milvus"><a href="#Springboot整合milvus" class="headerlink" title="Springboot整合milvus"></a>Springboot整合milvus</h2><p>在maven中添加适配docker中milvus部署版本的milvus-sdk-java，适配版本要到官网上java-sdk的部分去找。这里使用的版本是2.3.4，需要在maven中添加以下内容。</p>
+<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.milvus<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>milvus-sdk-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--排除自带的log4j 防止冲突--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-slf4j-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.24.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置一个Milvus客户端，由springBoot管理"><a href="#配置一个Milvus客户端，由springBoot管理" class="headerlink" title="配置一个Milvus客户端，由springBoot管理"></a>配置一个Milvus客户端，由springBoot管理</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MilvusConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.host&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.username&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;milvus.password&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MilvusServiceClient <span class="title function_">milvusServiceClient</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MilvusServiceClient</span>(</span><br><span class="line">                ConnectParam.newBuilder()</span><br><span class="line">                        .withHost(host)</span><br><span class="line">                        .withPort(port)</span><br><span class="line">                        .withAuthorization(username, password)</span><br><span class="line">                        .build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="milvus的service接口和对应实现"><a href="#milvus的service接口和对应实现" class="headerlink" title="milvus的service接口和对应实现"></a>milvus的service接口和对应实现</h3><p>这里依据要求写了若干个service方法，如创建collection（可以理解为表）、创建索引（插入和搜索的前提操作）、通过id查询向量、搜寻与给定向量最相似的前K个向量，判断是否为可用的collection、以及删除collection。共6个方法</p>
+<p>因为导入数据的方法需要自己来写，无法使用cli工具（milvus-cli是为milvus-lite提供的，而这里部署的是milvus-standalone，没有cli工具），所以额外实现了从CSV文件读取向量数据，以及向部署好的向量数据库插入向量的2个方法。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MilvusService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">create</span><span class="params">(String collectionName, String desc)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">createIndex</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Long&gt; <span class="title function_">search</span><span class="params">(String collectionName, <span class="type">int</span> topK, List&lt;List&lt;Float&gt;&gt; vectorList)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">getVectorById</span><span class="params">(String collectionName, Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">hasCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dropCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">readVectorData</span><span class="params">(String filePath)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insertVectors</span><span class="params">(String collectionName, List&lt;List&lt;Float&gt;&gt; vectorList)</span> ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="导入初始数据"><a href="#导入初始数据" class="headerlink" title="导入初始数据"></a>导入初始数据</h3><p>导入数据时，直接使用测试文件中的imprtData方法（记得改变csv文件路径为本机路径）即可。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span> <span class="comment">// 导入数据使用该方法</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">importData</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">&quot;D:\\desktop\\python\\BigData\\handle_data\\features.csv&quot;</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">collectionName</span> <span class="operator">=</span> <span class="string">&quot;linkedpaper&quot;</span>;</span><br><span class="line">	milvusService.create(collectionName,<span class="string">&quot;CREATION&quot;</span>);</span><br><span class="line">	milvusService.createIndex(collectionName);</span><br><span class="line">	List&lt;List&lt;Float&gt;&gt;  vectorList= milvusService.readVectorData(path);</span><br><span class="line">	milvusService.insertVectors(<span class="string">&quot;linkedpaper&quot;</span>,vectorList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>原理：通过java-stream进行快速读入，然后分批对部署的milvus进行向量插入，速度很快。</p>
+<h3 id="查询近似向量"><a href="#查询近似向量" class="headerlink" title="查询近似向量"></a>查询近似向量</h3><p>对paperService的findSimilar方法进行了实现，直接调用即可。</p>
+<p>原理：先通过id找到对应paper的向量，然后通过向量在数据库中寻找最相近的前K个向量，返回对应的id即可。是通过欧氏距离（L2）来度量相似性的。 </p>
+]]></content>
+      <categories>
+        <category>向量数据库</category>
+      </categories>
+      <tags>
+        <tag>实践记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统概念总结</title>
+    <url>/2025/02/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h3 id="复杂指令集-cisc"><a href="#复杂指令集-cisc" class="headerlink" title="复杂指令集(cisc)"></a>复杂指令集(cisc)</h3><p><em>CPU位数 &#x3D; CPU中寄存器的位数 &#x3D;数据总线位数&#x3D; CPU一次并行处理的数据宽度 ，CPU位数 &gt;&#x3D;操作系统位数 ，地址总线位数决定了CPU在内存中的寻址能力</em></p>
+<p>8086 16位</p>
+<p>x86 32位</p>
+<p>IA-32 32位</p>
+<p>x86-64 x64 intel64 amd64 均为64位，代表同一个指令集</p>
+<h3 id="精简指令集-risc"><a href="#精简指令集-risc" class="headerlink" title="精简指令集(risc)"></a>精简指令集(risc)</h3><p>arms</p>
+<p>mips</p>
+<p>risc-V</p>
+<h3 id="大小端存储"><a href="#大小端存储" class="headerlink" title="大小端存储"></a>大小端存储</h3><p>大端是高位<strong>字节</strong>低地址，小端是高位<strong>字节</strong>高地址。注意数据是<strong>左高右低</strong>，即<strong>按字节划分数据</strong>，左边为高位</p>
+<p><em>例： rax &#x3D; 0x12345678</em></p>
+<p>对于 mov dword[bin_num + 4] , rax 这个指令将rax寄存器中的内容存入内存，x86是<strong>小端架构</strong>，先将寄存器高位的字节存到内存的高地址空间，那么内存中从低位bin_num+1到高位的bin_num+4就是这个样子 : <strong>78,56,34,12</strong></p>
+<h2 id="8086寄存器种类"><a href="#8086寄存器种类" class="headerlink" title="8086寄存器种类"></a>8086寄存器种类</h2><p>数据寄存器： ax（累加寄存器） bx（基址寄存器） cx（循环计数寄存器） dx（数据寄存器）<br>指针寄存器： sp（栈顶指针） bp（基址指针）<br>变址寄存器： si （源地址寄存器） di（目标地址寄存器）<br>段寄存器： ds（数据段寄存器） cs（代码段寄存器） ss（堆栈段寄存器） es（附加寄存器）<br>控制寄存器： ip（指令寄存器） flag（标志位寄存器）</p>
+<p>注意：</p>
+<ol>
+<li><p><strong>栈顶指针总是指向一个数据而不是下一个空位，即push ax是先将sp-2 再向ss：sp中送入数据。</strong></p>
+</li>
+<li><p>栈顶在低地址，栈底在高地址，栈从高地址向低地址生长</p>
+</li>
+<li><p>sp存储的是相对于栈顶的偏移地址，栈顶的地址存在于ss中（堆栈段的起始地址）</p>
+</li>
+<li><p>ip存储的是相对于代码段初始位置的偏移地址，CPU当前执行的指令是cs：ip</p>
+</li>
+<li><p><strong>在指令中给出的地址都是偏移量，对应段基址是默认自动加上的，也可以显式的使用段超越的方式说明</strong></p>
+<p><strong>如mov ax , es:[3000H] 显式使用附加段es</strong></p>
+</li>
+<li><p>几乎每个通用寄存器都有<strong>它的特殊用法，这点通过他的名称可以看出</strong></p>
+</li>
+</ol>
+<h2 id="8086寻址方式–寻找指令所需操作数"><a href="#8086寻址方式–寻找指令所需操作数" class="headerlink" title="8086寻址方式–寻找指令所需操作数"></a>8086寻址方式–寻找指令所需操作数</h2><ol>
+<li><p>立即寻址         mov ax,8</p>
+</li>
+<li><p>寄存器寻址      mov ax,bx                           (bx保存了操作数8)</p>
+</li>
+<li><p>直接寻址        mov ax,[0x8890]                    0x8890是段内偏移量 直接给出 也可用变量代替</p>
+</li>
+<li><p>寄存器间接寻址   mov cx, [bx]    bx中保存了段内偏移地址,<strong>默认为数据段</strong>，si，di寄存器均默认数据段<br>bp名义上不能间接寻址 只是默认偏移量为0的相对寻址，<strong>且bp默认为栈段的偏移量</strong></p>
+</li>
+<li><p>寄存器相对寻址  mov cx,count[bx] 或 mov cx,[bx+count] 即在寄存器间接寻址的基础上在偏移地址多加一个偏移量count</p>
+</li>
+<li><p>基址变址寻址   mov cx,[bx+di]                        使用一个基址+一个变址作为偏移量使用，段地址由基址寄存器来确定</p>
+</li>
+<li><p>基址变址相对寻址 mov cx,count[bx+di]                    在基址变址的基础上增加一个偏移量count</p>
+</li>
+</ol>
+<h2 id="汇编中三种函数传参方式"><a href="#汇编中三种函数传参方式" class="headerlink" title="汇编中三种函数传参方式"></a>汇编中三种函数传参方式</h2><ol>
+<li>通过指定寄存器传参</li>
+<li>通过指定内存空间传参</li>
+<li>通过栈传参</li>
+</ol>
+<p>如：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">push ax  ;占据2byte</span><br><span class="line">push bx	 ;占据2byte</span><br><span class="line">call add ;占据2byte（即该条指令的地址，现在是16位）</span><br><span class="line"></span><br><span class="line">add:</span><br><span class="line">	mov bp,sp</span><br><span class="line">	mov ax,[bp+6] ;</span><br><span class="line">	add ax,[bp+4]</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="x86汇编的两种风格"><a href="#x86汇编的两种风格" class="headerlink" title="x86汇编的两种风格"></a>x86汇编的两种风格</h2><h4 id="1-语法结构"><a href="#1-语法结构" class="headerlink" title="1. 语法结构"></a>1. 语法结构</h4><ul>
+<li><strong>Intel 风格</strong>：<ul>
+<li>操作数顺序：指令通常是 <code>操作码 目的, 源</code>，例如：<code>MOV EAX, EBX</code>。</li>
+<li>使用 <code>[]</code> 表示内存地址，例如：<code>MOV EAX, [EBX]</code>。</li>
+<li>常量与寄存器比较简单，不会添加额外的前缀。</li>
+<li>注释为 ；</li>
+</ul>
+</li>
+<li><strong>AT&amp;T 风格</strong>：<ul>
+<li>操作数顺序：指令通常是 <code>操作码 源, 目的</code>，例如：<code>movl %ebx, %eax</code>。</li>
+<li>使用 <code>()</code> 表示内存地址，例如：<code>movl (%ebx), %eax</code>。</li>
+<li>寄存器名前加 <code>%</code> 符号，指明这是一个寄存器。</li>
+<li>注释为 #</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据大小"><a href="#2-数据大小" class="headerlink" title="2. 数据大小"></a>2. 数据大小</h4><ul>
+<li>Intel 风格<ul>
+<li>数据大小通常是隐式的，操作指令会自然理解操作的数据类型（如字节、字、双字等）。</li>
+</ul>
+</li>
+<li>AT&amp;T 风格<ul>
+<li>数据大小在操作码中明确指定，一般用后缀表示，如 <code>b</code>（字节）, <code>w</code>（字），<code>l</code>（双字），如 <code>movb</code>, <code>movw</code>, <code>movl</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-常量表示"><a href="#3-常量表示" class="headerlink" title="3. 常量表示"></a>3. 常量表示</h4><ul>
+<li><strong>Intel 风格</strong>：直接使用数字，如：<code>MOV EAX, 5</code>。</li>
+<li><strong>AT&amp;T 风格</strong>：常量前加 <code>$</code> 符号，例如：<code>movl $5, %eax</code>。</li>
+</ul>
+<h2 id="操作系统的启动过程"><a href="#操作系统的启动过程" class="headerlink" title="操作系统的启动过程"></a>操作系统的启动过程</h2><h4 id="org-address-伪指令"><a href="#org-address-伪指令" class="headerlink" title="org  address 伪指令"></a>org  address 伪指令</h4><p>如org 07c00h，写在汇编代码的开头，告诉当前这段代码会放在07c00h处。所以，如果之后遇到需要绝对寻址的指令，那么绝对地址就是07c00h加上相对地址。<br>• 绝对地址：内存的实际位置（先不考虑内存分页一类逻辑地址）。<br>• 相对地址：当前指令相对第一行代码的位置。</p>
+<h4 id="int-10h终端调用"><a href="#int-10h终端调用" class="headerlink" title="int 10h终端调用"></a>int 10h终端调用</h4><p>BIOS对屏幕所提供的显示服务。使用int 10H中断服务程序时，先要进行一些简单的配置，比如指定功能号和子功能号。其中<strong>寄存器AH表示的就是功能号，AL是子功能号</strong>，当一切设定好之后再调用 int 10H。</p>
+<p><strong>此时中断处理使用中断向量表，是Bios提供中断处理程序</strong></p>
+<h4 id="磁盘位置分配"><a href="#磁盘位置分配" class="headerlink" title="磁盘位置分配"></a>磁盘位置分配</h4><p>早期的16位Intel 808处理器只能寻址1MB的物理内存（<strong>16位段寄存器地址左移4位+偏移量</strong>）。所以早期PC的物理地址空间将从<code>0x00000000</code>开始，到<code>0x000FFFFF</code>结束，而不是<code>0xFFFFFFFF</code>（32位）。</p>
+<p>标记为<code>Low Memory</code>的<code>640KB</code>空间是早期PC能够使用的唯一随机访问内存（RAM）。</p>
+<p>640KB到1MB之间的区域由<strong>硬件预留</strong>，用于特殊用途，如视频显示缓冲区（显存）和一些系统固件。</p>
+<p>这个保留区域中最重要的部分是**Basic Input&#x2F;Output System (BIOS)**（硬件厂商在硬件上自带的一段启动的代码），它占用了从<code>0x000F0000</code>到<code>0x000FFFFF</code>的64KB区域。</p>
+<p>早期BIOS保存在真正的只读存储器（ROM）中，但现在的PC将BIOS存储在可更新的闪存中（不管是闪存还是ROM，都是在主板上）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904142807635.png"
+                      alt="image-20240904142807635"
+                ></p>
+<p>随着技术的发展，Intel最终使用<code>80286</code>和<code>80386</code>处理器突破了1MB的寻址，它们分别支持16MB和4GB的物理地址空间，但PC架构师仍然<strong>保留了原始的1MB物理地址空间布局</strong>，以确保与现有软件的<strong>向后兼容性</strong>。</p>
+<p>因此，现代pc在物理内存中有一个从<code>0x000A0000</code>到<code>0x00100000</code>的一个洞，将RAM划分为 “<code>low memory</code>” 或 “<code>conventional memory</code>” （前640KB）和 “<code>extended memory</code>” （其他的部分）。</p>
+<h3 id="Bios的全过程"><a href="#Bios的全过程" class="headerlink" title="Bios的全过程"></a>Bios的全过程</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904150638625.png"
+                      alt="image-20240904150638625"
+                ></p>
+<p><strong>开机第一条指令：在物理地址 FFFF0H（等价于0FFFF:0000H）处执行跳转指令(这是硬件厂商规定的地址，操作系统必须按照这个来)</strong> 将指令指针寄存器跳转到BIOS代码所在的位置，开始执行BIOS程序；</p>
+<p>POST（自检）过程：负责对系统进行基本的检测和初始化操作，如激活显卡、检查内存安装量等。</p>
+<p><strong>自举过程</strong>：<strong>BIOS从一些适当的位置（比如硬盘）加载引导程序，检查魔数</strong>（第0磁头 第0磁道 第1扇区是否以0x55aa两个字节结尾）把MBR的内容从磁盘调入内存地址为0x7c00的地方，<strong>关闭保护模式，回到实模式</strong></p>
+<p>最后跳转到7c00h这里，执行MBR代码。</p>
+<p><strong>总结：加电后的第一条指令都是跳转到BIOS代码进行开机自检，完成后寻找可启动设备（处于实模式）：引导MBR进入内存并执行MBR，而MBR要进入保护模式并将OS内核加载到内存中，并跳转到这个内核的执行代码。</strong> 我们能编程的地方就是MBR和OS内核，但是有些人认为MBR512字节太小，不够编程使用，所以就又加入一个loader，先用MBR加载loader，再用loader加载内核。</p>
+<p>内存区更详细的补充：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904151205350.png"
+                      alt="image-20240904151205350"
+                ></p>
+<p>各个段寄存器在最开始保存什么内容？ 不固定，而且可以设置，不用太注意</p>
+<h3 id="可执行的MBR"><a href="#可执行的MBR" class="headerlink" title="可执行的MBR"></a>可执行的MBR</h3><p>刚刚我们的mbr.S是怎么变成可以被QEMU执行的MBR的呢？</p>
+<p>说到底原理其实很简单，MBR本质就是一串<strong>可以被执行的指令再加上魔数</strong>。</p>
+<p>所以只需要<strong>先编译成可执行文件，再把里面的指令抽出来，最后再加上魔数</strong>就可以了。</p>
+<p>所以首先用<code>gcc</code>把<code>mbr.S</code>编译成<code>.o</code>的可重定位文件，然后再用<code>ld</code>链接成可执行的<code>ELF</code>文件，然后我们要从<code>ELF</code>里抽取指令，<strong>指令都在<code>.text</code>节里，可以用<code>objcopy</code>抽取然后以二进制文件的形式存在一个<code>bin</code>文件里</strong>。</p>
+<p>最后我们用一个小脚本<code>genboot.pl</code>来给这个文件扩充成510字节再填充最后的魔数，就得到我们的MBR了。</p>
+<h2 id="保护模式下的寻址"><a href="#保护模式下的寻址" class="headerlink" title="保护模式下的寻址"></a>保护模式下的寻址</h2><h4 id="实模式到保护模式"><a href="#实模式到保护模式" class="headerlink" title="实模式到保护模式"></a>实模式到保护模式</h4><p>设置段表GDT，再设置CR0寄存器最低位为1</p>
+<p>GDT：包含很多段描述符</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">|       ...      |</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>段描述符：</p>
+<p><strong>注意 这里默认低位要放到低地址 和大端小端无关。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DESCRIPTORS USED FOR APPLICATIONS CODE AND DATA SEGMENTS</span><br><span class="line"></span><br><span class="line">  31                23                15                7               0</span><br><span class="line"> +-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------+</span><br><span class="line"> |                 | | | |A|         | |     | |     | |                 |</span><br><span class="line"> |   BASE 31..24   |G|X|O|V| LIMIT   |P| DPL |S| TYPE|A|  BASE 23..16    | 4</span><br><span class="line"> |                 | | | |L| 19..16  | |     | |     | |                 |</span><br><span class="line"> |-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------|</span><br><span class="line"> |                                   |                                   |</span><br><span class="line"> |        SEGMENT BASE 15..0         |       SEGMENT LIMIT 15..0         | 0</span><br><span class="line"> |                                   |                                   |</span><br><span class="line"> +-----------------------------------+-----------------------------------+</span><br><span class="line"></span><br><span class="line">           A      - ACCESSED</span><br><span class="line">           AVL    - Available and Reserved Bit，通常设为 0。</span><br><span class="line">           DPL    -描述符特权级，取值 0-3 共 4 级；0 特权级最高，3 特权级最低，表示访问该段时 CPU 所处于的最低特权级</span><br><span class="line">           G      - 粒度，说明段限长的单位是什么（1--&gt;4KB或者0--&gt;1B）</span><br><span class="line">           P      - 存在位，P 为 1 表示段在内存中。这一项设置为 1。</span><br><span class="line">           S：	描述符类型标志，S 为 1 表示代码段或数据段，S 为 0 表示系统段(TSS，LDT)和门描述符。目前我们只需要代码段和数据段，因此设置为 1。</span><br><span class="line">           X 		意为这一段使用操作数位数，为 1 时使用 32 位操作数，为 0 时使用 16 位操作数。这一项设置为 1。</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="寻址过程"><a href="#寻址过程" class="headerlink" title="寻址过程"></a>寻址过程</h4><p>通过GDTR得到GDT的首地址和限长（在将GDT设定在内存的某个位置后，可以<strong>通过 LGDT 指令将GDT的入口地址装入此寄存器。</strong>）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">                   GDT REGISTER （GDTR）</span><br><span class="line">+--------------------------------+---------------+</span><br><span class="line">|            GDT BASE  	         |   GDT LIMIT   |</span><br><span class="line">+--------------------------------+---------------+</span><br><span class="line"> 47                               15            0</span><br></pre></td></tr></table></figure></div>
+
+<p>首先给出<strong>48位逻辑地址（虚拟地址）</strong>， 其中包含了<strong>高16位的段选择子（从段寄存器中得来）</strong>和<strong>低位的段内偏移地址</strong>（也就是程序中写的地址），使用段选择子找到对应段的起始地址，加上偏移地址就是线性地址了</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 段选择子</span><br><span class="line"> 15                      3   1 0</span><br><span class="line">+-------------------------+-+---+</span><br><span class="line">|                         |T|   |</span><br><span class="line">|          INDEX          | |RPL|</span><br><span class="line">|                         |I|   |</span><br><span class="line">+-------------------------+-+---+</span><br><span class="line">TI - TABLE INDICATOR, 0 = GDT, 1 = LDT</span><br><span class="line">RPL - REQUESTOR&#x27;S PRIVILEGE LEVEL</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li>首先看<strong>段选择子第三位是0还是1，分别对应GDT和LDT方式寻址</strong></li>
+<li>如果是GDT 先要在GDTR（48位）中找到<strong>内存中GDT表的起始地址</strong>，然后<strong>加上段选择子中13位偏移量取得段描述符</strong>，得到<strong>目标段的起始地址</strong>，然后加上一开始的段内偏移量即可得到线性地址</li>
+<li>如果是LDT，首先还是在<strong>GDTR寄存器中获得GDT起始地址</strong>，但是<strong>要用LDTR中的偏移量作偏移</strong><br><strong>，得到对应整个LDT的段描述符</strong>（对应的LDT的起始地址），然后<strong>再</strong>重复上面的操作，在LDT中得到目标段的描述符，用其中的起始地址+偏移量得到线性地址（多做一些预备操作）</li>
+</ol>
+<p>总结：GDT中保存了<strong>系统段描述符</strong>和<strong>用户（进程）对应的LDT的描述符</strong>（注意是一整个LDT），而<strong>LDTR中时刻保存本进程的LDT在GDT中的选择子</strong>，可以用LDTR找到存在于GDT中的LDT描述符，进而找到目标LDT的起始内存地址。</p>
+<p><strong>（段选择符在段寄存器中 任何变量在创建时的地址都是偏移量 需要+本段的段选择符对应的段基址才可以）</strong></p>
+<h2 id="Linux的可执行文件ELF"><a href="#Linux的可执行文件ELF" class="headerlink" title="Linux的可执行文件ELF"></a>Linux的可执行文件ELF</h2><p>我们可以将ELF可执行目标文件看作由三个部分组成：ELF头、程序头表、其余的ELF文件体。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240905111831499.png"
+                      alt="image-20240905111831499"
+                ></p>
+<p>在<strong>汇编程序中用.section声明的Section会成为目标文件中的Section</strong>，此外汇编器还会自动添加一些Section（比如符号表）。Segment是指在<strong>程序运行时</strong>加载到内存的<strong>具有相同属性的区域</strong>，由一个或多个Section组成，比如有两个Section都要求加载到内存后可读可写，就属于同一个Segment。</p>
+<p>有些Section只对汇编器和链接器有意义，在运行时用不到，也不需要加载到内存，那么就不属于任何Segment。</p>
+<p><strong>目标文件需要链接器做进一步处理</strong>，所以一定有Section Header Table；<strong>可执行文件需要加载运行</strong>，所以一定有Program Header Table；而<strong>共享库既要加载运行，又要在加载时做动态链接</strong>，所以既有Section Header Table又有Program Header Table。所以ELF文件既可以是目标文件.o ,也可以是可执行文件。</p>
+<p>#####下面注重可执行文件ELF的介绍</p>
+<p>ELF头的结构：一个结构体</p>
+<p>关键部分：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ElfN_Addr     e_entry;        // 程序的入口地址</span><br><span class="line">ElfN_Off      e_phoff;        // 程序头表在ELF文件中的偏移量</span><br><span class="line">uint16_t      e_phentsize;    // 程序头表中每个表项的大小</span><br><span class="line">uint16_t      e_phnum;        // 程序头表中包含表项的个数</span><br></pre></td></tr></table></figure></div>
+
+<p>ELF program table表项结构</p>
+<p>关键部分：</p>
+<h5 id="ELF文件的装载"><a href="#ELF文件的装载" class="headerlink" title="ELF文件的装载"></a>ELF文件的装载</h5><p>装载的过程简言之就是将<strong>ELF文件中的程序和数据段等需要装载到内存中的segment拷贝到内存中合适位置的过程</strong>。在<strong>ELF文件中存储了一个数组，叫做程序头表</strong>（program header table），其在ELF文件中偏移量由ELF Header中的<code>e_phoff</code>域给出。</p>
+<p>程序头表也是一个结构体：</p>
+<p>其中，<code>p_type</code>指定了表项的类型，对于<strong>类型为<code>PT_LOAD</code>类型的表项，我们需要对其进行装载。</strong></p>
+<p><em>装载过程可以简述为，对于<code>p_type == PT_LOAD</code>的表项，将ELF文件中起始于<code>p_offset</code>，大小为<code>p_filesz</code>字节的数据拷贝到内存中起始于<code>p_vaddr</code>的位置，并将内存中剩余的<code>p_memsz - p_filesz</code>字节的内容清零。</em></p>
+<p><code>readelf</code>命令查看ELF文件的内容，<code>readelf</code>提供了两个视角，一个是<strong>面向链接过程的section视角</strong>（<code>readelf -S</code>），另一个是<strong>面向执行的segment视角（</strong><code>readelf -l</code>）。在这里我们关注后一个视角即可。</p>
+<p><strong>总结装载过程</strong>：</p>
+<ol>
+<li>读入位于ELF文件最开始位置（偏移量为0）处的ELF头，并根据其中的值e_phoff定位程序头表在ELF文件中的位置；</li>
+<li>顺序扫描程序头表中的每一个表项，遇到需要装载的表项时，根据表项描述的内容将相应的数据拷贝到内存相应位置。</li>
+</ol>
+<h5 id="ELF文件指令"><a href="#ELF文件指令" class="headerlink" title="ELF文件指令"></a>ELF文件指令</h5><p>readelf -a 显示全部内容</p>
+<p>readelf -l 显示segment</p>
+<p>readelf -S 显示section</p>
+<p>objdump -d 反编译二进制文件，如可执行elf文件</p>
+<p>例如：objdump -d kernel &gt; 1.txt &#x2F;&#x2F; 内容输出到1.txt</p>
+<h3 id="动态链接和静态链接"><a href="#动态链接和静态链接" class="headerlink" title="动态链接和静态链接"></a>动态链接和静态链接</h3><p>编译阶段：首先，源代码文件被编译器编译成对象文件（通常是.o或.obj文件），这些文件包含了程序代码的机器语言表示，<strong>但还没有解决外部引用</strong>。</p>
+<p>链接：将<strong>目标文件（包含可重定位目标程序，从汇编翻译得到的机器语言）</strong>中使用到的<strong>库函数或</strong>者其他<strong>不包含在该文件中的函数</strong>（及数据）链接到该文件中，<strong>符号解析</strong>伴随这个过程；将每个符号的定义与具体在内存中的位置进行关联（<strong>重定位</strong>，将变量偏移量即相对地址变为虚拟地址？），发生了空间和地址分配。</p>
+<p>目标文件(.o)三种格式：</p>
+<ul>
+<li>可重定位目标文件：包含二进制代码和数据，其形式可以和其他目标文件进行合并，创建一个可执行目标文件</li>
+<li>可执行目标文件：包含二进制代码和数据，可直接被加载器加载执行</li>
+<li>共享目标文件：可被动态的加载和链接</li>
+</ul>
+<h4 id="静态链接——链接时，将库代码全部加入到可执行文件"><a href="#静态链接——链接时，将库代码全部加入到可执行文件" class="headerlink" title="静态链接——链接时，将库代码全部加入到可执行文件"></a>静态链接——链接时，将库代码全部加入到可执行文件</h4><ol>
+<li>制作静态库文件</li>
+</ol>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">ar -cvr libmylib.a my_lib.o 	# 静态库文件以lib开头 .a作为拓展名 libXXX.a</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>链接</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ld -o test test.o -L ./ -lmylib  # test.o是主文件 -L指定库文件的路径，-l之后紧接着库文件名（去掉开头lib和结尾.a）</span><br></pre></td></tr></table></figure></div>
+
+<p>注意！使用 ld 而不是 gcc 这意味着必须手动指定所有链接时需要的系统库和路径，因为 ld 不会像 gcc 那样自动添加标准的系统库和其他必要的链接选项。</p>
+<h4 id="动态链接——在执行时，链接文件加载库"><a href="#动态链接——在执行时，链接文件加载库" class="headerlink" title="动态链接——在执行时，链接文件加载库"></a>动态链接——在执行时，链接文件加载库</h4><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p><strong>进程是对程序一次运行的抽象，进程管理了进程运行所需要的各种资源</strong>。</p>
+<p>进程的管理依靠<strong>进程控制块（PCB）</strong></p>
+<h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="中断向量"><a href="#中断向量" class="headerlink" title="中断向量"></a>中断向量</h3><p>在<strong>实模式</strong>下，针对每一种中断源，标记1种中断向量，共<strong>256</strong>个，中断向量顺序存储在内存特定的位置，包含了<strong>中断程序的起始地址。</strong> <strong>程序通过int指令+中断类型码</strong>实现调用中断程序。相应中断时，由中断系统硬件计算并提供具体向量地址，处理机根据地址转入相应的中断程序。</p>
+<p>我们<strong>把每个中断服务程序进行编号</strong>，这个号就代表一个中断服务程序，就是中断类型码。这个中断类型码是计算机用来查找中断向量用的。</p>
+<p>中断向量表是<strong>8086内存中最低的1K空间</strong>，保存了256个中断向量，<strong>每个4B</strong>，低位存偏移量，高位是段地址 通过实模式寻址方式找到入口程序。 前32个中断硬件系统预留 后224个自定义。</p>
+<h3 id="中断描述符表-IDT"><a href="#中断描述符表-IDT" class="headerlink" title="中断描述符表 IDT"></a>中断描述符表 IDT</h3><p>在<strong>保护模式</strong>下，存在于内存中，其中保存了<strong>中断描述符</strong>（8字节）。每个<strong>中断或者异常对应一个中断描述符</strong>，共256个，占用2K空间，<strong>也是通过中断类型码得到对应的中断描述符</strong>，中断描述符记录了<strong>中断程序的起始地址，</strong> <strong>属性</strong>等等信息，共分为<strong>任务门，中断门和自陷门</strong>，CPU对不同的门处理方式不同。中断描述符表的<strong>起始地址通过全局描述符表制定</strong>。可以<strong>通过访问中断描述符访问中断程序</strong>。</p>
+<p>CPU提供了<strong>IDTR存储IDT的首地址</strong>，和GDTR一样<strong>包含了32位基地址和16位段限</strong> 实模式的中断向量表是固定在存储器的最底部，而<strong>保护模式下的IDT则是可以改变的</strong></p>
+<p>保护模式下，需要<strong>两次查表</strong>来获得中断服务子程序的入口地址。</p>
+<ol>
+<li>首先通过IDTR查询到IDT的位置 然后通过中断类型码<em>8（偏移量）加上IDT的基址*<em>得到中断描述符的位置</em></em></li>
+<li>中断描述符<strong>自己记录了段选择符和对应的偏移量</strong>，直接通过段选择符找到段的基地址+偏移量得到代码段的地址。</li>
+</ol>
+<p>找到入口地址，还需要保存现场（在下面有更详细的描述）：</p>
+<ol>
+<li><strong>如果当前处于用户态，将栈指针切换到内核栈栈顶后压栈旧的SS和ESP</strong>，再进行第2步，否则直接进行第2步</li>
+<li>依次将EFLAGS（32位），CS（扩充到32位），EIP（32位）寄存器的值压栈，对于某些异常，还会再压栈一个错误码（也是32位）；<br>注意：对于<code>int</code>指令主动陷入的中断，<strong>压栈的EIP指向的是int的下一条指令</strong>——要不然返回后还是那条<code>int</code>指令，出不去了；</li>
+<li>如果门描述符的TYPE是中断门，清除EFLAGS的IF位（即关中断）</li>
+<li>跳转到中断处理程序的入口地址。</li>
+</ol>
+<h4 id="门描述符结构"><a href="#门描述符结构" class="headerlink" title="门描述符结构"></a>门描述符结构</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">                         80386 GATE DESCRIPTOR</span><br><span class="line"> 31                23                15                7                0</span><br><span class="line">+-----------------+-----------------+---+---+-+-------+-----+-----------+</span><br><span class="line">|          OFFSET 31..16            | P |DPL|0| TYPE  |0 0 0|(NOT USED) |4</span><br><span class="line">|-----------------------------------+---+---+-+-------+-----+-----------|</span><br><span class="line">|             SELECTOR              |           OFFSET 15..0            |0</span><br><span class="line">+-----------------+-----------------+-----------------+-----------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>P位是有效位，1即该门有效。</p>
+<p>SELECTOR和OFFSET就是入口地址，之前我们学过，在保护模式中，是由CS和EIP共同承担PC的任务，而入口地址的CS就是这个SELECTOR，EIP就是OFFSET。CS：IP&#x3D;当前执行的指令地址</p>
+<p>DPL就是这个门描述符的权限，设为0表示不允许用户程序主动通过<code>int</code>指令陷入这个中断，设为3表示允许用户程序主动通过<code>int</code>指令陷入这个中断。</p>
+<p>注意这个权限仅限制主动陷入的情况，对于强制中断（异常、外部中断），则不需要检查权限。</p>
+<p>TYPE分为两种：</p>
+<ul>
+<li>0xE即中断门（Interrupt Gate），这种<strong>门对应的中断在响应时还会顺手把中断关了</strong>，避免后续处理时由外部中断引发的中断嵌套，外部中断应该使用这种门。</li>
+<li>0xF即陷阱门（Trap Gate），这种<strong>门对应的中断在响应时不会改变中断开关的状态</strong>，系统调用和异常理应使用这种门。</li>
+</ul>
+<p>中断类似函数调用：<strong>将状态保存之后再跳转</strong>。就像函数调用通过<code>ret</code>指令返回，中断处理结束之后的返回<strong>指令<code>iret</code>也是类似的</strong>——依次弹栈EIP、CS和EFLAGS并恢复，一般是恢复到中断之前的位置</p>
+<h3 id="中断分类"><a href="#中断分类" class="headerlink" title="中断分类"></a>中断分类</h3><p>包含<strong>异常</strong>和<strong>狭义中断</strong>（两者可以统称为中断）。中断是<strong>CPU以外</strong>发生事件；异常通常是指程序中指令执行出现了错误等<strong>CPU内部事件</strong>引起的过程。异常进一步可分为<strong>错误（fault）陷阱（trap）中止（abort）</strong>。陷阱一般指程序中的硬件中断调用，错误是可更正的程序执行错误，一般保留产生fault的指令的地址继续执行。abort则是严重错误，程序不能继续执行。</p>
+<p>异常的常见情况（不可屏蔽）：错误或者硬件故障或者是程序执行int指令（软中断&#x2F;系统调用）。外部中断，可分为可屏蔽中断和不可屏蔽中断。</p>
+<p>共同点：都是程序执行过程中的强制性转移，转移到相应的处理程序。都是软件或者硬件发生了某种情形而通知CPU的行为。</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<li>中断，是CPU所具备的功能。通常因为“硬件”而随机发生。<br>异常，是“软件”运行过程中的一种开发过程中没有考虑到的程序错误。</li>
+<li>中断是CPU暂停当前工作，有计划地去处理其他的事情。中断的发生一般是可以预知的，处理的过程也是事先制定好的。处理中断时程序是正常运行的。<br>异常是CPU遇到了无法响应的工作，而后进入一种非正常状态。异常的出现表明程序有缺陷。</li>
+<li>中断是异步的，异常是同步的。<ul>
+<li>中断是来自处理器外部的I&#x2F;O设备的信号的结果，它不是由指令流中某条指令执行引起的，从这个意义上讲，它是异步的，是来自指令流之外的。</li>
+<li>异常是执行当前指令流中的某条指令的结果，是来自指令流内部的，从这个意义上讲它们都是同步的。</li>
+</ul>
+</li>
+</ol>
+<p><strong>特权级别</strong>：ring 0被叫做内核态，完全在操作系统内核中运行。 ring 3被叫做用户态，在应用程序中运行</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>找到中断处理程序进行中断之前，<strong>EFLAGS，CS，IP自动由硬件保存；错误码、中断号、通用寄存器、DS，等得自己在实现的操作系统中断程序中进行保存（压栈）</strong>，SS，SP视情况而定，若是用户态到内核态则需要<strong>将栈指针切换到内核栈栈顶后压栈旧的SS和ESP</strong>，因为要进行栈的切换。若是内核态到内核态的中断，则不需要。<strong>通过将esp压入栈，可以认为是传递一个<em>以上寄存器上下文</em>的指针</strong>，方便对这些寄存器的访问。（很关键）</p>
+<ul>
+<li><p>CPU通过CS：IP寄存器确定指令的位置</p>
+</li>
+<li><p>CPU通过DS：[address]确认数据的位置</p>
+</li>
+<li><p>SS：SP 确定栈顶的位置。</p>
+</li>
+</ul>
+<h4 id="iret指令的解释-（从中断恢复现场）"><a href="#iret指令的解释-（从中断恢复现场）" class="headerlink" title="iret指令的解释 （从中断恢复现场）"></a>iret指令的解释 （从中断恢复现场）</h4><p><strong>从栈中弹出指令寄存器的值放入esp，弹出代码段选择子放入cs，弹出程序状态字放入Eflags中。（硬件完成）</strong></p>
+<p>如果返回的进程保护级别不同的话，需要进行栈的切换<strong>，还需要弹出栈顶指针到esp，栈段选择子到ss</strong>（esp是偏移地址 保存了栈顶元素地址 例如push先减去4才能将eax压入栈）弹出寄存器的顺序是严格的，iret自动执行，不用手动执行</p>
+<p><strong>而通用寄存器，DS，ES都是得手动pop的，要使用到之前压入的esp，顺序和上面提到的压入顺序相反</strong>，所以这部分内容要在iret执行前完成，注意额外为esp加几个字节，跳过中断号和错误码。</p>
+<h4 id="内核栈和TSS-任务状态段"><a href="#内核栈和TSS-任务状态段" class="headerlink" title="内核栈和TSS 任务状态段"></a>内核栈和TSS 任务状态段</h4><p>在中断发生时，<strong>不能信任用户程序的栈指针的值</strong>，否则压栈保存现场时可能出现页错误！因此，<strong>操作系统需要准备一个自己的栈</strong>，在进行任何栈操作之前（包括保存上下文），操作系统都需要<strong>先把栈指针指向自己准备的栈的栈顶</strong>。这个栈我们称之为内核栈，而相对地，用户程序的栈我们称为用户栈。</p>
+<p>注意这种“栈切换”的操作是<strong>只有从用户态到内核态的中断才需要进行</strong>，而<strong>内核态到内核态的中断是不需要的</strong>（不存在用户态到用户态或者内核态到用户态的中断）。</p>
+<p>为啥内核态中断不需要切换？因为如果每次都都是先把栈指针指向内核栈顶的话，相当于<strong>每次都把信息保存在一个固定的地方</strong>，那么一旦发生中断嵌套，<strong>后保存的信息就会把先保存的信息给覆盖掉</strong>。而且操作系统的esp是可以相信的，不需要切换栈来防备它。</p>
+<p>而只在用户态到内核态的中断进行栈切换就没有这个问题，即使后续发生中断嵌套，<strong>后续中断保存的信息是压在新的内核栈</strong>里的，不会覆盖或被覆盖。</p>
+<p>“栈切换”过程：</p>
+<ol>
+<li><p>判断现在的状态：在i386，我们使用CS段寄存器的低2位来判断——0就是内核态，3就是用户态；</p>
+</li>
+<li><p>内核栈放在哪：TSS段（任务状态段，跟进程内核栈相关）。<strong>TSS里有两个域<code>ss0</code>和<code>esp0</code>，就是指向内核栈栈顶的位置</strong>（正如i386使用CS段寄存器和EIP寄存器联合确定<code>pc</code>位置，栈的位置也是由SS段寄存器和ESP寄存器联合确定）；</p>
+</li>
+<li><p>保存用户栈的位置:中断返回时要恢复。保存在哪里？是中断上下文。</p>
+</li>
+</ol>
+<p><strong>所以中断上下文中要保存用户栈的ss和栈指针寄存器，用于恢复现场。</strong>但是从内核到内核的嵌套中断中，这两个被保存的寄存器就失去了意义，可以无视。（SS和ESP成员指向的就是不属于这个上下文的地方，所以既没有意义也不能修改。）</p>
+<p><em><strong>ATTENTION！：内核栈栈指针esp和内核栈段选择子ss被保存到TSS后，之后每次用户态中断都会自动使用TSS中的ss:esp来保存现场，避免了位置错误引发的页错误</strong></em></p>
+<h4 id="如何进入第一个用户程序？"><a href="#如何进入第一个用户程序？" class="headerlink" title="如何进入第一个用户程序？"></a><strong>如何进入第一个用户程序</strong>？</h4><p>在跳转到用户程序时，我们还需要修改段寄存器的值，还有就是<strong>操作系统要准备一个内核栈并设置在TSS中</strong>。手动构造一个<strong>返回到用户态的中断上下文，然后用它“假装”进行中断返回，这样最方便</strong>（从内核态到用户态）。</p>
+<p><strong>每个进程控制块都要有一个中断上下文和一个内核栈 来在中断中使用。</strong></p>
+<p>内核栈和中断上下文的组织方式：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> KSTACK_SIZE 4096</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint8_t</span> <span class="built_in">stack</span>[KSTACK_SIZE];</span><br><span class="line">  <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">    <span class="type">uint8_t</span> pad[KSTACK_SIZE - <span class="keyword">sizeof</span>(Context)];</span><br><span class="line">    Context ctx;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125; <span class="type">kstack_t</span></span><br></pre></td></tr></table></figure></div>
+
+<p>内核栈联合体大小为4096个byte，<strong>正好是一页</strong>。<strong>前面的部分是真正的内核栈，后面的部分是中断上下文，中间的部分就是pad数组填充的剩余区域</strong>。</p>
+<p>这样组织的优点：使用联合体可以节省内存，因为内核栈和中断上下文共享相同的内存区域。这种方式在需要频繁进出中断的上下文时，避免了多次分配和释放内存的开销。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc_run</span><span class="params">(<span class="type">proc_t</span> *proc)</span> &#123;</span><br><span class="line">  <span class="comment">// WEEK2: interrupt</span></span><br><span class="line">  proc-&gt;status = RUNNING;</span><br><span class="line">  curr = proc;</span><br><span class="line">  set_tss(KSEL(SEG_KDATA), (<span class="type">uint32_t</span>)STACK_TOP(proc-&gt;kstack));<span class="comment">// 这里设置了内核中的ss段选择子为内核数据段。栈顶指针则为进程的内核栈结构体末尾（仔细想想 末尾才是高地址）。</span></span><br><span class="line">  irq_iret(proc-&gt;ctx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="补充资料：Linux下的TSS使用"><a href="#补充资料：Linux下的TSS使用" class="headerlink" title="补充资料：Linux下的TSS使用"></a>补充资料：Linux下的TSS使用</h6><p>原来Linux只用Tss的ss0和esp0！！</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241103205457693.png"
+                      alt="image-20241103205457693"
+                ></p>
+<h3 id="外部中断"><a href="#外部中断" class="headerlink" title="外部中断"></a>外部中断</h3><p>主要在操作系统中实现串口中断（外部输入导致中断），时钟中断。</p>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>操作系统为用户程序提供的一组API，可以实现对硬件等高特权级资源的操作，通过内核函数，也称作服务例程所实现。系统调用有它自己的中断号，通过系统调用号实现具体历程的调用。进行系统调用时，<strong>首先进行中断，进行相应的中断处理程序，然后查看系统调用号，访问相应的系统调用例程。</strong></p>
+<p>内核函数：是在<strong>内核态即处理中断或异常（int指令）时 处理器程序状态字自动被cpu被设置为内核态，此时执行的例程</strong>。可以使用比用户态更多的指令，如sti，cli等</p>
+<h4 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h4><p>进行系统调用时，要进行一些约定，主要是提供该系统调用的参数存放在什么位置，如<strong>系统调用号存在eax中</strong>。自洽即可。</p>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>（其实这里可以看到，<code>syscall</code>保存寄存器这样的任务，我们在讲述或者理解的时候，往往把这些任务看作一个整体。但是实际上，我们在处理这些功能会通过<strong>操作系统与硬件、用户程序与操作系统的约定，来划分各自不同的职责</strong>。我们在实现这些与硬件相关的操作系统功能时，<strong>一定要区分什么事情是操作系统需要做的，什么事情又是硬件来处理的</strong>。类似的例子是分页机制，操作系统负责对页表、页目录的维护，指令执行时的地址转换是由硬件MMU自动完成的。）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">操作系统的实现是理解硬件职责与约定下的底层软件编程</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="调用者保存与被调用者保存"><a href="#调用者保存与被调用者保存" class="headerlink" title="调用者保存与被调用者保存"></a>调用者保存与被调用者保存</h4><p><strong>callee saved(被调用者保存，负责压栈出栈）</strong></p>
+<p>ebx ，ebp，</p>
+<p><strong>caller saved(调用者保存，调用者负责压栈和出栈。)</strong></p>
+<p>eax，edi，esi，edx，ecx，</p>
+<p>i386的函数调用机制：<strong>调用者从右向左压栈</strong>，被调用的函数如果参数个数比压栈的少就相当于<strong>只取前几个参数</strong>，并且<strong>使用后参数的出栈是由调用者负责</strong>——压几个弹几个，所以也不会造成栈的不平衡；至于返回值，就相当于调用完后<strong>直接取EAX寄存器的值</strong>，反正肯定是能取到的。</p>
+<p>上面这么做有个前提就是所有参数和返回值都是32位、4字节的，不过我们的系统调用都满足这个前提。</p>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>在i386这样的分页式虚拟存储中，主存地址和虚拟地址空间都被划分成大小相等的页面，在虚拟地址空间中的页面称为虚拟页，而对应的在主存空间中的页面称为物理页。</p>
+<p>x86系统中，规定每个页面的大小为2^12 &#x3D; 4KiB （低12位）。于是一个虚拟地址空间就被划分成 2^20 &#x3D; 1024*1024 个虚拟页（高20位），虚拟页和物理页之间存在对应的关系，这种对应关系由进程的页表来维护。</p>
+<p>i386采用二级页表：（单个页表太大 两级引用可以缩小占用内存）</p>
+<ul>
+<li><p>第一级叫<strong>页目录</strong>（Page Directory，PD），可看作1024个<strong>页目录项</strong>（Page Directory Entry，PDE）组成的数组</p>
+<ul>
+<li>每个PDE为4字节 用来找页表的位置<ul>
+<li><strong>高20位为其对应页表在内存中的页框号（即其物理地址的高20位）</strong></li>
+<li>第0~2位为标志位，分别代表此PDE是否有效、对应页表映射的页中是否有可写的页、对应页表映射的页是否有用户程序可访问的</li>
+</ul>
+</li>
+<li>一个<strong>PD大小为4KiB，要求按页对齐（物理地址低12位全0）</strong></li>
+</ul>
+</li>
+<li><p>第二级叫<strong>页表</strong>（Page Table，PT），可看作1024个<strong>页表项</strong>（Page Table Entry，PTE）组成的数组</p>
+<ul>
+<li><p>每个PTE为4字节 用来找具体页的位置</p>
+<ul>
+<li><strong>高20位为其对应的物理页的页框号（即其物理地址的高20位）</strong></li>
+<li>第0~2位为标志位，分别代表此PTE是否有效、对应物理页是否可写、对应物理页可否让用户程序访问</li>
+</ul>
+</li>
+<li><p>一个PT大小为4KiB，要求按页对齐（物理地址低12位全0）<em>按页对齐就是指页表的起始地址需要是页大小的整数倍</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="地址转换流程"><a href="#地址转换流程" class="headerlink" title="地址转换流程"></a>地址转换流程</h4><p>虚拟地址转换为物理地址的流程如下（此处忽略权限检查等过程，我们后面再介绍）</p>
+<p>首先，将32位的虚拟地址（也是线性地址，假设是是扁平模式）分为三部分：</p>
+<ul>
+<li>高10位为页目录号</li>
+<li>中间10位为页表号</li>
+<li>低12位为页内偏移量</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">         31        22 21       12 11           0</span><br><span class="line">LINEAR  +------------+-----------+--------------+</span><br><span class="line">ADDRESS |    DIR     |    PAGE   |   OFFSET     |</span><br><span class="line">        +------------+-----------+--------------+</span><br><span class="line">        </span><br><span class="line">图3-10 32位线性地址结构</span><br></pre></td></tr></table></figure></div>
+
+<p>分以下几步：</p>
+<p>第一次，查询页目录项：</p>
+<ul>
+<li>从CR3寄存器中取出<strong>当前页目录（PD，每个进程有一个）的物理地址</strong>：<strong>CR3的 <em>高20位</em> 即为其对应PD的页框号（即其物理地址的高20位）</strong>，而PD都是按页对齐，其物理地址低12位为全0，据此得到所求PD的物理地址</li>
+<li>得到所求PD的物理地址后，以<strong>虚拟地址的”页目录号“作为下标，查出其对应的页目录项（PDE）</strong></li>
+</ul>
+<p>第二次，查询页表项</p>
+<ul>
+<li><strong>PDE的高20位即为其对应页表（PT）的页框号（即其物理地址的高20位）</strong>，而PT都是按页对齐，其物理地址低12位为全0，据此得到所求PT的物理地址</li>
+<li>得到所求PT的物理地址后，<strong>以虚拟地址的”页表号“作为下标，查出其对应的页表项（PTE）</strong></li>
+</ul>
+<p>第三次，查询最终地址</p>
+<ul>
+<li>PTE的高20位即为其对应物理页的页框号，也即虚拟地址对应的物理地址的高20位</li>
+<li>虚拟地址对应的物理地址的低12位就是它的”页内偏移量“，将两个结果拼起来即为所求物理地址</li>
+</ul>
+<h4 id="权限检查"><a href="#权限检查" class="headerlink" title="权限检查"></a>权限检查</h4><p>对内存的操作可以分为读和写两种，而此时CPU运行的状态也有内核态和用户态两种，对于这四种不同的内存操作，在地址转换时，对<strong>页目录项</strong>（PDE）和<strong>页表项</strong>（PTE）的<strong>标志位</strong>也有不同的要求，具体如下</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240918183321135.png"
+                      alt="image-20240918183321135"
+                ></p>
+<p>如果标志位不符合要求，CPU就会抛出<strong>Page Fault</strong>异常。<strong>注意权限检查在PDE和PTE阶段都会发生</strong>，因此如果用户想写某一页，即使这一页对应PTE的标志位是7（<code>0b111</code>），但如果PDE的标志位是5（<code>0b101</code>），<strong>也会抛出异常。</strong></p>
+<p>第一步就是要给内核一个页目录，<strong>这个页目录里包括<code>[0, PHY_MEM)</code>的恒等映射</strong>，这样才能在开启分页后继续访问内核的代码、全局变量、栈和剩下的堆区内存。也就是对这个区域内存访问时，是1:1原模原样恒等映射，不做复杂转换。（这个很关键 并不是所有地址都要转换。）</p>
+<p>因为<code>kernel</code>大多数情况都是一页一页地要内存，所以只能按页分配的分配器已经足够大多数情况使用了，在这种情况下，我们可以很简单地使用单链表来管理内存，比如说采用下面的结构。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span> <span class="title">free_page</span> &#123;</span></span><br><span class="line">  <span class="class"><span class="keyword">union</span> <span class="title">free_page</span> *<span class="title">next</span>;</span> <span class="comment">// 侵入式链表：规定空闲内存页的前4个字节是指向下一个空闲页的指针 当分配时，要将该页全部memset为0后分配。</span></span><br><span class="line">  <span class="type">char</span> buf[PGSIZE];  <span class="comment">// 可加可不加 就是占位 用于提示这是一个页</span></span><br><span class="line">&#125; <span class="type">page_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">page_t</span> *free_page_list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = KER_MEM; i &lt; PHY_MEM; i += PGSIZE)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">page_t</span> *tmp_page = (<span class="type">page_t</span> *)i;</span><br><span class="line">    tmp_page-&gt;next = free_page_list;</span><br><span class="line">    free_page_list = tmp_page;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>我们把每一个空闲页的前4字节视作指向下一页的指针，或者<code>NULL</code>表示后面没有空闲页了，而<code>free_page_list</code>就是由空闲页组成的单链表。</p>
+<p>分页机制的权限<code>prot</code>（即PDE和PTE的<strong>3个标志位合起来的值</strong>）</p>
+<p><code>prot</code>一般有5种：0（无效）、1或3（仅内核可读写）、5（内核可读写、用户只读）、7（内核和用户都可读写）</p>
+<h4 id="用户堆区管理"><a href="#用户堆区管理" class="headerlink" title="用户堆区管理"></a>用户堆区管理</h4><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">brk</span><span class="params">(<span class="type">void</span> *addr)</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>一次调用它是告诉操作系统现在堆区为空时程序的program break的位置在哪，后续调用就是请求操作系统把自己的program break的位置提到或者放到<code>addr</code>来，返回0代表成功，返回-1代表失败</p>
+<p>program-break在哪？</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image4.png"
+                      alt="image4"
+                ></p>
+<p><strong>最开始就在可读写数据的顶端。它会向上增长，建立堆区</strong>。</p>
+<p>如果<code>new_brk</code>比之前记录的<code>brk</code>高，就说明用户程序<strong>需要增长堆区</strong>，需要<strong>调用<code>vm_map</code>函数在当前页目录</strong>下创建<code>[brk, new_brk)</code>这段虚拟内存的映射（权限自然是7，用户可读写），**再记录当前进程的<code>brk</code>为<code>new_brk**</code>。（这样就相当于malloc在内存堆区申请了brk到newbrk的空间来使用）</p>
+<p>如果<code>new_brk</code>比之前记录的<code>brk</code>低，就说明用户程序在<strong>降低堆区</strong>，那么降低的那一部分正如前面的各种内存回收函数一样，<strong>可以调用<code>vm_unmap</code>函数</strong>，再记录<code>brk</code>为<strong>new_brk</strong>（相当于free掉之前申请的区域）</p>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>进程是操作系统<strong>资源分配和调度的基本单位</strong>，是程序执行的实例，每个进程拥有一个<strong>进程控制块</strong>唯一标识。拥有自己的<strong>代码段、数据段、堆栈段</strong>。PCB用于保存进程状态，进程大体分为三个状态：<strong>就绪态、运行态、等待态</strong>。进程调度发生在ring0，而用户进程运行在ring1，当发生时钟中断时，<strong>可能</strong>进行进程调度。<strong>进程的保存和恢复都是通过PCB和寄存器的互动实现的。</strong></p>
+<p>PCB 不是处理器要求的，它是操作系统的实现者自己来构建的，一般包含包含<strong>进程名 id号 优先级 进程上下文</strong> 等等进程的各个属性信息，可以根据自己的需要来进行设计。</p>
+<p>进程栈是为<strong>每个进程分配的一个独立的栈空间</strong>，存在于该进程的虚拟内存，<strong>即栈段</strong>，执行进程代码时，要使用这个栈。</p>
+<p>既然多进程是要进行执行流的切换，就是要保存当前执行流的状态，然后让CPU加载另一个执行流的状态，等到换回来的时候就是让CPU恢复原来执行流的状态。因此我们可以<strong>利用中断处理机制来实现进程的切换</strong>。</p>
+<p>每次中断的时候OS都会<strong>将当前状态作为一个中断上下文压栈保存在当前进程的内核栈</strong>（为啥能是当前进程的内核栈？因为当前进程在运行前，就将自己的内核栈信息放到了TSS中）里，我们记录一下这个上下文的位置（为什么记录？<strong>因为当前进程保存的上下文不是最新的，中断传入的上下文才是最新的</strong>。），然后不急着用这个上下文进行返回——<strong>我们用另一个进程之前保存的上下文进行中断返回，这就相当于切换到了另一个进程了。</strong></p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">schedule</span><span class="params">(Context *ctx)</span> <span class="comment">// 81号中断处理函数 进程调度</span></span><br><span class="line">&#123;</span><br><span class="line">  curr-&gt;ctx = ctx; <span class="comment">// 非常关键的一步：curr-&gt;ctx不会随着进程执行而改变，所以要将当前进程的状态（也就是中断时传入的状态）ctx记录到curr-&gt;ctx，可以看做是对已保存的进程状态的更新，这样保存之后，这个进程才能被其他进程恢复到它进入时钟中断的下一条指令的最新状态</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">proc_t</span> *i = curr + <span class="number">1</span>;; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == pcb + <span class="number">64</span>) <span class="comment">// last error：到了下表为64的元素 再转化到0处！</span></span><br><span class="line">      i = pcb;</span><br><span class="line">    <span class="keyword">if</span> (i-&gt;status == READY)</span><br><span class="line">    &#123;</span><br><span class="line">      curr = i;</span><br><span class="line">      proc_run(i);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>总结进程的切换过程:</p>
+<ol>
+<li><p>首先初始化GDT中TSS和LDT的描述符，同时初始化TSS。</p>
+</li>
+<li><p><strong>PCB中保存进程上下文，也需要被初始化</strong>。</p>
+</li>
+<li><p>然后<strong>通过iretd</strong>实现ring0到ring1的跳转：</p>
+<ul>
+<li>首先<strong>设置进程表中第一个进程为正在执行的进程</strong></li>
+<li>然后<strong>设置esp为该进程的PCB首地址</strong>，准备将PCB中的上下文赋值给所有寄存器，（这里顺便设置tss中的esp0和ss0为PCB尾地址，即进程对应内核栈地址，进程控制块就在内核，方便之后<strong>从ring1跳转到ring0时保存现场（tss保存该进程内核栈地址，保存现场时直接按顺序压栈即可）</strong>）</li>
+<li><strong>最后执行iretd会设置eip，cs和esp，ss，实现正式的控制流跳转。</strong></li>
+</ul>
+</li>
+<li><p>ring1到ring0<strong>需要使用tss中保存的esp0和ss0</strong>：实际上就是，<strong>跳转契机设置为时钟中断发生</strong>时（也可以在一个自定义中断（又或者是一个系统调用内核函数）中进行进程切换，然后在时钟中断处理程序中对该例程进行调用，这与具体实现有关），<strong>总之利用中断实现进程切换。</strong></p>
+<ul>
+<li>中断发生时，找到对应中断门（CPU处理中断时，需要向当前进程核心栈内压入eflag eip cs（特权级变换则还有esp，ss 等等），执行对应中断历程。</li>
+<li>所以中断执行时，先在tss中（保存了核心栈地址）取出当前进程PCB进程上下文尾地址（也就是核心栈地址），不断做push入栈保存现场（同时记录中断重入次数）。</li>
+<li><strong>然后设置esp为核心栈顶？</strong>，暂停时钟中断，允许其他中断。然后执行时钟中断handle程序。</li>
+<li>在<strong>时钟中断处理handle程序中改变当前执行进程（真正的进程切换）</strong>，最后再次重复上述的ring0到ring1，即可实现进程变换。</li>
+</ul>
+</li>
+</ol>
+<h4 id="fork-进程复制"><a href="#fork-进程复制" class="headerlink" title="fork 进程复制"></a>fork 进程复制</h4><p>创建一个和自己状态相同的子进程，成功时父进程返回子进程的PID，子进程返回0；失败时返回-1。的“状态相同”，就是在用户态看来，<code>fork</code>刚返回时子进程和父进程的什么都是一样的——<strong>代码段一样、数据段一样、栈一样、正在执行的位置（EIP）一样、EAX以外的寄存器一样</strong>。注意上面的内存空间一样表示的是<strong>内容一致、虚拟地址一致而非映射到同样的物理地址</strong>，各个进程的内存空间是相互独立的。）唯一的区别就是<strong>EAX，也就是<code>fork</code>的返回值不同</strong>。</p>
+<h4 id="group-exit，wait进程退出"><a href="#group-exit，wait进程退出" class="headerlink" title="group_exit，wait进程退出"></a>group_exit，wait进程退出</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">void exit(int status) __attribute__((noreturn));</span><br></pre></td></tr></table></figure></div>
+
+<p><code>exit</code>系统调用退出当前进程，并记录退出状态为<code>status</code>（一般放入main返回值），父进程可以通过<code>wait</code>系统调用获取子进程的退出状态。（<strong>进程将自己标记为ZOMBIE，不再参与调度</strong>）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int wait(int *status);</span><br></pre></td></tr></table></figure></div>
+
+<p><code>wait</code>系统调用，<strong>寻找子僵尸进程，如果有，就释放这个进程的所有资源；没有就无限循环等着</strong> 返回一个退出的子进程的PID，如果<code>status</code>不为<code>NULL</code>，再把子进程的退出状态记录在那，最后释放这个子进程的PCB。</p>
+<p>问题：进程<strong>有些资源其实是不能直接在退出时释放的</strong>，这是因为在处理<code>exit</code>系统调用时，<strong>CPU正在使用</strong>这个进程的地址空间、这个进程的内核栈，所以<strong>不能直接在<code>exit</code>里释放这些资源。</strong></p>
+<p>既然进程结束时自己处理不了后事，那就<strong>只能让它爹来给它收尸了</strong>，也就是等到它爹<code>wait</code>到它的时候再释放。</p>
+<p><strong>进程一生也要经历两次死亡——自己<code>exit</code>和它爹<code>wait</code><strong>，<code>exit</code>只是标记这个进程不会再执行了，我们管这种已经退出、只等被它爹<code>wait</code>释放资源的进程叫</strong>僵尸进程</strong>，这也就是进程状态中<code>ZOMBIE</code>的意思。</p>
+<h2 id="进程通讯"><a href="#进程通讯" class="headerlink" title="进程通讯"></a>进程通讯</h2><h3 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h3><p>进程的地址空间是相互独立的：<strong>虽然逻辑地址空间相同</strong>（比如所有用户程序都以<code>0x08048000</code>为入口），<strong>但是它们映射到物理地址空间中对应了不同的物理内存</strong>。</p>
+<p>通过设置<strong>共享内存</strong>，实现内存在<code>fork</code>时会被共享给子进程，也就是父子进程的这个虚拟地址映射到<strong>相同的物理地址。</strong></p>
+<p>释放共享内存时，由于可能会有多个进程在访问这个共享内存页，所以当某一个进程释放该共享进程时，仅仅取消该进程对共享内存的绑定，而不能够直接释放该共享内存对应的物理页。<strong>只有当所有的进程都释放这一个共享内存时，该共享内存的物理页才能被真正释放。</strong>为了实现这一点，我们需要对物理页维护引用计数。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pica.zhimg.com/80/v2-195b0cf5f101ed8c11910fea9b77559e_720w.webp"
+                      alt="img"
+                ></p>
+<h4 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h4><p>在<code>fork</code>复制进程的时候，<strong>每一次都需要复制整个进程的地址空间的内容有点浪费了</strong>：<strong>对于大家都不写的内存，父子进程可以共用同一个物理页，就不用复制了</strong>。此外，有时候我们<code>fork</code>新进程之后会直接<code>exec</code>重新分配内存资源运行新的程序，这个时候<code>fork</code>还需要复制不要用的就内存就显得太过于繁琐了。</p>
+<p>解决办法：我们<strong>可以在<code>fork</code>时让子进程地址空间映射到和父进程地址空间相同的物理页</strong>，<strong>不过两者都清除“写”权限</strong>，等到父子进程中的<strong>某一个要写内存</strong>，并由于权限<strong>触发页错误</strong>的时候，再申请一页新的物理页把内容复制到新的地址上去，我们称这种技术为<strong>写时复制</strong></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程是轻量级的进程，出现了线程之后，<strong>原本的进程</strong>就变为了<strong>主线程</strong>，不管是主线程还是一般线程，都是用进程控制块进行管理。进程控制块中有几个成员在线程控制中比较关键。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span>&#123;</span></span><br><span class="line">   	<span class="type">size_t</span> pid;					<span class="comment">// 控制块号</span></span><br><span class="line">    <span class="type">size_t</span> tgid;                <span class="comment">// 进程组ID</span></span><br><span class="line">    <span class="type">int</span> thread_num;             <span class="comment">// 进程所有的线程数量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> *<span class="title">group_leader</span>;</span>  <span class="comment">// 进程控制块指针，指向进程对应的主线程</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> *<span class="title">thread_group</span>;</span>  <span class="comment">// 链表指针，指向线程链表的下一个成员。</span></span><br><span class="line">&#125; <span class="type">proc_t</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>tgid是进程组的ID，一个进程组中的每个线程都共享相同的tgid，而tgid就等于本进程组中的主线程pid。</strong></p>
+<p>pid此时代表进程控制块的块号，<strong>每个线程都不一样</strong>。</p>
+<p>为了更好地维护进程组中的线程，我们将同一个进程中的线程控制块以链表的形式组织起来，链表的指针就是<code>proc_t</code>中的<code>thead_group</code>变量，如下图所示：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">+-------------------------+</span><br><span class="line">|     TCB (Main Thread)   |</span><br><span class="line">|-------------------------| &lt;-----+----------------------------------+----------------------------------+</span><br><span class="line">|  pid: 100               |       |                                  |                                  |</span><br><span class="line">|  tgid: 100              |       |                                  |                                  |</span><br><span class="line">|  state: running         |       |                                  |                                  |</span><br><span class="line">|  group_leader: -------&gt; +-------+                                  |                                  |</span><br><span class="line">|  thread_group: -------&gt; +-------&gt;+-------------------------+       |                                  |</span><br><span class="line">+-------------------------+        |     TCB (Thread 1)      |       |                                  |</span><br><span class="line">                                   |-------------------------|       |                                  |</span><br><span class="line">                                   |  pid: 101               |       |                                  | </span><br><span class="line">                                   |  tgid: 100              |       |                                  |</span><br><span class="line">                                   |  state: sleeping        |       |                                  |</span><br><span class="line">                                   |  group_leader: -------&gt; +-------+                                  |</span><br><span class="line">                                   |  thread_group: -------&gt; +-------&gt;+-------------------------+       |</span><br><span class="line">                                   +-------------------------+        |     TCB (Thread 2)      |       | </span><br><span class="line">                                                                      |-------------------------|       |</span><br><span class="line">                                                                      |  pid: 102               |       |</span><br><span class="line">                                                                      |  tgid: 100              |       |</span><br><span class="line">                                                                      |  state: sleeping        |       |</span><br><span class="line">                                                                      |  group_leader: -------&gt; +-------+</span><br><span class="line">                                                                      |  thread_group: NULL     |</span><br><span class="line">                                                                      +-------------------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>而groupLeader就是本进程组中的主线程指针。</p>
+<p>进程组中的资源由<strong>主线程</strong>统一管理。例如：<strong>内存空间，信号量，堆区，打开文件。</strong>但是有<strong>独立的用户栈，内核栈</strong>，和<strong>进程上下文</strong>。</p>
+<h4 id="clone系统调用：创建线程"><a href="#clone系统调用：创建线程" class="headerlink" title="clone系统调用：创建线程"></a>clone系统调用：创建线程</h4><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">clone</span><span class="params">(<span class="type">int</span> (*entry)(<span class="type">void</span>*), <span class="type">void</span> *<span class="built_in">stack</span>, <span class="type">void</span> *arg)</span>;</span><br><span class="line"></span><br><span class="line">参数`<span class="type">int</span> (*entry)(<span class="type">void</span>*)`是**线程执行的函数指针**，系统会**创建一个线程来运行`entry`这个函数**，该函数接受一个`<span class="type">void</span> *`参数，并返回`<span class="type">int</span>`作为返回值。</span><br><span class="line"></span><br><span class="line">参数`<span class="type">void</span> *<span class="built_in">stack</span>`是线程运行的用户栈栈顶，用户进程可以通过`<span class="built_in">malloc</span>`在堆区中分配一页作为线程的用户栈。</span><br><span class="line"></span><br><span class="line">参数`<span class="type">void</span> *args`是`entry`需要的参数。</span><br></pre></td></tr></table></figure></div>
+
+<p>entry函数执行完成后，就<strong>执行线程的exit函数退出线程</strong>。（可以设计传入一个函数指针ret专门就进行线程的结束，让clone执行完毕后，执行这个ret，取出存放在<code>%eax</code>里面的返回值并调用exit，打扫战场，这样就可以<strong>避免在entry函数中显式使用exit函数，而是直接return就行</strong>）</p>
+<h4 id="线程退出thread-exit"><a href="#线程退出thread-exit" class="headerlink" title="线程退出thread_exit"></a>线程退出thread_exit</h4><p>普通线程退出<strong>只需要标记自己为ZOMBIE</strong>，不参与调度即可。但是进程就需要标<strong>记自己的同时，负责将本进程下所有的僵尸线程进行回收</strong>。<strong>程序无法自杀，</strong>这在前面提到过。所以需要父进程回收子进程，<strong>主线程回收其余线程。</strong></p>
+<p>如果进程不是最后一个死去的，死之前还有线程活着，<strong>那么进程就要循环等待，直到线程都死光，然后释放他们。</strong></p>
+<p>注意：group_exit和exit所有线程都能调用，区别在于，前者<strong>直接将本进程组中所有的子线程释放</strong>，然后标记进程为僵尸（<strong>退出整个进程，而且负责了子线程资源回收</strong>）；而后者会根据调用者的身份进行处理：子线程则直接标记为ZOMBIE，主线程则<strong>准备释放所有子线程</strong>并标记自己为ZOMBIE（注意，如果子进程没死，则不会强制释放，而是会等待）。</p>
+<p>所以：<code>thread_exit或者说exit</code><strong>则仅仅退出一个线程</strong>，进程的资源不会因为线程的退出而回收，而是**等到进程中的所有线程都退出，或者某个线程显示调用了<code>exit</code>**（包括主线程通过<code>return</code>）退出，才结束进程回收资源。</p>
+<p>所有线程都能进行wait系统调用，但是<strong>只会对线程所在的进程组主线程进行操作</strong>：查看主进程的子进程是否为ZOMBIE、是否可以释放。</p>
+<p><em><strong>之后有关资源分配的api都要到主线程的方向上去做。</strong></em></p>
+<h3 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h3><p>线程的新增成员：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span>&#123;</span></span><br><span class="line">    ... <span class="comment">// 前面成员保持不变</span></span><br><span class="line">    <span class="type">int</span> joinable;       <span class="comment">// 指示该线程能否被join，初始化为1，代表默认是能够被join的。</span></span><br><span class="line">    <span class="type">int</span> detached;       <span class="comment">// 指示该线程是否被detach了，初始化为0，代表默认是没有被detach的。</span></span><br><span class="line">    <span class="type">sem_t</span> join_sem;     <span class="comment">// 维护join信息的信号量，初始化为value=0</span></span><br><span class="line">&#125; <span class="type">proc_t</span>;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p><strong>让父线程等待子线程完成，实现线程之间的同步，并在子线程结束后手动回收资源。</strong>适合需要严格同步的场景</p>
+<p>举例来讲，在一个文件处理程序中，主线程需要创建多个子线程，每个子线程负责读取不同的文件并处理数据。主线程必须等待所有子线程处理完文件后再继续执行汇总结果的操作。在这种情况下，主线程可以使用<code>join</code>来等待所有子线程结束，以确保文件处理任务都完成后再继续执行汇总任务。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">join</span><span class="params">(<span class="type">int</span> tid, <span class="type">void</span> **retval)</span> </span><br><span class="line"><span class="comment">//tid代表需要被join的线程号, retval对应返回值，返回值是一个void *变量，通过void **接受这个值。</span></span><br></pre></td></tr></table></figure></div>
+
+<p>首先<code>join</code>的调用者不能是被<code>join</code>的对象。<strong>然后让当前线程P一下目标线程的<code>join_sem</code>, <code>join_sem</code>的初始值为0，此时当前线程就会等待目标线程</strong>。等到目标线程运行结束，需要修改 proc_makezombie<code>，在函数的最后V一下自己的</code>join_sem&#96;，唤醒可能等待在它上面的线程。（<strong>先别急着死，可能还有人在等你</strong>）</p>
+<p>由于线程总会通过<code>thread_exit</code>退出，退出的状态记录在控制块的<code>exit_code</code>当中，所以如果<code>retval</code>不为NULL，将目标线程的**<code>exit_code</code>赋值给<code>retval</code>指向的内存**即可。（下面的抽象操作）</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (retval != <span class="literal">NULL</span>)</span><br><span class="line">  *retval = (<span class="type">void</span> *)(target-&gt;exit_code); <span class="comment">// 设置exitcode 为void* 类型</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="detach-脱离"><a href="#detach-脱离" class="headerlink" title="detach 脱离"></a>detach 脱离</h4><p><strong>使子线程独立运行，不需要父线程等待，系统会在子线程完成时自动回收资源。</strong>适合非同步场景。</p>
+<p>在一个网络服务器中，每当有客户端连接时，服务器会创建一个新线程处理该客户端的请求。由于服务器不需要等待每个客户端的请求完成，且这些线程的生命周期不需要被服务器管理，因此可以使用<code>detach</code>让子线程自行处理客户端请求并在结束时自动释放资源，从而避免服务器阻塞。</p>
+<p><code>sys_detach</code>设置控制块中的<code>detached</code>&#x3D;1与<code>joinable</code>&#x3D;0变量（<strong>detach之后的线程不能join</strong>），<code>detach</code>之后的线程在退出时<strong>不等待主线程释放自己的控制块，</strong>而是直接释放控制块。所以我们需要据此修改<code>sys_exit</code>的逻辑。</p>
+<p>问题是：<strong>不是父进程回收，那么谁回收？答案是内核进程</strong>。设置该线程的parent为内核进程，同时内核进程添加一个扫描ZOMBIE线程的过程即可完成。顺便还能把parent先死的孤儿进程进行回收（wait做不到这点），可谓一举两得。</p>
+<h3 id="异步通信-信号机制-Signal"><a href="#异步通信-信号机制-Signal" class="headerlink" title="异步通信 信号机制 Signal"></a>异步通信 <strong>信号</strong>机制 Signal</h3><p>信号则是<strong>传递短消息的简单通信机制</strong>，通过发送指定信号来<strong>通知进程某个异步事件发生</strong>，以迫使进程执行信号处理程序。信号处理完毕后，被中断进程将恢复执行。</p>
+<p>信号可以通过<strong>异常(硬中断)产生</strong>，如进程执行非法指令或段错误(大名鼎鼎的<code>Segmentation fault</code>)等，内核会发送<code>SIGKILL</code>或<code>SIGSEGV</code>信号；<strong>进程也可以发出信号</strong>，实现进程同步与中止，如<code>SIGKILL</code>信号将强迫另一进程终止。我们的实验中主要模拟进程发出的信号。</p>
+<p>信号一般分为操作系统标准信号和应用进程定义信号，这种机制模拟硬中断，但不分优先级，通信双方不必事先联系，简单且有效，但不能传送数据，故能力较弱。</p>
+<p>进程信号相关新成员：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> sigblocked;                                        </span><br><span class="line">    <span class="comment">// 整型数，以位图的形式指示信号是否被阻塞。每一位对应一个特定信号，某位为1代表信号被阻塞。操作系统在信号到来时不会立即处理，而是将其推迟到信号被解除阻塞后再处理。</span></span><br><span class="line">    <span class="type">void</span> (*sigaction[SIGNAL_NUM])(<span class="type">int</span>, <span class="keyword">struct</span> proc *);     </span><br><span class="line">    <span class="comment">// 函数指针数组，指示不同信号对应的处理函数。当一个信号到来且未被阻塞时，操作系统会根据信号编号查找相应的处理函数，并执行该函数。</span></span><br><span class="line">    <span class="type">list_t</span> sigpending_queue;                                </span><br><span class="line">    <span class="comment">// 等待队列，维护收到但还没有来得及处理的信号。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>信号处理流程：</p>
+<ol>
+<li>信号的产生</li>
+</ol>
+<ul>
+<li><p>用户进程通过<code>kill()</code>系统调用向自身或其他进程发送信号。<em>所以上一周我们实现的<code>kill</code>系统调用是一个望文生义的简化版，调用<code>kill</code>就是杀死一个进程。但实际上，<strong>在Linux系统中<code>kill</code>用来发送信号</strong>，<strong>只有当发送的信号恰好是<code>SIGKILL</code>时，才会杀死指定的进程。</strong></em></p>
+</li>
+<li><p>硬件异常（如段错误 <code>SIGSEGV</code>、浮点运算错误 <code>SIGFPE</code>）会触发相应的信号。在我们的实验中我们不考虑这种情况，我们假设所有的信号都是用户进程通过<code>kill</code>发出的。</p>
+</li>
+<li><p>用户终端输入某些控制命令（如 <code>Ctrl+C</code> 触发 <code>SIGINT</code>）。我们也不考虑这种情况。</p>
+</li>
+</ul>
+<p>当信号被产生时，它会被记录在目标进程的 <strong>信号等待队列（<code>sigpending_queue</code>）</strong> 中。</p>
+<ol start="2">
+<li><p>信号的阻塞</p>
+<p>在信号等待处理之前，进程可以通过信号屏蔽字（<code>sigblocked</code>）来决定是否屏蔽某个信号。如果该信号对应的位在<code>sigblocked</code>中被设置，信号会被阻塞，直到信号解除阻塞为止。这时信号会暂时保留在<code>sigpending_queue</code>中。进程可以使用<code>sigprocmask()</code>系统调用来阻塞或解除阻塞某些信号。</p>
+</li>
+<li><p>信号的处理</p>
+<p>当信号不再被阻塞，内核会在合适的时机执行信号的处理过程：</p>
+<ol>
+<li><p><strong>用户自定义处理函数</strong>： 如果进程通过<code>sigaction()</code>系统调用为该信号设置了自定义的处理函数（存储在<code>proc_t</code>中的<code>sigaction[]</code>数组中），内核会在信号触发时调用该函数。自定义处理函数可以执行任何用户定义的操作，例如输出消息、修改状态等。</p>
+</li>
+<li><p><strong>默认处理</strong>： 如果进程没有为信号设置自定义处理函数，内核会按照信号的<strong>默认行为</strong>处理。不同信号有不同的默认处理方式，例如：</p>
+<ul>
+<li><code>SIGKILL</code>会直接终止进程。</li>
+<li><code>SIGSTOP</code>会暂停进程，而<code>SIGCONT</code>会恢复进程的执行。</li>
+</ul>
+<p>默认处理的方式在handle_signal中实现</p>
+</li>
+<li><p><strong>信号的递送</strong>： 内核在<strong>进程恢复执行用户态代码之前</strong>，通过<code>do_signal()</code>函数检查<code>sigpending_queue</code>中的信号。如果有未被阻塞的信号，内核会调用信号处理函数执行相应操作。该过程通常会在上下文（进程）切换<code>（proc_run）</code>时发生。 <code>do_signal</code>和<code>proc_run</code>需要在后面修改。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>信号的返回</strong> 信号处理完成后，<strong>进程会继续执行被中断的代码</strong>。系统在调用信号处理函数时<strong>，保存了进程的执行上下文，因此信号处理完成后可以安全地返回到信号之前的状态</strong>。在真实的Linux系统中，大部分信号处理程序会在用户态完成（因为涉及到访问用户地址空间），所以在信号处理程序执行结束之后会通过<code>sigreturn</code>返回内核态做一些善后工作。我们在实验中可以省略这一步<strong>，因为在分页那里为了好操作我们把内核的地址都映射到每个用户进程的地址空间中</strong>，所以这一步的地址切换与相关的善后工作就都可以省略。</p>
+</li>
+<li><p><strong>信号的特殊处理</strong> 某些信号是<strong>不可被捕获或忽略</strong>的（如<code>SIGKILL</code>和<code>SIGSTOP</code>）。这类信号的处理逻辑通常<strong>直接由内核完成</strong>，进程无法改变它们的行为。在实验里，我们约定<code>SIGKILL</code>，<code>SIGSTOP</code>和<code>SIGCONT</code>三个信号的处理会立即处理，而不是挂载到<code>sigpending_queue</code>上之后等待上下文切换时处理。</p>
+</li>
+<li><p><strong>信号的处理时机</strong> 信号并不会立即被处理。信号的处理时机通常是当进程<strong>即将进入用户态或从中断返回时</strong>，通过<code>do_signal()</code>函数检查并递送。如果信号已经被阻塞，它们将会被保留在<code>sigpending_queue</code>，直到解除阻塞时才会处理。</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/sigpipeline.png"
+                      alt="sigpipeline"
+                ></p>
+</li>
+</ol>
+<p>除了善后工作不用做，剩下的都需要实现。</p>
+<h2 id="虚拟文件系统"><a href="#虚拟文件系统" class="headerlink" title="虚拟文件系统"></a>虚拟文件系统</h2><p>文件是由文件名标识的一组信息的集合，或者说白了就是一个<strong>字节序列</strong>。类Unix系统中符合这个要求的就是文件，甚至没有文件名也行，也就是所谓的 <strong>“万物皆文件”</strong></p>
+<p>都是字节序列，操作系统就都能当做文件统一管理。管理这些文件的就是<strong>虚拟文件系统</strong>（抽象层）。用户API也能用统一的方式访问文件，比较方便。而在底层实现时（实现层），要根据不同类别文件进行个性化处理。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:%5CUsers%5Clenovo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20241101083425205.png"
+                      alt="image-20241101083425205"
+                ></p>
+<p>这里以处理磁盘文件和设备文件为例。</p>
+<p>虚拟文件系统要建立在磁盘文件系统和设备文件系统等等底层系统来实现。<strong>磁盘文件系统是根据文件的inode来进行操作</strong>，磁盘文件的读写可以使用iread、iwrite来实现（这些都是磁盘文件系统api），而设备文件的读写就要根据具体的设备文件类型来决定。<strong>设备文件有独特的类型：有自己的read和write函数指针</strong>。<br>如对于串口的读写就可以直接变成<strong>用户对对应设备文件的读写</strong>，然后<strong>在底层操作系统调用他们自己的读写函数</strong>实现读写。</p>
+<p>磁盘可以分为以下几部分：主引导记录MBR，各种分区（每个分区可以使用不同的文件系统）。而每个分区可以有<strong>文件系统的元数据</strong>+<strong>数据区</strong>（这是最重要的，剩下的可能还有引导扇区，空闲块，日志区）。不同的文件系统设置元数据的方案，或者是数据的组织管理方案<strong>是不同的</strong>。例如ext文件系统使用<strong>超级块+inode表</strong>，而NTFS使用MFT（主文件表），FAT32使用目录项+数据区的簇来管理。</p>
+<p><strong>inode有动态和静态之分</strong>，在磁盘上是静态的inode（主要是数据的扇区位置，长度，文件名，持久化数据）。而在操作系统中放置的是动态inode（文件是否可用，随运行变化）。操作系统会保存一个活动inode表，在操作系统启动时进行初始化，<strong>在打开文件时进行录入，减少访存次数，提高性能，关闭文件时就释放inode</strong>。但是由于本操作系统太过简单，直接就能把所有的文件都初始化时录入该表中，然后进行操作。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://linux.fasionchan.com/zh_CN/latest/_images/26cf89b03f383aaac00e1da084d6c909.png"
+                      alt="文件描述符，打开文件，inode关系"
+                ></p>
+<p><strong>系统打开文件表：</strong>OS维护一个系统中所有被打开的文件表，里面存储<strong>文件指针。这是供虚拟文件系统使用的文件类型</strong>。磁盘文件系统提供的api都是针对inode实现的。而虚拟文件系统不应该关注底层实现细节，不管底层是什么文件系统都能实现调用，所以不能直接操作inode类型。<strong>虚拟文件系统提供一系列api来对文件进行操作。</strong></p>
+<p><strong>用户打开文件表：</strong>每个<strong>进程</strong>维护一个文件表，存入已经打开的文件指针。通过编号进行下标访问，编号就是<strong>文件描述符fd</strong>，进程可以通过fd访问文件指针，也可以分配一个位置存储文件指针，表示打开一个文件。</p>
+<p>抽象层次: 对inode操作（磁盘文件系统）——对file_t操作（虚拟文件系统）——通过系统调用操作文件（系统调用）</p>
+<h6 id="Tip：函数指针"><a href="#Tip：函数指针" class="headerlink" title="Tip：函数指针"></a>Tip：函数指针</h6><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面是一个函数，参数中有函数指针类型的变量，如entry就是一个变量，存储函数指针</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sys_clone</span><span class="params">(<span class="type">int</span> (*entry)(<span class="type">void</span> *), <span class="type">void</span> *<span class="built_in">stack</span>, <span class="type">void</span> *arg, <span class="type">void</span> (*ret_entry)(<span class="type">void</span>))</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面是一个函数类型定义 就是为函数指针类型起别名：syshandle_t</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span> <span class="params">(*<span class="type">syshandle_t</span>)</span><span class="params">(<span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这样起过别名之后，可以直接使用别名syshandle_t代表特定的函数类型,函数指针就可以更方便的传参，也可以作为返回值返回（第一种函数指针无法作为返回值类型，不能通过编译）</span></span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习概念总结</title>
+    <url>/2025/02/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<pre><code>写在前面：课程是完全按照西瓜书来讲的，相当于是西瓜书的读后感
+</code></pre>
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p><strong>寻找上帝函数的过程</strong></p>
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>机器学习<strong>是一个建模的过程 通过已知的数据总结规律用于将来的预测</strong>。 这个模型接受预测变量（自变量，属性变量），输出的是响应变量（因变量）。一般而言，模型接收多个预测变量。</p>
+<p>我们可以假设，现实中的预测变量$X&#x3D;(x_1,x_2,..x_p)$和响应变量$Y$的关系是：</p>
+<p>$$ Y&#x3D;f(X)  + \epsilon$$</p>
+<p>其中 $\epsilon$ 表示<strong>随机误差项</strong>,与$X$独立，且均值为0。</p>
+<p>而机器学习的任务，就是估计这个$f(x)$函数。在两种情况下会估计f ：<strong>预测</strong>和<strong>推断</strong></p>
+<h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><p>多数情境下，输入是已知的，我们需要预测输出。由于随机误差项的均值为0，所以可以通过下式进行预测：</p>
+<p>$$\hat{Y}&#x3D;\hat{f}(X)$$</p>
+<p>其中$\hat{f}(X)$是对函数的估计，我们不在乎他的形式，可以视作黑箱，$\hat{Y}$的精确性依赖于两个量，<strong>可约误差</strong>和<strong>不可约误差</strong>。可约误差来自于建模的精确性问题，换句话说，一个更好的模型<strong>会提高对函数估计的精确性</strong>，是可以人为提高的。如果已经完全复现了原来的函数（实际上不可能），此时对于响应变量的估计来源于下式：</p>
+<p>$$\hat{Y}&#x3D;f(x)$$</p>
+<p>可见这个式子没有考虑随机误差项，但Y也是一个关于$\epsilon$的函数。可是，实际上<strong>永远也无法考虑$\epsilon$的影响</strong>，因为$\epsilon$和X是独立的，无法用X来预测$\epsilon$。这部分误差就是不可约误差。无论我们对$f(x)$的估计有多准确，都是无法减少$\epsilon$带来的误差的。</p>
+<p>$\epsilon$包含了<strong>对Y有影响</strong>但是<strong>无法观测</strong>的变量信息。（假设所有可观测且有影响的变量都被观测的情况下）如病人的服药效果和他的心情，天气，空气湿度都有影响，<strong>但是这些变量无法加入响应变量</strong>中。现实世界的情况很复杂。所以，<strong>不可约误差提供了一个建模精度的上限</strong>。</p>
+<h3 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h3><p>推断对建模提出了更高的要求。我们想弄明白X和Y的关系到底是怎样的。可能的问题有：</p>
+<ul>
+<li><strong>哪些预测变量和响应变量有关</strong>？通常情况下，只有一部分预测变量和响应变量有关。</li>
+<li><strong>响应变量和每个预测变量之间的关系是怎样的</strong>？有些预测变量和响应变量是正相关的，有些是负相关的</li>
+<li><strong>响应变量和每个预测变量的关系可以用线性方程描述吗</strong>？ 大多数估计f的方式是使用<strong>线性方程</strong>，但是更一般的情况下，需要更复杂的模型。</li>
+</ul>
+<p>显然，此时的函数不能是一个黑盒的形式了，我们需要他的具体形式。</p>
+<h3 id="如何估计f"><a href="#如何估计f" class="headerlink" title="如何估计f"></a>如何估计f</h3><h4 id="参数方法"><a href="#参数方法" class="headerlink" title="参数方法"></a>参数方法</h4><p>这是一种基于模型估计的两阶段方法。</p>
+<ol>
+<li>假设函数f具有一定的形式，如假设f是一个线性模型：<br>$$f(X) &#x3D; \beta_0+\beta_1X_1+\beta_2X_2 …$$<br>此时问题就被简化了，只需要去估计参数$\beta$而不是一个p维函数。</li>
+<li>一旦模型被选中，就要使用训练数据来进行<strong>拟合</strong>或者<strong>训练</strong>模型。也就是估计各个参数的值，拟合常用的方法是<strong>普通最小二乘法</strong>。</li>
+<li>参数法的缺陷在于<strong>很难选择一个与原函数相近的模型</strong>，如果模型和真实的f相差太大，会导致估计出的f效果很差。解决此类模型的方式是选用一个<strong>更加光滑的模型进行拟合f</strong>，一般来说，拟合光滑度更强的模型需要更多的参数估计。但是拟合复杂的模型会导致<strong>过拟合</strong>的现象出现，也就是将<strong>噪声</strong>和<strong>误差</strong>也拟合了进去。</li>
+</ol>
+<h4 id="非参数方法"><a href="#非参数方法" class="headerlink" title="非参数方法"></a>非参数方法</h4><p>不需要对模型有事先的假设。</p>
+<p><strong>追求尽可能接近数据点的估计</strong>，估计函数在<strong>去粗和光滑处理后尽可能与更多数据点接近</strong>。不局限f的具体形式，可以在更大范围内选择适合f形状的估计。</p>
+<p>弱点在于：问题复杂，需要更多观测点来实现更精确的估计。</p>
+<h3 id="预测精度和解释性的权衡"><a href="#预测精度和解释性的权衡" class="headerlink" title="预测精度和解释性的权衡"></a>预测精度和解释性的权衡</h3><p>在众多估计方法中，有一些是<strong>欠光滑的</strong>，或者说形式上受限定的。这种情况下只能产生一个相对较窄的函数范围来估计f。如线性模型，他只能产生一个线性函数，是相对欠光滑的。但是<strong>薄板样条</strong>是光滑度较高的。</p>
+<p><em>为什么使用一个受限的方式，而不是一个光滑模型来建模？</em></p>
+<ol>
+<li>有时候欠光滑模型就够用了，可能原函数就是一个线性函数</li>
+<li>欠光滑模型可解释性更高，复杂的估计中，很难解释一个预测变量是怎么影响到响应变量的。</li>
+</ol>
+<p><strong>当方法的柔性增强时，方法的解释性下降。反之亦然</strong></p>
+<h3 id="指导学习和无指导学习"><a href="#指导学习和无指导学习" class="headerlink" title="指导学习和无指导学习"></a>指导学习和无指导学习</h3><p><strong>指导学习</strong>：</p>
+<p>对于每一个预测变量的观测值$x_i(i&#x3D;1,2,3,4,5…)$ 都有一个响应变量的观测 y</p>
+<p>建模的目标就是通过建立预测变量和响应变量的关系，进行响应变量的预测或者更好的理解两者关系。</p>
+<p>线性回归（linear regression），逻辑斯蒂回归，广义可加模型，提升方法(boosting method)，支持向量机都是指导学习。</p>
+<p><strong>无指导学习</strong>：</p>
+<p><strong>只有预测变量的观测向量$x_i(i&#x3D;1,2,3,4,5…)$ ,但是没有y与之对应。</strong>不可能对其拟合线性模型，因为缺少响应变量的指导。</p>
+<p>无指导学习可能出现在：理解<strong>变量之间或者观测之间的关系</strong>。聚类分析就是一种无指导学习，目标是<strong>基于各种可以观测的变量，将观测值归入不同的群</strong>。</p>
+<h3 id="归纳偏好-inductive-bias"><a href="#归纳偏好-inductive-bias" class="headerlink" title="归纳偏好 inductive bias"></a>归纳偏好 inductive bias</h3><p>机器学习算法在学习过程中对某种类型假设的偏好，任何一个有效的机器学习算法必然有其偏好。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930143929916.png"
+                      alt="image-20240930143929916"
+                ></p>
+<p>上面的拟合有两种，机器学习算法会选哪一种取决于它的归纳偏好，如果遵循<strong>奥卡姆剃刀原则</strong>：即相同性能下学习的模型复杂性越低越好，那么A明显更好。</p>
+<p><strong>机器学习算法的归纳偏好是否与问题所匹配，大多数时候直接决定了算法是否可以取得好的性能。</strong></p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/6ca3321f71123e6ae340adee7a70bafb.png"
+                      alt="img"
+                ></strong></p>
+<h3 id="没有免费的午餐-NO-Free-Lunch"><a href="#没有免费的午餐-NO-Free-Lunch" class="headerlink" title="没有免费的午餐 NO Free Lunch"></a>没有免费的午餐 NO Free Lunch</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930144547408.png"
+                      alt="image-20240930144547408"
+                ></p>
+<p>NFL定理：一个算法a如果在某些问题上比另一个算法b好，必存在另一些问题，b比a好</p>
+<h2 id="统计学基本概念"><a href="#统计学基本概念" class="headerlink" title="统计学基本概念"></a>统计学基本概念</h2><ul>
+<li><p>均值&#x2F;期望  (mean)</p>
+</li>
+<li><p>方差 (variance)</p>
+</li>
+<li><p>标准差&#x2F;均方差 (standard deviation)</p>
+</li>
+<li><p>协方差矩阵 (covariance matrix)</p>
+</li>
+<li><p>均方根值 &#x2F;有效值 (Root Mean Square)</p>
+</li>
+<li><p>均方根误差 (Root Mean Square Error)</p>
+</li>
+</ul>
+<h3 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h3><ul>
+<li><p>闵可夫斯基距离</p>
+<ul>
+<li>闵氏距离是<strong>一组距离</strong>的定义</li>
+</ul>
+</li>
+<li><p>两个n维变量 $a(x_{11},x_{12},x_{13},x_{14},…)$ $b(x_{21},x_{22},x_{23}…)$ 的闵氏距离定义为$d &#x3D; \sqrt[p]{\sum_{k&#x3D;1}^{n}{|x_{1k}-x_{2k}|^p}}$ ，当p&#x3D;1时，就是曼哈顿距离，p&#x3D;2时为欧氏距离；$p\rightarrow +\infty$ 时为切比雪夫距离。</p>
+<ul>
+<li>其中切比雪夫距离就是国际象棋中<strong>王向其他格子移动的最小距离</strong>。二维平面中的定义是：$d&#x3D;max(|x_1-x_2|,|y_1-y_2|)$</li>
+<li>闵氏距离的缺点就是将每个分量的量纲，也就是单位平等的看待了；没有考虑每个分量的分布可能是不同的</li>
+</ul>
+</li>
+<li><p>标准化欧氏距离</p>
+<ul>
+<li>是欧式距离的改进版-将分量事先标准化到均值，方差都相同。</li>
+<li>将分量事先处理$X^* &#x3D; \frac{X-m}{s}$ 减去均值，除以标准差</li>
+</ul>
+</li>
+<li><p>马氏距离</p>
+<ul>
+<li>消除量纲</li>
+<li>$d(x_i,x_y) &#x3D; \sqrt[]{(x_i,x_j)^TM(x_i,x_j)}$  M是协方差矩阵</li>
+</ul>
+</li>
+<li><p>余弦距离</p>
+</li>
+</ul>
+<h3 id="凸函数，凹函数"><a href="#凸函数，凹函数" class="headerlink" title="凸函数，凹函数"></a>凸函数，凹函数</h3><h4 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h4><p>设有D∈Rn，如果对任意的x,y∈D与任意的α∈[0,1]，都有：<br>αx + (1-α) y &#x3D; 0，<br>那么称D为凸集。</p>
+<p><strong>凸集的几何意义：</strong>若两个点属于此集合，则这两个点上的任意一点均属于此集合。</p>
+<p>凸集的性质：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/16478868b4936d650954e8f213161e94.jpeg#pic_center"
+                      alt="在这里插入图片描述"
+                ></p>
+<h4 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h4><p>设D是非空集，f是定义在D上的函数，如果对任意的x1,x2∈D，均有在这<strong>两点之间的点的函数值小于等于这两点的加权函数值之和</strong>，那么称f为D上的凸函数。</p>
+<p>即$x^1,x^2$是属于凸集D的两个变量，$a\in (0,1)$ 满足下式：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930160242384.png"
+                      alt="image-20240930160242384"
+                ></p>
+<p>几何意义：凸函数任意两点之间的曲线段总是在弦下方。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930160030940.png"
+                      alt="image-20240930160030940"
+                ></p>
+<h4 id="判断函数的凹凸性"><a href="#判断函数的凹凸性" class="headerlink" title="判断函数的凹凸性"></a>判断函数的凹凸性</h4><p><strong>一元函数： 二阶导数大于等于0，则为凸函数，</strong>有极小值； 凹函数亦然。</p>
+<p><strong>多元函数</strong>：使用海森矩阵，根据矩阵的正定性，判断凹凸性。<strong>半正定为凸函数，非半正定则是凹函数。</strong></p>
+<h2 id="模型评估和选择"><a href="#模型评估和选择" class="headerlink" title="模型评估和选择"></a>模型评估和选择</h2><p><em>统计学习方法三要素： 方法 &#x3D; 模型 +策略 + 算法</em></p>
+<h3 id="模型-假设空间"><a href="#模型-假设空间" class="headerlink" title="模型&amp;假设空间"></a>模型&amp;假设空间</h3><ul>
+<li>模型（model）：是所要学习的条件概率分布或决策函数或映射函数</li>
+<li>假设空间（hypothesis space）：包含所有可能的条件概率分布或决策函数集合</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930163703781.png"
+                      alt="image-20240930163703781"
+                ></p>
+<p>更加细节的公式：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930163755509.png"
+                      alt="image-20240930163755509"
+                ></p>
+<p>也就是<strong>模型都是通过参数刻画的，而参数取自于n维欧氏空间</strong>，因此也叫做参数空间。</p>
+<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><ul>
+<li><p>策略（strategy）：如何从假设空间中选择最优的假设模型</p>
+</li>
+<li><p>损失函数（loss function）或者代价函数（cost function）</p>
+<ul>
+<li>度量模型一次预测的好坏，记为𝐿( 𝑌,𝑓(𝑋) )，Y是实际值，f（x）是预测值</li>
+<li>通常为一个非负实值函数</li>
+<li>常见的损失函数如<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930164051544.png"
+                      alt="image-20240930164051544"
+                ></li>
+</ul>
+</li>
+<li><p>风险函数（risk function）或期望损失（expected loss）</p>
+<ul>
+<li>度量平均意义下模型预测的好坏，记为$R_{exp}(f)$&#x3D;𝐸[𝐿(𝑌,𝑓(𝑋) ) ]</li>
+<li>遗憾的是期望损失并不能直接计算 (需要使用大量的样本计算经验风险来<strong>近似得到风险函数</strong>)</li>
+</ul>
+</li>
+<li><p>经验风险（empirical risk）：模型在训练数据集上的平均损失，记为$R_{emp}(f)$</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930164505944.png"
+                      alt="image-20240930164505944"
+                ></p>
+</li>
+<li><p><strong>经验风险</strong>最小化（empirical riskminimization, ERM）：</p>
+<ul>
+<li>经验风险最小的模型就是最优的模型</li>
+<li>即求解最小化的优化问题：哪个模型满足  $min_{f\inℱ}\frac{1}{𝑁}\sum_{i&#x3D;1}^{N}𝐿(y_i,𝑓(𝒙_i))$</li>
+<li>有时候会出现过拟合（over-fitting）现象，例如样本量很少的情况下</li>
+</ul>
+</li>
+<li><p><strong>结构风险</strong>最小化（structural riskminimization, SRM）：</p>
+<ul>
+<li><p>结构风险最小的模型就是最优的模型</p>
+</li>
+<li><p>增加<strong>衡量模型复杂度</strong>的<strong>正则化项（regularizer）或罚项（penalty term）</strong></p>
+</li>
+<li><p>即求解最小化的优化问题：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240930165121221.png"
+                      alt="image-20240930165121221"
+                ></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>学习模型的具体计算方法</p>
+<ul>
+<li><strong>统计学习问题往往形式化为一个最优化问题</strong>，如果最优化问题有解析解&#x2F;闭式解（closed-form expression），直接求解</li>
+<li>如果最优化问题没有有解析解&#x2F;闭式解（closed-form expression）<ul>
+<li>梯度下降（gradientdescent）</li>
+<li>牛顿法（Newton method）</li>
+<li>拟牛顿法（quasi-Newton method）</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h3 id="泛化误差-vs-经验误差"><a href="#泛化误差-vs-经验误差" class="headerlink" title="泛化误差 vs 经验误差"></a>泛化误差 vs 经验误差</h3><p>泛化误差：在未来样本上的误差，当然越小越好。</p>
+<p>经验误差：在训练集上的误差，不是越小越好，否则过拟合。</p>
+<h3 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h3><ul>
+<li><p>如何获得测试结果？评估方法</p>
+</li>
+<li><p>如何评估性能优劣？性能度量</p>
+</li>
+<li><p>如何判断实质差别？比较检验</p>
+</li>
+</ul>
+<h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><p><strong>关键：怎么获得测试集？测试集应该与训练集“互斥”</strong></p>
+<p>数据分类方法：</p>
+<ul>
+<li>留出法 ：<strong>将数据集按比例划分为训练集和测试集</strong></li>
+</ul>
+<p>注意：</p>
+<ol>
+<li>要保证测试集中数据的分布不变，可采用分层抽样法</li>
+<li>多次随机划分确定最后的测试集</li>
+<li>测试集比例在1&#x2F;3-1&#x2F;5</li>
+</ol>
+<ul>
+<li><p>k折-交叉验证法：<strong>将数据集分为k折，如10折即10部分。然后将第10折，第9折…分别作为测试集进行测试，共测试10次，取平均值作为最后的测试结果</strong></p>
+</li>
+<li><p>自助抽样法：<strong>通过有放回抽样抽取样本，数据集共m个样本则抽取m次，根据数学公式计算可得最后没被抽取的样本集合约占1&#x2F;3，这部分作为测试集，抽取到的作为训练集</strong></p>
+</li>
+</ul>
+<p>注意：</p>
+<ol>
+<li>训练集与原样本集同规模</li>
+<li>数据分布有所改变</li>
+</ol>
+<h4 id="调参和最终模型"><a href="#调参和最终模型" class="headerlink" title="调参和最终模型"></a>调参和最终模型</h4><ul>
+<li><p><strong>算法</strong>的参数：一般由人工设定，亦称“超参数”</p>
+</li>
+<li><p><strong>模型</strong>的参数：一般由学习确定</p>
+</li>
+</ul>
+<p>验证集可以从训练集中抽取一部分得到，当超参数选定后，要将训练集+验证集重新训练得到最终模型</p>
+<p>验证集用于帮助选择最佳的<strong>超参数</strong> ：如KNN中的K，网络层数，网络节点数，迭代次数等等</p>
+<p>注意：测试集<strong>仅在</strong>最终评价模型使用，不能参与学习过程</p>
+<h3 id="性能度量：衡量模型泛化能力的评价标准，反映了任务需求"><a href="#性能度量：衡量模型泛化能力的评价标准，反映了任务需求" class="headerlink" title="性能度量：衡量模型泛化能力的评价标准，反映了任务需求"></a>性能度量：<strong>衡量模型泛化能力的评价标准，反映了任务需求</strong></h3><h4 id="回归任务"><a href="#回归任务" class="headerlink" title="回归任务"></a>回归任务</h4><p>使用均方误差 （误差平方和的均值）</p>
+<p>$$E(f;D) &#x3D; \frac{1}{m}\sum^m_{i&#x3D;1}(f(x_i)-y_i)^2$$</p>
+<h4 id="分类任务"><a href="#分类任务" class="headerlink" title="分类任务"></a>分类任务</h4><p>错误率、精度、查准率、查全率计算</p>
+<p><strong>混淆矩阵</strong></p>
+<p>也称误差矩阵，是表示精度评价的一种标准格式，用n行n列的矩阵形式来表示</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004165832953.png"
+                      alt="image-20241004165832953"
+                ></p>
+<p>正例：positive，即最后结果是正向的（比如好瓜）；<br>反例：negative，即最后结果是负向的（比如烂瓜）；<br>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；<br>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；<br>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；<br>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</p>
+<p><strong>错误率</strong>：分类错误的次数除以总样本数</p>
+<p>$$E(f;D) &#x3D; \frac{1}{m}\sum^m_{i&#x3D;1} bool(f(x_t)\neq y_i)$$</p>
+<p>$$E(f;D) &#x3D; \frac{FN+FP}{样本总数}$$</p>
+<p><strong>精度</strong>：分类正确的次数除以总样本数 也等于 1- 错误率</p>
+<p>$$acc(f;D) &#x3D; \frac{1}{m}\sum^m_{i&#x3D;1} bool(f(x_t)&#x3D; y_i)$$</p>
+<p>$$acc(f;D) &#x3D; \frac{TP+FN}{样本总数}$$</p>
+<p><strong>查准率</strong>：预测出来为正类中真正的正类所占的比例。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/f2974194f9f38599a23d09e8fb5e8f59.png#pic_center"
+                      alt="准确率"
+                ></p>
+<p><strong>查全率</strong>：预测出来正确的正类占所有真实正类的比例。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/830dc5d2c6aaa1c3cee6379b5c8b87a8.png#pic_center"
+                      alt="召回率"
+                ></p>
+<p><strong>查准率（准确率）和查全率（召回率）是一对矛盾的度量</strong>，查准率高则查全率低，反之亦然。我们可以通过将学习器得到的预测结果对样例进行排序，最<strong>前面的是最有可能为正例的样本，越往后越不可能</strong>，<strong>然后依次对这些样本作为正例进行预测</strong>（不断累积计算，如得到第一个样本的预测情况计算一次，得到第二个预测情况则和第一个一同计算，第三个和第二个，第一个一同计算），可以得到当前的查准率，查全率，以查准率为纵轴，查全率为横轴，得到P-R曲线，其中<strong>平衡点</strong>即为：查准率&#x3D;查全率的点，比较这几个点和原点之间的欧氏距离大小，越大越优。（距离越大，查准率，查全率均越大）</p>
+<p><strong>F1度量</strong>：（用于为查准率，查全率加入不同的考虑权重，而非同等看待）</p>
+<p>查准率和查全率的 调和平均数 的倒数:  注意调和平均数的性质！ 调和平均数有惩罚机制，会更靠近较小值（重视较小值）我们引入这样的惩罚机制就不会使得过小的值发不出声音，从而使评估变得更准确。</p>
+<p>$$\frac{1}{F1} &#x3D; \frac{1}{2}(\frac{1}{P}+\frac{1}{R})$$</p>
+<p><strong>改进</strong>： 引入权重系数$\beta$ 作为超参数，看到底倾向于哪个量</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/9715a1fe99696322547c53f1edeb01ac.png#pic_center"
+                      alt="Fβ度量"
+                ></p>
+<h4 id="宏-微查准率，查全率"><a href="#宏-微查准率，查全率" class="headerlink" title="宏&#x2F;微查准率，查全率"></a>宏&#x2F;微查准率，查全率</h4><p>若能得到多个混淆矩阵 : (例如多次训练&#x2F;测试的结果，多分类的两两混淆矩阵)</p>
+<p>宏查准率就是评判所有的混淆矩阵的综合查准率。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004181522045.png"
+                      alt="image-20241004181522045"
+                ></p>
+<h4 id="ROC-AUC"><a href="#ROC-AUC" class="headerlink" title="ROC AUC"></a>ROC AUC</h4><p>ROC 曲线，即接收者操作特征曲线 用来评价二分类模型性能的常用图形工具。它通过显示真阳性率（True Positive Rate，简称 TPR）与假阳性率（False Positive Rate，简称 FPR）之间的权衡来帮助我们理解模型的分类能力。</p>
+<p>AUC 曲线下面积（Area Under Curve），是 ROC 曲线下面积的一个数值表示。它提供了一个定量的指标，用来衡量分类模型的整体表现。AUC 值范围从 0 到 1，值越大表示模型性能越好</p>
+<h5 id="为何需要-ROC-AUC"><a href="#为何需要-ROC-AUC" class="headerlink" title="为何需要 ROC&#x2F;AUC"></a>为何需要 ROC&#x2F;AUC</h5><p>在分类任务中，特别是当数据集类别不平衡时，单纯依赖准确率（Accuracy）可能会造成误导。假设我们有一个武侠元素的数据集，其中 95% 的样本是普通弟子，5% 的样本是高手。<strong>则若总是预测所有样本为普通弟子，模型的准确率就为 95%，看起来表现很好，但实际上它根本无法识别高手</strong>，是一个毫无用处的分类器。</p>
+<p>分类器为每一个样本给予一个实值，如果这个值大于分类阈值则为正类，小于则为负类。我们可以将预测的实值从可能性大小进行排序，然后用分类阈值进行截断。<strong>ROC就是测量这个排序的性能好坏的。</strong></p>
+<h5 id="如何绘制ROC"><a href="#如何绘制ROC" class="headerlink" title="如何绘制ROC"></a>如何绘制ROC</h5><p>给定m+个正例，m-个反例。 最开始先将分类阈值设为最大，（即全部预测反例。然后将分类阈值依次设置为每一个样例的预测值，即依次将每一个样例预测为正例，如果为真正例，则坐标向上移动 变为$(x,y+\frac{1}{m^+})$；假正例则向右移动 变为$(x+\frac{1}{m^-},y)$。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/blog_migrate/347a58dc212c5fe33ebac96f17bb0515.gif"
+                      alt="img"
+                ></p>
+<h4 id="非均等代价"><a href="#非均等代价" class="headerlink" title="非均等代价"></a>非均等代价</h4><p>犯不同的错误往往会造成不同的损失 此时需考虑“非均等代价”(unequal cost)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004183705538.png"
+                      alt="image-20241004183705538"
+                ></p>
+<p>代价敏感错误率：$cost_{01}:cost_{10}&#x3D;5:1$ 预测错误的代价是不同的</p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004183725351.png"
+                      alt="image-20241004183725351"
+                ></strong></p>
+<h3 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h3><p>在某种度量下取得评估结果后，是否可以直接比较以评判优劣？<br>NO !  因为：</p>
+<ul>
+<li>测试性能不等于泛化性能</li>
+<li>测试性能随着测试集的变化而变化</li>
+<li>很多机器学习算法本身有一定的随机性</li>
+</ul>
+<p>假设检验：计算显著性</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004184851237.png"
+                      alt="image-20241004184851237"
+                ></p>
+<p>回归任务中，均值误差可以分解为：</p>
+<p>偏差（真实输出与期望输出的差别 bias）</p>
+<p>方差（同样大小训练集下输出变动 variance）</p>
+<p>系统误差（训练数据本身的误差）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004185009640.png"
+                      alt="image-20241004185009640"
+                ></p>
+<h4 id="偏差-方差窘境"><a href="#偏差-方差窘境" class="headerlink" title="偏差-方差窘境"></a>偏差-方差窘境</h4><p>一般而言，偏差与方差存在冲突：</p>
+<ul>
+<li>训练不足时，学习器拟合能力不强，偏差主导</li>
+<li><strong>随着训练程度加深，学习器拟合能力逐渐增强，方差逐渐主导</strong></li>
+<li>训练充足后，学习器的拟合能力很强，方差主导</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004185158982.png"
+                      alt="image-20241004185158982"
+                ></p>
+<h5 id="如何减少高偏差"><a href="#如何减少高偏差" class="headerlink" title="如何减少高偏差"></a>如何减少高偏差</h5><ul>
+<li>结合数据其他的特征，来<strong>提高模型的精度</strong></li>
+<li><strong>增加训练的迭代次数</strong>，使得模型可以学习更加复杂的数据</li>
+<li><strong>避免使用高偏差的算法</strong>，如线性回归、逻辑回归、判别分析等，而是使用<strong>非线性算法</strong>，如K-近邻、支持向量机、决策树等</li>
+<li>在不同程度上<strong>减少正则化</strong>，以帮助模型更有效地学习训练集，<strong>并防止欠拟合</strong></li>
+</ul>
+<h5 id="如何减少高方差"><a href="#如何减少高方差" class="headerlink" title="如何减少高方差"></a>如何减少高方差</h5><ul>
+<li><strong>减少</strong>模型中<strong>特征</strong>的数量</li>
+<li>将当前模型<strong>替换为更简单的模型</strong></li>
+<li><strong>增加训练数据的多样性</strong>以平衡模型的复杂度和数据结构</li>
+<li><strong>避免使用高方差算法</strong>（支持向量机、决策树、K近邻等），而<strong>选择低方差算法</strong>，如线性回归、逻辑回归和线性判别分析</li>
+<li>进行<strong>超参数调优以避免过拟合</strong></li>
+<li><strong>增加输入的正则化</strong>以减少模型的复杂度并防止过拟合</li>
+<li><strong>使用新的模型架构</strong>（如果其他方法不起作用，应将其视为最后的手段）</li>
+</ul>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>基于树进行决策，每个内部节点对应于一个属性的“测试”，边是测试结果，叶节点表示一个最终的预测结果。</p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241004190411393.png"
+                      alt="image-20241004190411393"
+                ></strong></p>
+<p><strong>学习过程：通过对训练样本的分析确定一个“划分属性”（内部节点所对应的属性）</strong></p>
+<p><strong>预测过程：将测试实例从根节点开始，沿着划分属性构成的”判定测试序列“下行，直到叶节点</strong></p>
+<h4 id="学习基本流程"><a href="#学习基本流程" class="headerlink" title="学习基本流程"></a>学习基本流程</h4><p>策略：<strong>分而治之</strong>；自根到叶的递归过程，</p>
+<p>停止条件：当前节点包含的样本都是同一个类别 当前的属性为空，所有样本在所有属性上的集合为空。</p>
+<p>从属性集合A中获取最优划分属性$a^*$</p>
+<h3 id="划分度量"><a href="#划分度量" class="headerlink" title="划分度量"></a>划分度量</h3><h6 id="在每一个节点选择什么属性进行测试，才能让其分支节点所包含的样本属于同一类别？换句话说，如何才能让被分开的样本尽可能不同，而分为一类的样本尽可能相似？"><a href="#在每一个节点选择什么属性进行测试，才能让其分支节点所包含的样本属于同一类别？换句话说，如何才能让被分开的样本尽可能不同，而分为一类的样本尽可能相似？" class="headerlink" title="在每一个节点选择什么属性进行测试，才能让其分支节点所包含的样本属于同一类别？换句话说，如何才能让被分开的样本尽可能不同，而分为一类的样本尽可能相似？"></a>在每一个节点选择什么属性进行测试，才能让其分支节点所包含的样本属于同一类别？换句话说，如何才能让被分开的样本尽可能不同，而分为一类的样本尽可能相似？</h6><h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><p><strong>信息熵</strong>：度量样本集合纯度的指标，越小，纯度越高，类别越相似。</p>
+<p>信息熵的定义：假设当前样本集合D共K类样本，第k类样本所占的比例为$p_k$ 。</p>
+<p>$$Ent(D) &#x3D; -\sum^K_{k&#x3D;1}p_klog_2p_k$$</p>
+<p>如果某一个属性选择的很好，依照该属性划分完的样本信息熵应该很高。</p>
+<p>信息增益：可以通过划分前的信息熵减去划分后的信息熵来得到信息增益（这就是划分好坏的度量）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005110845495.png"
+                      alt="image-20241005110845495"
+                ></p>
+<p>例如：对于西瓜来说，纹理$\alpha$是一个可以用来作为划分的属性，它的取值有{清晰，稍糊，模糊}三种，现在共有17个西瓜作为样本D 。易于计算划分之前的信息熵（直接根据好坏分类计算），划分之后的信息熵通过看<strong>属性各个取值下</strong>的<strong>西瓜比例，好瓜比例，坏瓜比例</strong>代入公式即可。<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005111244620.png"
+                      alt="image-20241005111244620"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005111513892.png"
+                      alt="image-20241005111513892"
+                ></p>
+<h4 id="增益率"><a href="#增益率" class="headerlink" title="增益率"></a>增益率</h4><p>信息增益缺点： 对可取值数目多的属性更偏好，如果将编号作为属性，编号的信息增益很大（确实是完全分开了，每个类别都很纯，只有一个瓜）。</p>
+<p><strong>作为改进</strong>——增益率：<strong>将信息熵除以一个IV（a）</strong></p>
+<p>$$Gain_ratio(D,a) &#x3D; \frac{Gain(D,a)}{IV(a)}$$</p>
+<p>其中：$IV(a) &#x3D; -\sum^{V}_{v&#x3D;1}\frac{D^V}{D}log_2\frac{D^V}{D} $ 也就是<strong>属性本身的信息熵</strong></p>
+<p>属性a的可取值数目多，即V越大，则IV（a）更大。</p>
+<p>启发式：先从划分属性中找出信息上增益高于其他水平的，从其中选取增益率最高的（<strong>防止对取值较少的属性偏好</strong>）。</p>
+<h4 id="基尼指数"><a href="#基尼指数" class="headerlink" title="基尼指数"></a>基尼指数</h4><p>信息增益和增益率都要<strong>计算对数</strong>。</p>
+<p>基尼指数只需要<strong>计算比例</strong>。</p>
+<p>$p_k$：样本点属于第𝑘类的概率</p>
+<p>$$Gini(D) &#x3D; \sum^{|y|}<em>{k&#x3D;1}\sum</em>{k_<em>\neq k}p_kp_{k_</em>} $$</p>
+<p>$$Gini(D )&#x3D; 1-\sum^{|y|}_{k&#x3D;1}p_k^2$$</p>
+<p><strong>反映了从集合D中随机抽取两个样例，其类别标记不一致的概率。该指数越小，表示集合D纯度越高，即划分纯度越高。</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241008110743266.png"
+                      alt="image-20241008110743266"
+                ></p>
+<p>所有候选属性集合中，选择使得划分后基尼指数最小的那个属性。</p>
+<p>$$a^* &#x3D; argmin_{a\in A}Gini_index(D,a)$$</p>
+<h3 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h3><ul>
+<li><p><strong>划分选择的各种方法</strong>在大多数情况下<strong>只影响决策树大小</strong>，但对<strong>泛化性能的影响不大</strong>，</p>
+</li>
+<li><p><strong>剪枝方法和程度</strong>对决策树<strong>泛化性能影响非常大</strong>。剪枝<strong>是对抗“过拟合”的主要手段</strong>。</p>
+</li>
+<li><p>为了尽可能的正确分类样本，会导致决策树分支过多，剪枝来减少过拟合。</p>
+</li>
+</ul>
+<p><strong>预剪枝</strong>：提前剪掉一些分支的生长。</p>
+<p><strong>后剪枝</strong>：对完全树”回头“进行剪枝。</p>
+<p>剪枝过程中要评估剪枝前后决策树的优劣。</p>
+<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><p>对每一个节点<strong>比对划分前后的预测精度</strong>：如果划分后的精度<strong>增大</strong>，则进行划分，否则禁止划分。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005113928722.png"
+                      alt="image-20241005113928722"
+                ></p>
+<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><p><strong>自底向上</strong>：如果将<strong>倒数第二层一个内部节点替换为叶子节点</strong>，如果验证集的精度上升，则剪枝，否则不剪枝。</p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005114351760.png"
+                      alt="image-20241005114351760"
+                ></strong></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>预剪枝：测试时间开销降低，训练时间开销降低<br>后剪枝：测试时间开销降低，训练时间开销增加</p>
+<p>预剪枝：过拟合风险降低，欠拟合风险增加<br>后剪枝：过拟合风险降低，欠拟合风险基本不变</p>
+<p>泛化性能：后剪枝通常优于预剪枝</p>
+<h3 id="连续值属性处理"><a href="#连续值属性处理" class="headerlink" title="连续值属性处理"></a>连续值属性处理</h3><p>基本思路：连续数值离散化。</p>
+<p>常见做法：二分法</p>
+<p>n个属性值<strong>从小到大排序</strong>，可形成n-1个区间，<strong>在这n-1个区间中每个可以选择1个阈值作为划分点</strong>，共n-1种样本集合的划分方式。当选择了一个阈值进行划分时，此时就已经和离散数值处理一样了，就看哪种划分方式最好即可 。</p>
+<p>如：密度阈值&#x3D;0.3，就是将0.3当作一个阈值，分出大于 小于0.3的两个分支。</p>
+<h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><ol>
+<li>如何划分属性（内部节点中的测试属性该选哪个）</li>
+<li>给定划分属性，但是缺少属性值，（走哪个分支）</li>
+</ol>
+<p>使用完全没有缺失值的样例是不现实的，会浪费很多数据。所以我们分析某一个属性的时候，只看该属性下没有缺失值的样本即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005154416507.png"
+                      alt="image-20241005154416507"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005154442825.png"
+                      alt="image-20241005154442825"
+                ></p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241005154458338.png"
+                      alt="image-20241005154458338"
+                ></strong></p>
+<p>关键是这里的$\widetilde r_v$ 和 $\rho$ ，是无缺失值样例的占比，加入这个权重即可。</p>
+<p>每个决策树对应一个规则集，可解释性比较高。</p>
+<h3 id="拓展-轴平行划分"><a href="#拓展-轴平行划分" class="headerlink" title="拓展 轴平行划分"></a>拓展 轴平行划分</h3><p>每个节点只讨论一个属性时 就是单变量决策树。</p>
+<p>多变量决策树：例如斜决策树， 不失为不是为每个非叶节点进行最优属性划分，而是建设一个线性分类器</p>
+<p>还可以在节点嵌入神经网络和SVM进行混合决策。</p>
+<h2 id="KNN-k近邻"><a href="#KNN-k近邻" class="headerlink" title="KNN k近邻"></a>KNN k近邻</h2><h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>例如欧氏距，余弦相似性，马氏距离等等。（在预备知识提到过）</p>
+<h3 id="k近邻分类器"><a href="#k近邻分类器" class="headerlink" title="k近邻分类器"></a>k近邻分类器</h3><p>算法流程</p>
+<ol>
+<li><p>计算测试样本$\overline{x}$和$D_{train}$中所有训练样本之间的距离d</p>
+</li>
+<li><p>对所有距离值（相似度值）进行升序或者降序排列</p>
+</li>
+<li><p>选择k个最近的训练样本</p>
+</li>
+<li><p>再用投票法，将近邻中样本数最多的标签分配给$\overline{x}$</p>
+</li>
+</ol>
+<p>k取值的影响</p>
+<ul>
+<li>k取奇数值，避免平局</li>
+<li>k取不同的值，分类结果可能不同</li>
+<li>k值较小，对噪声敏感，模型复杂 容易过拟合（直觉上想，离得越近影响越大，k小一点可以得到比较好的分类，但是对噪声敏感）</li>
+<li>k值大，对噪声不敏感，整体模型变得简单，容易欠拟合（比如取全集，怎么测试都输出一个类型，无法正常分类）</li>
+</ul>
+<h3 id="最近邻分类器（1-NN）"><a href="#最近邻分类器（1-NN）" class="headerlink" title="最近邻分类器（1-NN）"></a>最近邻分类器（1-NN）</h3><p>当k&#x3D;1时的KNN</p>
+<h3 id="泛化错误率"><a href="#泛化错误率" class="headerlink" title="泛化错误率"></a>泛化错误率</h3><p>最近邻分类器的错误率（测试样本为x，最近邻为z）</p>
+<p>$$P(err) &#x3D; 1 - \sum_{c\in y}P(c|x)P(c|z)$$</p>
+<p>最优贝叶斯分类：</p>
+<p>最近邻分类器的泛化错误率，不超过贝叶斯错误率的两倍。</p>
+<h3 id="K-近邻回归"><a href="#K-近邻回归" class="headerlink" title="K-近邻回归"></a>K-近邻回归</h3><p>最后一步不同：</p>
+<p>将距离值的倒数作为权重，然后将k个邻近的标签值加权平均，作为$\overline{x}$的预测值</p>
+<h3 id="近邻平滑"><a href="#近邻平滑" class="headerlink" title="近邻平滑"></a>近邻平滑</h3><p>核平滑法：<strong>核函数</strong></p>
+<p>二次核，次方核，高斯核</p>
+<h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3><p>k-NN是典型的“懒惰学习”</p>
+<p>训练阶段仅仅是把样本保存下来，训练时间开销是0，等到测试样本在开始处理。</p>
+<p>SVM，CNN，在训练阶段进行学习处理的方法，这类方法在训练期间构造一个通用的，输出无关的目标函数。</p>
+<p>优点：精度高，对异常值不敏感，不用假定输入样本</p>
+<p>缺点：计算复杂度高（距离函数计算慢），空间复杂度大（训练集大）</p>
+<p>测试时间复杂度：计算距离时间+排序时间</p>
+<h3 id="降低近邻计算"><a href="#降低近邻计算" class="headerlink" title="降低近邻计算"></a>降低近邻计算</h3><p>维诺图</p>
+<p>每个维诺图都是一个凸多边形，画好每一个分类的图，看看测试点是否会落到这个点中</p>
+<h4 id="KD树"><a href="#KD树" class="headerlink" title="KD树"></a>KD树</h4><p>对K维空间中的实例点进行计算，</p>
+<p>构造流程：</p>
+<ul>
+<li><p>确定split域 计算每一个特征维度的方差，方差最大的维度即为spilt域的值。（x方向方差大，就竖着划分，以中位数为界画一条竖线，将样本空间划分为两个部分。）</p>
+</li>
+<li><p>确定Node-data域，数据集点集按照其spilt域的值排序。中位数的数据点击被选为Node-data</p>
+</li>
+<li><p>对剩下的数据点进行划分，确定左右子空间</p>
+</li>
+<li><p>递归，每个字空间继续进行空间划分，直到空间中只包含一个数据点</p>
+</li>
+</ul>
+<p>kd树搜索：</p>
+<ol>
+<li>二叉搜索</li>
+<li>到达叶子节点就选择为当前最优，</li>
+<li>回溯</li>
+<li>分析完根结点的所有子节点，结束分析</li>
+</ol>
+<p>例子：</p>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>通过数学变换将高维属性空间进行转变，成为一个低维属性空间。（增加距离的计算速度）</p>
+<h3 id="近似最近邻"><a href="#近似最近邻" class="headerlink" title="近似最近邻"></a>近似最近邻</h3><p>搜索可能是近邻的数据项而不再是只局限于返回最可能的数据项，在牺牲可接受范围内的精度的情况下获得最近邻。</p>
+<h3 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h3><p>通过编码的方式进行降低代价</p>
+<h2 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM 支持向量机"></a>SVM 支持向量机</h2><p>生成式模型</p>
+<p>判别式模型（SVM）</p>
+<h3 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h3><p>将训练样本分开的超平面有很多，哪一个更好</p>
+<p>“正中间的”：鲁棒性最好，容错率高，泛化能力最强</p>
+<h3 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h3><h4 id="间隔和支持向量"><a href="#间隔和支持向量" class="headerlink" title="间隔和支持向量"></a>间隔和支持向量</h4><p>一个点（样例）对应的间隔margin是其到分界线的垂直距离。</p>
+<p>SVM<strong>最大化</strong>（所有训练样本的）<strong>最小间隔margin</strong></p>
+<p>具有最小间隔的点称为支持向量</p>
+<p>#聚类 无监督学习</p>
+<p>聚类的好坏没有绝对标准，聚类采用某一种偏好来进行聚类划分。</p>
+<p>聚类（簇、类）。数据对象的集合。同一个类中，数据对象是相似的，不同聚类中，数据对象是不相似的</p>
+<p>聚类算法：根据给定的相似性评价标准，将一个数据集合分出几个聚类。</p>
+<ul>
+<li>簇之间交集为空集</li>
+<li>并集是样本集合D</li>
+</ul>
+<p>##聚类依据</p>
+<p>将整个数据集中每个<strong>样本的特征向量</strong>看作是<strong>分布到特征空间中的一些点</strong>，<strong>点与点之间的距离</strong>（不一定是欧氏距离）可作为相似性度量标准。根据距离函数的大小进行聚类。</p>
+<p>好的聚类算法，类之间不相似，类内部高相似性。</p>
+<p>根据数据的相似性和距离进行划分。</p>
+<p>##粒度对聚类的影响</p>
+<p>聚类的关键：</p>
+<ul>
+<li><p>特征的选取或者设计，特征选择的好，容易区分。</p>
+</li>
+<li><p>距离度量函数的选择</p>
+</li>
+</ul>
+<p>数据点的分布也是一群一群的，同一群样本密集，这样容易聚类。不同特征样本混在一起不容易聚类。</p>
+<h2 id="距离度量-1"><a href="#距离度量-1" class="headerlink" title="距离度量"></a>距离度量</h2><p>度量同样本之间的相似性，和不同样本点之间的差异性</p>
+<p>常用度量函数：各种距离函数。（之前提到过）</p>
+<h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><p>类的定义有很多种，其中混合了人为规范性。定义的好不好要看实际情况</p>
+<p>还需要基于数值的准则函数。如果聚类准则函数选择的好，聚类的质量就会高</p>
+<h2 id="聚类准则"><a href="#聚类准则" class="headerlink" title="聚类准则"></a>聚类准则</h2><h3 id="直接试探法：凭感觉和经验定义一种度量的函数（人为告诉一个规则）"><a href="#直接试探法：凭感觉和经验定义一种度量的函数（人为告诉一个规则）" class="headerlink" title="直接试探法：凭感觉和经验定义一种度量的函数（人为告诉一个规则）"></a>直接试探法：凭感觉和经验定义一种度量的函数（人为告诉一个规则）</h3><ul>
+<li><p>设置距离阈值m</p>
+</li>
+<li><p>任取一个样本点作为聚类中心初始值</p>
+</li>
+<li><p>计算其他样本点和中心的距离</p>
+</li>
+<li><p>若大于m，则确定一个新的聚类中心，否则即属于该聚类中心</p>
+</li>
+<li><p>假设已经有两个聚类中心，则第三个样本距离这两个样本都大于m，则称为新的聚类中心。</p>
+</li>
+</ul>
+<h4 id="影响因素："><a href="#影响因素：" class="headerlink" title="影响因素："></a>影响因素：</h4><ul>
+<li>初始点不同</li>
+<li>阈值T不同</li>
+</ul>
+<h4 id="优化："><a href="#优化：" class="headerlink" title="优化："></a>优化：</h4><p>最大最小距离思想（另一种算法）：</p>
+<p>对于聚类中心的选择有改变：先选择距离初始聚类中心最远的点当第二个聚类中心。</p>
+<p>###准则函数法： 聚完类之后，根据准则函数计算损失函数，告诉聚类模型，优化模型</p>
+<p>$J &#x3D; \sum\sum$</p>
+<p>J代表c个聚类全部样本和对应类别均值之间的距离和。</p>
+<h3 id="系统聚类法"><a href="#系统聚类法" class="headerlink" title="系统聚类法"></a>系统聚类法</h3><p>将数据样本按距离准则逐步分类，类别由多到少，直到获得合适的分类要求为止。</p>
+<p>算法：</p>
+<p>主要的计算准则：</p>
+<h3 id="动态聚类法K-means"><a href="#动态聚类法K-means" class="headerlink" title="动态聚类法K-means"></a>动态聚类法K-means</h3><p>首先选择若干个点作为样本中心，然后按照某种聚类准则进行划分，使得聚类向样本中心靠拢</p>
+<p>算法：</p>
+<ol>
+<li>选择聚类数量k</li>
+<li>初始化聚类中心（随机选择k个点）</li>
+<li>对每个样本点，到这k个聚类中心的距离，将样本点划分到离他最近的聚类中心。</li>
+<li>重新计算聚类中心，为属于该聚类所有样本的均值中心。</li>
+</ol>
+<p>影响因素：</p>
+<ul>
+<li>聚类数目</li>
+<li>聚类中心的初始分布</li>
+<li>样本分布的几何性质</li>
+</ul>
+<p>实际中需要试探不同的K值和选择不同的聚类中心初始分布。</p>
+<p>适合分类数目已知的情况</p>
+<h4 id="优化-K-means"><a href="#优化-K-means" class="headerlink" title="优化 K-means++"></a>优化 K-means++</h4><p>每个聚类中心应该分的足够开。</p>
+<h4 id="ISODATA算法"><a href="#ISODATA算法" class="headerlink" title="ISODATA算法"></a>ISODATA算法</h4><p>过程中根据各个类别的实际情况进行分裂和合并两种操作来进行聚类中心调整</p>
+<ol>
+<li>判断类别中的样本数量是不是小于M，如果小于就减少一个聚类中心，然后将这个聚类中的各个样本分到其他聚类中心。<br>如果样本数量太大，</li>
+</ol>
+<p>合并：计算聚类中心两两之间的距离，若两个类别之间的中心距离小于一个阈值，就合并为一个类。新中心选在样本数量多的一侧</p>
+<p>分裂：计算样本在各个维度下的方差。类别中样本方差最大的，就进行分裂操作。</p>
+<h3 id="聚类评价"><a href="#聚类评价" class="headerlink" title="聚类评价"></a>聚类评价</h3><ul>
+<li>聚类中心之间的距离</li>
+<li>聚类中的样本数量</li>
+<li>聚类内样本的距离方差</li>
+</ul>
+<p>外部指标：</p>
+<p>内部指标：</p>
+<p>紧密度：计算每个xi和各自聚类中心的距离的求和，然后取一个平均。</p>
+<p>间隔度：</p>
+<p>戴维森堡丁指数：</p>
+<p>邓恩指数：</p>
+<h1 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h1><p>理性主义——经验主义——深度学习</p>
+<p>他们的可解释性和性能比例是相反的。</p>
+<h3 id="基于规则的方法"><a href="#基于规则的方法" class="headerlink" title="基于规则的方法"></a>基于规则的方法</h3><p>进行规则形式定义，设置一系列规则进行翻译</p>
+<p>如： if 源语言主语 &#x3D; 我 then 翻译为 I</p>
+<h3 id="基于机器学习的方法"><a href="#基于机器学习的方法" class="headerlink" title="基于机器学习的方法"></a>基于机器学习的方法</h3><p>数据创建——数据预处理（词汇分析，结构分析，语义分析）——特征构建（）——模型学习</p>
+<p>将自然语言处理变为一种分类任务：在此基础上根据任务特性构建特征表示</p>
+<h3 id="深度学习方法"><a href="#深度学习方法" class="headerlink" title="深度学习方法"></a>深度学习方法</h3><p>将特征构建和模型学习合并。不做后处理，通过优化算法，自动的学习出好的特征表示。</p>
+<h3 id="基于大模型方式"><a href="#基于大模型方式" class="headerlink" title="基于大模型方式"></a>基于大模型方式</h3><p>大规模模型构建——通用能力注入——特定任务使用</p>
+<p>使用一个基本的大模型，增加分类层（预训练+微调）</p>
+<h2 id="文本规范化"><a href="#文本规范化" class="headerlink" title="文本规范化"></a>文本规范化</h2><p>句子切分——词语切分——词语规范化</p>
+<h3 id="词语切分"><a href="#词语切分" class="headerlink" title="词语切分"></a>词语切分</h3><p>将一句话中每一个词语都分开。</p>
+<p>挑战：歧义分割？分词规范（如何分）；未登录词识别（新词）</p>
+<p>最大匹配分词算法：</p>
+<p>最佳匹配算法：</p>
+<p>分词工具jieba</p>
+<h3 id="词语规范化"><a href="#词语规范化" class="headerlink" title="词语规范化"></a>词语规范化</h3><p>将词语转化为标准形式，相同语义词语归一化——They-&gt;they</p>
+<h5 id="One-Hot编码"><a href="#One-Hot编码" class="headerlink" title="One-Hot编码"></a>One-Hot编码</h5><p>每个词表示为一个向量，向量的维度就是词表的大小</p>
+<p>忽视了词频，没有权重</p>
+<h5 id="TF-IDF编码-词频-逆文档频率篇章表示"><a href="#TF-IDF编码-词频-逆文档频率篇章表示" class="headerlink" title="TF-IDF编码 词频*逆文档频率篇章表示"></a>TF-IDF编码 词频*逆文档频率篇章表示</h5><p>词汇频率：词语在文档中的频率</p>
+<p>逆文档频率：在整个语料库中的频率</p>
+<p>两者相乘</p>
+<p>IF &#x3D;</p>
+<p>$$IDF(t)&#x3D;  log\frac{}{}$$</p>
+<p>Onehot和TF-IDF缺点</p>
+<p>频率的缺陷——词是独立计算的没有关联——特征稀疏，导致维度灾难</p>
+<h5 id="Word-Embedding"><a href="#Word-Embedding" class="headerlink" title="Word-Embedding"></a>Word-Embedding</h5><p>将词语映射到特征空间中的稠密矩阵（固定维度）</p>
+<p><strong>语义相似的词语空间距离更近</strong>。特征值的相减和相加就能进行词语的计算（语义和语法的相似度）。</p>
+<p>分布式表示：通过训练将词语设置为固定长度的向量，</p>
+<h6 id="词向量：每一个词语都是一个低位的稠密向量-Word2Vec算法使用浅层神经网络实现"><a href="#词向量：每一个词语都是一个低位的稠密向量-Word2Vec算法使用浅层神经网络实现" class="headerlink" title="词向量：每一个词语都是一个低位的稠密向量 Word2Vec算法使用浅层神经网络实现"></a>词向量：每一个词语都是一个低位的稠密向量 Word2Vec算法使用浅层神经网络实现</h6><h4 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h4><p>滑动窗口——<strong>将词语附近的其他词语划分到一个窗口中</strong>，通过其他词语得到这个词的语义。</p>
+<h5 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h5><p>定义参数化映射：$y &#x3D; f(x,t)$</p>
+<p>通过风险最小化和正则化样本上学习参数t，添加到函数中</p>
+<p>神经元没有反馈链接，所以是前馈。多层的连续的非线性函数。</p>
+<p>有一个语料库，遍历语料库中每一个位置t上的词语，这称为中心词c，窗口以内，c之外的词语就是上下文词语。</p>
+<h4 id="ship-gram"><a href="#ship-gram" class="headerlink" title="ship gram"></a>ship gram</h4><p>给出一个中心词，以此预测他的上下文内容。</p>
+<ol>
+<li>初始化：独热向量x</li>
+<li>根据查询表获得向量h，查询表等同于输入的权重矩阵，操作为$h &#x3D; W^Tx$</li>
+<li>每个位置预测 $p &#x3D; softmax(W^Th)$ 维度&#x3D;词典大小</li>
+<li>根据该位置真实的独热向量和p计算损失值loss</li>
+</ol>
+<h4 id="CBOW"><a href="#CBOW" class="headerlink" title="CBOW"></a>CBOW</h4><p>连续词袋模型。</p>
+<p>更好的表征？</p>
+<p>现有词向量的缺点：都是静态的</p>
+<h5 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h5><p>通过预训练嵌入更多的背景知识。引入上下文有关的信息。</p>
+<p>预训练模型中的encoder结构实现动态向量表示。</p>
+<p>遍历语料库，自主产生伪标签嵌入词向量。</p>
+<h6 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h6><p>收集大量数据。</p>
+<p>基于tansformer的预训练模型。</p>
+<h6 id="BERT-预训练模型"><a href="#BERT-预训练模型" class="headerlink" title="BERT 预训练模型"></a>BERT 预训练模型</h6><p>transformer编码器端</p>
+<p>预训练任务：</p>
+<p>掩码语言模型：遮蔽文本中k%词语，让模型基于上下文预测被遮蔽的词语。</p>
+<p>K的选择有讲究：k小，数据量少训练昂贵。K大被遮蔽的太多 15%最好。</p>
+<p>下一句预测：判断两句话A，B是否有关系：B是A的下一句话。</p>
+<h6 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h6><p>情感分类使用[CLS]向量作为文本整体的表示。以此预测类别</p>
+<p>SQuAD问答：</p>
+<h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><p>###感知机</p>
+<p>###线性支持向量机</p>
+<p>###非线性支持向量机</p>
+<p>数据集是非线性可分：将数据投影到高维度空间，转变成线性可分的问题。</p>
+<p>特征空间映射：将样本从原始维度映射到高位空间。</p>
+<p>内积：线性和非线性的联系</p>
+<p>$x&#x3D;(x_1,x_2) $</p>
+<p>$z&#x3D;(z_1,z_2)$</p>
+<p>x和z的内积K(x,z)：计算二维空间中相似度</p>
+<p>K是核函数：$K(x,y) &#x3D; \phi(x^T)\phi(y) $</p>
+<p>现在有两个向量x，y：通过K(x,y)计算两者相似度：先将x，y映射到高位空间，</p>
+<p>$\phi$是投影函数（特征空间）：将输入向量投影到一个空间中。可以是有限维度可以是无限维</p>
+<h4 id="什么样的限制条件"><a href="#什么样的限制条件" class="headerlink" title="什么样的限制条件"></a>什么样的限制条件</h4><p>必须存在特征映射：才可以将非线性函数表示为特征空间中的内积。</p>
+<p>Mercer条件（判断K是否是核函数）：两种断定方式</p>
+<h3 id="核支持向量机"><a href="#核支持向量机" class="headerlink" title="核支持向量机"></a>核支持向量机</h3><p>核函数</p>
+<p>对偶形式：$argmax\sum^n_{i&#x3D;1}a_i - \frac{1}{2}\sum^n_{i&#x3D;1}\sum^n_{j&#x3D;1}a_ia_jy_iy_jK(x_i,x_j)$</p>
+<p>分类边界：$w &#x3D; \sum^n_{i&#x3D;1}a_iy_i\phi(x_i)$</p>
+<p>怎样预测：</p>
+<p>在对偶空间中，呈现内积的形式，替换成为核函数。</p>
+<h4 id="非线性核函数"><a href="#非线性核函数" class="headerlink" title="非线性核函数"></a>非线性核函数</h4><p>超参数：如何确定C,$\gamma$</p>
+<p>必须给定这些值 才能进行SVM学习，SVM本身不能学习</p>
+<p>###多类支持向量机</p>
+<p>多类：转化为2类</p>
+<p>启发：<br>SVM从线性，二类，可分的情况开始</p>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>连接强度调整量和输入输出乘积成正比。显然经常出现的模式将增强神经元之间的联系。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240713223829502.png"
+                      alt="image-20240713223829502"
+                ></p>
+<p>还可以向sum加一个偏置常数$x_0$，权重为$w_0$</p>
+<p>激活函数：决定是否放电（是否输出，或者输出值的大小）？</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240713224212475.png"
+                      alt="image-20240713224212475"
+                ></p>
+<p>sigmoid始终有导数：而且一直小于1。容易造成梯度消失问题，指数计算代价大。</p>
+<p>Relu在大于零的时候，倒数恒为1。所以梯度不会消失</p>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>输入方面：线性求和 （非线性求和）</p>
+<p>输出方面：单一值 (电脉冲)</p>
+<p>更新频率：时钟周期（异步更新）</p>
+<h3 id="感知机学习"><a href="#感知机学习" class="headerlink" title="感知机学习"></a>感知机学习</h3><p>非线性前馈式神经网络 最简单的结构</p>
+<p>同层没有连接</p>
+<p>不同层没有反馈</p>
+<p>有下层往上层传递</p>
+<p>输入输出都是离散值</p>
+<p>由阈值函数决定其输出</p>
+<h3 id="有监督的学习方式"><a href="#有监督的学习方式" class="headerlink" title="有监督的学习方式"></a>有监督的学习方式</h3><p>学习权重的过程，如果感知机结果不正确，就根据下面的公式进行更新。</p>
+<p>$\Delta W_i &#x3D; \eta (y_i)-sign（\sum w_ix_i）x_i$</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>感知机是单层神经网络，无法分析非线性可分问题，如XOR异或</p>
+<h3 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h3><p>一个隐藏层可以增加函数的非线性程度。非线性加权求和，非线性映射……不断循环。</p>
+<p>将样本输入特征空间进行了投影：原本不好划分的点现在好划分了。</p>
+<p>实际是特征检测算子：逐步发现可化训练数据的突出特征。</p>
+<p>多层前馈神经网络：每一层之间是全连接的。没有同层或者跨层链接</p>
+<p>具有非常强的表示能力，仅需一个隐藏层，就能以任意精度逼近任意复杂度的函数。</p>
+<p>如何设置隐藏层神经元个数还是未决的（）。常用试错法。</p>
+<p>输入的神经元是4个。就是有4个特征。10个中间隐藏层说明就是将4维特征投影到了10维空间。</p>
+<h3 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h3><p>给定训练集D</p>
+<p>输入：d维特征向量</p>
+<p>输出：L个输出值</p>
+<p>假设有q个隐藏层神经元</p>
+<p>激活函数：sigmoid</p>
+<p>总参数个数：(d+L+1)q+L （q和L都是偏置权重，剩下就是边的数量）</p>
+<p>对于一个训练例（x，y）xy都是向量：实际输出是$\hat{y}$，代表标签</p>
+<p>然后计算均方误差$E_k &#x3D; \frac{1}{2}\sum^L_{j&#x3D;1}(\hat{y}-y)^2$。越小越好。</p>
+<p>BP是一个迭代学习算法：迭代的每一轮：</p>
+<p>$v&lt;- v + \Delta v$ 。若$\Delta v$是负的</p>
+<p>BP基于梯度下降策略，以目标的负梯度方向对参数做出调整</p>
+<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><h4 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h4><ul>
+<li>特征提取</li>
+<li>超参数</li>
+<li>过滤器：3x3x3x95   95个滤波器，一个滤波器是3x3x3，核大小是3x3</li>
+</ul>
+<p>张量是三维，滤波器也是相同大小</p>
+<p>将3x3的区域和图像对应大小的区域做点乘，然后往右移动一个像素，继续3x3对应的计算。（从上到下，从左到右），有多少个滤波器，就要多少个通道的输出。</p>
+<h4 id="池化、下采样"><a href="#池化、下采样" class="headerlink" title="池化、下采样"></a>池化、下采样</h4><ul>
+<li>减少参数</li>
+<li>避免过拟合</li>
+<li>扩大感受域</li>
+</ul>
+<p>抽取特征，将矩阵缩小。</p>
+<p>####全连接层</p>
+<ul>
+<li>全局特征抽取</li>
+<li>Softmax-layer 分类层</li>
+</ul>
+<p>池化层之后，将张量变为一个向量</p>
+<p>向量维度很大，要乘以矩阵变为低维向量。</p>
+<h4 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h4><p>对大神经网络进行平均的方法。最简单的情况下，每个神经元都以固定概率保留。</p>
+<p>训练的过程中，网络结构在不断调整，相当于训练了很多神经网络符合而成的网络。类似于集成学习。</p>
+<h4 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h4><h4 id="梯度-SGD"><a href="#梯度-SGD" class="headerlink" title="梯度(SGD)"></a>梯度(SGD)</h4><h2 id="模型轻量化"><a href="#模型轻量化" class="headerlink" title="模型轻量化"></a>模型轻量化</h2><p>减少机器学习、深度学习模型的计算量。</p>
+<ul>
+<li>减少模型大小</li>
+<li>加快推理速度</li>
+<li>保持相同精度</li>
+</ul>
+<p>量化——蒸馏——剪枝——二值化</p>
+<h3 id="剪枝-pruning"><a href="#剪枝-pruning" class="headerlink" title="剪枝 pruning"></a>剪枝 pruning</h3><p>尝试修建 删除不重要的权重。</p>
+<p>结构化剪枝（剪去一个维度块）——非结构化剪枝（一次剪一个通道）</p>
+<h3 id="蒸馏"><a href="#蒸馏" class="headerlink" title="蒸馏"></a>蒸馏</h3><p>将大模型知识蒸馏到小的模型。</p>
+<ol>
+<li><p>知识</p>
+</li>
+<li><p>蒸馏算法<br>离线：</p>
+</li>
+<li><p>师生架构</p>
+</li>
+</ol>
+<h3 id="量化"><a href="#量化" class="headerlink" title="量化"></a>量化</h3><p>将浮点计算转为低比特定制计算的方式。</p>
+<h3 id="交叉熵损失函数"><a href="#交叉熵损失函数" class="headerlink" title="交叉熵损失函数"></a>交叉熵损失函数</h3><h3 id="回归损失"><a href="#回归损失" class="headerlink" title="回归损失"></a>回归损失</h3><p>L2-Norm ： $L_i &#x3D; || f-y_i||^2$</p>
+<p>三元组损失，三元组包含三个样本：如分类样本，输入形式为$x_a,x_n,x_p$ xa是锚点，xn是负样本，xp是正样本。</p>
+<p>排序，ranking</p>
+<h2 id="深度学习技巧"><a href="#深度学习技巧" class="headerlink" title="深度学习技巧"></a>深度学习技巧</h2><p>数据增广：数据量比较少，如何得到更好的效果?mixup</p>
+<p>水平翻转，随机裁剪，颜色抖动</p>
+<p>预处理：如何初始化神经网络权重</p>
+<p>Zero-center 正态化 PCA白花</p>
+<p>初始化：</p>
+<p>过滤器：大小如何定，一般是3x3</p>
+<p>一般是2的指数</p>
+<p>池化大小：2x2</p>
+<p>学习率：模型影响最大。学习率大，训练的比较快，收敛的比较快</p>
+<p>学习率小，收敛的慢。微调时学习率要小。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大数据量</th>
+<th>比较少的数据量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相似的数据集</td>
+<td></td>
+<td>线性分类器</td>
+</tr>
+<tr>
+<td>非常不同的数据集</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在预训练模型上微调</p>
+<p>激活函数的选择</p>
+<p>包含fc层或者是全连接层，或嵌入batch，导致网络的差异。</p>
+<p>对学习的参数进行正则化：L2，L1，Max norm 防止过拟合</p>
+<p>图像分析：在各个数据集上的精度图</p>
+<p>横坐标：epoch：所有训练数据集都训练过一次 称为一次epoch。</p>
+<p>纵坐标：损失 lose</p>
+<h3 id="深度学习工具箱"><a href="#深度学习工具箱" class="headerlink" title="深度学习工具箱"></a>深度学习工具箱</h3><h3 id="小样本学习"><a href="#小样本学习" class="headerlink" title="小样本学习"></a>小样本学习</h3><p>计算机视觉中一个目标分类问题，旨在通过一个或者少量样本来学习一个目标类别</p>
+<p>数据稀缺、标注代价昂贵：如医学图像的分割，人脸关键点标注。</p>
+<p>泛化新样本 分割目标得到关系，创造新样本，创造新概念</p>
+<p>现在的机器学习和深度学习都不好解决小样本学习。</p>
+<h5 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h5><p>支撑集：S 小样本训练集 （极少量的带标记数据）</p>
+<p>查询集：Q 小样本测试集</p>
+<p>C-way K-shot：包含C个类别，每个类别是K个标记样本构成。</p>
+<p>使用浅层的机器学习模型或者深度学习模型都有过拟合问题。</p>
+<p>解决方式：通过辅助集进行学习，再迁移一些知识，帮助新的类别的识别。样本相当于预训练之后再学习小样本</p>
+<p>辅助集和小样本任务的支撑集和查询集的类别不相交。不然说明可以找到样本，就不是小样本了。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+</search>

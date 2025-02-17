@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="HangYF">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://example.com/2025/02/17/操作系统概念总结/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Redefine.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统概念总结">
+<meta property="og:url" content="https://example.com/2025/02/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="HanG&#39;s Blog">
+<meta property="og:description" content="Redefine.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-02-17T06:12:22.000Z">
+<meta property="article:modified_time" content="2025-02-17T06:13:01.671Z">
+<meta property="article:author" content="HanG">
+<meta property="article:tag" content="课程总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedalien.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedalien.svg">
+    <meta name="theme-color" content="#f9a633">
+    <link rel="shortcut icon" href="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedalien.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            操作系统概念总结 | HanG&#39;s Space
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#f9a633","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":true,"family":"Lobster","url":"https://fonts.googleapis.com/css2?family=Lobster&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Redefine."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp# light mode","dark":"https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefined126275647_p0.webp"},"title":"code for the future","subtitle":{"text":["Loading..."],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#ffffff","dark":"#e8e9e9"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":true,"family":"Lobster","url":"https://fonts.googleapis.com/css2?family=Lobster&display=swap"},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#fff","right":"#fff","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags/","icon":"fa-solid fa-tags"},"分类":{"path":"/categories/","icon":"fa-solid fa-folder"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/1/25 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                HanG&#39;s Space
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">操作系统概念总结</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://i.scdn.co/image/ab67616d0000b273b55bd8b2452c00eabd91474a">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">HangYF</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-02-17 14:12:22</span>
+        <span class="mobile">2025-02-17 14:12:22</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-02-17 14:13:01</span>
+            <span class="mobile">2025-02-17 14:13:01</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/">课程总结</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>16.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>58 Mins</span>
+        </span>
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h3 id="复杂指令集-cisc"><a href="#复杂指令集-cisc" class="headerlink" title="复杂指令集(cisc)"></a>复杂指令集(cisc)</h3><p><em>CPU位数 &#x3D; CPU中寄存器的位数 &#x3D;数据总线位数&#x3D; CPU一次并行处理的数据宽度 ，CPU位数 &gt;&#x3D;操作系统位数 ，地址总线位数决定了CPU在内存中的寻址能力</em></p>
+<p>8086 16位</p>
+<p>x86 32位</p>
+<p>IA-32 32位</p>
+<p>x86-64 x64 intel64 amd64 均为64位，代表同一个指令集</p>
+<h3 id="精简指令集-risc"><a href="#精简指令集-risc" class="headerlink" title="精简指令集(risc)"></a>精简指令集(risc)</h3><p>arms</p>
+<p>mips</p>
+<p>risc-V</p>
+<h3 id="大小端存储"><a href="#大小端存储" class="headerlink" title="大小端存储"></a>大小端存储</h3><p>大端是高位<strong>字节</strong>低地址，小端是高位<strong>字节</strong>高地址。注意数据是<strong>左高右低</strong>，即<strong>按字节划分数据</strong>，左边为高位</p>
+<p><em>例： rax &#x3D; 0x12345678</em></p>
+<p>对于 mov dword[bin_num + 4] , rax 这个指令将rax寄存器中的内容存入内存，x86是<strong>小端架构</strong>，先将寄存器高位的字节存到内存的高地址空间，那么内存中从低位bin_num+1到高位的bin_num+4就是这个样子 : <strong>78,56,34,12</strong></p>
+<h2 id="8086寄存器种类"><a href="#8086寄存器种类" class="headerlink" title="8086寄存器种类"></a>8086寄存器种类</h2><p>数据寄存器： ax（累加寄存器） bx（基址寄存器） cx（循环计数寄存器） dx（数据寄存器）<br>指针寄存器： sp（栈顶指针） bp（基址指针）<br>变址寄存器： si （源地址寄存器） di（目标地址寄存器）<br>段寄存器： ds（数据段寄存器） cs（代码段寄存器） ss（堆栈段寄存器） es（附加寄存器）<br>控制寄存器： ip（指令寄存器） flag（标志位寄存器）</p>
+<p>注意：</p>
+<ol>
+<li><p><strong>栈顶指针总是指向一个数据而不是下一个空位，即push ax是先将sp-2 再向ss：sp中送入数据。</strong></p>
+</li>
+<li><p>栈顶在低地址，栈底在高地址，栈从高地址向低地址生长</p>
+</li>
+<li><p>sp存储的是相对于栈顶的偏移地址，栈顶的地址存在于ss中（堆栈段的起始地址）</p>
+</li>
+<li><p>ip存储的是相对于代码段初始位置的偏移地址，CPU当前执行的指令是cs：ip</p>
+</li>
+<li><p><strong>在指令中给出的地址都是偏移量，对应段基址是默认自动加上的，也可以显式的使用段超越的方式说明</strong></p>
+<p><strong>如mov ax , es:[3000H] 显式使用附加段es</strong></p>
+</li>
+<li><p>几乎每个通用寄存器都有<strong>它的特殊用法，这点通过他的名称可以看出</strong></p>
+</li>
+</ol>
+<h2 id="8086寻址方式–寻找指令所需操作数"><a href="#8086寻址方式–寻找指令所需操作数" class="headerlink" title="8086寻址方式–寻找指令所需操作数"></a>8086寻址方式–寻找指令所需操作数</h2><ol>
+<li><p>立即寻址         mov ax,8</p>
+</li>
+<li><p>寄存器寻址      mov ax,bx                           (bx保存了操作数8)</p>
+</li>
+<li><p>直接寻址        mov ax,[0x8890]                    0x8890是段内偏移量 直接给出 也可用变量代替</p>
+</li>
+<li><p>寄存器间接寻址   mov cx, [bx]    bx中保存了段内偏移地址,<strong>默认为数据段</strong>，si，di寄存器均默认数据段<br>bp名义上不能间接寻址 只是默认偏移量为0的相对寻址，<strong>且bp默认为栈段的偏移量</strong></p>
+</li>
+<li><p>寄存器相对寻址  mov cx,count[bx] 或 mov cx,[bx+count] 即在寄存器间接寻址的基础上在偏移地址多加一个偏移量count</p>
+</li>
+<li><p>基址变址寻址   mov cx,[bx+di]                        使用一个基址+一个变址作为偏移量使用，段地址由基址寄存器来确定</p>
+</li>
+<li><p>基址变址相对寻址 mov cx,count[bx+di]                    在基址变址的基础上增加一个偏移量count</p>
+</li>
+</ol>
+<h2 id="汇编中三种函数传参方式"><a href="#汇编中三种函数传参方式" class="headerlink" title="汇编中三种函数传参方式"></a>汇编中三种函数传参方式</h2><ol>
+<li>通过指定寄存器传参</li>
+<li>通过指定内存空间传参</li>
+<li>通过栈传参</li>
+</ol>
+<p>如：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">push ax  ;占据2byte</span><br><span class="line">push bx	 ;占据2byte</span><br><span class="line">call add ;占据2byte（即该条指令的地址，现在是16位）</span><br><span class="line"></span><br><span class="line">add:</span><br><span class="line">	mov bp,sp</span><br><span class="line">	mov ax,[bp+6] ;</span><br><span class="line">	add ax,[bp+4]</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="x86汇编的两种风格"><a href="#x86汇编的两种风格" class="headerlink" title="x86汇编的两种风格"></a>x86汇编的两种风格</h2><h4 id="1-语法结构"><a href="#1-语法结构" class="headerlink" title="1. 语法结构"></a>1. 语法结构</h4><ul>
+<li><strong>Intel 风格</strong>：<ul>
+<li>操作数顺序：指令通常是 <code>操作码 目的, 源</code>，例如：<code>MOV EAX, EBX</code>。</li>
+<li>使用 <code>[]</code> 表示内存地址，例如：<code>MOV EAX, [EBX]</code>。</li>
+<li>常量与寄存器比较简单，不会添加额外的前缀。</li>
+<li>注释为 ；</li>
+</ul>
+</li>
+<li><strong>AT&amp;T 风格</strong>：<ul>
+<li>操作数顺序：指令通常是 <code>操作码 源, 目的</code>，例如：<code>movl %ebx, %eax</code>。</li>
+<li>使用 <code>()</code> 表示内存地址，例如：<code>movl (%ebx), %eax</code>。</li>
+<li>寄存器名前加 <code>%</code> 符号，指明这是一个寄存器。</li>
+<li>注释为 #</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据大小"><a href="#2-数据大小" class="headerlink" title="2. 数据大小"></a>2. 数据大小</h4><ul>
+<li>Intel 风格<ul>
+<li>数据大小通常是隐式的，操作指令会自然理解操作的数据类型（如字节、字、双字等）。</li>
+</ul>
+</li>
+<li>AT&amp;T 风格<ul>
+<li>数据大小在操作码中明确指定，一般用后缀表示，如 <code>b</code>（字节）, <code>w</code>（字），<code>l</code>（双字），如 <code>movb</code>, <code>movw</code>, <code>movl</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-常量表示"><a href="#3-常量表示" class="headerlink" title="3. 常量表示"></a>3. 常量表示</h4><ul>
+<li><strong>Intel 风格</strong>：直接使用数字，如：<code>MOV EAX, 5</code>。</li>
+<li><strong>AT&amp;T 风格</strong>：常量前加 <code>$</code> 符号，例如：<code>movl $5, %eax</code>。</li>
+</ul>
+<h2 id="操作系统的启动过程"><a href="#操作系统的启动过程" class="headerlink" title="操作系统的启动过程"></a>操作系统的启动过程</h2><h4 id="org-address-伪指令"><a href="#org-address-伪指令" class="headerlink" title="org  address 伪指令"></a>org  address 伪指令</h4><p>如org 07c00h，写在汇编代码的开头，告诉当前这段代码会放在07c00h处。所以，如果之后遇到需要绝对寻址的指令，那么绝对地址就是07c00h加上相对地址。<br>• 绝对地址：内存的实际位置（先不考虑内存分页一类逻辑地址）。<br>• 相对地址：当前指令相对第一行代码的位置。</p>
+<h4 id="int-10h终端调用"><a href="#int-10h终端调用" class="headerlink" title="int 10h终端调用"></a>int 10h终端调用</h4><p>BIOS对屏幕所提供的显示服务。使用int 10H中断服务程序时，先要进行一些简单的配置，比如指定功能号和子功能号。其中<strong>寄存器AH表示的就是功能号，AL是子功能号</strong>，当一切设定好之后再调用 int 10H。</p>
+<p><strong>此时中断处理使用中断向量表，是Bios提供中断处理程序</strong></p>
+<h4 id="磁盘位置分配"><a href="#磁盘位置分配" class="headerlink" title="磁盘位置分配"></a>磁盘位置分配</h4><p>早期的16位Intel 808处理器只能寻址1MB的物理内存（<strong>16位段寄存器地址左移4位+偏移量</strong>）。所以早期PC的物理地址空间将从<code>0x00000000</code>开始，到<code>0x000FFFFF</code>结束，而不是<code>0xFFFFFFFF</code>（32位）。</p>
+<p>标记为<code>Low Memory</code>的<code>640KB</code>空间是早期PC能够使用的唯一随机访问内存（RAM）。</p>
+<p>640KB到1MB之间的区域由<strong>硬件预留</strong>，用于特殊用途，如视频显示缓冲区（显存）和一些系统固件。</p>
+<p>这个保留区域中最重要的部分是**Basic Input&#x2F;Output System (BIOS)**（硬件厂商在硬件上自带的一段启动的代码），它占用了从<code>0x000F0000</code>到<code>0x000FFFFF</code>的64KB区域。</p>
+<p>早期BIOS保存在真正的只读存储器（ROM）中，但现在的PC将BIOS存储在可更新的闪存中（不管是闪存还是ROM，都是在主板上）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904142807635.png"
+                      alt="image-20240904142807635"
+                ></p>
+<p>随着技术的发展，Intel最终使用<code>80286</code>和<code>80386</code>处理器突破了1MB的寻址，它们分别支持16MB和4GB的物理地址空间，但PC架构师仍然<strong>保留了原始的1MB物理地址空间布局</strong>，以确保与现有软件的<strong>向后兼容性</strong>。</p>
+<p>因此，现代pc在物理内存中有一个从<code>0x000A0000</code>到<code>0x00100000</code>的一个洞，将RAM划分为 “<code>low memory</code>” 或 “<code>conventional memory</code>” （前640KB）和 “<code>extended memory</code>” （其他的部分）。</p>
+<h3 id="Bios的全过程"><a href="#Bios的全过程" class="headerlink" title="Bios的全过程"></a>Bios的全过程</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904150638625.png"
+                      alt="image-20240904150638625"
+                ></p>
+<p><strong>开机第一条指令：在物理地址 FFFF0H（等价于0FFFF:0000H）处执行跳转指令(这是硬件厂商规定的地址，操作系统必须按照这个来)</strong> 将指令指针寄存器跳转到BIOS代码所在的位置，开始执行BIOS程序；</p>
+<p>POST（自检）过程：负责对系统进行基本的检测和初始化操作，如激活显卡、检查内存安装量等。</p>
+<p><strong>自举过程</strong>：<strong>BIOS从一些适当的位置（比如硬盘）加载引导程序，检查魔数</strong>（第0磁头 第0磁道 第1扇区是否以0x55aa两个字节结尾）把MBR的内容从磁盘调入内存地址为0x7c00的地方，<strong>关闭保护模式，回到实模式</strong></p>
+<p>最后跳转到7c00h这里，执行MBR代码。</p>
+<p><strong>总结：加电后的第一条指令都是跳转到BIOS代码进行开机自检，完成后寻找可启动设备（处于实模式）：引导MBR进入内存并执行MBR，而MBR要进入保护模式并将OS内核加载到内存中，并跳转到这个内核的执行代码。</strong> 我们能编程的地方就是MBR和OS内核，但是有些人认为MBR512字节太小，不够编程使用，所以就又加入一个loader，先用MBR加载loader，再用loader加载内核。</p>
+<p>内存区更详细的补充：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240904151205350.png"
+                      alt="image-20240904151205350"
+                ></p>
+<p>各个段寄存器在最开始保存什么内容？ 不固定，而且可以设置，不用太注意</p>
+<h3 id="可执行的MBR"><a href="#可执行的MBR" class="headerlink" title="可执行的MBR"></a>可执行的MBR</h3><p>刚刚我们的mbr.S是怎么变成可以被QEMU执行的MBR的呢？</p>
+<p>说到底原理其实很简单，MBR本质就是一串<strong>可以被执行的指令再加上魔数</strong>。</p>
+<p>所以只需要<strong>先编译成可执行文件，再把里面的指令抽出来，最后再加上魔数</strong>就可以了。</p>
+<p>所以首先用<code>gcc</code>把<code>mbr.S</code>编译成<code>.o</code>的可重定位文件，然后再用<code>ld</code>链接成可执行的<code>ELF</code>文件，然后我们要从<code>ELF</code>里抽取指令，<strong>指令都在<code>.text</code>节里，可以用<code>objcopy</code>抽取然后以二进制文件的形式存在一个<code>bin</code>文件里</strong>。</p>
+<p>最后我们用一个小脚本<code>genboot.pl</code>来给这个文件扩充成510字节再填充最后的魔数，就得到我们的MBR了。</p>
+<h2 id="保护模式下的寻址"><a href="#保护模式下的寻址" class="headerlink" title="保护模式下的寻址"></a>保护模式下的寻址</h2><h4 id="实模式到保护模式"><a href="#实模式到保护模式" class="headerlink" title="实模式到保护模式"></a>实模式到保护模式</h4><p>设置段表GDT，再设置CR0寄存器最低位为1</p>
+<p>GDT：包含很多段描述符</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">|       ...      |</span><br><span class="line">|                |</span><br><span class="line">|                |</span><br><span class="line">+----------------+</span><br><span class="line">|    SEGMENT     |</span><br><span class="line">|   DESCRIPTOR   |</span><br><span class="line">+----------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>段描述符：</p>
+<p><strong>注意 这里默认低位要放到低地址 和大端小端无关。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DESCRIPTORS USED FOR APPLICATIONS CODE AND DATA SEGMENTS</span><br><span class="line"></span><br><span class="line">  31                23                15                7               0</span><br><span class="line"> +-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------+</span><br><span class="line"> |                 | | | |A|         | |     | |     | |                 |</span><br><span class="line"> |   BASE 31..24   |G|X|O|V| LIMIT   |P| DPL |S| TYPE|A|  BASE 23..16    | 4</span><br><span class="line"> |                 | | | |L| 19..16  | |     | |     | |                 |</span><br><span class="line"> |-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------|</span><br><span class="line"> |                                   |                                   |</span><br><span class="line"> |        SEGMENT BASE 15..0         |       SEGMENT LIMIT 15..0         | 0</span><br><span class="line"> |                                   |                                   |</span><br><span class="line"> +-----------------------------------+-----------------------------------+</span><br><span class="line"></span><br><span class="line">           A      - ACCESSED</span><br><span class="line">           AVL    - Available and Reserved Bit，通常设为 0。</span><br><span class="line">           DPL    -描述符特权级，取值 0-3 共 4 级；0 特权级最高，3 特权级最低，表示访问该段时 CPU 所处于的最低特权级</span><br><span class="line">           G      - 粒度，说明段限长的单位是什么（1--&gt;4KB或者0--&gt;1B）</span><br><span class="line">           P      - 存在位，P 为 1 表示段在内存中。这一项设置为 1。</span><br><span class="line">           S：	描述符类型标志，S 为 1 表示代码段或数据段，S 为 0 表示系统段(TSS，LDT)和门描述符。目前我们只需要代码段和数据段，因此设置为 1。</span><br><span class="line">           X 		意为这一段使用操作数位数，为 1 时使用 32 位操作数，为 0 时使用 16 位操作数。这一项设置为 1。</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="寻址过程"><a href="#寻址过程" class="headerlink" title="寻址过程"></a>寻址过程</h4><p>通过GDTR得到GDT的首地址和限长（在将GDT设定在内存的某个位置后，可以<strong>通过 LGDT 指令将GDT的入口地址装入此寄存器。</strong>）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">                   GDT REGISTER （GDTR）</span><br><span class="line">+--------------------------------+---------------+</span><br><span class="line">|            GDT BASE  	         |   GDT LIMIT   |</span><br><span class="line">+--------------------------------+---------------+</span><br><span class="line"> 47                               15            0</span><br></pre></td></tr></table></figure></div>
+
+<p>首先给出<strong>48位逻辑地址（虚拟地址）</strong>， 其中包含了<strong>高16位的段选择子（从段寄存器中得来）</strong>和<strong>低位的段内偏移地址</strong>（也就是程序中写的地址），使用段选择子找到对应段的起始地址，加上偏移地址就是线性地址了</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> 段选择子</span><br><span class="line"> 15                      3   1 0</span><br><span class="line">+-------------------------+-+---+</span><br><span class="line">|                         |T|   |</span><br><span class="line">|          INDEX          | |RPL|</span><br><span class="line">|                         |I|   |</span><br><span class="line">+-------------------------+-+---+</span><br><span class="line">TI - TABLE INDICATOR, 0 = GDT, 1 = LDT</span><br><span class="line">RPL - REQUESTOR&#x27;S PRIVILEGE LEVEL</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li>首先看<strong>段选择子第三位是0还是1，分别对应GDT和LDT方式寻址</strong></li>
+<li>如果是GDT 先要在GDTR（48位）中找到<strong>内存中GDT表的起始地址</strong>，然后<strong>加上段选择子中13位偏移量取得段描述符</strong>，得到<strong>目标段的起始地址</strong>，然后加上一开始的段内偏移量即可得到线性地址</li>
+<li>如果是LDT，首先还是在<strong>GDTR寄存器中获得GDT起始地址</strong>，但是<strong>要用LDTR中的偏移量作偏移</strong><br><strong>，得到对应整个LDT的段描述符</strong>（对应的LDT的起始地址），然后<strong>再</strong>重复上面的操作，在LDT中得到目标段的描述符，用其中的起始地址+偏移量得到线性地址（多做一些预备操作）</li>
+</ol>
+<p>总结：GDT中保存了<strong>系统段描述符</strong>和<strong>用户（进程）对应的LDT的描述符</strong>（注意是一整个LDT），而<strong>LDTR中时刻保存本进程的LDT在GDT中的选择子</strong>，可以用LDTR找到存在于GDT中的LDT描述符，进而找到目标LDT的起始内存地址。</p>
+<p><strong>（段选择符在段寄存器中 任何变量在创建时的地址都是偏移量 需要+本段的段选择符对应的段基址才可以）</strong></p>
+<h2 id="Linux的可执行文件ELF"><a href="#Linux的可执行文件ELF" class="headerlink" title="Linux的可执行文件ELF"></a>Linux的可执行文件ELF</h2><p>我们可以将ELF可执行目标文件看作由三个部分组成：ELF头、程序头表、其余的ELF文件体。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240905111831499.png"
+                      alt="image-20240905111831499"
+                ></p>
+<p>在<strong>汇编程序中用.section声明的Section会成为目标文件中的Section</strong>，此外汇编器还会自动添加一些Section（比如符号表）。Segment是指在<strong>程序运行时</strong>加载到内存的<strong>具有相同属性的区域</strong>，由一个或多个Section组成，比如有两个Section都要求加载到内存后可读可写，就属于同一个Segment。</p>
+<p>有些Section只对汇编器和链接器有意义，在运行时用不到，也不需要加载到内存，那么就不属于任何Segment。</p>
+<p><strong>目标文件需要链接器做进一步处理</strong>，所以一定有Section Header Table；<strong>可执行文件需要加载运行</strong>，所以一定有Program Header Table；而<strong>共享库既要加载运行，又要在加载时做动态链接</strong>，所以既有Section Header Table又有Program Header Table。所以ELF文件既可以是目标文件.o ,也可以是可执行文件。</p>
+<p>#####下面注重可执行文件ELF的介绍</p>
+<p>ELF头的结构：一个结构体</p>
+<p>关键部分：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ElfN_Addr     e_entry;        // 程序的入口地址</span><br><span class="line">ElfN_Off      e_phoff;        // 程序头表在ELF文件中的偏移量</span><br><span class="line">uint16_t      e_phentsize;    // 程序头表中每个表项的大小</span><br><span class="line">uint16_t      e_phnum;        // 程序头表中包含表项的个数</span><br></pre></td></tr></table></figure></div>
+
+<p>ELF program table表项结构</p>
+<p>关键部分：</p>
+<h5 id="ELF文件的装载"><a href="#ELF文件的装载" class="headerlink" title="ELF文件的装载"></a>ELF文件的装载</h5><p>装载的过程简言之就是将<strong>ELF文件中的程序和数据段等需要装载到内存中的segment拷贝到内存中合适位置的过程</strong>。在<strong>ELF文件中存储了一个数组，叫做程序头表</strong>（program header table），其在ELF文件中偏移量由ELF Header中的<code>e_phoff</code>域给出。</p>
+<p>程序头表也是一个结构体：</p>
+<p>其中，<code>p_type</code>指定了表项的类型，对于<strong>类型为<code>PT_LOAD</code>类型的表项，我们需要对其进行装载。</strong></p>
+<p><em>装载过程可以简述为，对于<code>p_type == PT_LOAD</code>的表项，将ELF文件中起始于<code>p_offset</code>，大小为<code>p_filesz</code>字节的数据拷贝到内存中起始于<code>p_vaddr</code>的位置，并将内存中剩余的<code>p_memsz - p_filesz</code>字节的内容清零。</em></p>
+<p><code>readelf</code>命令查看ELF文件的内容，<code>readelf</code>提供了两个视角，一个是<strong>面向链接过程的section视角</strong>（<code>readelf -S</code>），另一个是<strong>面向执行的segment视角（</strong><code>readelf -l</code>）。在这里我们关注后一个视角即可。</p>
+<p><strong>总结装载过程</strong>：</p>
+<ol>
+<li>读入位于ELF文件最开始位置（偏移量为0）处的ELF头，并根据其中的值e_phoff定位程序头表在ELF文件中的位置；</li>
+<li>顺序扫描程序头表中的每一个表项，遇到需要装载的表项时，根据表项描述的内容将相应的数据拷贝到内存相应位置。</li>
+</ol>
+<h5 id="ELF文件指令"><a href="#ELF文件指令" class="headerlink" title="ELF文件指令"></a>ELF文件指令</h5><p>readelf -a 显示全部内容</p>
+<p>readelf -l 显示segment</p>
+<p>readelf -S 显示section</p>
+<p>objdump -d 反编译二进制文件，如可执行elf文件</p>
+<p>例如：objdump -d kernel &gt; 1.txt &#x2F;&#x2F; 内容输出到1.txt</p>
+<h3 id="动态链接和静态链接"><a href="#动态链接和静态链接" class="headerlink" title="动态链接和静态链接"></a>动态链接和静态链接</h3><p>编译阶段：首先，源代码文件被编译器编译成对象文件（通常是.o或.obj文件），这些文件包含了程序代码的机器语言表示，<strong>但还没有解决外部引用</strong>。</p>
+<p>链接：将<strong>目标文件（包含可重定位目标程序，从汇编翻译得到的机器语言）</strong>中使用到的<strong>库函数或</strong>者其他<strong>不包含在该文件中的函数</strong>（及数据）链接到该文件中，<strong>符号解析</strong>伴随这个过程；将每个符号的定义与具体在内存中的位置进行关联（<strong>重定位</strong>，将变量偏移量即相对地址变为虚拟地址？），发生了空间和地址分配。</p>
+<p>目标文件(.o)三种格式：</p>
+<ul>
+<li>可重定位目标文件：包含二进制代码和数据，其形式可以和其他目标文件进行合并，创建一个可执行目标文件</li>
+<li>可执行目标文件：包含二进制代码和数据，可直接被加载器加载执行</li>
+<li>共享目标文件：可被动态的加载和链接</li>
+</ul>
+<h4 id="静态链接——链接时，将库代码全部加入到可执行文件"><a href="#静态链接——链接时，将库代码全部加入到可执行文件" class="headerlink" title="静态链接——链接时，将库代码全部加入到可执行文件"></a>静态链接——链接时，将库代码全部加入到可执行文件</h4><ol>
+<li>制作静态库文件</li>
+</ol>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -cvr libmylib.a my_lib.o 	# 静态库文件以lib开头 .a作为拓展名 libXXX.a</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>链接</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld -o test test.o -L ./ -lmylib  # test.o是主文件 -L指定库文件的路径，-l之后紧接着库文件名（去掉开头lib和结尾.a）</span><br></pre></td></tr></table></figure></div>
+
+<p>注意！使用 ld 而不是 gcc 这意味着必须手动指定所有链接时需要的系统库和路径，因为 ld 不会像 gcc 那样自动添加标准的系统库和其他必要的链接选项。</p>
+<h4 id="动态链接——在执行时，链接文件加载库"><a href="#动态链接——在执行时，链接文件加载库" class="headerlink" title="动态链接——在执行时，链接文件加载库"></a>动态链接——在执行时，链接文件加载库</h4><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p><strong>进程是对程序一次运行的抽象，进程管理了进程运行所需要的各种资源</strong>。</p>
+<p>进程的管理依靠<strong>进程控制块（PCB）</strong></p>
+<h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="中断向量"><a href="#中断向量" class="headerlink" title="中断向量"></a>中断向量</h3><p>在<strong>实模式</strong>下，针对每一种中断源，标记1种中断向量，共<strong>256</strong>个，中断向量顺序存储在内存特定的位置，包含了<strong>中断程序的起始地址。</strong> <strong>程序通过int指令+中断类型码</strong>实现调用中断程序。相应中断时，由中断系统硬件计算并提供具体向量地址，处理机根据地址转入相应的中断程序。</p>
+<p>我们<strong>把每个中断服务程序进行编号</strong>，这个号就代表一个中断服务程序，就是中断类型码。这个中断类型码是计算机用来查找中断向量用的。</p>
+<p>中断向量表是<strong>8086内存中最低的1K空间</strong>，保存了256个中断向量，<strong>每个4B</strong>，低位存偏移量，高位是段地址 通过实模式寻址方式找到入口程序。 前32个中断硬件系统预留 后224个自定义。</p>
+<h3 id="中断描述符表-IDT"><a href="#中断描述符表-IDT" class="headerlink" title="中断描述符表 IDT"></a>中断描述符表 IDT</h3><p>在<strong>保护模式</strong>下，存在于内存中，其中保存了<strong>中断描述符</strong>（8字节）。每个<strong>中断或者异常对应一个中断描述符</strong>，共256个，占用2K空间，<strong>也是通过中断类型码得到对应的中断描述符</strong>，中断描述符记录了<strong>中断程序的起始地址，</strong> <strong>属性</strong>等等信息，共分为<strong>任务门，中断门和自陷门</strong>，CPU对不同的门处理方式不同。中断描述符表的<strong>起始地址通过全局描述符表制定</strong>。可以<strong>通过访问中断描述符访问中断程序</strong>。</p>
+<p>CPU提供了<strong>IDTR存储IDT的首地址</strong>，和GDTR一样<strong>包含了32位基地址和16位段限</strong> 实模式的中断向量表是固定在存储器的最底部，而<strong>保护模式下的IDT则是可以改变的</strong></p>
+<p>保护模式下，需要<strong>两次查表</strong>来获得中断服务子程序的入口地址。</p>
+<ol>
+<li>首先通过IDTR查询到IDT的位置 然后通过中断类型码<em>8（偏移量）加上IDT的基址*<em>得到中断描述符的位置</em></em></li>
+<li>中断描述符<strong>自己记录了段选择符和对应的偏移量</strong>，直接通过段选择符找到段的基地址+偏移量得到代码段的地址。</li>
+</ol>
+<p>找到入口地址，还需要保存现场（在下面有更详细的描述）：</p>
+<ol>
+<li><strong>如果当前处于用户态，将栈指针切换到内核栈栈顶后压栈旧的SS和ESP</strong>，再进行第2步，否则直接进行第2步</li>
+<li>依次将EFLAGS（32位），CS（扩充到32位），EIP（32位）寄存器的值压栈，对于某些异常，还会再压栈一个错误码（也是32位）；<br>注意：对于<code>int</code>指令主动陷入的中断，<strong>压栈的EIP指向的是int的下一条指令</strong>——要不然返回后还是那条<code>int</code>指令，出不去了；</li>
+<li>如果门描述符的TYPE是中断门，清除EFLAGS的IF位（即关中断）</li>
+<li>跳转到中断处理程序的入口地址。</li>
+</ol>
+<h4 id="门描述符结构"><a href="#门描述符结构" class="headerlink" title="门描述符结构"></a>门描述符结构</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">                         80386 GATE DESCRIPTOR</span><br><span class="line"> 31                23                15                7                0</span><br><span class="line">+-----------------+-----------------+---+---+-+-------+-----+-----------+</span><br><span class="line">|          OFFSET 31..16            | P |DPL|0| TYPE  |0 0 0|(NOT USED) |4</span><br><span class="line">|-----------------------------------+---+---+-+-------+-----+-----------|</span><br><span class="line">|             SELECTOR              |           OFFSET 15..0            |0</span><br><span class="line">+-----------------+-----------------+-----------------+-----------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>P位是有效位，1即该门有效。</p>
+<p>SELECTOR和OFFSET就是入口地址，之前我们学过，在保护模式中，是由CS和EIP共同承担PC的任务，而入口地址的CS就是这个SELECTOR，EIP就是OFFSET。CS：IP&#x3D;当前执行的指令地址</p>
+<p>DPL就是这个门描述符的权限，设为0表示不允许用户程序主动通过<code>int</code>指令陷入这个中断，设为3表示允许用户程序主动通过<code>int</code>指令陷入这个中断。</p>
+<p>注意这个权限仅限制主动陷入的情况，对于强制中断（异常、外部中断），则不需要检查权限。</p>
+<p>TYPE分为两种：</p>
+<ul>
+<li>0xE即中断门（Interrupt Gate），这种<strong>门对应的中断在响应时还会顺手把中断关了</strong>，避免后续处理时由外部中断引发的中断嵌套，外部中断应该使用这种门。</li>
+<li>0xF即陷阱门（Trap Gate），这种<strong>门对应的中断在响应时不会改变中断开关的状态</strong>，系统调用和异常理应使用这种门。</li>
+</ul>
+<p>中断类似函数调用：<strong>将状态保存之后再跳转</strong>。就像函数调用通过<code>ret</code>指令返回，中断处理结束之后的返回<strong>指令<code>iret</code>也是类似的</strong>——依次弹栈EIP、CS和EFLAGS并恢复，一般是恢复到中断之前的位置</p>
+<h3 id="中断分类"><a href="#中断分类" class="headerlink" title="中断分类"></a>中断分类</h3><p>包含<strong>异常</strong>和<strong>狭义中断</strong>（两者可以统称为中断）。中断是<strong>CPU以外</strong>发生事件；异常通常是指程序中指令执行出现了错误等<strong>CPU内部事件</strong>引起的过程。异常进一步可分为<strong>错误（fault）陷阱（trap）中止（abort）</strong>。陷阱一般指程序中的硬件中断调用，错误是可更正的程序执行错误，一般保留产生fault的指令的地址继续执行。abort则是严重错误，程序不能继续执行。</p>
+<p>异常的常见情况（不可屏蔽）：错误或者硬件故障或者是程序执行int指令（软中断&#x2F;系统调用）。外部中断，可分为可屏蔽中断和不可屏蔽中断。</p>
+<p>共同点：都是程序执行过程中的强制性转移，转移到相应的处理程序。都是软件或者硬件发生了某种情形而通知CPU的行为。</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<li>中断，是CPU所具备的功能。通常因为“硬件”而随机发生。<br>异常，是“软件”运行过程中的一种开发过程中没有考虑到的程序错误。</li>
+<li>中断是CPU暂停当前工作，有计划地去处理其他的事情。中断的发生一般是可以预知的，处理的过程也是事先制定好的。处理中断时程序是正常运行的。<br>异常是CPU遇到了无法响应的工作，而后进入一种非正常状态。异常的出现表明程序有缺陷。</li>
+<li>中断是异步的，异常是同步的。<ul>
+<li>中断是来自处理器外部的I&#x2F;O设备的信号的结果，它不是由指令流中某条指令执行引起的，从这个意义上讲，它是异步的，是来自指令流之外的。</li>
+<li>异常是执行当前指令流中的某条指令的结果，是来自指令流内部的，从这个意义上讲它们都是同步的。</li>
+</ul>
+</li>
+</ol>
+<p><strong>特权级别</strong>：ring 0被叫做内核态，完全在操作系统内核中运行。 ring 3被叫做用户态，在应用程序中运行</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>找到中断处理程序进行中断之前，<strong>EFLAGS，CS，IP自动由硬件保存；错误码、中断号、通用寄存器、DS，等得自己在实现的操作系统中断程序中进行保存（压栈）</strong>，SS，SP视情况而定，若是用户态到内核态则需要<strong>将栈指针切换到内核栈栈顶后压栈旧的SS和ESP</strong>，因为要进行栈的切换。若是内核态到内核态的中断，则不需要。<strong>通过将esp压入栈，可以认为是传递一个<em>以上寄存器上下文</em>的指针</strong>，方便对这些寄存器的访问。（很关键）</p>
+<ul>
+<li><p>CPU通过CS：IP寄存器确定指令的位置</p>
+</li>
+<li><p>CPU通过DS：[address]确认数据的位置</p>
+</li>
+<li><p>SS：SP 确定栈顶的位置。</p>
+</li>
+</ul>
+<h4 id="iret指令的解释-（从中断恢复现场）"><a href="#iret指令的解释-（从中断恢复现场）" class="headerlink" title="iret指令的解释 （从中断恢复现场）"></a>iret指令的解释 （从中断恢复现场）</h4><p><strong>从栈中弹出指令寄存器的值放入esp，弹出代码段选择子放入cs，弹出程序状态字放入Eflags中。（硬件完成）</strong></p>
+<p>如果返回的进程保护级别不同的话，需要进行栈的切换<strong>，还需要弹出栈顶指针到esp，栈段选择子到ss</strong>（esp是偏移地址 保存了栈顶元素地址 例如push先减去4才能将eax压入栈）弹出寄存器的顺序是严格的，iret自动执行，不用手动执行</p>
+<p><strong>而通用寄存器，DS，ES都是得手动pop的，要使用到之前压入的esp，顺序和上面提到的压入顺序相反</strong>，所以这部分内容要在iret执行前完成，注意额外为esp加几个字节，跳过中断号和错误码。</p>
+<h4 id="内核栈和TSS-任务状态段"><a href="#内核栈和TSS-任务状态段" class="headerlink" title="内核栈和TSS 任务状态段"></a>内核栈和TSS 任务状态段</h4><p>在中断发生时，<strong>不能信任用户程序的栈指针的值</strong>，否则压栈保存现场时可能出现页错误！因此，<strong>操作系统需要准备一个自己的栈</strong>，在进行任何栈操作之前（包括保存上下文），操作系统都需要<strong>先把栈指针指向自己准备的栈的栈顶</strong>。这个栈我们称之为内核栈，而相对地，用户程序的栈我们称为用户栈。</p>
+<p>注意这种“栈切换”的操作是<strong>只有从用户态到内核态的中断才需要进行</strong>，而<strong>内核态到内核态的中断是不需要的</strong>（不存在用户态到用户态或者内核态到用户态的中断）。</p>
+<p>为啥内核态中断不需要切换？因为如果每次都都是先把栈指针指向内核栈顶的话，相当于<strong>每次都把信息保存在一个固定的地方</strong>，那么一旦发生中断嵌套，<strong>后保存的信息就会把先保存的信息给覆盖掉</strong>。而且操作系统的esp是可以相信的，不需要切换栈来防备它。</p>
+<p>而只在用户态到内核态的中断进行栈切换就没有这个问题，即使后续发生中断嵌套，<strong>后续中断保存的信息是压在新的内核栈</strong>里的，不会覆盖或被覆盖。</p>
+<p>“栈切换”过程：</p>
+<ol>
+<li><p>判断现在的状态：在i386，我们使用CS段寄存器的低2位来判断——0就是内核态，3就是用户态；</p>
+</li>
+<li><p>内核栈放在哪：TSS段（任务状态段，跟进程内核栈相关）。<strong>TSS里有两个域<code>ss0</code>和<code>esp0</code>，就是指向内核栈栈顶的位置</strong>（正如i386使用CS段寄存器和EIP寄存器联合确定<code>pc</code>位置，栈的位置也是由SS段寄存器和ESP寄存器联合确定）；</p>
+</li>
+<li><p>保存用户栈的位置:中断返回时要恢复。保存在哪里？是中断上下文。</p>
+</li>
+</ol>
+<p><strong>所以中断上下文中要保存用户栈的ss和栈指针寄存器，用于恢复现场。</strong>但是从内核到内核的嵌套中断中，这两个被保存的寄存器就失去了意义，可以无视。（SS和ESP成员指向的就是不属于这个上下文的地方，所以既没有意义也不能修改。）</p>
+<p><em><strong>ATTENTION！：内核栈栈指针esp和内核栈段选择子ss被保存到TSS后，之后每次用户态中断都会自动使用TSS中的ss:esp来保存现场，避免了位置错误引发的页错误</strong></em></p>
+<h4 id="如何进入第一个用户程序？"><a href="#如何进入第一个用户程序？" class="headerlink" title="如何进入第一个用户程序？"></a><strong>如何进入第一个用户程序</strong>？</h4><p>在跳转到用户程序时，我们还需要修改段寄存器的值，还有就是<strong>操作系统要准备一个内核栈并设置在TSS中</strong>。手动构造一个<strong>返回到用户态的中断上下文，然后用它“假装”进行中断返回，这样最方便</strong>（从内核态到用户态）。</p>
+<p><strong>每个进程控制块都要有一个中断上下文和一个内核栈 来在中断中使用。</strong></p>
+<p>内核栈和中断上下文的组织方式：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> KSTACK_SIZE 4096</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint8_t</span> <span class="built_in">stack</span>[KSTACK_SIZE];</span><br><span class="line">  <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">    <span class="type">uint8_t</span> pad[KSTACK_SIZE - <span class="keyword">sizeof</span>(Context)];</span><br><span class="line">    Context ctx;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125; <span class="type">kstack_t</span></span><br></pre></td></tr></table></figure></div>
+
+<p>内核栈联合体大小为4096个byte，<strong>正好是一页</strong>。<strong>前面的部分是真正的内核栈，后面的部分是中断上下文，中间的部分就是pad数组填充的剩余区域</strong>。</p>
+<p>这样组织的优点：使用联合体可以节省内存，因为内核栈和中断上下文共享相同的内存区域。这种方式在需要频繁进出中断的上下文时，避免了多次分配和释放内存的开销。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">proc_run</span><span class="params">(<span class="type">proc_t</span> *proc)</span> &#123;</span><br><span class="line">  <span class="comment">// WEEK2: interrupt</span></span><br><span class="line">  proc-&gt;status = RUNNING;</span><br><span class="line">  curr = proc;</span><br><span class="line">  set_tss(KSEL(SEG_KDATA), (<span class="type">uint32_t</span>)STACK_TOP(proc-&gt;kstack));<span class="comment">// 这里设置了内核中的ss段选择子为内核数据段。栈顶指针则为进程的内核栈结构体末尾（仔细想想 末尾才是高地址）。</span></span><br><span class="line">  irq_iret(proc-&gt;ctx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="补充资料：Linux下的TSS使用"><a href="#补充资料：Linux下的TSS使用" class="headerlink" title="补充资料：Linux下的TSS使用"></a>补充资料：Linux下的TSS使用</h6><p>原来Linux只用Tss的ss0和esp0！！</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20241103205457693.png"
+                      alt="image-20241103205457693"
+                ></p>
+<h3 id="外部中断"><a href="#外部中断" class="headerlink" title="外部中断"></a>外部中断</h3><p>主要在操作系统中实现串口中断（外部输入导致中断），时钟中断。</p>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>操作系统为用户程序提供的一组API，可以实现对硬件等高特权级资源的操作，通过内核函数，也称作服务例程所实现。系统调用有它自己的中断号，通过系统调用号实现具体历程的调用。进行系统调用时，<strong>首先进行中断，进行相应的中断处理程序，然后查看系统调用号，访问相应的系统调用例程。</strong></p>
+<p>内核函数：是在<strong>内核态即处理中断或异常（int指令）时 处理器程序状态字自动被cpu被设置为内核态，此时执行的例程</strong>。可以使用比用户态更多的指令，如sti，cli等</p>
+<h4 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h4><p>进行系统调用时，要进行一些约定，主要是提供该系统调用的参数存放在什么位置，如<strong>系统调用号存在eax中</strong>。自洽即可。</p>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>（其实这里可以看到，<code>syscall</code>保存寄存器这样的任务，我们在讲述或者理解的时候，往往把这些任务看作一个整体。但是实际上，我们在处理这些功能会通过<strong>操作系统与硬件、用户程序与操作系统的约定，来划分各自不同的职责</strong>。我们在实现这些与硬件相关的操作系统功能时，<strong>一定要区分什么事情是操作系统需要做的，什么事情又是硬件来处理的</strong>。类似的例子是分页机制，操作系统负责对页表、页目录的维护，指令执行时的地址转换是由硬件MMU自动完成的。）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">操作系统的实现是理解硬件职责与约定下的底层软件编程</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="调用者保存与被调用者保存"><a href="#调用者保存与被调用者保存" class="headerlink" title="调用者保存与被调用者保存"></a>调用者保存与被调用者保存</h4><p><strong>callee saved(被调用者保存，负责压栈出栈）</strong></p>
+<p>ebx ，ebp，</p>
+<p><strong>caller saved(调用者保存，调用者负责压栈和出栈。)</strong></p>
+<p>eax，edi，esi，edx，ecx，</p>
+<p>i386的函数调用机制：<strong>调用者从右向左压栈</strong>，被调用的函数如果参数个数比压栈的少就相当于<strong>只取前几个参数</strong>，并且<strong>使用后参数的出栈是由调用者负责</strong>——压几个弹几个，所以也不会造成栈的不平衡；至于返回值，就相当于调用完后<strong>直接取EAX寄存器的值</strong>，反正肯定是能取到的。</p>
+<p>上面这么做有个前提就是所有参数和返回值都是32位、4字节的，不过我们的系统调用都满足这个前提。</p>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>在i386这样的分页式虚拟存储中，主存地址和虚拟地址空间都被划分成大小相等的页面，在虚拟地址空间中的页面称为虚拟页，而对应的在主存空间中的页面称为物理页。</p>
+<p>x86系统中，规定每个页面的大小为2^12 &#x3D; 4KiB （低12位）。于是一个虚拟地址空间就被划分成 2^20 &#x3D; 1024*1024 个虚拟页（高20位），虚拟页和物理页之间存在对应的关系，这种对应关系由进程的页表来维护。</p>
+<p>i386采用二级页表：（单个页表太大 两级引用可以缩小占用内存）</p>
+<ul>
+<li><p>第一级叫<strong>页目录</strong>（Page Directory，PD），可看作1024个<strong>页目录项</strong>（Page Directory Entry，PDE）组成的数组</p>
+<ul>
+<li>每个PDE为4字节 用来找页表的位置<ul>
+<li><strong>高20位为其对应页表在内存中的页框号（即其物理地址的高20位）</strong></li>
+<li>第0~2位为标志位，分别代表此PDE是否有效、对应页表映射的页中是否有可写的页、对应页表映射的页是否有用户程序可访问的</li>
+</ul>
+</li>
+<li>一个<strong>PD大小为4KiB，要求按页对齐（物理地址低12位全0）</strong></li>
+</ul>
+</li>
+<li><p>第二级叫<strong>页表</strong>（Page Table，PT），可看作1024个<strong>页表项</strong>（Page Table Entry，PTE）组成的数组</p>
+<ul>
+<li><p>每个PTE为4字节 用来找具体页的位置</p>
+<ul>
+<li><strong>高20位为其对应的物理页的页框号（即其物理地址的高20位）</strong></li>
+<li>第0~2位为标志位，分别代表此PTE是否有效、对应物理页是否可写、对应物理页可否让用户程序访问</li>
+</ul>
+</li>
+<li><p>一个PT大小为4KiB，要求按页对齐（物理地址低12位全0）<em>按页对齐就是指页表的起始地址需要是页大小的整数倍</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="地址转换流程"><a href="#地址转换流程" class="headerlink" title="地址转换流程"></a>地址转换流程</h4><p>虚拟地址转换为物理地址的流程如下（此处忽略权限检查等过程，我们后面再介绍）</p>
+<p>首先，将32位的虚拟地址（也是线性地址，假设是是扁平模式）分为三部分：</p>
+<ul>
+<li>高10位为页目录号</li>
+<li>中间10位为页表号</li>
+<li>低12位为页内偏移量</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">         31        22 21       12 11           0</span><br><span class="line">LINEAR  +------------+-----------+--------------+</span><br><span class="line">ADDRESS |    DIR     |    PAGE   |   OFFSET     |</span><br><span class="line">        +------------+-----------+--------------+</span><br><span class="line">        </span><br><span class="line">图3-10 32位线性地址结构</span><br></pre></td></tr></table></figure></div>
+
+<p>分以下几步：</p>
+<p>第一次，查询页目录项：</p>
+<ul>
+<li>从CR3寄存器中取出<strong>当前页目录（PD，每个进程有一个）的物理地址</strong>：<strong>CR3的 <em>高20位</em> 即为其对应PD的页框号（即其物理地址的高20位）</strong>，而PD都是按页对齐，其物理地址低12位为全0，据此得到所求PD的物理地址</li>
+<li>得到所求PD的物理地址后，以<strong>虚拟地址的”页目录号“作为下标，查出其对应的页目录项（PDE）</strong></li>
+</ul>
+<p>第二次，查询页表项</p>
+<ul>
+<li><strong>PDE的高20位即为其对应页表（PT）的页框号（即其物理地址的高20位）</strong>，而PT都是按页对齐，其物理地址低12位为全0，据此得到所求PT的物理地址</li>
+<li>得到所求PT的物理地址后，<strong>以虚拟地址的”页表号“作为下标，查出其对应的页表项（PTE）</strong></li>
+</ul>
+<p>第三次，查询最终地址</p>
+<ul>
+<li>PTE的高20位即为其对应物理页的页框号，也即虚拟地址对应的物理地址的高20位</li>
+<li>虚拟地址对应的物理地址的低12位就是它的”页内偏移量“，将两个结果拼起来即为所求物理地址</li>
+</ul>
+<h4 id="权限检查"><a href="#权限检查" class="headerlink" title="权限检查"></a>权限检查</h4><p>对内存的操作可以分为读和写两种，而此时CPU运行的状态也有内核态和用户态两种，对于这四种不同的内存操作，在地址转换时，对<strong>页目录项</strong>（PDE）和<strong>页表项</strong>（PTE）的<strong>标志位</strong>也有不同的要求，具体如下</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image-20240918183321135.png"
+                      alt="image-20240918183321135"
+                ></p>
+<p>如果标志位不符合要求，CPU就会抛出<strong>Page Fault</strong>异常。<strong>注意权限检查在PDE和PTE阶段都会发生</strong>，因此如果用户想写某一页，即使这一页对应PTE的标志位是7（<code>0b111</code>），但如果PDE的标志位是5（<code>0b101</code>），<strong>也会抛出异常。</strong></p>
+<p>第一步就是要给内核一个页目录，<strong>这个页目录里包括<code>[0, PHY_MEM)</code>的恒等映射</strong>，这样才能在开启分页后继续访问内核的代码、全局变量、栈和剩下的堆区内存。也就是对这个区域内存访问时，是1:1原模原样恒等映射，不做复杂转换。（这个很关键 并不是所有地址都要转换。）</p>
+<p>因为<code>kernel</code>大多数情况都是一页一页地要内存，所以只能按页分配的分配器已经足够大多数情况使用了，在这种情况下，我们可以很简单地使用单链表来管理内存，比如说采用下面的结构。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span> <span class="title">free_page</span> &#123;</span></span><br><span class="line">  <span class="class"><span class="keyword">union</span> <span class="title">free_page</span> *<span class="title">next</span>;</span> <span class="comment">// 侵入式链表：规定空闲内存页的前4个字节是指向下一个空闲页的指针 当分配时，要将该页全部memset为0后分配。</span></span><br><span class="line">  <span class="type">char</span> buf[PGSIZE];  <span class="comment">// 可加可不加 就是占位 用于提示这是一个页</span></span><br><span class="line">&#125; <span class="type">page_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">page_t</span> *free_page_list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = KER_MEM; i &lt; PHY_MEM; i += PGSIZE)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">page_t</span> *tmp_page = (<span class="type">page_t</span> *)i;</span><br><span class="line">    tmp_page-&gt;next = free_page_list;</span><br><span class="line">    free_page_list = tmp_page;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>我们把每一个空闲页的前4字节视作指向下一页的指针，或者<code>NULL</code>表示后面没有空闲页了，而<code>free_page_list</code>就是由空闲页组成的单链表。</p>
+<p>分页机制的权限<code>prot</code>（即PDE和PTE的<strong>3个标志位合起来的值</strong>）</p>
+<p><code>prot</code>一般有5种：0（无效）、1或3（仅内核可读写）、5（内核可读写、用户只读）、7（内核和用户都可读写）</p>
+<h4 id="用户堆区管理"><a href="#用户堆区管理" class="headerlink" title="用户堆区管理"></a>用户堆区管理</h4><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">brk</span><span class="params">(<span class="type">void</span> *addr)</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>一次调用它是告诉操作系统现在堆区为空时程序的program break的位置在哪，后续调用就是请求操作系统把自己的program break的位置提到或者放到<code>addr</code>来，返回0代表成功，返回-1代表失败</p>
+<p>program-break在哪？</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/image4.png"
+                      alt="image4"
+                ></p>
+<p><strong>最开始就在可读写数据的顶端。它会向上增长，建立堆区</strong>。</p>
+<p>如果<code>new_brk</code>比之前记录的<code>brk</code>高，就说明用户程序<strong>需要增长堆区</strong>，需要<strong>调用<code>vm_map</code>函数在当前页目录</strong>下创建<code>[brk, new_brk)</code>这段虚拟内存的映射（权限自然是7，用户可读写），**再记录当前进程的<code>brk</code>为<code>new_brk**</code>。（这样就相当于malloc在内存堆区申请了brk到newbrk的空间来使用）</p>
+<p>如果<code>new_brk</code>比之前记录的<code>brk</code>低，就说明用户程序在<strong>降低堆区</strong>，那么降低的那一部分正如前面的各种内存回收函数一样，<strong>可以调用<code>vm_unmap</code>函数</strong>，再记录<code>brk</code>为<strong>new_brk</strong>（相当于free掉之前申请的区域）</p>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>进程是操作系统<strong>资源分配和调度的基本单位</strong>，是程序执行的实例，每个进程拥有一个<strong>进程控制块</strong>唯一标识。拥有自己的<strong>代码段、数据段、堆栈段</strong>。PCB用于保存进程状态，进程大体分为三个状态：<strong>就绪态、运行态、等待态</strong>。进程调度发生在ring0，而用户进程运行在ring1，当发生时钟中断时，<strong>可能</strong>进行进程调度。<strong>进程的保存和恢复都是通过PCB和寄存器的互动实现的。</strong></p>
+<p>PCB 不是处理器要求的，它是操作系统的实现者自己来构建的，一般包含包含<strong>进程名 id号 优先级 进程上下文</strong> 等等进程的各个属性信息，可以根据自己的需要来进行设计。</p>
+<p>进程栈是为<strong>每个进程分配的一个独立的栈空间</strong>，存在于该进程的虚拟内存，<strong>即栈段</strong>，执行进程代码时，要使用这个栈。</p>
+<p>既然多进程是要进行执行流的切换，就是要保存当前执行流的状态，然后让CPU加载另一个执行流的状态，等到换回来的时候就是让CPU恢复原来执行流的状态。因此我们可以<strong>利用中断处理机制来实现进程的切换</strong>。</p>
+<p>每次中断的时候OS都会<strong>将当前状态作为一个中断上下文压栈保存在当前进程的内核栈</strong>（为啥能是当前进程的内核栈？因为当前进程在运行前，就将自己的内核栈信息放到了TSS中）里，我们记录一下这个上下文的位置（为什么记录？<strong>因为当前进程保存的上下文不是最新的，中断传入的上下文才是最新的</strong>。），然后不急着用这个上下文进行返回——<strong>我们用另一个进程之前保存的上下文进行中断返回，这就相当于切换到了另一个进程了。</strong></p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">schedule</span><span class="params">(Context *ctx)</span> <span class="comment">// 81号中断处理函数 进程调度</span></span><br><span class="line">&#123;</span><br><span class="line">  curr-&gt;ctx = ctx; <span class="comment">// 非常关键的一步：curr-&gt;ctx不会随着进程执行而改变，所以要将当前进程的状态（也就是中断时传入的状态）ctx记录到curr-&gt;ctx，可以看做是对已保存的进程状态的更新，这样保存之后，这个进程才能被其他进程恢复到它进入时钟中断的下一条指令的最新状态</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">proc_t</span> *i = curr + <span class="number">1</span>;; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == pcb + <span class="number">64</span>) <span class="comment">// last error：到了下表为64的元素 再转化到0处！</span></span><br><span class="line">      i = pcb;</span><br><span class="line">    <span class="keyword">if</span> (i-&gt;status == READY)</span><br><span class="line">    &#123;</span><br><span class="line">      curr = i;</span><br><span class="line">      proc_run(i);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>总结进程的切换过程:</p>
+<ol>
+<li><p>首先初始化GDT中TSS和LDT的描述符，同时初始化TSS。</p>
+</li>
+<li><p><strong>PCB中保存进程上下文，也需要被初始化</strong>。</p>
+</li>
+<li><p>然后<strong>通过iretd</strong>实现ring0到ring1的跳转：</p>
+<ul>
+<li>首先<strong>设置进程表中第一个进程为正在执行的进程</strong></li>
+<li>然后<strong>设置esp为该进程的PCB首地址</strong>，准备将PCB中的上下文赋值给所有寄存器，（这里顺便设置tss中的esp0和ss0为PCB尾地址，即进程对应内核栈地址，进程控制块就在内核，方便之后<strong>从ring1跳转到ring0时保存现场（tss保存该进程内核栈地址，保存现场时直接按顺序压栈即可）</strong>）</li>
+<li><strong>最后执行iretd会设置eip，cs和esp，ss，实现正式的控制流跳转。</strong></li>
+</ul>
+</li>
+<li><p>ring1到ring0<strong>需要使用tss中保存的esp0和ss0</strong>：实际上就是，<strong>跳转契机设置为时钟中断发生</strong>时（也可以在一个自定义中断（又或者是一个系统调用内核函数）中进行进程切换，然后在时钟中断处理程序中对该例程进行调用，这与具体实现有关），<strong>总之利用中断实现进程切换。</strong></p>
+<ul>
+<li>中断发生时，找到对应中断门（CPU处理中断时，需要向当前进程核心栈内压入eflag eip cs（特权级变换则还有esp，ss 等等），执行对应中断历程。</li>
+<li>所以中断执行时，先在tss中（保存了核心栈地址）取出当前进程PCB进程上下文尾地址（也就是核心栈地址），不断做push入栈保存现场（同时记录中断重入次数）。</li>
+<li><strong>然后设置esp为核心栈顶？</strong>，暂停时钟中断，允许其他中断。然后执行时钟中断handle程序。</li>
+<li>在<strong>时钟中断处理handle程序中改变当前执行进程（真正的进程切换）</strong>，最后再次重复上述的ring0到ring1，即可实现进程变换。</li>
+</ul>
+</li>
+</ol>
+<h4 id="fork-进程复制"><a href="#fork-进程复制" class="headerlink" title="fork 进程复制"></a>fork 进程复制</h4><p>创建一个和自己状态相同的子进程，成功时父进程返回子进程的PID，子进程返回0；失败时返回-1。的“状态相同”，就是在用户态看来，<code>fork</code>刚返回时子进程和父进程的什么都是一样的——<strong>代码段一样、数据段一样、栈一样、正在执行的位置（EIP）一样、EAX以外的寄存器一样</strong>。注意上面的内存空间一样表示的是<strong>内容一致、虚拟地址一致而非映射到同样的物理地址</strong>，各个进程的内存空间是相互独立的。）唯一的区别就是<strong>EAX，也就是<code>fork</code>的返回值不同</strong>。</p>
+<h4 id="group-exit，wait进程退出"><a href="#group-exit，wait进程退出" class="headerlink" title="group_exit，wait进程退出"></a>group_exit，wait进程退出</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void exit(int status) __attribute__((noreturn));</span><br></pre></td></tr></table></figure></div>
+
+<p><code>exit</code>系统调用退出当前进程，并记录退出状态为<code>status</code>（一般放入main返回值），父进程可以通过<code>wait</code>系统调用获取子进程的退出状态。（<strong>进程将自己标记为ZOMBIE，不再参与调度</strong>）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int wait(int *status);</span><br></pre></td></tr></table></figure></div>
+
+<p><code>wait</code>系统调用，<strong>寻找子僵尸进程，如果有，就释放这个进程的所有资源；没有就无限循环等着</strong> 返回一个退出的子进程的PID，如果<code>status</code>不为<code>NULL</code>，再把子进程的退出状态记录在那，最后释放这个子进程的PCB。</p>
+<p>问题：进程<strong>有些资源其实是不能直接在退出时释放的</strong>，这是因为在处理<code>exit</code>系统调用时，<strong>CPU正在使用</strong>这个进程的地址空间、这个进程的内核栈，所以<strong>不能直接在<code>exit</code>里释放这些资源。</strong></p>
+<p>既然进程结束时自己处理不了后事，那就<strong>只能让它爹来给它收尸了</strong>，也就是等到它爹<code>wait</code>到它的时候再释放。</p>
+<p><strong>进程一生也要经历两次死亡——自己<code>exit</code>和它爹<code>wait</code><strong>，<code>exit</code>只是标记这个进程不会再执行了，我们管这种已经退出、只等被它爹<code>wait</code>释放资源的进程叫</strong>僵尸进程</strong>，这也就是进程状态中<code>ZOMBIE</code>的意思。</p>
+<h2 id="进程通讯"><a href="#进程通讯" class="headerlink" title="进程通讯"></a>进程通讯</h2><h3 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h3><p>进程的地址空间是相互独立的：<strong>虽然逻辑地址空间相同</strong>（比如所有用户程序都以<code>0x08048000</code>为入口），<strong>但是它们映射到物理地址空间中对应了不同的物理内存</strong>。</p>
+<p>通过设置<strong>共享内存</strong>，实现内存在<code>fork</code>时会被共享给子进程，也就是父子进程的这个虚拟地址映射到<strong>相同的物理地址。</strong></p>
+<p>释放共享内存时，由于可能会有多个进程在访问这个共享内存页，所以当某一个进程释放该共享进程时，仅仅取消该进程对共享内存的绑定，而不能够直接释放该共享内存对应的物理页。<strong>只有当所有的进程都释放这一个共享内存时，该共享内存的物理页才能被真正释放。</strong>为了实现这一点，我们需要对物理页维护引用计数。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pica.zhimg.com/80/v2-195b0cf5f101ed8c11910fea9b77559e_720w.webp"
+                      alt="img"
+                ></p>
+<h4 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h4><p>在<code>fork</code>复制进程的时候，<strong>每一次都需要复制整个进程的地址空间的内容有点浪费了</strong>：<strong>对于大家都不写的内存，父子进程可以共用同一个物理页，就不用复制了</strong>。此外，有时候我们<code>fork</code>新进程之后会直接<code>exec</code>重新分配内存资源运行新的程序，这个时候<code>fork</code>还需要复制不要用的就内存就显得太过于繁琐了。</p>
+<p>解决办法：我们<strong>可以在<code>fork</code>时让子进程地址空间映射到和父进程地址空间相同的物理页</strong>，<strong>不过两者都清除“写”权限</strong>，等到父子进程中的<strong>某一个要写内存</strong>，并由于权限<strong>触发页错误</strong>的时候，再申请一页新的物理页把内容复制到新的地址上去，我们称这种技术为<strong>写时复制</strong></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程是轻量级的进程，出现了线程之后，<strong>原本的进程</strong>就变为了<strong>主线程</strong>，不管是主线程还是一般线程，都是用进程控制块进行管理。进程控制块中有几个成员在线程控制中比较关键。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span>&#123;</span></span><br><span class="line">   	<span class="type">size_t</span> pid;					<span class="comment">// 控制块号</span></span><br><span class="line">    <span class="type">size_t</span> tgid;                <span class="comment">// 进程组ID</span></span><br><span class="line">    <span class="type">int</span> thread_num;             <span class="comment">// 进程所有的线程数量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> *<span class="title">group_leader</span>;</span>  <span class="comment">// 进程控制块指针，指向进程对应的主线程</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> *<span class="title">thread_group</span>;</span>  <span class="comment">// 链表指针，指向线程链表的下一个成员。</span></span><br><span class="line">&#125; <span class="type">proc_t</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>tgid是进程组的ID，一个进程组中的每个线程都共享相同的tgid，而tgid就等于本进程组中的主线程pid。</strong></p>
+<p>pid此时代表进程控制块的块号，<strong>每个线程都不一样</strong>。</p>
+<p>为了更好地维护进程组中的线程，我们将同一个进程中的线程控制块以链表的形式组织起来，链表的指针就是<code>proc_t</code>中的<code>thead_group</code>变量，如下图所示：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">+-------------------------+</span><br><span class="line">|     TCB (Main Thread)   |</span><br><span class="line">|-------------------------| &lt;-----+----------------------------------+----------------------------------+</span><br><span class="line">|  pid: 100               |       |                                  |                                  |</span><br><span class="line">|  tgid: 100              |       |                                  |                                  |</span><br><span class="line">|  state: running         |       |                                  |                                  |</span><br><span class="line">|  group_leader: -------&gt; +-------+                                  |                                  |</span><br><span class="line">|  thread_group: -------&gt; +-------&gt;+-------------------------+       |                                  |</span><br><span class="line">+-------------------------+        |     TCB (Thread 1)      |       |                                  |</span><br><span class="line">                                   |-------------------------|       |                                  |</span><br><span class="line">                                   |  pid: 101               |       |                                  | </span><br><span class="line">                                   |  tgid: 100              |       |                                  |</span><br><span class="line">                                   |  state: sleeping        |       |                                  |</span><br><span class="line">                                   |  group_leader: -------&gt; +-------+                                  |</span><br><span class="line">                                   |  thread_group: -------&gt; +-------&gt;+-------------------------+       |</span><br><span class="line">                                   +-------------------------+        |     TCB (Thread 2)      |       | </span><br><span class="line">                                                                      |-------------------------|       |</span><br><span class="line">                                                                      |  pid: 102               |       |</span><br><span class="line">                                                                      |  tgid: 100              |       |</span><br><span class="line">                                                                      |  state: sleeping        |       |</span><br><span class="line">                                                                      |  group_leader: -------&gt; +-------+</span><br><span class="line">                                                                      |  thread_group: NULL     |</span><br><span class="line">                                                                      +-------------------------+</span><br></pre></td></tr></table></figure></div>
+
+<p>而groupLeader就是本进程组中的主线程指针。</p>
+<p>进程组中的资源由<strong>主线程</strong>统一管理。例如：<strong>内存空间，信号量，堆区，打开文件。</strong>但是有<strong>独立的用户栈，内核栈</strong>，和<strong>进程上下文</strong>。</p>
+<h4 id="clone系统调用：创建线程"><a href="#clone系统调用：创建线程" class="headerlink" title="clone系统调用：创建线程"></a>clone系统调用：创建线程</h4><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">clone</span><span class="params">(<span class="type">int</span> (*entry)(<span class="type">void</span>*), <span class="type">void</span> *<span class="built_in">stack</span>, <span class="type">void</span> *arg)</span>;</span><br><span class="line"></span><br><span class="line">参数`<span class="type">int</span> (*entry)(<span class="type">void</span>*)`是**线程执行的函数指针**，系统会**创建一个线程来运行`entry`这个函数**，该函数接受一个`<span class="type">void</span> *`参数，并返回`<span class="type">int</span>`作为返回值。</span><br><span class="line"></span><br><span class="line">参数`<span class="type">void</span> *<span class="built_in">stack</span>`是线程运行的用户栈栈顶，用户进程可以通过`<span class="built_in">malloc</span>`在堆区中分配一页作为线程的用户栈。</span><br><span class="line"></span><br><span class="line">参数`<span class="type">void</span> *args`是`entry`需要的参数。</span><br></pre></td></tr></table></figure></div>
+
+<p>entry函数执行完成后，就<strong>执行线程的exit函数退出线程</strong>。（可以设计传入一个函数指针ret专门就进行线程的结束，让clone执行完毕后，执行这个ret，取出存放在<code>%eax</code>里面的返回值并调用exit，打扫战场，这样就可以<strong>避免在entry函数中显式使用exit函数，而是直接return就行</strong>）</p>
+<h4 id="线程退出thread-exit"><a href="#线程退出thread-exit" class="headerlink" title="线程退出thread_exit"></a>线程退出thread_exit</h4><p>普通线程退出<strong>只需要标记自己为ZOMBIE</strong>，不参与调度即可。但是进程就需要标<strong>记自己的同时，负责将本进程下所有的僵尸线程进行回收</strong>。<strong>程序无法自杀，</strong>这在前面提到过。所以需要父进程回收子进程，<strong>主线程回收其余线程。</strong></p>
+<p>如果进程不是最后一个死去的，死之前还有线程活着，<strong>那么进程就要循环等待，直到线程都死光，然后释放他们。</strong></p>
+<p>注意：group_exit和exit所有线程都能调用，区别在于，前者<strong>直接将本进程组中所有的子线程释放</strong>，然后标记进程为僵尸（<strong>退出整个进程，而且负责了子线程资源回收</strong>）；而后者会根据调用者的身份进行处理：子线程则直接标记为ZOMBIE，主线程则<strong>准备释放所有子线程</strong>并标记自己为ZOMBIE（注意，如果子进程没死，则不会强制释放，而是会等待）。</p>
+<p>所以：<code>thread_exit或者说exit</code><strong>则仅仅退出一个线程</strong>，进程的资源不会因为线程的退出而回收，而是**等到进程中的所有线程都退出，或者某个线程显示调用了<code>exit</code>**（包括主线程通过<code>return</code>）退出，才结束进程回收资源。</p>
+<p>所有线程都能进行wait系统调用，但是<strong>只会对线程所在的进程组主线程进行操作</strong>：查看主进程的子进程是否为ZOMBIE、是否可以释放。</p>
+<p><em><strong>之后有关资源分配的api都要到主线程的方向上去做。</strong></em></p>
+<h3 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h3><p>线程的新增成员：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span>&#123;</span></span><br><span class="line">    ... <span class="comment">// 前面成员保持不变</span></span><br><span class="line">    <span class="type">int</span> joinable;       <span class="comment">// 指示该线程能否被join，初始化为1，代表默认是能够被join的。</span></span><br><span class="line">    <span class="type">int</span> detached;       <span class="comment">// 指示该线程是否被detach了，初始化为0，代表默认是没有被detach的。</span></span><br><span class="line">    <span class="type">sem_t</span> join_sem;     <span class="comment">// 维护join信息的信号量，初始化为value=0</span></span><br><span class="line">&#125; <span class="type">proc_t</span>;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p><strong>让父线程等待子线程完成，实现线程之间的同步，并在子线程结束后手动回收资源。</strong>适合需要严格同步的场景</p>
+<p>举例来讲，在一个文件处理程序中，主线程需要创建多个子线程，每个子线程负责读取不同的文件并处理数据。主线程必须等待所有子线程处理完文件后再继续执行汇总结果的操作。在这种情况下，主线程可以使用<code>join</code>来等待所有子线程结束，以确保文件处理任务都完成后再继续执行汇总任务。</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">join</span><span class="params">(<span class="type">int</span> tid, <span class="type">void</span> **retval)</span> </span><br><span class="line"><span class="comment">//tid代表需要被join的线程号, retval对应返回值，返回值是一个void *变量，通过void **接受这个值。</span></span><br></pre></td></tr></table></figure></div>
+
+<p>首先<code>join</code>的调用者不能是被<code>join</code>的对象。<strong>然后让当前线程P一下目标线程的<code>join_sem</code>, <code>join_sem</code>的初始值为0，此时当前线程就会等待目标线程</strong>。等到目标线程运行结束，需要修改 proc_makezombie<code>，在函数的最后V一下自己的</code>join_sem&#96;，唤醒可能等待在它上面的线程。（<strong>先别急着死，可能还有人在等你</strong>）</p>
+<p>由于线程总会通过<code>thread_exit</code>退出，退出的状态记录在控制块的<code>exit_code</code>当中，所以如果<code>retval</code>不为NULL，将目标线程的**<code>exit_code</code>赋值给<code>retval</code>指向的内存**即可。（下面的抽象操作）</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (retval != <span class="literal">NULL</span>)</span><br><span class="line">  *retval = (<span class="type">void</span> *)(target-&gt;exit_code); <span class="comment">// 设置exitcode 为void* 类型</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="detach-脱离"><a href="#detach-脱离" class="headerlink" title="detach 脱离"></a>detach 脱离</h4><p><strong>使子线程独立运行，不需要父线程等待，系统会在子线程完成时自动回收资源。</strong>适合非同步场景。</p>
+<p>在一个网络服务器中，每当有客户端连接时，服务器会创建一个新线程处理该客户端的请求。由于服务器不需要等待每个客户端的请求完成，且这些线程的生命周期不需要被服务器管理，因此可以使用<code>detach</code>让子线程自行处理客户端请求并在结束时自动释放资源，从而避免服务器阻塞。</p>
+<p><code>sys_detach</code>设置控制块中的<code>detached</code>&#x3D;1与<code>joinable</code>&#x3D;0变量（<strong>detach之后的线程不能join</strong>），<code>detach</code>之后的线程在退出时<strong>不等待主线程释放自己的控制块，</strong>而是直接释放控制块。所以我们需要据此修改<code>sys_exit</code>的逻辑。</p>
+<p>问题是：<strong>不是父进程回收，那么谁回收？答案是内核进程</strong>。设置该线程的parent为内核进程，同时内核进程添加一个扫描ZOMBIE线程的过程即可完成。顺便还能把parent先死的孤儿进程进行回收（wait做不到这点），可谓一举两得。</p>
+<h3 id="异步通信-信号机制-Signal"><a href="#异步通信-信号机制-Signal" class="headerlink" title="异步通信 信号机制 Signal"></a>异步通信 <strong>信号</strong>机制 Signal</h3><p>信号则是<strong>传递短消息的简单通信机制</strong>，通过发送指定信号来<strong>通知进程某个异步事件发生</strong>，以迫使进程执行信号处理程序。信号处理完毕后，被中断进程将恢复执行。</p>
+<p>信号可以通过<strong>异常(硬中断)产生</strong>，如进程执行非法指令或段错误(大名鼎鼎的<code>Segmentation fault</code>)等，内核会发送<code>SIGKILL</code>或<code>SIGSEGV</code>信号；<strong>进程也可以发出信号</strong>，实现进程同步与中止，如<code>SIGKILL</code>信号将强迫另一进程终止。我们的实验中主要模拟进程发出的信号。</p>
+<p>信号一般分为操作系统标准信号和应用进程定义信号，这种机制模拟硬中断，但不分优先级，通信双方不必事先联系，简单且有效，但不能传送数据，故能力较弱。</p>
+<p>进程信号相关新成员：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">proc</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> sigblocked;                                        </span><br><span class="line">    <span class="comment">// 整型数，以位图的形式指示信号是否被阻塞。每一位对应一个特定信号，某位为1代表信号被阻塞。操作系统在信号到来时不会立即处理，而是将其推迟到信号被解除阻塞后再处理。</span></span><br><span class="line">    <span class="type">void</span> (*sigaction[SIGNAL_NUM])(<span class="type">int</span>, <span class="keyword">struct</span> proc *);     </span><br><span class="line">    <span class="comment">// 函数指针数组，指示不同信号对应的处理函数。当一个信号到来且未被阻塞时，操作系统会根据信号编号查找相应的处理函数，并执行该函数。</span></span><br><span class="line">    <span class="type">list_t</span> sigpending_queue;                                </span><br><span class="line">    <span class="comment">// 等待队列，维护收到但还没有来得及处理的信号。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>信号处理流程：</p>
+<ol>
+<li>信号的产生</li>
+</ol>
+<ul>
+<li><p>用户进程通过<code>kill()</code>系统调用向自身或其他进程发送信号。<em>所以上一周我们实现的<code>kill</code>系统调用是一个望文生义的简化版，调用<code>kill</code>就是杀死一个进程。但实际上，<strong>在Linux系统中<code>kill</code>用来发送信号</strong>，<strong>只有当发送的信号恰好是<code>SIGKILL</code>时，才会杀死指定的进程。</strong></em></p>
+</li>
+<li><p>硬件异常（如段错误 <code>SIGSEGV</code>、浮点运算错误 <code>SIGFPE</code>）会触发相应的信号。在我们的实验中我们不考虑这种情况，我们假设所有的信号都是用户进程通过<code>kill</code>发出的。</p>
+</li>
+<li><p>用户终端输入某些控制命令（如 <code>Ctrl+C</code> 触发 <code>SIGINT</code>）。我们也不考虑这种情况。</p>
+</li>
+</ul>
+<p>当信号被产生时，它会被记录在目标进程的 <strong>信号等待队列（<code>sigpending_queue</code>）</strong> 中。</p>
+<ol start="2">
+<li><p>信号的阻塞</p>
+<p>在信号等待处理之前，进程可以通过信号屏蔽字（<code>sigblocked</code>）来决定是否屏蔽某个信号。如果该信号对应的位在<code>sigblocked</code>中被设置，信号会被阻塞，直到信号解除阻塞为止。这时信号会暂时保留在<code>sigpending_queue</code>中。进程可以使用<code>sigprocmask()</code>系统调用来阻塞或解除阻塞某些信号。</p>
+</li>
+<li><p>信号的处理</p>
+<p>当信号不再被阻塞，内核会在合适的时机执行信号的处理过程：</p>
+<ol>
+<li><p><strong>用户自定义处理函数</strong>： 如果进程通过<code>sigaction()</code>系统调用为该信号设置了自定义的处理函数（存储在<code>proc_t</code>中的<code>sigaction[]</code>数组中），内核会在信号触发时调用该函数。自定义处理函数可以执行任何用户定义的操作，例如输出消息、修改状态等。</p>
+</li>
+<li><p><strong>默认处理</strong>： 如果进程没有为信号设置自定义处理函数，内核会按照信号的<strong>默认行为</strong>处理。不同信号有不同的默认处理方式，例如：</p>
+<ul>
+<li><code>SIGKILL</code>会直接终止进程。</li>
+<li><code>SIGSTOP</code>会暂停进程，而<code>SIGCONT</code>会恢复进程的执行。</li>
+</ul>
+<p>默认处理的方式在handle_signal中实现</p>
+</li>
+<li><p><strong>信号的递送</strong>： 内核在<strong>进程恢复执行用户态代码之前</strong>，通过<code>do_signal()</code>函数检查<code>sigpending_queue</code>中的信号。如果有未被阻塞的信号，内核会调用信号处理函数执行相应操作。该过程通常会在上下文（进程）切换<code>（proc_run）</code>时发生。 <code>do_signal</code>和<code>proc_run</code>需要在后面修改。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>信号的返回</strong> 信号处理完成后，<strong>进程会继续执行被中断的代码</strong>。系统在调用信号处理函数时<strong>，保存了进程的执行上下文，因此信号处理完成后可以安全地返回到信号之前的状态</strong>。在真实的Linux系统中，大部分信号处理程序会在用户态完成（因为涉及到访问用户地址空间），所以在信号处理程序执行结束之后会通过<code>sigreturn</code>返回内核态做一些善后工作。我们在实验中可以省略这一步<strong>，因为在分页那里为了好操作我们把内核的地址都映射到每个用户进程的地址空间中</strong>，所以这一步的地址切换与相关的善后工作就都可以省略。</p>
+</li>
+<li><p><strong>信号的特殊处理</strong> 某些信号是<strong>不可被捕获或忽略</strong>的（如<code>SIGKILL</code>和<code>SIGSTOP</code>）。这类信号的处理逻辑通常<strong>直接由内核完成</strong>，进程无法改变它们的行为。在实验里，我们约定<code>SIGKILL</code>，<code>SIGSTOP</code>和<code>SIGCONT</code>三个信号的处理会立即处理，而不是挂载到<code>sigpending_queue</code>上之后等待上下文切换时处理。</p>
+</li>
+<li><p><strong>信号的处理时机</strong> 信号并不会立即被处理。信号的处理时机通常是当进程<strong>即将进入用户态或从中断返回时</strong>，通过<code>do_signal()</code>函数检查并递送。如果信号已经被阻塞，它们将会被保留在<code>sigpending_queue</code>，直到解除阻塞时才会处理。</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/sigpipeline.png"
+                      alt="sigpipeline"
+                ></p>
+</li>
+</ol>
+<p>除了善后工作不用做，剩下的都需要实现。</p>
+<h2 id="虚拟文件系统"><a href="#虚拟文件系统" class="headerlink" title="虚拟文件系统"></a>虚拟文件系统</h2><p>文件是由文件名标识的一组信息的集合，或者说白了就是一个<strong>字节序列</strong>。类Unix系统中符合这个要求的就是文件，甚至没有文件名也行，也就是所谓的 <strong>“万物皆文件”</strong></p>
+<p>都是字节序列，操作系统就都能当做文件统一管理。管理这些文件的就是<strong>虚拟文件系统</strong>（抽象层）。用户API也能用统一的方式访问文件，比较方便。而在底层实现时（实现层），要根据不同类别文件进行个性化处理。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:%5CUsers%5Clenovo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20241101083425205.png"
+                      alt="image-20241101083425205"
+                ></p>
+<p>这里以处理磁盘文件和设备文件为例。</p>
+<p>虚拟文件系统要建立在磁盘文件系统和设备文件系统等等底层系统来实现。<strong>磁盘文件系统是根据文件的inode来进行操作</strong>，磁盘文件的读写可以使用iread、iwrite来实现（这些都是磁盘文件系统api），而设备文件的读写就要根据具体的设备文件类型来决定。<strong>设备文件有独特的类型：有自己的read和write函数指针</strong>。<br>如对于串口的读写就可以直接变成<strong>用户对对应设备文件的读写</strong>，然后<strong>在底层操作系统调用他们自己的读写函数</strong>实现读写。</p>
+<p>磁盘可以分为以下几部分：主引导记录MBR，各种分区（每个分区可以使用不同的文件系统）。而每个分区可以有<strong>文件系统的元数据</strong>+<strong>数据区</strong>（这是最重要的，剩下的可能还有引导扇区，空闲块，日志区）。不同的文件系统设置元数据的方案，或者是数据的组织管理方案<strong>是不同的</strong>。例如ext文件系统使用<strong>超级块+inode表</strong>，而NTFS使用MFT（主文件表），FAT32使用目录项+数据区的簇来管理。</p>
+<p><strong>inode有动态和静态之分</strong>，在磁盘上是静态的inode（主要是数据的扇区位置，长度，文件名，持久化数据）。而在操作系统中放置的是动态inode（文件是否可用，随运行变化）。操作系统会保存一个活动inode表，在操作系统启动时进行初始化，<strong>在打开文件时进行录入，减少访存次数，提高性能，关闭文件时就释放inode</strong>。但是由于本操作系统太过简单，直接就能把所有的文件都初始化时录入该表中，然后进行操作。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://linux.fasionchan.com/zh_CN/latest/_images/26cf89b03f383aaac00e1da084d6c909.png"
+                      alt="文件描述符，打开文件，inode关系"
+                ></p>
+<p><strong>系统打开文件表：</strong>OS维护一个系统中所有被打开的文件表，里面存储<strong>文件指针。这是供虚拟文件系统使用的文件类型</strong>。磁盘文件系统提供的api都是针对inode实现的。而虚拟文件系统不应该关注底层实现细节，不管底层是什么文件系统都能实现调用，所以不能直接操作inode类型。<strong>虚拟文件系统提供一系列api来对文件进行操作。</strong></p>
+<p><strong>用户打开文件表：</strong>每个<strong>进程</strong>维护一个文件表，存入已经打开的文件指针。通过编号进行下标访问，编号就是<strong>文件描述符fd</strong>，进程可以通过fd访问文件指针，也可以分配一个位置存储文件指针，表示打开一个文件。</p>
+<p>抽象层次: 对inode操作（磁盘文件系统）——对file_t操作（虚拟文件系统）——通过系统调用操作文件（系统调用）</p>
+<h6 id="Tip：函数指针"><a href="#Tip：函数指针" class="headerlink" title="Tip：函数指针"></a>Tip：函数指针</h6><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面是一个函数，参数中有函数指针类型的变量，如entry就是一个变量，存储函数指针</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sys_clone</span><span class="params">(<span class="type">int</span> (*entry)(<span class="type">void</span> *), <span class="type">void</span> *<span class="built_in">stack</span>, <span class="type">void</span> *arg, <span class="type">void</span> (*ret_entry)(<span class="type">void</span>))</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面是一个函数类型定义 就是为函数指针类型起别名：syshandle_t</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span> <span class="params">(*<span class="type">syshandle_t</span>)</span><span class="params">(<span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>, <span class="type">uint32_t</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这样起过别名之后，可以直接使用别名syshandle_t代表特定的函数类型,函数指针就可以更方便的传参，也可以作为返回值返回（第一种函数指针无法作为返回值类型，不能通过编译）</span></span><br></pre></td></tr></table></figure></div>
+
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 操作系统概念总结</li>
+        <li><strong>Author:</strong> HangYF</li>
+        <li><strong>Created at
+                :</strong> 2025-02-17 14:12:22</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-02-17 14:13:01
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/02/17/操作系统概念总结/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/">#课程总结</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">记录一次向量数据库的部署过程</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/02/17/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E6%80%BB%E7%BB%93/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">大二下编译原理总结</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">操作系统概念总结</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%8C%87%E4%BB%A4%E9%9B%86-cisc"><span class="nav-text">复杂指令集(cisc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%AE%80%E6%8C%87%E4%BB%A4%E9%9B%86-risc"><span class="nav-text">精简指令集(risc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="nav-text">大小端存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%A7%8D%E7%B1%BB"><span class="nav-text">8086寄存器种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8086%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%E2%80%93%E5%AF%BB%E6%89%BE%E6%8C%87%E4%BB%A4%E6%89%80%E9%9C%80%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="nav-text">8086寻址方式–寻找指令所需操作数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E4%B8%AD%E4%B8%89%E7%A7%8D%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F"><span class="nav-text">汇编中三种函数传参方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x86%E6%B1%87%E7%BC%96%E7%9A%84%E4%B8%A4%E7%A7%8D%E9%A3%8E%E6%A0%BC"><span class="nav-text">x86汇编的两种风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">操作系统的启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bios%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">Bios的全过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9A%84MBR"><span class="nav-text">可执行的MBR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%AF%BB%E5%9D%80"><span class="nav-text">保护模式下的寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6ELF"><span class="nav-text">Linux的可执行文件ELF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-text">动态链接和静态链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-text">进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD"><span class="nav-text">中断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F"><span class="nav-text">中断向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E6%8F%8F%E8%BF%B0%E7%AC%A6%E8%A1%A8-IDT"><span class="nav-text">中断描述符表 IDT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%88%86%E7%B1%BB"><span class="nav-text">中断分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD"><span class="nav-text">外部中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-text">系统调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-text">分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B"><span class="nav-text">多进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E8%AE%AF"><span class="nav-text">进程通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="nav-text">共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6-Signal"><span class="nav-text">异步通信 信号机制 Signal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">虚拟文件系统</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">HangYF</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        7 posts in total
+                    </span>
+                    
+                        <span>
+                            43.6k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
