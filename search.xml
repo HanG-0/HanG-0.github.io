@@ -1,6 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git学习日记</title>
+    <url>/2025/02/20/git%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<pre><code>前言：找到一个学习git很方便的网站：https://learngitbranching.js.org/?locale=zh_CN，记录一下学习关键点和总结。
+</code></pre>
+<h2 id="版本节点树"><a href="#版本节点树" class="headerlink" title="版本节点树"></a>版本节点树</h2><p>使用git时，要在脑内形成一个<strong>版本树</strong>，<strong>每一个节点都是一个提交记录</strong>，有独特的哈希码代表该节点。</p>
+<h5 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h5><p>分支名可以看作一个指向版本节点的指针。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220123419979.png"
+                      alt="image-20250220123419979"
+                ></p>
+<p>当前所在分支是main，使用命令：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newImage  # 创建一个新分支指向c1提交记录。</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout newImage # 切换到分支newImage </span><br></pre></td></tr></table></figure></div>
+
+<p>简写：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b newImage  # 创建同时切换分支</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><h5 id="merge方式合并"><a href="#merge方式合并" class="headerlink" title="merge方式合并"></a>merge方式合并</h5><p>将bugFix分支的内容合并到main中，并产生新提交结点，同时main指向新节点。（提交树变复杂，但是不会改变提交历史）</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git merge bugFix # 当前在分支main</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220124318996.png"
+                      alt="image-20250220124318996" title="结果"
+                ></p>
+<p>此时如何将bugFix移动到与main相同的位置？</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout bugFix</span><br><span class="line">git merge main # 因为main是bugFix的子节点，已经包含了bugFix的内容，所以bugFix此时只会单纯的移动到main的位置。</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="rebase方式合并"><a href="#rebase方式合并" class="headerlink" title="rebase方式合并"></a>rebase方式合并</h5><p>变基，就是<strong>将本节点及一系列父提交记录复制并粘贴到另一个地方</strong>，创造更加线性的提交记录，但是改变了提交树的历史（从提交树上无法得到正确的提交流程）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220151044744.png"
+                      alt="image-20250220151044744"
+                ></p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git rebase main # 当前在bugFix分支上 以main为基础进行合并</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220151205252.png"
+                      alt="image-20250220151205252"
+                ></p>
+<p>提交记录c3仍然存在，合并的同时，提交记录变为线性的。</p>
+<p>同理，执行：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout main</span><br><span class="line">git rebase bugFix # 可以使main分支移动到bugFix的位置</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="在提交树上移动"><a href="#在提交树上移动" class="headerlink" title="在提交树上移动"></a>在提交树上移动</h2><h4 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h4><p>可以理解为一个指针，指向当前正在处理的<strong>提交记录或者分支名</strong>。默认下，HEAD指向的都是分支名，但是可以通过checkout指令让它指向提交记录，这就是分离HEAD。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220152042141.png"
+                      alt="image-20250220152042141"
+                ></p>
+<p>此时 <strong>HEAD-&gt;main-&gt;c1</strong> ，（注意：当HEAD指向分支名时，HEAD等价于该分支名）执行：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout c1</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220152149214.png"
+                      alt="image-20250220152149214"
+                ></p>
+<p>这里的c1代表提交记录的哈希值。分离后，<strong>git commit不会使main自动指向最新的提交c2，但是HEAD会指向c2。</strong></p>
+<p>通过哈希值指定HEAD指向比较困难，一般会使用git log来查看哈希值。哈希值很长，但是<strong>只需要写唯一标识提交记录的前几位</strong>即可。</p>
+<h4 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h4><p>可以通过^和~两种符号来进行相对引用。</p>
+<p><code>[哈希值|分支名]^  </code> 表示该节点的父节点 （使用~也是相同的）</p>
+<p><code>[哈希值|分支名]~num </code>  表示该节点往上num个节点</p>
+<p><code>[哈希值|分支名]^^^ </code> 表示该节点往上3个节点</p>
+<p>特殊：<code>[哈希值|分支名]^num</code> 在当前节点有多个父节点时，默认回到第一个父节点，上述指令则可以通过num选择第几个父节点来回溯</p>
+<p>上面的符号支持链式操作。</p>
+<h4 id="强制修改分支位置"><a href="#强制修改分支位置" class="headerlink" title="强制修改分支位置"></a>强制修改分支位置</h4><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git branch -f main HEAD~3 # 让main强制指向HEAD的第三个父节点</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h4><h6 id="reset：在本地让分支指向回退版本"><a href="#reset：在本地让分支指向回退版本" class="headerlink" title="reset：在本地让分支指向回退版本"></a>reset：在本地让分支指向回退版本</h6><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset HEAD^ </span><br></pre></td></tr></table></figure></div>
+
+<p>但是这样只能在本地使用，不能分享到远端。此时使用revert</p>
+<h6 id="revert：在本地创建新提交，该提交与某个历史版本相同。"><a href="#revert：在本地创建新提交，该提交与某个历史版本相同。" class="headerlink" title="revert：在本地创建新提交，该提交与某个历史版本相同。"></a>revert：在本地创建新提交，该提交与某个历史版本相同。</h6><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git revert HEAD^</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="整理提交记录"><a href="#整理提交记录" class="headerlink" title="整理提交记录"></a>整理提交记录</h2><h6 id="cherry-pick：选定某些提交复制到当前位置（HEAD）下面"><a href="#cherry-pick：选定某些提交复制到当前位置（HEAD）下面" class="headerlink" title="cherry-pick：选定某些提交复制到当前位置（HEAD）下面"></a>cherry-pick：选定某些提交复制到当前位置（HEAD）下面</h6><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220154914625.png"
+                      alt="image-20250220154914625"
+                ></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git cherry-pick c2 c4</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220154950266.png"
+                      alt="image-20250220154950266"
+                ></p>
+<h6 id="rebase-i-：当不清楚提交的哈希值时，使用交互式rebase整理提交"><a href="#rebase-i-：当不清楚提交的哈希值时，使用交互式rebase整理提交" class="headerlink" title="rebase -i ：当不清楚提交的哈希值时，使用交互式rebase整理提交"></a>rebase -i ：当不清楚提交的哈希值时，使用交互式rebase整理提交</h6><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rebase -i [结束整理的节点\产生分支的节点]</span><br></pre></td></tr></table></figure></div>
+
+<p>执行命令会导致出现交互式窗口，然后<strong>从当前节点到指定节点的一系列提交都可以选择和排序</strong>，然后git复制<strong>处理后</strong>的一系列节点到指定节点下（<strong>整理并复制之前的提交，产生新的一系列提交</strong>）。</p>
+<p><code>历史提交记录不能直接修改，需要移动为最新提交（没有子孙节点）然后再修改</code></p>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git clone [远程仓库地址]  # 复制一个相同的仓库到本地，同时在本地创建同名分支和一个同名远程分支</span><br></pre></td></tr></table></figure></div>
+
+<p>远程分支命名：[remote name&#x2F;branch name]，remote name往往是origin</p>
+<p>若执行：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout origin/main # 自动分离HEAD，因为本地的远程分支是远程仓库中该分支的镜像，时只读的</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220161929784.png"
+                      alt="image-20250220161929784"
+                ></p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git fetch （无参数，下载远程仓库所有分支更新到本地的每一个对应远程分支）</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220161950933.png"
+                      alt="image-20250220161950933"
+                ></p>
+<p>可以看到：</p>
+<ul>
+<li>从远程仓库下载本地仓库中缺失的提交记录</li>
+<li>更新远程分支指针(如 <code>o/main</code>)</li>
+<li>本地的main分支<strong>没有更新</strong></li>
+</ul>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git fetch [remote] [place]</span><br><span class="line">例如： git fetch origin foo # 将远端foo分支内容下载到本地origin/foo</span><br><span class="line">git fetch [remote] [source:destination] # 注意：source是远端，这条命令不常用，若destination不存在，则会在本地创建</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="git-fetch-git-merge-git-pull"><a href="#git-fetch-git-merge-git-pull" class="headerlink" title="git fetch + git merge &#x3D; git pull"></a>git fetch + git merge &#x3D; git pull</h4><p>在fetch基础上：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git merge origin/main #更新本地main分支</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git pull # 一步完成以上步骤</span><br></pre></td></tr></table></figure></div>
+
+<p>git pull的参数可以看作提供给了git fetch和git merge。</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git pull origin foo 相当于：</span><br><span class="line">git fetch origin foo; git merge o/foo</span><br><span class="line"></span><br><span class="line">git pull origin bar:bugFix 相当于：</span><br><span class="line">git fetch origin bar:bugFix; git merge bugFix</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git pull 实际上就是 fetch + merge 的缩写, git pull 唯一关注的是提交最终合并到哪里（也就是为 git fetch 所提供的 destination 参数）</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><ul>
+<li><strong>将本地与远端对应的分支推送到远端，更新远端的同时，将本地在远端分支的镜像也更新</strong></li>
+</ul>
+<p>即：将main分支推送并更新远端，本地的origin&#x2F;main也更新。</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git push [remote] [place]</span><br><span class="line">如：git push origin main</span><br><span class="line">含义是：切换到本地的main分支，push到origin中的main分支（本地main追踪的分支）。</span><br><span class="line"></span><br><span class="line">如果来源去向不同呢？（本地分支和追踪的分支名称不同） 使用以下命令</span><br><span class="line">git push [remote] [source:destination]</span><br></pre></td></tr></table></figure></div>
+
+<p>仅使用git push也可以，但是要保证当前工作分支是要push的分支。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220171814055.png"
+                      alt="image-20250220171814055"
+                ></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin foo^:main</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://bluewhale-33.oss-cn-nanjing.aliyuncs.com/undefinedimage-20250220171840086.png"
+                      alt="image-20250220171840086"
+                ></p>
+<p>如果目标分支不存在，则在远端创建一个对应名称的分支。</p>
+<h5 id="没有指定source时"><a href="#没有指定source时" class="headerlink" title="没有指定source时"></a>没有指定source时</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin :foo # 会导致远程仓库中的foo分支被删除</span><br><span class="line">git fetch origin :foo  # 会在本地创建foo分支（前提是foo不存在）</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h4 id="冲突的工作"><a href="#冲突的工作" class="headerlink" title="冲突的工作"></a>冲突的工作</h4><p>设想以下场景：假设你周一克隆了一个仓库，然后开始研发某个新功能。到周五时，你新功能开发测试完毕，可以发布了。但是你的同事这周写了一堆代码，还改了许多你的功能中使用的 API，这些变动会导致你新开发的功能变得不可用。<strong>但是他们已经将那些提交推送到远程仓库了</strong>，因此你的工作就变成了基于项目<strong>旧版</strong>的代码，与远程仓库最新的代码不匹配了。</p>
+<p>这时你怎么将自己的改动push上去？</p>
+<ol>
+<li><strong>先将更新拉取下来并合并到本分支</strong></li>
+<li><strong>然后将结果push到远端</strong></li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git fetch</span><br><span class="line">git rebase o/main</span><br><span class="line">(可以合并为 git pull --rebase)</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="远程服务器拒绝-要求pull-request"><a href="#远程服务器拒绝-要求pull-request" class="headerlink" title="远程服务器拒绝 要求pull request"></a>远程服务器拒绝 要求pull request</h4><p>远程仓库拒绝直接将改动push到main，多见于提交别人的仓库时，别人不想你随便改动他的仓库，他希望控制权在自己手中，于是设置了pull requist。<strong>此时你不能将改动直接push到对方已存在的分支上。</strong></p>
+<p>解决：新建一个分支fix并提交，将合并的权力交给对方。然后将本地的main分支reset到origin&#x2F;main的位置，防止产生冲突。</p>
+<h4 id="跟踪远程分支"><a href="#跟踪远程分支" class="headerlink" title="跟踪远程分支"></a>跟踪远程分支</h4><p>远程分支需要与本地分支进行绑定，然后才能使用fetch pull push等指令进行交流。<strong>clone时会默认生成本地分支并绑定，名称往往是相同的。</strong></p>
+<p>如何自己指定某个本地分支与远程绑定？</p>
+<ol>
+<li>创建一个newMain 跟踪远程分支o&#x2F;main</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b newMain o/main</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>使现有分支追踪远程分支</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -u o/main foo # 如果当前就在foo上，还可以省略foo</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>学习日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2025/01/24/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
@@ -22,189 +219,6 @@
       </categories>
       <tags>
         <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大二下数据管理基础总结</title>
-    <url>/2025/01/26/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="数据管理基础"><a href="#数据管理基础" class="headerlink" title="数据管理基础"></a>数据管理基础</h1><h1 id="数据库绪论"><a href="#数据库绪论" class="headerlink" title="数据库绪论"></a>数据库绪论</h1><ol>
-<li>有关基本概念和数据库发展</li>
-<li>数据模型：<strong>概念模型</strong>（可通过E-R图表示，用于数据库设计） <strong>逻辑模型</strong> <strong>物理模型</strong>；数据模型组成要素；常用的数据（逻辑）模型</li>
-<li>数据库系统的结构：<strong>型与值</strong>；三级模式：<strong>模式，外模式，内模式</strong>；二级映像：<strong>外模式&#x2F;模式映像</strong>，<strong>模式&#x2F;内模式映像</strong>。（一个数据库管理系统管理多个数据库</li>
-</ol>
-<h1 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h1><h2 id="关系定义"><a href="#关系定义" class="headerlink" title="关系定义"></a>关系定义</h2><p>首先明确一些定义</p>
-<p>域：<strong>同一类数据</strong>称作在一个域</p>
-<p>笛卡尔积：是<strong>对不同的域做的运算</strong>，对每个域中所有元素的排列组合，得到一系列元组，运算中<strong>域的数量即为某个元组中分量的数量</strong> D1XD2XD3&#x3D;{(d11,d21,d31),(d12,d21,d31),…….}，笛卡尔积可以表示为一个二元表。</p>
-<p>关系：<strong>对应域上笛卡尔积的一个子集</strong>，元组的数量不同。每个元素是关系中的元素，元组中分量的数量（域的数量）即为关系的目或者度。当度为1时 是单元关系，2为二元关系。关系也可表示为一个二维表，属性对应列的名字，度的数量&#x3D;属性的数量&#x3D;列的数量；行数量&#x3D;元组数量。</p>
-<p><strong>语义上：码&#x3D;键</strong></p>
-<p>码：若一个<strong>属性集合的值可以唯一性的标识任意一个元组</strong>，则这个属性集合被称作码。</p>
-<p>候选码：是唯一标识一个元组的<strong>最小</strong>属性集合。</p>
-<p>主码：挑选<strong>候选码的其中一个</strong>作为主码。</p>
-<p>主属性：<strong>候选码的各个属性</strong>被称为主属性。</p>
-<p>非主属性&#x2F;非码属性：不在任意候选码中的属性</p>
-<p>全码：若<strong>所有属性共同构成一个候选码</strong>，则该候选码称为全码</p>
-<p>外码：当表<strong>A中存在属性组不是候选码</strong>，且<strong>与表B中的主码相对应</strong>，则该属性组是A的外码。A为参照关系（参照B的主码来取值），B为被参照关系。</p>
-<p>&#x2F;&#x2F;后面关系和表基本同质化了</p>
-<p>关系的类型：基本表，查询表，视图表。 <strong>基本表是实际存在的表</strong>，实际存储的数据的逻辑表示，<strong>查询表是查询结果对应的表</strong>，视图表是<strong>由基本表或者其他视图表导出的表</strong>，是<strong>虚</strong>表，不对应实际存储的数据。</p>
-<p>规范化&#x2F;范式：基本表所要满足的性质，其中最重要的一条：分量必须是原子的，不可再分的。如链表不可为表项。</p>
-<ol start="2">
-<li>关系模式：关系的“型”。R（U，D，DOM，F）规定关系的属性集合，域集合，属性和域的对应关系，属性间数据的依赖集合。</li>
-<li>关系数据库：关系数据库模式是关系数据库的型，包含了若干域的定义，以及在这些域上的关系模式定义。</li>
-</ol>
-<h2 id="关系操作"><a href="#关系操作" class="headerlink" title="关系操作"></a>关系操作</h2><p>基本的关系操作：查询和更新（插入，删除，修改）两大部分。查询又可分为<strong>选择，投影，</strong>连接，除，<strong>并，差</strong>，交，<strong>笛卡尔积</strong>等操作，其中标黑的都是基本操作。关系操作的特点是集合操作。</p>
-<h2 id="关系完整性"><a href="#关系完整性" class="headerlink" title="关系完整性"></a>关系完整性</h2><p>关系完整性是对关系模型的语义约束，是现实世界的语义要求</p>
-<ol>
-<li>实体完整性：即要求表中每个元组都是唯一的，可区分的。主码中的属性值不可重复或者取空值（每个属性值均不可重复或者为空）。</li>
-<li>参照完整性：关系之间存在相互参照和引用时，要求外码的取值必须为被参照关系中某个元组的主码值或者空值。即外码的取值有限制，必须是参照而来的，而不能凭空捏造。</li>
-<li>用户定义的完整性：不同于上面两个必须在任何关系型数据库都要满足的性质，该性质是在具体环境下用户提出的语义要求。</li>
-</ol>
-<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><p>包含集合运算和额外的关系运算。两者符号不同</p>
-<ol>
-<li>集合运算：均针对元组运算，是两个关系的二元运算，两个关系要满足<strong>属性相同</strong></li>
-</ol>
-<p>并，交，差，广义笛卡尔积（A中n个元组与B中m个元组排列组合形成新的一张表，属性列扩张，共n*m个元组）</p>
-<ol start="2">
-<li>关系运算：</li>
-</ol>
-<p>选择（横向） ：$\sigma$<del>F</del>(R) 其中F是条件，可以选择关系中特定的元组</p>
-<p>投影（纵向）：$\Pi$<del>A</del>(R) 其中A是列名，可以选择关系中特定的（多个）列，注意取消了某些列后可能出现重复元组，需要消除。</p>
-<p>连接（自然连接）：R$\bowtie$S 即通过<strong>R和S中同名的属性列将两者链接</strong>，取对应属性分量相同的元组集合。<strong>然后去掉重复的属性列</strong>。有一些元组连不上被抛弃 称作悬浮元组。将悬浮元组保存在结果关系中，其他属性中填上null，则成为外连接，保存左边的悬浮元组就叫左外连接，保存右边的就是右外连接。</p>
-<p>除运算：从大的关系中剥离小的关系。R%S 1.先在R中找到不在S的属性U，这是结果集中包含的属性。2.分析关系R中的U属性下每个元组的具体值xi（i表示属性的数量，如果有两个属性就是x1，x2）的<strong>象集</strong>（即选出所有包含该分量xi的元组，同时剔除该分量xi），包含R与S共同属性的投影形成的所有元组即可保留xi。这里为的是小的关系和S的广义笛卡尔积（所有元组的组合）形成的关系是R<strong>的子集</strong>（范围小于R）。</p>
-<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL集<strong>数据查询语言</strong>（<strong>DQL</strong>-如SELECT），<strong>数据定义语言</strong>（<strong>DLL</strong>-如CREATE），<strong>数据操纵语言</strong>（<strong>DML</strong>-如DELETE），<strong>数据控制语言</strong>（<strong>DCL</strong>-如GRANT）于一身。一个数据库管理系统可以定义多个数据库，一个数据库可以定义多个模式，一个模式下有表和视图，可以为表建立索引（这是SQL的规定，实际DBMS可能没这么复杂）</p>
-<h2 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h2><p>模式，视图只能修改和删除。表和索引还可以修改。</p>
-<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>创建</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE SCHEMA 模式名 AUTHORIZATION 用户名</span><br></pre></td></tr></table></figure></div>
-
-<p>删除：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP SCHEMA 模式名 [CASCADE|RESTRICT] </span><br></pre></td></tr></table></figure></div>
-
-<p>注意：DROP删除都有CASCADE和RESTRICT两种选项，分别表示将模式下<strong>所有内容都级联删除</strong>，和<strong>如果模式下有内容则不删除</strong>并报错，即限制性删除</p>
-<h3 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">属性名1 类型 [列级完整性约束]，</span><br><span class="line">属性名2 类型 [列级完整性约束]，</span><br><span class="line"></span><br><span class="line">[表级完整性描述]</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
-
-<p>列级完整性描述如 PRIMARY KEY; UNIQUE;NOT NULL</p>
-<p>表级完整性可以定义外键和主键（当属性多于两个）如：</p>
-<p>FOREIGN KEY(Sno) REFERENCES Student(Sno); 定义某个属性参考其他表或本表的主键。</p>
-<p>PRIMARY KRY(Sno,Cno）当主键属性个数多于1时</p>
-<p>修改：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER</span><br></pre></td></tr></table></figure></div>
-
-<p>删除：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE [UNIQUE|CLUSTER] INDEX 索引名 ON 表名(属性名1，属性名2...)</span><br></pre></td></tr></table></figure></div>
-
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER INDEX 旧索引名 RENAME TO 新索引名</span><br></pre></td></tr></table></figure></div>
-
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP INDEX	索引名</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h2><p>语句的使用：格式如下。其中WHERE GROUP ORDER都是选择性添加</p>
-<div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">DISTINCT</span><span class="operator">|</span><span class="keyword">ALL</span>] 列表达式</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line">[<span class="keyword">WHERE</span> 条件表达式]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> 列名 [<span class="keyword">HAVING</span> 条件表达式]]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> 列名 [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>]] 	ascend<span class="operator">/</span>descend</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><ol>
-<li>列表达式可以是<strong>各个列名</strong>，也可以是<strong>包含列名的运算式</strong>，也可以是<strong>包含列名的聚集函数</strong>，查询后会将对应列的元素进行运算后再显示。同时可以将<strong>字符串常量</strong>作为列表达式，结果表中会多出一列，值全被设置为该字符串常量。</li>
-<li>可以通过<strong>DISTINCT选项</strong>将查询结果中重复的元组消除。（默认为ALL）</li>
-<li>可通过WHERE子句搭配<strong>列的条件表达式</strong>来进行特定元组的选择。常用查询条件有：比较，范围限制（BETWEEN AND），确定集合（IN），字符匹配（LIKE），空值（IS NULL）。可以多重条件搭配。（%匹配任意长度对应字符;_匹配一个对应字符可作为通配符）</li>
-<li>ORDER BY  若有多个列名，每个列名都要设置升序或降序。如先按照第一个列的升序排序，相同值再按照第二个列的升序排列。</li>
-<li>聚集函数查询实际上是<strong>将某列查询结果做了运算后再显示</strong>。显示结果往往很少。（聚集：<strong>将多个的元组进行特定运算，结果存入新的元组，实现聚集效果</strong>）</li>
-<li>GROUP BY 将查询结果通过按照一列或者多个列的值进行分组，值相等的分为一组。<strong>分组的目的是细化聚集函数的作用对象</strong>，聚集函数可以作用于组，对于<strong>每个组的各个元组进行计算给出结果</strong>，而不是对整个表的各个元组进行作用，作用粒度更细。如果对每个组进行条件筛选，只显示特定的组，可以在HAVING子句进行<strong>聚集函数+条件判断筛选</strong>，这里同样是对每个组中的元组进行作用。</li>
-</ol>
-<h3 id="连接查询-多表查询"><a href="#连接查询-多表查询" class="headerlink" title="连接查询&#x2F;多表查询"></a>连接查询&#x2F;多表查询</h3><ol>
-<li>将连接谓词置于WHERE子句，说明是哪两个属性的连接（如Student.Sno&#x3D;Course.Sno）中进行表的连接。同时这两个表的名称要出现在FROM子句中</li>
-<li>不同表的属性名相同，要在属性前添加表名进行识别，如上面的例子。</li>
-<li>可以实现外连接（FROM student LEFT OUTER JOIN SC ON（属性连语句词），添加student的悬浮元组，多出的属性设置为NULL）</li>
-<li>多表连接通过两个或多个连接谓词实现。</li>
-</ol>
-<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><p>将一个查询块（SELECT-FROM-WHERE）放到另一个查询块的WHERE子句中。通常的方式有4种：</p>
-<ol>
-<li>使用in谓词：子查询块返回多个元组（含多个属性），或者说是返回一张多属性表。</li>
-<li>使用比较运算符：子查询块返回单个值</li>
-<li>使用比较运算符+ANY&#x2F;ALL谓词：子查询块返回多个值</li>
-<li>使用EXIST谓词：子查询只返回逻辑值真假。</li>
-</ol>
-<p>嵌套查询分为两种：相关嵌套查询（依赖父查询结果进行子查询）和不相关嵌套查询。</p>
-<p>不相关嵌套查询可以<strong>一次将子查询结果得到</strong>，然后执行父查询结果。</p>
-<p>相关嵌套查询需要<strong>先执行父查询得到一个元组，传入子查询进行查询</strong>。重复以上过程直到结束，子查询要多次进行。如下图。</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Sno,Cno</span><br><span class="line">FROM SC x</span><br><span class="line">WHERE GRADE&gt;=(</span><br><span class="line">    SELECT AVG(GRADE)</span><br><span class="line">    FROM SC y</span><br><span class="line">    WHERE x.Sno=y.Sno</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
-
-<p>其中x，y是表SC的别名，也叫元组变量，可以用来表示SC的一个&#x2F;多个元组。如x表示了SC的一个元组，y表示了SC的多个&#x2F;一个元组。</p>
-<h2 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h2><h3 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT </span><br><span class="line">INTO 表名 [ (属性1，属性2) ]</span><br><span class="line">values (值1，值2)</span><br></pre></td></tr></table></figure></div>
-
-<p>属性是可选的，便于<strong>将值的创建与属性名称对应起来</strong>。对于空值要显式的输入NULL，没有值的属性由数据库自动补充一个值。可以插入子查询结果，实现多个元组的同时插入</p>
-<h3 id="修改："><a href="#修改：" class="headerlink" title="修改："></a>修改：</h3><div class="code-container" data-rel="D"><figure class="iseeu highlight d"><table><tr><td class="code"><pre><span class="line">UPDATE</span><br><span class="line">SET 列名=表达式</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
-
-<p>修改特定列的值，没有WHERE则修改全部元组的对应属性。可以使用子查询</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE</span><br><span class="line">FROM 表名</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
-
-<p>删除特定元组，没有条件则删除所有元组。可以使用子查询</p>
-<h2 id="空值处理"><a href="#空值处理" class="headerlink" title="空值处理"></a>空值处理</h2><p>UNIQUE ，NOT NULL，码（主码）属性不能是NULL</p>
-<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>数据库中只存放视图的定义，是个虚表，对应的数据仍在数据库基本表中，当数据变化，查询对应使视图的结果也会变。视图相当于一个窗口，用来查看信息。（一般不用于更新数据，即使更新也有限制）</p>
-<ol>
-<li>建立视图</li>
-<li>查询视图</li>
-<li>更新视图</li>
-<li>视图的作用</li>
-</ol>
-<h1 id="关系数据理论（规范化）"><a href="#关系数据理论（规范化）" class="headerlink" title="关系数据理论（规范化）"></a>关系数据理论（规范化）</h1><p>数据依赖：一个关系内部属性与属性之间的约束关系，是通过属性间值的相等于否体现出来的数据间相关联系，是现实世界属性之间相互联系的抽象，是语义的体现。</p>
-<p>主要有多值依赖和函数依赖 X-&gt;Y ( f(x)&#x3D;y，y函数依赖于x，y由x确定)（例如学号确定后，学生名字也就确定了，这就是一种函数依赖；U完全函数依赖于属性集K说明，U不函数依赖于K的任何真子集）。不从语义上分析，可以单从属性之间值的相等得到函数依赖关系。即任意两个相等的x属性值必然对应同一个y属性值，则y函数依赖于x。</p>
-<p>表可能存在的问题：数据冗余：相同数据在表中多次出现；更新异常（繁琐）：因为冗余，需要更新大量的表项；插入异常（无法插入）：只有一部分属性信息时，无法在表中插入元组；删除异常（信息丢失）无法删除一个元组中的部分分量保留其他信息，只能全部删除。</p>
-<p>从函数依赖看码的定义—–候选码、超码：若R的所有属性完全函数依赖于属性集K，则K为R的候选码；若是部分函数依赖K，则K为R的超码。候选码是最小的超码。</p>
-<p>第一范式：二维表的元组分量均不可再分割。</p>
-<p>第二范式：非主属性完全函数依赖于任何一个候选码。让候选码成为标识任意属性的最小单位。若某个候选码的子集能标识某个非主属性的值，则说明表还能分解。</p>
-<p>第三范式：每个非主属性既不传递依赖于候选码，也不部分依赖于候选码。只留一层依赖关系，多层依赖关系可分解为多个表。</p>
-<p>BCNF：在第三范式基础上，任何主属性对于不包含他的候选码也是完全函数依赖，且没有传递依赖。这在有多个候选码时有用。</p>
-<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>步骤：需求分析，概念结构设计，逻辑结构设计，物理结构设计。</p>
-<p>视图建立在数据库的外模式中，索引建立，物理存储安排在数据库的内模式中，基本表设计则是逻辑模式，E-R图则是概念模式。</p>
-<h2 id="概念结构设计"><a href="#概念结构设计" class="headerlink" title="概念结构设计"></a>概念结构设计</h2><p>E-R图绘画：实体型<del>方格</del>，属性<del>圆形</del>，联系<del>菱形</del>（以及联系类型，靠近谁就是描述谁的数量，描述方法是：在任意其他实体型只有一个的情况下，该实体型对应的数量）联系的度就是参与联系的实体型数目。注意，联系也有属性。</p>
-<h2 id="逻辑结构设计"><a href="#逻辑结构设计" class="headerlink" title="逻辑结构设计"></a>逻辑结构设计</h2><p>即将概念结构下的E-R图变为关系模式。</p>
-<ol>
-<li>一个实体型转化为一个关系模式，关系属性就是实体的属性，关系的码就是实体的码。</li>
-<li>实体型的联系： 若为1：1联系，则可变为独立的表（或者和左右实体型的表合并），<strong>需要左右实体型的码（作为候选码</strong>）和本身联系的属性作为该表的属性； 若为1：n，和上述操作方法类似，<strong>但只能和n端的表合并</strong>，若变为独立的表，<strong>候选码只能是n端的码</strong>。若为n：m，<strong>建议独立一个表描述联系</strong>；三个及以上的实体联系类似于n：m的处理，独立一个表描述联系，需要有所有相连实体的码及连接自身的属性；相同码的表直接合并</li>
-</ol>
-<h2 id="物理结构设计"><a href="#物理结构设计" class="headerlink" title="物理结构设计"></a>物理结构设计</h2><h1 id="数据库恢复技术"><a href="#数据库恢复技术" class="headerlink" title="数据库恢复技术"></a>数据库恢复技术</h1><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务操作是用户定义（语义性强）的一系列数据库操作，这些工作要么不做，要么全做，是原子性的工作单位。</p>
-<p>事务是数据库恢复和并发的基本单位。</p>
-<p>BEGIN TRANSACTION</p>
-<p>COMMIT 提交</p>
-<p>ROLLBACK 回滚</p>
-<p>ACID特性：原子性，一致性（描述数据库状态，若事务做了一般不做了，数据库就会进入不一致的状态），隔离性（并发事务互不干扰），持续性（事务提交后的数据改变是永久的，不会被改变）。</p>
-<p>事务撤销：当事务发生事务故障，即没有到达预期的终点（commit或者rollback）。此时要强行回滚。</p>
-<p>事务重做：当事务提交但并未写入磁盘中，需要重新完成并提交。</p>
-<h3 id="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"><a href="#数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。" class="headerlink" title="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"></a>数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。</h3><p>日志文件是用来记录事务对数据库更新操作的文件。事务故障，系统故障，动态转储，静态转储（非必须）都要使用日志文件。</p>
-<h3 id="恢复策略"><a href="#恢复策略" class="headerlink" title="恢复策略"></a>恢复策略</h3><h3 id="具有检查点的恢复"><a href="#具有检查点的恢复" class="headerlink" title="具有检查点的恢复"></a>具有检查点的恢复</h3><p>向日志中添加检查点，省的对日志全部扫描</p>
-<h1 id="数据库并发控制"><a href="#数据库并发控制" class="headerlink" title="数据库并发控制"></a>数据库并发控制</h1><p>通过轮流交叉执行多个事务实现事务的并发执行。</p>
-<h2 id="封锁技术控制并发"><a href="#封锁技术控制并发" class="headerlink" title="封锁技术控制并发"></a>封锁技术控制并发</h2><p>事务在操作某个数据对象时 对数据对象加锁</p>
-<p>主要有：排他锁X（写锁）；共享锁S（读锁）。上了排他锁，则不能上任何其他锁；上了共享锁则只能再上共享锁。</p>
-<p>封锁协议（这里直接使用1+3级封锁协议）：事务前上写锁，<strong>事务完成</strong>释放；读前上读锁，<strong>事务完成</strong>（注意<strong>不是读完释放</strong>）释放。</p>
-<h2 id="活锁-死锁"><a href="#活锁-死锁" class="headerlink" title="活锁 死锁"></a>活锁 死锁</h2><p>活锁是某个事务总是被其他事务抢占，永远等待别人的锁释放。（先来先服务即可）</p>
-<p>死锁彼此持有资源永久等待。</p>
-<ol>
-<li>预防</li>
-</ol>
-<p>一次封锁法：事务一次将所有使用的资源全部加锁。</p>
-<p>顺序封锁法</p>
-<p>​	2. 诊断和解除</p>
-<p>等待图法，超时法；解除只需选择代价最小的事务撤销并解除锁即可。</p>
-<h2 id="判断可串行化调动"><a href="#判断可串行化调动" class="headerlink" title="判断可串行化调动"></a>判断可串行化调动</h2><p>可串行化调度：并发调度结果等于为一个串行化调度（显然正确），这说明该并行调度是可串行化的 也就是正确的。</p>
-<p>冲突操作：不同的事务对同一个数据的<strong>读写或者写写操作</strong>。<strong>不同事务的冲突操作</strong>和<strong>同一事务的不同操作</strong>不能交换（冲突操作次序不可变）。通过交换两事务不冲突操作使得一个调度变为串行调度，说明是冲突可串行化调度，也是可串行化调度。（是后者充分条件）</p>
-<h2 id="两段锁协议"><a href="#两段锁协议" class="headerlink" title="两段锁协议"></a>两段锁协议</h2><p>所有事务必须分为两个阶段对数据加锁 解锁。</p>
-<p>第一个阶段可以不断请求封锁，但不能放锁；第二个阶段反之。</p>
-<p>事务遵行两段锁协议是可串行化的充分条件。同时两段锁协议不保证不会有死锁，但是一次封锁法是满足两段锁协议的。</p>
-<h2 id="多粒度封锁"><a href="#多粒度封锁" class="headerlink" title="多粒度封锁"></a>多粒度封锁</h2><p>封锁的粒度越大，系统开销越少，并发程度越低。粒度小则反之。 数据库–关系–元组</p>
-<p>对于粒度大的数据项加锁，则视为同时为其自粒度加锁。所以对某粒度数据加锁时，不仅要看所有父粒度是否有了锁（隐式锁），还要看所有子粒度是否有了锁。为了避免看所有子粒度的锁，加快效率，可以通过<strong>在加锁时</strong>，<strong>为所有父粒度加意向锁</strong>，来表示该粒度下，有子粒度已经上锁。避免了进一步搜查子粒度。</p>
-<p>IS锁  一个数据对象加上了IS锁说明其子孙节点中想要加S锁</p>
-<p>IX锁  一个数据对象加上了IS锁说明其子孙节点中想要加X锁</p>
-<p>SIX锁&#x3D;S+IX  某事务想读<strong>整个R表</strong>，同时又想更新R表的<strong>个别元组</strong>，则为R表加SIX锁。</p>
-<p>锁强度：X&gt;SIX&gt;S&#x3D;IX&gt;IS</p>
-<p>对于意向锁：<strong>申请封锁自上而下，解锁自下而上。</strong></p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">分数</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>课程总结</tag>
       </tags>
   </entry>
   <entry>
@@ -1150,6 +1164,222 @@
       </tags>
   </entry>
   <entry>
+    <title>大二下数据管理基础总结</title>
+    <url>/2025/01/26/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="数据管理基础"><a href="#数据管理基础" class="headerlink" title="数据管理基础"></a>数据管理基础</h1><h1 id="数据库绪论"><a href="#数据库绪论" class="headerlink" title="数据库绪论"></a>数据库绪论</h1><ol>
+<li>有关基本概念和数据库发展</li>
+<li>数据模型：<strong>概念模型</strong>（可通过E-R图表示，用于数据库设计） <strong>逻辑模型</strong> <strong>物理模型</strong>；数据模型组成要素；常用的数据（逻辑）模型</li>
+<li>数据库系统的结构：<strong>型与值</strong>；三级模式：<strong>模式，外模式，内模式</strong>；二级映像：<strong>外模式&#x2F;模式映像</strong>，<strong>模式&#x2F;内模式映像</strong>。（一个数据库管理系统管理多个数据库</li>
+</ol>
+<h1 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h1><h2 id="关系定义"><a href="#关系定义" class="headerlink" title="关系定义"></a>关系定义</h2><p>首先明确一些定义</p>
+<p>域：<strong>同一类数据</strong>称作在一个域</p>
+<p>笛卡尔积：是<strong>对不同的域做的运算</strong>，对每个域中所有元素的排列组合，得到一系列元组，运算中<strong>域的数量即为某个元组中分量的数量</strong> D1XD2XD3&#x3D;{(d11,d21,d31),(d12,d21,d31),…….}，笛卡尔积可以表示为一个二元表。</p>
+<p>关系：<strong>对应域上笛卡尔积的一个子集</strong>，元组的数量不同。每个元素是关系中的元素，元组中分量的数量（域的数量）即为关系的目或者度。当度为1时 是单元关系，2为二元关系。关系也可表示为一个二维表，属性对应列的名字，度的数量&#x3D;属性的数量&#x3D;列的数量；行数量&#x3D;元组数量。</p>
+<p><strong>语义上：码&#x3D;键</strong></p>
+<p>码：若一个<strong>属性集合的值可以唯一性的标识任意一个元组</strong>，则这个属性集合被称作码。</p>
+<p>候选码：是唯一标识一个元组的<strong>最小</strong>属性集合。</p>
+<p>主码：挑选<strong>候选码的其中一个</strong>作为主码。</p>
+<p>主属性：<strong>候选码的各个属性</strong>被称为主属性。</p>
+<p>非主属性&#x2F;非码属性：不在任意候选码中的属性</p>
+<p>全码：若<strong>所有属性共同构成一个候选码</strong>，则该候选码称为全码</p>
+<p>外码：当表<strong>A中存在属性组不是候选码</strong>，且<strong>与表B中的主码相对应</strong>，则该属性组是A的外码。A为参照关系（参照B的主码来取值），B为被参照关系。</p>
+<p>&#x2F;&#x2F;后面关系和表基本同质化了</p>
+<p>关系的类型：基本表，查询表，视图表。 <strong>基本表是实际存在的表</strong>，实际存储的数据的逻辑表示，<strong>查询表是查询结果对应的表</strong>，视图表是<strong>由基本表或者其他视图表导出的表</strong>，是<strong>虚</strong>表，不对应实际存储的数据。</p>
+<p>规范化&#x2F;范式：基本表所要满足的性质，其中最重要的一条：分量必须是原子的，不可再分的。如链表不可为表项。</p>
+<ol start="2">
+<li>关系模式：关系的“型”。R（U，D，DOM，F）规定关系的属性集合，域集合，属性和域的对应关系，属性间数据的依赖集合。</li>
+<li>关系数据库：关系数据库模式是关系数据库的型，包含了若干域的定义，以及在这些域上的关系模式定义。</li>
+</ol>
+<h2 id="关系操作"><a href="#关系操作" class="headerlink" title="关系操作"></a>关系操作</h2><p>基本的关系操作：查询和更新（插入，删除，修改）两大部分。查询又可分为<strong>选择，投影，</strong>连接，除，<strong>并，差</strong>，交，<strong>笛卡尔积</strong>等操作，其中标黑的都是基本操作。关系操作的特点是集合操作。</p>
+<h2 id="关系完整性"><a href="#关系完整性" class="headerlink" title="关系完整性"></a>关系完整性</h2><p>关系完整性是对关系模型的语义约束，是现实世界的语义要求</p>
+<ol>
+<li>实体完整性：即要求表中每个元组都是唯一的，可区分的。主码中的属性值不可重复或者取空值（每个属性值均不可重复或者为空）。</li>
+<li>参照完整性：关系之间存在相互参照和引用时，要求外码的取值必须为被参照关系中某个元组的主码值或者空值。即外码的取值有限制，必须是参照而来的，而不能凭空捏造。</li>
+<li>用户定义的完整性：不同于上面两个必须在任何关系型数据库都要满足的性质，该性质是在具体环境下用户提出的语义要求。</li>
+</ol>
+<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><p>包含集合运算和额外的关系运算。两者符号不同</p>
+<ol>
+<li>集合运算：均针对元组运算，是两个关系的二元运算，两个关系要满足<strong>属性相同</strong></li>
+</ol>
+<p>并，交，差，广义笛卡尔积（A中n个元组与B中m个元组排列组合形成新的一张表，属性列扩张，共n*m个元组）</p>
+<ol start="2">
+<li>关系运算：</li>
+</ol>
+<p>选择（横向） ：$\sigma$<del>F</del>(R) 其中F是条件，可以选择关系中特定的元组</p>
+<p>投影（纵向）：$\Pi$<del>A</del>(R) 其中A是列名，可以选择关系中特定的（多个）列，注意取消了某些列后可能出现重复元组，需要消除。</p>
+<p>连接（自然连接）：R$\bowtie$S 即通过<strong>R和S中同名的属性列将两者链接</strong>，取对应属性分量相同的元组集合。<strong>然后去掉重复的属性列</strong>。有一些元组连不上被抛弃 称作悬浮元组。将悬浮元组保存在结果关系中，其他属性中填上null，则成为外连接，保存左边的悬浮元组就叫左外连接，保存右边的就是右外连接。</p>
+<p>除运算：从大的关系中剥离小的关系。R%S 1.先在R中找到不在S的属性U，这是结果集中包含的属性。2.分析关系R中的U属性下每个元组的具体值xi（i表示属性的数量，如果有两个属性就是x1，x2）的<strong>象集</strong>（即选出所有包含该分量xi的元组，同时剔除该分量xi），包含R与S共同属性的投影形成的所有元组即可保留xi。这里为的是小的关系和S的广义笛卡尔积（所有元组的组合）形成的关系是R<strong>的子集</strong>（范围小于R）。</p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL集<strong>数据查询语言</strong>（<strong>DQL</strong>-如SELECT），<strong>数据定义语言</strong>（<strong>DLL</strong>-如CREATE），<strong>数据操纵语言</strong>（<strong>DML</strong>-如DELETE），<strong>数据控制语言</strong>（<strong>DCL</strong>-如GRANT）于一身。一个数据库管理系统可以定义多个数据库，一个数据库可以定义多个模式，一个模式下有表和视图，可以为表建立索引（这是SQL的规定，实际DBMS可能没这么复杂）</p>
+<h2 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h2><p>模式，视图只能修改和删除。表和索引还可以修改。</p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>创建</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE SCHEMA 模式名 AUTHORIZATION 用户名</span><br></pre></td></tr></table></figure></div>
+
+<p>删除：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP SCHEMA 模式名 [CASCADE|RESTRICT] </span><br></pre></td></tr></table></figure></div>
+
+<p>注意：DROP删除都有CASCADE和RESTRICT两种选项，分别表示将模式下<strong>所有内容都级联删除</strong>，和<strong>如果模式下有内容则不删除</strong>并报错，即限制性删除</p>
+<h3 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">属性名1 类型 [列级完整性约束]，</span><br><span class="line">属性名2 类型 [列级完整性约束]，</span><br><span class="line"></span><br><span class="line">[表级完整性描述]</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+
+<p>列级完整性描述如 PRIMARY KEY; UNIQUE;NOT NULL</p>
+<p>表级完整性可以定义外键和主键（当属性多于两个）如：</p>
+<p>FOREIGN KEY(Sno) REFERENCES Student(Sno); 定义某个属性参考其他表或本表的主键。</p>
+<p>PRIMARY KRY(Sno,Cno）当主键属性个数多于1时</p>
+<p>修改：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER</span><br></pre></td></tr></table></figure></div>
+
+<p>删除：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE [UNIQUE|CLUSTER] INDEX 索引名 ON 表名(属性名1，属性名2...)</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER INDEX 旧索引名 RENAME TO 新索引名</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP INDEX	索引名</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h2><p>语句的使用：格式如下。其中WHERE GROUP ORDER都是选择性添加</p>
+<div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">DISTINCT</span><span class="operator">|</span><span class="keyword">ALL</span>] 列表达式</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line">[<span class="keyword">WHERE</span> 条件表达式]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> 列名 [<span class="keyword">HAVING</span> 条件表达式]]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> 列名 [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>]] 	ascend<span class="operator">/</span>descend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><ol>
+<li>列表达式可以是<strong>各个列名</strong>，也可以是<strong>包含列名的运算式</strong>，也可以是<strong>包含列名的聚集函数</strong>，查询后会将对应列的元素进行运算后再显示。同时可以将<strong>字符串常量</strong>作为列表达式，结果表中会多出一列，值全被设置为该字符串常量。</li>
+<li>可以通过<strong>DISTINCT选项</strong>将查询结果中重复的元组消除。（默认为ALL）</li>
+<li>可通过WHERE子句搭配<strong>列的条件表达式</strong>来进行特定元组的选择。常用查询条件有：比较，范围限制（BETWEEN AND），确定集合（IN），字符匹配（LIKE），空值（IS NULL）。可以多重条件搭配。（%匹配任意长度对应字符;_匹配一个对应字符可作为通配符）</li>
+<li>ORDER BY  若有多个列名，每个列名都要设置升序或降序。如先按照第一个列的升序排序，相同值再按照第二个列的升序排列。</li>
+<li>聚集函数查询实际上是<strong>将某列查询结果做了运算后再显示</strong>。显示结果往往很少。（聚集：<strong>将多个的元组进行特定运算，结果存入新的元组，实现聚集效果</strong>）</li>
+<li>GROUP BY 将查询结果通过按照一列或者多个列的值进行分组，值相等的分为一组。<strong>分组的目的是细化聚集函数的作用对象</strong>，聚集函数可以作用于组，对于<strong>每个组的各个元组进行计算给出结果</strong>，而不是对整个表的各个元组进行作用，作用粒度更细。如果对每个组进行条件筛选，只显示特定的组，可以在HAVING子句进行<strong>聚集函数+条件判断筛选</strong>，这里同样是对每个组中的元组进行作用。</li>
+</ol>
+<h3 id="连接查询-多表查询"><a href="#连接查询-多表查询" class="headerlink" title="连接查询&#x2F;多表查询"></a>连接查询&#x2F;多表查询</h3><ol>
+<li>将连接谓词置于WHERE子句，说明是哪两个属性的连接（如Student.Sno&#x3D;Course.Sno）中进行表的连接。同时这两个表的名称要出现在FROM子句中</li>
+<li>不同表的属性名相同，要在属性前添加表名进行识别，如上面的例子。</li>
+<li>可以实现外连接（FROM student LEFT OUTER JOIN SC ON（属性连语句词），添加student的悬浮元组，多出的属性设置为NULL）</li>
+<li>多表连接通过两个或多个连接谓词实现。</li>
+</ol>
+<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><p>将一个查询块（SELECT-FROM-WHERE）放到另一个查询块的WHERE子句中。通常的方式有4种：</p>
+<ol>
+<li>使用in谓词：子查询块返回多个元组（含多个属性），或者说是返回一张多属性表。</li>
+<li>使用比较运算符：子查询块返回单个值</li>
+<li>使用比较运算符+ANY&#x2F;ALL谓词：子查询块返回多个值</li>
+<li>使用EXIST谓词：子查询只返回逻辑值真假。</li>
+</ol>
+<p>嵌套查询分为两种：相关嵌套查询（依赖父查询结果进行子查询）和不相关嵌套查询。</p>
+<p>不相关嵌套查询可以<strong>一次将子查询结果得到</strong>，然后执行父查询结果。</p>
+<p>相关嵌套查询需要<strong>先执行父查询得到一个元组，传入子查询进行查询</strong>。重复以上过程直到结束，子查询要多次进行。如下图。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT Sno,Cno</span><br><span class="line">FROM SC x</span><br><span class="line">WHERE GRADE&gt;=(</span><br><span class="line">    SELECT AVG(GRADE)</span><br><span class="line">    FROM SC y</span><br><span class="line">    WHERE x.Sno=y.Sno</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<p>其中x，y是表SC的别名，也叫元组变量，可以用来表示SC的一个&#x2F;多个元组。如x表示了SC的一个元组，y表示了SC的多个&#x2F;一个元组。</p>
+<h2 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h2><h3 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT </span><br><span class="line">INTO 表名 [ (属性1，属性2) ]</span><br><span class="line">values (值1，值2)</span><br></pre></td></tr></table></figure></div>
+
+<p>属性是可选的，便于<strong>将值的创建与属性名称对应起来</strong>。对于空值要显式的输入NULL，没有值的属性由数据库自动补充一个值。可以插入子查询结果，实现多个元组的同时插入</p>
+<h3 id="修改："><a href="#修改：" class="headerlink" title="修改："></a>修改：</h3><div class="code-container" data-rel="D"><figure class="iseeu highlight d"><table><tr><td class="code"><pre><span class="line">UPDATE</span><br><span class="line">SET 列名=表达式</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
+
+<p>修改特定列的值，没有WHERE则修改全部元组的对应属性。可以使用子查询</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE</span><br><span class="line">FROM 表名</span><br><span class="line">[WHERE 条件]</span><br></pre></td></tr></table></figure></div>
+
+<p>删除特定元组，没有条件则删除所有元组。可以使用子查询</p>
+<h2 id="空值处理"><a href="#空值处理" class="headerlink" title="空值处理"></a>空值处理</h2><p>UNIQUE ，NOT NULL，码（主码）属性不能是NULL</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>数据库中只存放视图的定义，是个虚表，对应的数据仍在数据库基本表中，当数据变化，查询对应使视图的结果也会变。视图相当于一个窗口，用来查看信息。（一般不用于更新数据，即使更新也有限制）</p>
+<ol>
+<li>建立视图</li>
+<li>查询视图</li>
+<li>更新视图</li>
+<li>视图的作用</li>
+</ol>
+<h1 id="关系数据理论（规范化）"><a href="#关系数据理论（规范化）" class="headerlink" title="关系数据理论（规范化）"></a>关系数据理论（规范化）</h1><p>数据依赖：一个关系内部属性与属性之间的约束关系，是通过属性间值的相等于否体现出来的数据间相关联系，是现实世界属性之间相互联系的抽象，是语义的体现。</p>
+<p>主要有多值依赖和函数依赖 X-&gt;Y ( f(x)&#x3D;y，y函数依赖于x，y由x确定)（例如学号确定后，学生名字也就确定了，这就是一种函数依赖；U完全函数依赖于属性集K说明，U不函数依赖于K的任何真子集）。不从语义上分析，可以单从属性之间值的相等得到函数依赖关系。即任意两个相等的x属性值必然对应同一个y属性值，则y函数依赖于x。</p>
+<p>表可能存在的问题：数据冗余：相同数据在表中多次出现；更新异常（繁琐）：因为冗余，需要更新大量的表项；插入异常（无法插入）：只有一部分属性信息时，无法在表中插入元组；删除异常（信息丢失）无法删除一个元组中的部分分量保留其他信息，只能全部删除。</p>
+<p>从函数依赖看码的定义—–候选码、超码：若R的所有属性完全函数依赖于属性集K，则K为R的候选码；若是部分函数依赖K，则K为R的超码。候选码是最小的超码。</p>
+<p>第一范式：二维表的元组分量均不可再分割。</p>
+<p>第二范式：非主属性完全函数依赖于任何一个候选码。让候选码成为标识任意属性的最小单位。若某个候选码的子集能标识某个非主属性的值，则说明表还能分解。</p>
+<p>第三范式：每个非主属性既不传递依赖于候选码，也不部分依赖于候选码。只留一层依赖关系，多层依赖关系可分解为多个表。</p>
+<p>BCNF：在第三范式基础上，任何主属性对于不包含他的候选码也是完全函数依赖，且没有传递依赖。这在有多个候选码时有用。</p>
+<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>步骤：需求分析，概念结构设计，逻辑结构设计，物理结构设计。</p>
+<p>视图建立在数据库的外模式中，索引建立，物理存储安排在数据库的内模式中，基本表设计则是逻辑模式，E-R图则是概念模式。</p>
+<h2 id="概念结构设计"><a href="#概念结构设计" class="headerlink" title="概念结构设计"></a>概念结构设计</h2><p>E-R图绘画：实体型<del>方格</del>，属性<del>圆形</del>，联系<del>菱形</del>（以及联系类型，靠近谁就是描述谁的数量，描述方法是：在任意其他实体型只有一个的情况下，该实体型对应的数量）联系的度就是参与联系的实体型数目。注意，联系也有属性。</p>
+<h2 id="逻辑结构设计"><a href="#逻辑结构设计" class="headerlink" title="逻辑结构设计"></a>逻辑结构设计</h2><p>即将概念结构下的E-R图变为关系模式。</p>
+<ol>
+<li>一个实体型转化为一个关系模式，关系属性就是实体的属性，关系的码就是实体的码。</li>
+<li>实体型的联系： 若为1：1联系，则可变为独立的表（或者和左右实体型的表合并），<strong>需要左右实体型的码（作为候选码</strong>）和本身联系的属性作为该表的属性； 若为1：n，和上述操作方法类似，<strong>但只能和n端的表合并</strong>，若变为独立的表，<strong>候选码只能是n端的码</strong>。若为n：m，<strong>建议独立一个表描述联系</strong>；三个及以上的实体联系类似于n：m的处理，独立一个表描述联系，需要有所有相连实体的码及连接自身的属性；相同码的表直接合并</li>
+</ol>
+<h2 id="物理结构设计"><a href="#物理结构设计" class="headerlink" title="物理结构设计"></a>物理结构设计</h2><h1 id="数据库恢复技术"><a href="#数据库恢复技术" class="headerlink" title="数据库恢复技术"></a>数据库恢复技术</h1><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务操作是用户定义（语义性强）的一系列数据库操作，这些工作要么不做，要么全做，是原子性的工作单位。</p>
+<p>事务是数据库恢复和并发的基本单位。</p>
+<p>BEGIN TRANSACTION</p>
+<p>COMMIT 提交</p>
+<p>ROLLBACK 回滚</p>
+<p>ACID特性：原子性，一致性（描述数据库状态，若事务做了一般不做了，数据库就会进入不一致的状态），隔离性（并发事务互不干扰），持续性（事务提交后的数据改变是永久的，不会被改变）。</p>
+<p>事务撤销：当事务发生事务故障，即没有到达预期的终点（commit或者rollback）。此时要强行回滚。</p>
+<p>事务重做：当事务提交但并未写入磁盘中，需要重新完成并提交。</p>
+<h3 id="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"><a href="#数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。" class="headerlink" title="数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。"></a>数据库恢复技术：核心是建立冗余：数据转储和登记日志文件。</h3><p>日志文件是用来记录事务对数据库更新操作的文件。事务故障，系统故障，动态转储，静态转储（非必须）都要使用日志文件。</p>
+<h3 id="恢复策略"><a href="#恢复策略" class="headerlink" title="恢复策略"></a>恢复策略</h3><h3 id="具有检查点的恢复"><a href="#具有检查点的恢复" class="headerlink" title="具有检查点的恢复"></a>具有检查点的恢复</h3><p>向日志中添加检查点，省的对日志全部扫描</p>
+<h1 id="数据库并发控制"><a href="#数据库并发控制" class="headerlink" title="数据库并发控制"></a>数据库并发控制</h1><p>通过轮流交叉执行多个事务实现事务的并发执行。</p>
+<h2 id="封锁技术控制并发"><a href="#封锁技术控制并发" class="headerlink" title="封锁技术控制并发"></a>封锁技术控制并发</h2><p>事务在操作某个数据对象时 对数据对象加锁</p>
+<p>主要有：排他锁X（写锁）；共享锁S（读锁）。上了排他锁，则不能上任何其他锁；上了共享锁则只能再上共享锁。</p>
+<p>封锁协议（这里直接使用1+3级封锁协议）：事务前上写锁，<strong>事务完成</strong>释放；读前上读锁，<strong>事务完成</strong>（注意<strong>不是读完释放</strong>）释放。</p>
+<h2 id="活锁-死锁"><a href="#活锁-死锁" class="headerlink" title="活锁 死锁"></a>活锁 死锁</h2><p>活锁是某个事务总是被其他事务抢占，永远等待别人的锁释放。（先来先服务即可）</p>
+<p>死锁彼此持有资源永久等待。</p>
+<ol>
+<li>预防</li>
+</ol>
+<p>一次封锁法：事务一次将所有使用的资源全部加锁。</p>
+<p>顺序封锁法</p>
+<p>​	2. 诊断和解除</p>
+<p>等待图法，超时法；解除只需选择代价最小的事务撤销并解除锁即可。</p>
+<h2 id="判断可串行化调动"><a href="#判断可串行化调动" class="headerlink" title="判断可串行化调动"></a>判断可串行化调动</h2><p>可串行化调度：并发调度结果等于为一个串行化调度（显然正确），这说明该并行调度是可串行化的 也就是正确的。</p>
+<p>冲突操作：不同的事务对同一个数据的<strong>读写或者写写操作</strong>。<strong>不同事务的冲突操作</strong>和<strong>同一事务的不同操作</strong>不能交换（冲突操作次序不可变）。通过交换两事务不冲突操作使得一个调度变为串行调度，说明是冲突可串行化调度，也是可串行化调度。（是后者充分条件）</p>
+<h2 id="两段锁协议"><a href="#两段锁协议" class="headerlink" title="两段锁协议"></a>两段锁协议</h2><p>所有事务必须分为两个阶段对数据加锁 解锁。</p>
+<p>第一个阶段可以不断请求封锁，但不能放锁；第二个阶段反之。</p>
+<p>事务遵行两段锁协议是可串行化的充分条件。同时两段锁协议不保证不会有死锁，但是一次封锁法是满足两段锁协议的。</p>
+<h2 id="多粒度封锁"><a href="#多粒度封锁" class="headerlink" title="多粒度封锁"></a>多粒度封锁</h2><p>封锁的粒度越大，系统开销越少，并发程度越低。粒度小则反之。 数据库–关系–元组</p>
+<p>对于粒度大的数据项加锁，则视为同时为其自粒度加锁。所以对某粒度数据加锁时，不仅要看所有父粒度是否有了锁（隐式锁），还要看所有子粒度是否有了锁。为了避免看所有子粒度的锁，加快效率，可以通过<strong>在加锁时</strong>，<strong>为所有父粒度加意向锁</strong>，来表示该粒度下，有子粒度已经上锁。避免了进一步搜查子粒度。</p>
+<p>IS锁  一个数据对象加上了IS锁说明其子孙节点中想要加S锁</p>
+<p>IX锁  一个数据对象加上了IS锁说明其子孙节点中想要加X锁</p>
+<p>SIX锁&#x3D;S+IX  某事务想读<strong>整个R表</strong>，同时又想更新R表的<strong>个别元组</strong>，则为R表加SIX锁。</p>
+<p>锁强度：X&gt;SIX&gt;S&#x3D;IX&gt;IS</p>
+<p>对于意向锁：<strong>申请封锁自上而下，解锁自下而上。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">分数</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>课程总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录一次向量数据库的部署过程</title>
+    <url>/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>使用wsl2+ docker-desktop + milvus-2.3.12进行部署。wsl2和docker-desktop的安装部分不再赘述，主要看milvus。从milvus的release网站找到对应版本下载docker-compose文件即可。对包含docker-compose的文件夹下创建如图所示几个文件夹</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">|--conf</span><br><span class="line">|--db</span><br><span class="line">|--logs</span><br><span class="line">|--pic</span><br><span class="line">|--volumes</span><br><span class="line">|--wal</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure></div>
+
+<p>然后使用在文件夹路径下使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure></div>
+
+<p>等待docker下载完毕，即可部署完成。</p>
+<h2 id="Springboot整合milvus"><a href="#Springboot整合milvus" class="headerlink" title="Springboot整合milvus"></a>Springboot整合milvus</h2><p>在maven中添加适配docker中milvus部署版本的milvus-sdk-java，适配版本要到官网上java-sdk的部分去找。这里使用的版本是2.3.4，需要在maven中添加以下内容。</p>
+<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.milvus<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>milvus-sdk-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--排除自带的log4j 防止冲突--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-slf4j-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.24.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置一个Milvus客户端，由springBoot管理"><a href="#配置一个Milvus客户端，由springBoot管理" class="headerlink" title="配置一个Milvus客户端，由springBoot管理"></a>配置一个Milvus客户端，由springBoot管理</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MilvusConfig</span> {</span><br><span class="line">    <span class="meta">@Value("${milvus.host}")</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.port}")</span></span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.username}")</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.password}")</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MilvusServiceClient <span class="title function_">milvusServiceClient</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MilvusServiceClient</span>(</span><br><span class="line">                ConnectParam.newBuilder()</span><br><span class="line">                        .withHost(host)</span><br><span class="line">                        .withPort(port)</span><br><span class="line">                        .withAuthorization(username, password)</span><br><span class="line">                        .build());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="milvus的service接口和对应实现"><a href="#milvus的service接口和对应实现" class="headerlink" title="milvus的service接口和对应实现"></a>milvus的service接口和对应实现</h3><p>这里依据要求写了若干个service方法，如创建collection（可以理解为表）、创建索引（插入和搜索的前提操作）、通过id查询向量、搜寻与给定向量最相似的前K个向量，判断是否为可用的collection、以及删除collection。共6个方法</p>
+<p>因为导入数据的方法需要自己来写，无法使用cli工具（milvus-cli是为milvus-lite提供的，而这里部署的是milvus-standalone，没有cli工具），所以额外实现了从CSV文件读取向量数据，以及向部署好的向量数据库插入向量的2个方法。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MilvusService</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">create</span><span class="params">(String collectionName, String desc)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">createIndex</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Long&gt; <span class="title function_">search</span><span class="params">(String collectionName, <span class="type">int</span> topK, List&lt;List&lt;Float&gt;&gt; vectorList)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">getVectorById</span><span class="params">(String collectionName, Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">hasCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dropCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">readVectorData</span><span class="params">(String filePath)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insertVectors</span><span class="params">(String collectionName, List&lt;List&lt;Float&gt;&gt; vectorList)</span> ;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="导入初始数据"><a href="#导入初始数据" class="headerlink" title="导入初始数据"></a>导入初始数据</h3><p>导入数据时，直接使用测试文件中的imprtData方法（记得改变csv文件路径为本机路径）即可。</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span> <span class="comment">// 导入数据使用该方法</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">importData</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">	<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">"D:\\desktop\\python\\BigData\\handle_data\\features.csv"</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">collectionName</span> <span class="operator">=</span> <span class="string">"linkedpaper"</span>;</span><br><span class="line">	milvusService.create(collectionName,<span class="string">"CREATION"</span>);</span><br><span class="line">	milvusService.createIndex(collectionName);</span><br><span class="line">	List&lt;List&lt;Float&gt;&gt;  vectorList= milvusService.readVectorData(path);</span><br><span class="line">	milvusService.insertVectors(<span class="string">"linkedpaper"</span>,vectorList);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>原理：通过java-stream进行快速读入，然后分批对部署的milvus进行向量插入，速度很快。</p>
+<h3 id="查询近似向量"><a href="#查询近似向量" class="headerlink" title="查询近似向量"></a>查询近似向量</h3><p>对paperService的findSimilar方法进行了实现，直接调用即可。</p>
+<p>原理：先通过id找到对应paper的向量，然后通过向量在数据库中寻找最相近的前K个向量，返回对应的id即可。是通过欧氏距离（L2）来度量相似性的。 </p>
+]]></content>
+      <categories>
+        <category>向量数据库</category>
+      </categories>
+      <tags>
+        <tag>实践记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习概念总结</title>
     <url>/2025/02/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<pre><code>写在前面：课程是完全按照西瓜书来讲的，相当于是西瓜书的读后感
@@ -1852,39 +2082,6 @@
       </categories>
       <tags>
         <tag>课程总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录一次向量数据库的部署过程</title>
-    <url>/2025/02/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>使用wsl2+ docker-desktop + milvus-2.3.12进行部署。wsl2和docker-desktop的安装部分不再赘述，主要看milvus。从milvus的release网站找到对应版本下载docker-compose文件即可。对包含docker-compose的文件夹下创建如图所示几个文件夹</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">|--conf</span><br><span class="line">|--db</span><br><span class="line">|--logs</span><br><span class="line">|--pic</span><br><span class="line">|--volumes</span><br><span class="line">|--wal</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure></div>
-
-<p>然后使用在文件夹路径下使用：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure></div>
-
-<p>等待docker下载完毕，即可部署完成。</p>
-<h2 id="Springboot整合milvus"><a href="#Springboot整合milvus" class="headerlink" title="Springboot整合milvus"></a>Springboot整合milvus</h2><p>在maven中添加适配docker中milvus部署版本的milvus-sdk-java，适配版本要到官网上java-sdk的部分去找。这里使用的版本是2.3.4，需要在maven中添加以下内容。</p>
-<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.milvus<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>milvus-sdk-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--排除自带的log4j 防止冲突--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-slf4j-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.24.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="配置一个Milvus客户端，由springBoot管理"><a href="#配置一个Milvus客户端，由springBoot管理" class="headerlink" title="配置一个Milvus客户端，由springBoot管理"></a>配置一个Milvus客户端，由springBoot管理</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MilvusConfig</span> {</span><br><span class="line">    <span class="meta">@Value("${milvus.host}")</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.port}")</span></span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.username}")</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value("${milvus.password}")</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MilvusServiceClient <span class="title function_">milvusServiceClient</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MilvusServiceClient</span>(</span><br><span class="line">                ConnectParam.newBuilder()</span><br><span class="line">                        .withHost(host)</span><br><span class="line">                        .withPort(port)</span><br><span class="line">                        .withAuthorization(username, password)</span><br><span class="line">                        .build());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="milvus的service接口和对应实现"><a href="#milvus的service接口和对应实现" class="headerlink" title="milvus的service接口和对应实现"></a>milvus的service接口和对应实现</h3><p>这里依据要求写了若干个service方法，如创建collection（可以理解为表）、创建索引（插入和搜索的前提操作）、通过id查询向量、搜寻与给定向量最相似的前K个向量，判断是否为可用的collection、以及删除collection。共6个方法</p>
-<p>因为导入数据的方法需要自己来写，无法使用cli工具（milvus-cli是为milvus-lite提供的，而这里部署的是milvus-standalone，没有cli工具），所以额外实现了从CSV文件读取向量数据，以及向部署好的向量数据库插入向量的2个方法。</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MilvusService</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">create</span><span class="params">(String collectionName, String desc)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">createIndex</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Long&gt; <span class="title function_">search</span><span class="params">(String collectionName, <span class="type">int</span> topK, List&lt;List&lt;Float&gt;&gt; vectorList)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">getVectorById</span><span class="params">(String collectionName, Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">hasCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dropCollect</span><span class="params">(String collectionName)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;List&lt;Float&gt;&gt; <span class="title function_">readVectorData</span><span class="params">(String filePath)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insertVectors</span><span class="params">(String collectionName, List&lt;List&lt;Float&gt;&gt; vectorList)</span> ;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="导入初始数据"><a href="#导入初始数据" class="headerlink" title="导入初始数据"></a>导入初始数据</h3><p>导入数据时，直接使用测试文件中的imprtData方法（记得改变csv文件路径为本机路径）即可。</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span> <span class="comment">// 导入数据使用该方法</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">importData</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">	<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">"D:\\desktop\\python\\BigData\\handle_data\\features.csv"</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">collectionName</span> <span class="operator">=</span> <span class="string">"linkedpaper"</span>;</span><br><span class="line">	milvusService.create(collectionName,<span class="string">"CREATION"</span>);</span><br><span class="line">	milvusService.createIndex(collectionName);</span><br><span class="line">	List&lt;List&lt;Float&gt;&gt;  vectorList= milvusService.readVectorData(path);</span><br><span class="line">	milvusService.insertVectors(<span class="string">"linkedpaper"</span>,vectorList);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
-
-<p>原理：通过java-stream进行快速读入，然后分批对部署的milvus进行向量插入，速度很快。</p>
-<h3 id="查询近似向量"><a href="#查询近似向量" class="headerlink" title="查询近似向量"></a>查询近似向量</h3><p>对paperService的findSimilar方法进行了实现，直接调用即可。</p>
-<p>原理：先通过id找到对应paper的向量，然后通过向量在数据库中寻找最相近的前K个向量，返回对应的id即可。是通过欧氏距离（L2）来度量相似性的。 </p>
-]]></content>
-      <categories>
-        <category>向量数据库</category>
-      </categories>
-      <tags>
-        <tag>实践记录</tag>
       </tags>
   </entry>
 </search>
